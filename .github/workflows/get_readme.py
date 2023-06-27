@@ -20,7 +20,7 @@ def main():
     tm = Template(table_template)
     tableValue = tm.render({'charts':charts})
     print("----")
-    readme_template=Path('./README.md.tmpl').read_text().replace("CHARTS_TABLE",tableValue).replace(""", '"')
+    readme_template=Path('./README.md.tmpl').read_text().replace("CHARTS_TABLE",tableValue)
     print(readme_template)
     Path("../../README.md").write_text(readme_template)
 
