@@ -71,6 +71,11 @@ jobs:
          - name: Setup Python
            uses: actions/setup-python@v4.5.0
 
+         - name: Helm common repo
+           continue-on-error: true
+           run: |
+              helm repo add common https://rubxkube.github.io/common-charts
+
          - name: Configure Git
            run: |
              git config user.name "$GITHUB_ACTOR"
