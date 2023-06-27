@@ -19,7 +19,7 @@ for chart in "${chart_list[@]}"; do
   chart_name=$(echo "$chart" | cut -d"/" -f2 )
   echo "Chart Name: $chart_name"
   cd charts
-  helm dependency build $chart_name
+  #helm dependency build $chart_name
   helm lint $chart_name
   if [ $? -ne 0 ]; then
     echo "Error in lint of $chart_name"
