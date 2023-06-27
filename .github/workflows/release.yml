@@ -96,7 +96,7 @@ jobs:
               cd ../..
               git add README.md
               git commit -m ":lock: Auto-Update README with Charts versions"
-              git push
+              git push -f
 
          - name: Setup Pandoc
            uses: nikeee/setup-pandoc@v1
