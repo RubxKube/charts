@@ -3,7 +3,6 @@
 Name: CHART_NAME
 version: CHART_VERSION
 tests:
-
 - [ ] classicHttp
 - [ ] curlHostHeader
 
