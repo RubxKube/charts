@@ -1,0 +1,22 @@
+---
+apiVersion: v2
+type: application
+name: gotify
+description: a simple server for sending and receiving messages
+version: 1.0.0
+appVersion: 2.2.4
+icon: https://raw.githubusercontent.com/gotify/logo/master/gotify-logo.png
+maintainers:
+  - name: QJOLY
+    email: github@thoughtless.eu
+kubeVersion: '>= 1.18'
+home: https://gotify.net/
+keywords:
+  - gotify
+  - notification
+sources:
+  - https://github.com/gotify/server
+dependencies:
+  - name: common
+    repository: https://rubxkube.github.io/common-charts
+    version: v0.1.0
