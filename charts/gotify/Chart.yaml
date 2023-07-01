@@ -3,9 +3,9 @@ apiVersion: v2
 type: application
 name: gotify
 description: a simple server for sending and receiving messages
-version: 1.0.0
+version: 1.0.1
 appVersion: 2.2.4
-icon: https://raw.githubusercontent.com/gotify/logo/master/gotify-logo.png
+icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/gotify-logo.png
 maintainers:
   - name: QJOLY
     email: github@thoughtless.eu
