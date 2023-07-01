@@ -1,0 +1,21 @@
+---
+apiVersion: v2
+type: application
+name: baikal
+description: Baikal is a Cal and CardDAV server, based on sabre/dav, that includes an administrative interface for easy management.
+version: 1.0.0
+appVersion: '0.9.3-nginx'
+icon: https://yunohost.org/user/images/baikal_logo.png
+maintainers:
+  - name: QJOLY
+    email: github@thoughtless.eu
+kubeVersion: '>= 1.18'
+home: https://sabre.io/baikal/
+keywords:
+  - baikal
+sources:
+  - https://github.com/sabre-io/Baikal
+dependencies:
+  - name: common
+    repository: https://rubxkube.github.io/common-charts
+    version: v0.1.0
