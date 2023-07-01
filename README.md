@@ -16,8 +16,8 @@ helm repo add rubxkube-common https://rubxkube.github.io/common-charts/ # Add th
 
 | Name  | Description | Chart Version | App Version |
 |-------|-------------|---------------|-------------|
-| gotify | a simple server for sending and receiving messages | 1.0.0 | 2.2.4 |
-| baikal | Baikal is a Cal and CardDAV server, based on sabre/dav, that includes an administrative interface for easy management. | 1.0.0 | 0.9.3-nginx |
+| gotify | a simple server for sending and receiving messages | 1.0.1 | 2.2.4 |
+| baikal | Baikal is a Cal and CardDAV server, based on sabre/dav, that includes an administrative interface for easy management. | 1.0.1 | 0.9.3-nginx |
 
 
 # Contributing 
