@@ -1,0 +1,22 @@
+---
+apiVersion: v2
+type: application
+name: freshrss
+description: A WebUI to read article via RSS
+version: 1.0.0
+appVersion: 1.21.0
+icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/freshrss-logo.png
+maintainers:
+  - name: QJOLY
+    email: github@thoughtless.eu
+kubeVersion: ">= 1.18"
+home: https://www.freshrss.org/
+keywords:
+  - freshrss
+  - rss
+sources:
+  - https://github.com/FreshRSS/FreshRSS
+dependencies:
+  - name: common
+    repository: https://rubxkube.github.io/common-charts
+    version: v0.1.0
