@@ -1,5 +1,31 @@
 apiVersion: v1
 entries:
+  baikal:
+  - apiVersion: v2
+    appVersion: 0.9.3-nginx
+    created: "2023-07-01T13:01:58.649972042Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.1.0
+    description: Baikal is a Cal and CardDAV server, based on sabre/dav, that includes
+      an administrative interface for easy management.
+    digest: a91f9e866db133fb200e643c5b7d17ab586d64334363d9ec383ee8746c31b89c
+    home: https://sabre.io/baikal/
+    icon: https://yunohost.org/user/images/baikal_logo.png
+    keywords:
+    - baikal
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@thoughtless.eu
+      name: QJOLY
+    name: baikal
+    sources:
+    - https://github.com/sabre-io/Baikal
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/baikal-1.0.0/baikal-1.0.0.tgz
+    version: 1.0.0
   gotify:
   - apiVersion: v2
     appVersion: 2.2.4
@@ -26,4 +52,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/gotify-1.0.0/gotify-1.0.0.tgz
     version: 1.0.0
-generated: "2023-06-27T15:58:32.451236249Z"
+generated: "2023-07-01T13:01:58.649976542Z"
