@@ -86,11 +86,14 @@ jobs:
              git config user.name "$GITHUB_ACTOR"
              git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
-
          - name: Run chart-releaser
            uses: helm/chart-releaser-action@v1.5.0
            env:
               CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+
+         - name: Ping notifier
+           run: |
+              curl -s ${{ secrets.WEBHOOK_NOTIFIER_SUCCESS }} > /dev/null
 
          - name: Modifying the readme on main
            continue-on-error: true
