@@ -1,3 +1,4 @@
+---
 define: &containerPort 80
 
 common:
@@ -35,21 +36,17 @@ common:
       enabled: true
       secretName: ""
     # For Ingress CRD
-    ingressClassName: 
+    ingressClassName:
     # For IngressRoute CRD
     isIngressRoute: true
     entrypoint: websecure
-    certResolver: letsencrypt # leave empty if you don't use, tls.enabled must be true and secretName must me empty
+    certResolver: letsencrypt  # leave empty if you don't use, tls.enabled must be true and secretName must me empty
 
-      
+
   # env variables
   variables:
     secret: {}
-  #    user: "qjoly"
-  #    password: "hugepassword"
     nonSecret: {}
-  #    author: qjoly
-  #    app: 1
 
   # horizontal autoscaler
   hpa:
@@ -94,19 +91,19 @@ common:
     enabled: true
     volumes:
       - name: "data"
-        storageClassName: "" # leave empty if you want to use default
-        size: "5Gi" # We recommend to allocate a minimum of 1GB if you do not use attachments
-        pvcClaim: "" # leave empty unless if you want to use an existing PVC
+        storageClassName: ""  # leave empty if you want to use default
+        size: "5Gi"  # We recommend to allocate a minimum of 1GB if you do not use attachments
+        pvcClaim: ""  # leave empty unless if you want to use an existing PVC
         containerMount: "/var/www/baikal/Specific"
       - name: "config"
-        storageClassName: "" # leave empty if you want to use default
-        size: "1Gi" # We recommend to allocate a minimum of 1GB if you do not use attachments
-        pvcClaim: "" # leave empty unless if you want to use an existing PVC
+        storageClassName: ""  # leave empty if you want to use default
+        size: "1Gi"  # We recommend to allocate a minimum of 1GB if you do not use attachments
+        pvcClaim: ""  # leave empty unless if you want to use an existing PVC
         containerMount: "/var/www/baikal/config"
 
   tests:
-    classicHttp: # default helm test method 
+    classicHttp:  # default helm test method
       enabled: true
-    curlHostHeader: # curl using ingress.hostName as Host in header
+    curlHostHeader:  # curl using ingress.hostName as Host in header
       enabled: true
       path: "/"
