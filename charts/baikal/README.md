@@ -46,7 +46,7 @@ Kubernetes: `>= 1.18`
 | common.image.repository.isPrivate | bool | `false` |  |
 | common.image.repository.name | string | `nil` |  |
 | common.image.repository.secretName | string | `nil` |  |
-| common.image.tag | string | `"0.9.2"` |  |
+| common.image.tag | string | `"0.9.3-nginx"` |  |
 | common.ingress.certResolver | string | `"letsencrypt"` |  |
 | common.ingress.enabled | bool | `false` |  |
 | common.ingress.entrypoint | string | `"websecure"` |  |
