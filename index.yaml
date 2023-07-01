@@ -3,6 +3,31 @@ entries:
   baikal:
   - apiVersion: v2
     appVersion: 0.9.3-nginx
+    created: "2023-07-01T13:39:30.59004875Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.1.0
+    description: Baikal is a Cal and CardDAV server, based on sabre/dav, that includes
+      an administrative interface for easy management.
+    digest: f4d06b26804e9ae61d4e0db6b0c94be938fabe25ece255e0b45efeda79d80efb
+    home: https://sabre.io/baikal/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/baikal-logo.png
+    keywords:
+    - baikal
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@thoughtless.eu
+      name: QJOLY
+    name: baikal
+    sources:
+    - https://github.com/sabre-io/Baikal
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/baikal-1.0.1/baikal-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 0.9.3-nginx
     created: "2023-07-01T13:01:58.649972042Z"
     dependencies:
     - name: common
@@ -29,6 +54,31 @@ entries:
   gotify:
   - apiVersion: v2
     appVersion: 2.2.4
+    created: "2023-07-01T13:39:30.732953239Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.1.0
+    description: a simple server for sending and receiving messages
+    digest: 524af4ee7fd0354d2ecb233cab3d6213e8994cb2e90ce306a10542e0b4a04127
+    home: https://gotify.net/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/gotify-logo.png
+    keywords:
+    - gotify
+    - notification
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@thoughtless.eu
+      name: QJOLY
+    name: gotify
+    sources:
+    - https://github.com/gotify/server
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/gotify-1.0.1/gotify-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 2.2.4
     created: "2023-06-27T15:58:32.451229749Z"
     dependencies:
     - name: common
@@ -52,4 +102,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/gotify-1.0.0/gotify-1.0.0.tgz
     version: 1.0.0
-generated: "2023-07-01T13:01:58.649976542Z"
+generated: "2023-07-01T13:39:30.732962739Z"
