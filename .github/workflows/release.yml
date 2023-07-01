@@ -90,8 +90,8 @@ jobs:
            uses: helm/chart-releaser-action@v1.5.0
            env:
               CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-              
-         - name: Faire un curl vers une URL
+
+         - name: Ping notifier
            run: |
               curl -s ${{ secrets.WEBHOOK_NOTIFIER_SUCCESS }} > /dev/null
 
