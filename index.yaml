@@ -130,6 +130,31 @@ entries:
   gotify:
   - apiVersion: v2
     appVersion: 2.2.4
+    created: "2023-07-02T14:26:06.144208437Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.0
+    description: a simple server for sending and receiving messages
+    digest: 8d97d4040007fd85945d818d5f1f44c0de3f64803a9ce937a9c4e24c8a6abe37
+    home: https://gotify.net/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/gotify-logo.png
+    keywords:
+    - gotify
+    - notification
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@thoughtless.eu
+      name: QJOLY
+    name: gotify
+    sources:
+    - https://github.com/gotify/server
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/gotify-1.1.0/gotify-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
+    appVersion: 2.2.4
     created: "2023-07-01T13:39:30.732953239Z"
     dependencies:
     - name: common
@@ -233,4 +258,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/sonarr-1.0.0/sonarr-1.0.0.tgz
     version: 1.0.0
-generated: "2023-07-02T13:32:30.307587474Z"
+generated: "2023-07-02T14:26:06.144224037Z"
