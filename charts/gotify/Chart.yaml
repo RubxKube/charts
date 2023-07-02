@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: gotify
 description: a simple server for sending and receiving messages
-version: 1.0.1
+version: 1.1.0
 appVersion: 2.2.4
 icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/gotify-logo.png
 maintainers:
@@ -19,4 +19,4 @@ sources:
 dependencies:
   - name: common
     repository: https://rubxkube.github.io/common-charts
-    version: v0.1.0
+    version: v0.2.0
