@@ -2,25 +2,5 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base"
-  ],
-  "packageRules": [
-    {
-      "packageNames": [
-        "common.image.name"
-      ],
-      "updateTypes": [
-        "docker"
-      ],
-      "depTypeList": [
-        "helm"
-      ],
-      "datasourceTemplate": "helm",
-      "registryUrl": "{{dockerEndpoint}}",
-      "repositoryUrl": "{{dockerEndpoint}}/{{packageName}}",
-      "versioning": "docker",
-      "docker": {
-        "imageNameTemplate": "{{dockerImagePrefix}}/{{packageName}}:{{dockerBaseImageTag}}"
-      }
-    }
   ]
 }
