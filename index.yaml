@@ -54,6 +54,31 @@ entries:
   freshrss:
   - apiVersion: v2
     appVersion: 1.21.0
+    created: "2023-07-02T10:44:17.928698951Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.0
+    description: A WebUI to read article via RSS
+    digest: 2674a4613a61a26106a8b3b4034024d23a017359a0e9e96758f16a7460d3aedf
+    home: https://www.freshrss.org/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/freshrss-logo.png
+    keywords:
+    - freshrss
+    - rss
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@thoughtless.eu
+      name: QJOLY
+    name: freshrss
+    sources:
+    - https://github.com/FreshRSS/FreshRSS
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/freshrss-1.1.0/freshrss-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
+    appVersion: 1.21.0
     created: "2023-07-01T14:16:47.421759277Z"
     dependencies:
     - name: common
@@ -183,4 +208,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/sonarr-1.0.0/sonarr-1.0.0.tgz
     version: 1.0.0
-generated: "2023-07-02T07:21:27.086744029Z"
+generated: "2023-07-02T10:44:17.928717251Z"
