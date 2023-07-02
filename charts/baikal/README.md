@@ -1,6 +1,6 @@
 # baikal
 
-![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.9.3-nginx](https://img.shields.io/badge/AppVersion-0.9.3--nginx-informational?style=flat-square)
+![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.9.3-nginx](https://img.shields.io/badge/AppVersion-0.9.3--nginx-informational?style=flat-square)
 
 Baikal is a Cal and CardDAV server, based on sabre/dav, that includes an administrative interface for easy management.
 
@@ -22,7 +22,7 @@ Kubernetes: `>= 1.18`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://rubxkube.github.io/common-charts | common | v0.1.0 |
+| https://rubxkube.github.io/common-charts | common | v0.2.0 |
 
 ## Values
 
@@ -41,11 +41,10 @@ Kubernetes: `>= 1.18`
 | common.hpa.enabled | bool | `false` |  |
 | common.hpa.maxReplicas | int | `2` |  |
 | common.hpa.minReplicas | int | `1` |  |
-| common.image.name | string | `"ckulka/baikal"` |  |
 | common.image.pullPolicy | string | `"Always"` |  |
-| common.image.repository.isPrivate | bool | `false` |  |
-| common.image.repository.name | string | `nil` |  |
-| common.image.repository.secretName | string | `nil` |  |
+| common.image.repository | string | `"ckulka/baikal"` |  |
+| common.image.repositorySettings.isPrivate | bool | `false` |  |
+| common.image.repositorySettings.secretName | string | `nil` |  |
 | common.image.tag | string | `"0.9.3-nginx"` |  |
 | common.ingress.certResolver | string | `"letsencrypt"` |  |
 | common.ingress.enabled | bool | `false` |  |
