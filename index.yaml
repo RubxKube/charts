@@ -156,4 +156,31 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/jackett-1.0.0/jackett-1.0.0.tgz
     version: 1.0.0
-generated: "2023-07-01T16:00:29.558448238Z"
+  sonarr:
+  - apiVersion: v2
+    appVersion: 3.0.10
+    created: "2023-07-02T07:21:27.086721829Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.1.0
+    description: Sonarr is a PVR for Usenet and BitTorrent users.
+    digest: 39fb7bee12fb4b4adaeb37af8e38eb03106d097a9b1a998c8cfd68ffb0eaee7f
+    home: https://github.com/Sonarr/Sonarr
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/sonarr-logo.png
+    keywords:
+    - Sonarr
+    - Plex
+    - Series
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@thoughtless.eu
+      name: QJOLY
+    name: sonarr
+    sources:
+    - https://github.com/Sonarr/Sonarr
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/sonarr-1.0.0/sonarr-1.0.0.tgz
+    version: 1.0.0
+generated: "2023-07-02T07:21:27.086744029Z"
