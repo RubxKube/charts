@@ -1,6 +1,6 @@
 # gotify
 
-![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.2.4](https://img.shields.io/badge/AppVersion-2.2.4-informational?style=flat-square)
+![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.2.4](https://img.shields.io/badge/AppVersion-2.2.4-informational?style=flat-square)
 
 a simple server for sending and receiving messages
 
@@ -22,7 +22,7 @@ Kubernetes: `>= 1.18`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://rubxkube.github.io/common-charts | common | v0.1.0 |
+| https://rubxkube.github.io/common-charts | common | v0.2.0 |
 
 ## Values
 
@@ -41,11 +41,10 @@ Kubernetes: `>= 1.18`
 | common.hpa.enabled | bool | `false` |  |
 | common.hpa.maxReplicas | int | `2` |  |
 | common.hpa.minReplicas | int | `1` |  |
-| common.image.name | string | `"gotify/server"` |  |
 | common.image.pullPolicy | string | `"Always"` |  |
-| common.image.repository.isPrivate | bool | `false` |  |
-| common.image.repository.name | string | `nil` |  |
-| common.image.repository.secretName | string | `nil` |  |
+| common.image.repository | string | `"gotify/server"` |  |
+| common.image.repositorySettings.isPrivate | bool | `false` |  |
+| common.image.repositorySettings.secretName | string | `nil` |  |
 | common.image.tag | string | `"2.2.4"` |  |
 | common.ingress.certResolver | string | `"letsencrypt"` |  |
 | common.ingress.enabled | bool | `false` |  |

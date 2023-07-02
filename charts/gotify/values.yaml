@@ -20,11 +20,10 @@ common:
 
   # container
   image:
-    repository:
-      name: null
+    repositorySettings:
       isPrivate: false
       secretName: null
-    name: gotify/server
+    repository: gotify/server
     tag: 2.2.4
     pullPolicy: Always
 
