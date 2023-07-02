@@ -1,0 +1,23 @@
+---
+apiVersion: v2
+type: application
+name: sonarr
+description: "Sonarr is a PVR for Usenet and BitTorrent users."
+version: 1.0.0
+appVersion: 3.0.10
+icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/sonarr-logo.png
+maintainers:
+ - name: QJOLY
+   email: github@thoughtless.eu
+kubeVersion: ">= 1.18"
+home: https://github.com/Sonarr/Sonarr
+keywords:
+ - Sonarr
+ - Plex
+ - Series
+sources:
+ - https://github.com/Sonarr/Sonarr
+dependencies:
+ - name: common
+   repository: https://rubxkube.github.io/common-charts
+   version: v0.1.0
