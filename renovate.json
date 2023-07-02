@@ -3,15 +3,24 @@
   "extends": [
     "config:base"
   ],
-  "overrides": [
+  "packageRules": [
     {
-      "files": [
-        "**/values.yaml"
-      ],
       "packageNames": [
-        "common.image.repository"
+        "common.image.name"
       ],
-      "replaceWith": "common.image.name"
+      "updateTypes": [
+        "docker"
+      ],
+      "depTypeList": [
+        "helm"
+      ],
+      "datasourceTemplate": "helm",
+      "registryUrl": "{{dockerEndpoint}}",
+      "repositoryUrl": "{{dockerEndpoint}}/{{packageName}}",
+      "versioning": "docker",
+      "docker": {
+        "imageNameTemplate": "{{dockerImagePrefix}}/{{packageName}}:{{dockerBaseImageTag}}"
+      }
     }
   ]
 }
