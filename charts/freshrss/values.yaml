@@ -20,11 +20,10 @@ common:
 
   # container
   image:
-    repository:
-      name: null
+    repositorySettings:
       isPrivate: false
       secretName: null
-    name: lscr.io/linuxserver/freshrss
+    repository: lscr.io/linuxserver/freshrss
     tag: 1.21.0
     pullPolicy: Always
 
