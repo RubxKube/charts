@@ -20,11 +20,10 @@ common:
 
   # container
   image:
-    repository:
-      name: null
+    repositorySettings:
       isPrivate: false
       secretName: null
-    name: ckulka/baikal
+    repository: ckulka/baikal
     tag: 0.9.3-nginx
     pullPolicy: Always
 
