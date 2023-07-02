@@ -9,7 +9,7 @@
 # How to use ? 
 
 ```bash
-helm repo add rubxkube-common https://rubxkube.github.io/common-charts/ # Add the repo to your helm
+helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your helm
 ```
 
 # Charts
