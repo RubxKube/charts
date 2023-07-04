@@ -20,18 +20,18 @@ common:
 
   # container
   image:
-    repository:
+    repositorySettings:
       name: null
       isPrivate: false
       secretName: null
-    name: linuxserver/sonarr
+    repository: linuxserver/sonarr
     tag: 3.0.10
     pullPolicy: Always
 
   # ingress
   ingress:
     enabled: false
-    hostName: jackett.thoughtless.eu
+    hostName: sonarr.thoughtless.eu
     tls:
       enabled: true
       secretName: ""
