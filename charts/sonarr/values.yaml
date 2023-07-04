@@ -31,7 +31,7 @@ common:
   # ingress
   ingress:
     enabled: false
-    hostName: jackett.thoughtless.eu
+    hostName: sonarr.thoughtless.eu
     tls:
       enabled: true
       secretName: ""
