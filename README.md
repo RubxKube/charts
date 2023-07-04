@@ -20,7 +20,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.0.0 | 3.0.10 |
 | gotify | a simple server for sending and receiving messages | 1.1.1 | 2.2.5 |
 | baikal | Baikal is a Cal and CardDAV server, based on sabre/dav, that includes an administrative interface for easy management. | 1.1.0 | 0.9.3-nginx |
-| jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.0.0 | 0.21.290 |
+| jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.1.0 | 0.21.290 |
 
 
 # Contributing 
