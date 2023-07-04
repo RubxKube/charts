@@ -20,11 +20,10 @@ common:
 
   # container
   image:
-    repository:
-      name: null
+    repositorySettings:
       isPrivate: false
       secretName: null
-    name: linuxserver/jackett
+    repository: linuxserver/jackett
     tag: 0.21.290
     pullPolicy: Always
 

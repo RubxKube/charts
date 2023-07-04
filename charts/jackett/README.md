@@ -1,6 +1,6 @@
 # jackett
 
-![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.21.290](https://img.shields.io/badge/AppVersion-0.21.290-informational?style=flat-square)
+![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.21.290](https://img.shields.io/badge/AppVersion-0.21.290-informational?style=flat-square)
 
 Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries.
 
@@ -22,7 +22,7 @@ Kubernetes: `>= 1.18`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://rubxkube.github.io/common-charts | common | v0.1.0 |
+| https://rubxkube.github.io/common-charts | common | v0.2.0 |
 
 ## Values
 
@@ -41,11 +41,10 @@ Kubernetes: `>= 1.18`
 | common.hpa.enabled | bool | `false` |  |
 | common.hpa.maxReplicas | int | `2` |  |
 | common.hpa.minReplicas | int | `1` |  |
-| common.image.name | string | `"linuxserver/jackett"` |  |
 | common.image.pullPolicy | string | `"Always"` |  |
-| common.image.repository.isPrivate | bool | `false` |  |
-| common.image.repository.name | string | `nil` |  |
-| common.image.repository.secretName | string | `nil` |  |
+| common.image.repository | string | `"linuxserver/jackett"` |  |
+| common.image.repositorySettings.isPrivate | bool | `false` |  |
+| common.image.repositorySettings.secretName | string | `nil` |  |
 | common.image.tag | string | `"0.21.290"` |  |
 | common.ingress.certResolver | string | `"letsencrypt"` |  |
 | common.ingress.enabled | bool | `false` |  |
@@ -84,7 +83,7 @@ Kubernetes: `>= 1.18`
 | common.startupProbe.periodSeconds | int | `10` |  |
 | common.startupProbe.timeoutSeconds | int | `1` |  |
 | common.startupProbeEnabled | bool | `false` |  |
-| common.tests.classicHttp.enabled | bool | `true` |  |
+| common.tests.classicHttp.enabled | bool | `false` |  |
 | common.tests.curlHostHeader.enabled | bool | `true` |  |
 | common.tests.curlHostHeader.path | string | `"/"` |  |
 | common.variables.nonSecret.AUTO_UPDATE | bool | `true` |  |
