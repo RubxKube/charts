@@ -230,6 +230,33 @@ entries:
     version: 1.0.0
   jackett:
   - apiVersion: v2
+    appVersion: 0.21.424
+    created: "2023-07-07T15:31:48.522215726Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.0
+    description: 'Jackett works as a proxy server: it translates queries from apps
+      into tracker-site-specific http queries.'
+    digest: c55d111879713d782820471ee625d8f9c9e7bd761ff7079bccc7e5c6e16a4332
+    home: https://github.com/Jackett/Jackett
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/jackett-logo.png
+    keywords:
+    - Jackett
+    - Plex
+    - Series
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@thoughtless.eu
+      name: QJOLY
+    name: jackett
+    sources:
+    - https://github.com/Jackett/Jackett
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/jackett-1.1.2/jackett-1.1.2.tgz
+    version: 1.1.2
+  - apiVersion: v2
     appVersion: 0.21.418
     created: "2023-07-06T16:40:28.547349882Z"
     dependencies:
@@ -363,4 +390,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/sonarr-1.0.0/sonarr-1.0.0.tgz
     version: 1.0.0
-generated: "2023-07-06T16:40:28.547377983Z"
+generated: "2023-07-07T15:31:48.522238125Z"
