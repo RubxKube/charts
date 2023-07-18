@@ -16,7 +16,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 
 | Name  | Description | Chart Version | App Version |
 |-------|-------------|---------------|-------------|
-| jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.1.3 | 0.21.449 |
+| jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.1.4 | 0.21.484 |
 | sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.1.0 | 3.0.10 |
 | freshrss | A WebUI to read article via RSS | 1.1.0 | 1.21.0 |
 | gotify | a simple server for sending and receiving messages | 1.1.1 | 2.2.5 |
