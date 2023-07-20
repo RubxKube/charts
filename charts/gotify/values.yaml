@@ -24,7 +24,7 @@ common:
       isPrivate: false
       secretName: null
     repository: gotify/server
-    tag: 2.2.5
+    tag: 2.3.0
     pullPolicy: Always
 
   # ingress
