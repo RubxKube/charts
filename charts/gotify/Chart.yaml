@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: gotify
 description: a simple server for sending and receiving messages
-version: 1.1.1
+version: 1.1.2
 appVersion: 2.3.0
 icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/gotify-logo.png
 maintainers:
