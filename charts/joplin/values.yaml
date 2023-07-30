@@ -1,3 +1,4 @@
+---
 define: &containerPort 22300
 
 postgresql:
@@ -61,7 +62,7 @@ common:
       POSTGRES_DATABASE: "joplin"
       POSTGRES_USER: "joplinuser"
       POSTGRES_PASSWORD: "joplinpass"
-      POSTGRES_HOST: "joplin-postgresql" # if postgresql.enabled, must be RELEASE-NAME-postgresql (ex: my-wakapi-postgresql)
+      POSTGRES_HOST: "joplin-postgresql"  # if postgresql.enabled, must be RELEASE-NAME-postgresql (ex: my-wakapi-postgresql)
       POSTGRES_PORT: "5432"
       APP_BASE_URL: https://joplin.thoughtless.eu
 
@@ -103,19 +104,11 @@ common:
     timeoutSeconds: 3
 
   persistence:
-    enabled: false # no need for persistence if you use postgresql
+    enabled: false  # no need for persistence if you use postgresql
 
   tests:
     classicHttp:  # default helm test method
       enabled: false
     curlHostHeader:  # curl using ingress.hostName as Host in header
       enabled: true
-      path: "/"
-
-  tests:
-    classicHttp: # default helm test method 
-      enabled: false
-    curlHostHeader: # curl using ingress.hostName as Host in header
-      enabled: true
       path: "/api/ping"
-
