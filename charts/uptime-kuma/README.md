@@ -1,10 +1,10 @@
-# gotify
+# uptime-kuma
 
-![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.2.4](https://img.shields.io/badge/AppVersion-2.2.4-informational?style=flat-square)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.22.1-alpine](https://img.shields.io/badge/AppVersion-1.22.1--alpine-informational?style=flat-square)
 
-a simple server for sending and receiving messages
+Uptime Kuma is an easy-to-use self-hosted monitoring tool.
 
-**Homepage:** <https://gotify.net/>
+**Homepage:** <https://github.com/louislam/uptime-kuma>
 
 ## Maintainers
 
@@ -14,7 +14,7 @@ a simple server for sending and receiving messages
 
 ## Source Code
 
-* <https://github.com/gotify/server>
+* <https://github.com/louislam/uptime-kuma>
 
 ## Requirements
 
@@ -22,13 +22,13 @@ Kubernetes: `>= 1.18`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://rubxkube.github.io/common-charts | common | v0.1.0 |
+| https://rubxkube.github.io/common-charts | common | v0.2.0 |
 
 ## Values
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| common.app.containerPort | int | `80` |  |
+| common.app.containerPort | int | `3001` |  |
 | common.app.servicePort | int | `80` |  |
 | common.deployment.cpuLimit | string | `nil` |  |
 | common.deployment.cpuRequest | string | `nil` |  |
@@ -41,58 +41,51 @@ Kubernetes: `>= 1.18`
 | common.hpa.enabled | bool | `false` |  |
 | common.hpa.maxReplicas | int | `2` |  |
 | common.hpa.minReplicas | int | `1` |  |
-| common.image.name | string | `"gotify/server"` |  |
 | common.image.pullPolicy | string | `"Always"` |  |
-| common.image.repository.isPrivate | bool | `false` |  |
-| common.image.repository.name | string | `nil` |  |
-| common.image.repository.secretName | string | `nil` |  |
-| common.image.tag | string | `"2.2.4"` |  |
+| common.image.repository | string | `"louislam/uptime-kuma"` |  |
+| common.image.repositorySettings.isPrivate | bool | `false` |  |
+| common.image.repositorySettings.secretName | string | `nil` |  |
+| common.image.tag | string | `"1.22.1-alpine"` |  |
 | common.ingress.certResolver | string | `"letsencrypt"` |  |
 | common.ingress.enabled | bool | `false` |  |
 | common.ingress.entrypoint | string | `"websecure"` |  |
-| common.ingress.hostName | string | `"gotify.thoughtless.eu"` |  |
-| common.ingress.ingressClassName | string | `"istio"` |  |
+| common.ingress.hostName | string | `"kuma.thoughtless.eu"` |  |
+| common.ingress.ingressClassName | string | `nil` |  |
 | common.ingress.isIngressRoute | bool | `true` |  |
 | common.ingress.tls.enabled | bool | `true` |  |
 | common.ingress.tls.secretName | string | `""` |  |
 | common.livenessProbe.failureThreshold | int | `1` |  |
 | common.livenessProbe.httpGet.path | string | `"/"` |  |
-| common.livenessProbe.httpGet.port | int | `80` |  |
-| common.livenessProbe.initialDelaySeconds | int | `30` |  |
+| common.livenessProbe.httpGet.port | int | `3001` |  |
+| common.livenessProbe.initialDelaySeconds | int | `20` |  |
 | common.livenessProbe.periodSeconds | int | `60` |  |
 | common.livenessProbe.timeoutSeconds | int | `3` |  |
 | common.livenessProbeEnabled | bool | `true` |  |
 | common.persistence.enabled | bool | `true` |  |
-| common.persistence.volumes[0].containerMount | string | `"/app/data/"` |  |
+| common.persistence.volumes[0].containerMount | string | `"/app/data"` |  |
 | common.persistence.volumes[0].name | string | `"data"` |  |
 | common.persistence.volumes[0].pvcClaim | string | `""` |  |
 | common.persistence.volumes[0].size | string | `"2Gi"` |  |
 | common.persistence.volumes[0].storageClassName | string | `""` |  |
 | common.readinessProbe.failureThreshold | int | `2` |  |
 | common.readinessProbe.httpGet.path | string | `"/"` |  |
-| common.readinessProbe.httpGet.port | int | `80` |  |
-| common.readinessProbe.initialDelaySeconds | int | `30` |  |
+| common.readinessProbe.httpGet.port | int | `3001` |  |
+| common.readinessProbe.initialDelaySeconds | int | `20` |  |
 | common.readinessProbe.periodSeconds | int | `30` |  |
 | common.readinessProbe.timeoutSeconds | int | `3` |  |
 | common.readinessProbeEnabled | bool | `true` |  |
 | common.startupProbe.failureThreshold | int | `20` |  |
 | common.startupProbe.httpGet.path | string | `"/"` |  |
-| common.startupProbe.httpGet.port | int | `80` |  |
+| common.startupProbe.httpGet.port | int | `3001` |  |
 | common.startupProbe.periodSeconds | int | `10` |  |
 | common.startupProbe.timeoutSeconds | int | `1` |  |
-| common.startupProbeEnabled | bool | `true` |  |
+| common.startupProbeEnabled | bool | `false` |  |
 | common.tests.classicHttp.enabled | bool | `true` |  |
 | common.tests.curlHostHeader.enabled | bool | `true` |  |
 | common.tests.curlHostHeader.path | string | `"/"` |  |
-| common.variables.nonSecret.GOTIFY_DATABASE_CONNECTION | string | `"data/gotify.db"` |  |
-| common.variables.nonSecret.GOTIFY_DATABASE_DIALECT | string | `"sqlite3"` |  |
-| common.variables.nonSecret.GOTIFY_PASSSTRENGTH | int | `10` |  |
-| common.variables.nonSecret.GOTIFY_PLUGINSDIR | string | `"data/plugins"` |  |
-| common.variables.nonSecret.GOTIFY_UPLOADEDIMAGESDIR | string | `"data/images"` |  |
-| common.variables.nonSecret.TZ | string | `"Europe/Paris"` |  |
-| common.variables.secret.GOTIFY_DEFAULTUSER_NAME | string | `"admin"` |  |
-| common.variables.secret.GOTIFY_DEFAULTUSER_PASS | string | `"admin"` |  |
-| define | int | `80` |  |
+| common.variables.nonSecret | object | `{}` |  |
+| common.variables.secret | object | `{}` |  |
+| define | int | `3001` |  |
 
 ----------------------------------------------
 Autogenerated from chart metadata using [helm-docs v1.11.0](https://github.com/norwoodj/helm-docs/releases/v1.11.0)
