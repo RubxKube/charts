@@ -1,0 +1,21 @@
+---
+apiVersion: v2
+name: smokeping
+description: SmokePing is a latency logging and graphing and alerting system
+type: application
+version: 1.0.0
+appVersion: "2.8.2"
+keywords:
+ - smokeping
+home: https://oss.oetiker.ch/smokeping/
+icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/smokeping-logo.png
+maintainers:
+ - email: github@thoughtless.eu
+   name: QJOLY
+   url: https://thebidouilleur.xyz
+sources:
+ - https://github.com/oetiker/SmokePing
+dependencies:
+ - name: common
+   repository: https://rubxkube.github.io/common-charts
+   version: v0.2.0
