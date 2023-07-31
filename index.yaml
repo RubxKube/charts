@@ -469,4 +469,31 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/sonarr-1.0.0/sonarr-1.0.0.tgz
     version: 1.0.0
-generated: "2023-07-22T05:43:41.618606402Z"
+  uptime-kuma:
+  - apiVersion: v2
+    appVersion: 1.22.1-alpine
+    created: "2023-07-31T09:00:15.713434776Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.0
+    description: Uptime Kuma is an easy-to-use self-hosted monitoring tool.
+    digest: 67ea8041052793f58794423e2e28549bbb6c2d543ec0c6f2ac81da9f9d2c3c4e
+    home: https://github.com/louislam/uptime-kuma
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/uptime-kuma-logo.png
+    keywords:
+    - monitoring
+    - uptime
+    - kuma
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@thoughtless.eu
+      name: QJOLY
+    name: uptime-kuma
+    sources:
+    - https://github.com/louislam/uptime-kuma
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/uptime-kuma-1.0.0/uptime-kuma-1.0.0.tgz
+    version: 1.0.0
+generated: "2023-07-31T09:00:15.713464676Z"
