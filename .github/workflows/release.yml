@@ -82,6 +82,7 @@ jobs:
            continue-on-error: true
            run: |
               helm repo add common https://rubxkube.github.io/common-charts
+              helm repo add bitnami https://charts.bitnami.com/bitnami
 
          - name: Configure Git
            run: |
