@@ -1,0 +1,114 @@
+---
+define: &containerPort 22300
+
+postgresql:
+  enabled: true
+  auth:
+    postgresPassword: "changeme"
+    database: joplin
+    username: joplinuser
+    password: joplinpass
+  persistence:
+    enabled: true
+    existingClaim: ""
+    storageClass: ""
+    # size: 8Gi
+
+common:
+  app:
+    servicePort: 80
+    containerPort: *containerPort
+
+  # deployment
+  deployment:
+    memoryRequest: null
+    cpuRequest: null
+    memoryLimit: null
+    cpuLimit: null
+    strategy:
+      type: RollingUpdate
+      rollingUpdate:
+        maxUnavailable: 25%
+        maxSurge: 25%
+
+  # container
+  image:
+    repositorySettings:
+      isPrivate: false
+      secretName: null
+    repository: joplin/server
+    tag: 2.11-beta
+    pullPolicy: Always
+
+  # ingress
+  ingress:
+    enabled: false
+    hostName: joplin.thoughtless.eu
+    tls:
+      enabled: true
+      secretName: ""
+    # For Ingress CRD
+    ingressClassName: istio
+    # For IngressRoute CRD
+    isIngressRoute: true
+    entrypoint: websecure
+    certResolver: letsencrypt  # leave empty if you don't use, tls.enabled must be true and secretName must me empty
+
+  # env variables
+  variables:
+    secret: {}
+    nonSecret:
+      DB_CLIENT: pg
+      POSTGRES_DATABASE: "joplin"
+      POSTGRES_USER: "joplinuser"
+      POSTGRES_PASSWORD: "joplinpass"
+      POSTGRES_HOST: "joplin-postgresql"  # if postgresql.enabled, must be RELEASE-NAME-postgresql (ex: my-wakapi-postgresql)
+      POSTGRES_PORT: "5432"
+      APP_BASE_URL: https://joplin.thoughtless.eu
+
+  # horizontal autoscaler
+  hpa:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 2
+    avgCpuUtilization: 50
+
+  # startupProbe
+  startupProbeEnabled: false
+  startupProbe:
+    httpGet:
+      path: "/"
+      port: *containerPort
+    periodSeconds: 10
+    failureThreshold: 20
+    timeoutSeconds: 1
+
+  # readinessProbe
+  readinessProbeEnabled: true
+  readinessProbe:
+    tcpSocket:
+      port: *containerPort
+    initialDelaySeconds: 30
+    periodSeconds: 30
+    failureThreshold: 2
+    timeoutSeconds: 3
+
+  # livenessProbe
+  livenessProbeEnabled: true
+  livenessProbe:
+    tcpSocket:
+      port: *containerPort
+    initialDelaySeconds: 30
+    periodSeconds: 60
+    failureThreshold: 1
+    timeoutSeconds: 3
+
+  persistence:
+    enabled: false  # no need for persistence if you use postgresql
+
+  tests:
+    classicHttp:  # default helm test method
+      enabled: false
+    curlHostHeader:  # curl using ingress.hostName as Host in header
+      enabled: true
+      path: "/api/ping"
