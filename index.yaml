@@ -255,6 +255,33 @@ entries:
     version: 1.0.0
   jackett:
   - apiVersion: v2
+    appVersion: 0.21.574
+    created: "2023-08-02T07:54:19.780690639Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.0
+    description: 'Jackett works as a proxy server: it translates queries from apps
+      into tracker-site-specific http queries.'
+    digest: daa2e56d2377d17338029688f541a5d2727d72645b7de12be9163b46fb307d9f
+    home: https://github.com/Jackett/Jackett
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/jackett-logo.png
+    keywords:
+    - Jackett
+    - Plex
+    - Series
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@thoughtless.eu
+      name: QJOLY
+    name: jackett
+    sources:
+    - https://github.com/Jackett/Jackett
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/jackett-1.1.5/jackett-1.1.5.tgz
+    version: 1.1.5
+  - apiVersion: v2
     appVersion: 0.21.484
     created: "2023-07-18T04:50:54.595789436Z"
     dependencies:
@@ -419,6 +446,35 @@ entries:
   joplin:
   - apiVersion: v2
     appVersion: 2.11-beta
+    created: "2023-08-02T07:54:19.908310179Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 12.8.0
+    description: Joplin is an open source note-taking app. Capture your thoughts and
+      securely access them from any device.
+    digest: 899aa42c6d110ee21a9c913aaa6afe59e79fe85eb1534de8b94c9d8e8ffb5426
+    home: https://joplinapp.org/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/joplin-logo.png
+    keywords:
+    - joplin
+    maintainers:
+    - email: github@thoughtless.eu
+      name: QJOLY
+      url: https://thebidouilleur.xyz
+    name: joplin
+    sources:
+    - https://github.com/laurent22/joplin
+    - https://github.com/QJoly/helm-charts
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/joplin-1.0.2/joplin-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
+    appVersion: 2.11-beta
     created: "2023-08-02T07:01:28.092620758Z"
     dependencies:
     - name: common
@@ -580,4 +636,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/uptime-kuma-1.0.0/uptime-kuma-1.0.0.tgz
     version: 1.0.0
-generated: "2023-08-02T07:01:28.09266416Z"
+generated: "2023-08-02T07:54:19.908374681Z"
