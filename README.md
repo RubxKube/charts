@@ -17,10 +17,10 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | Name  | Description | Chart Version | App Version |
 |-------|-------------|---------------|-------------|
 | uptime-kuma | Uptime Kuma is an easy-to-use self-hosted monitoring tool. | 1.0.0 | 1.22.1-alpine |
-| jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.1.4 | 0.21.484 |
+| jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.1.5 | 0.21.574 |
 | sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.1.0 | 3.0.10 |
 | freshrss | A WebUI to read article via RSS | 1.1.0 | 1.21.0 |
-| joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.0.1 | 2.11-beta |
+| joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.0.2 | 2.11-beta |
 | smokeping | SmokePing is a latency logging and graphing and alerting system | 1.0.0 | 2.8.2 |
 | gotify | a simple server for sending and receiving messages | 1.1.2 | 2.3.0 |
 | baikal | Baikal is a Cal and CardDAV server, based on sabre/dav, that includes an administrative interface for easy management. | 1.1.0 | 0.9.3-nginx |
