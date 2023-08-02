@@ -446,6 +446,31 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/joplin-1.0.0/joplin-1.0.0.tgz
     version: 1.0.0
+  smokeping:
+  - apiVersion: v2
+    appVersion: 2.8.2
+    created: "2023-08-02T06:52:10.634019635Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.0
+    description: SmokePing is a latency logging and graphing and alerting system
+    digest: 0fb22dd751e13b3fefabf755ab39f74de091ab2383ad8106acf108693145d996
+    home: https://oss.oetiker.ch/smokeping/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/smokeping-logo.png
+    keywords:
+    - smokeping
+    maintainers:
+    - email: github@thoughtless.eu
+      name: QJOLY
+      url: https://thebidouilleur.xyz
+    name: smokeping
+    sources:
+    - https://github.com/oetiker/SmokePing
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/smokeping-1.0.0/smokeping-1.0.0.tgz
+    version: 1.0.0
   sonarr:
   - apiVersion: v2
     appVersion: 3.0.10
@@ -526,4 +551,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/uptime-kuma-1.0.0/uptime-kuma-1.0.0.tgz
     version: 1.0.0
-generated: "2023-08-01T08:54:52.892567903Z"
+generated: "2023-08-02T06:52:10.634050236Z"
