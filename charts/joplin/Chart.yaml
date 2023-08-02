@@ -2,7 +2,7 @@
 apiVersion: v2
 name: joplin
 description: Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device.
-version: 1.0.0
+version: 1.0.1
 appVersion: "2.11-beta"
 icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/joplin-logo.png
 keywords:
