@@ -14,7 +14,7 @@ maintainers:
    name: QJOLY
    url: https://thebidouilleur.xyz
 sources:
- - https://github.com/oetiker/Memo
+ - https://github.com/usememos/memos
 dependencies:
  - name: common
    repository: https://rubxkube.github.io/common-charts
