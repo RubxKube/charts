@@ -1,0 +1,21 @@
+---
+apiVersion: v2
+name: memo
+description: Memo (A privacy-first, lightweight note-taking service)
+type: application
+version: 1.0.0
+appVersion: "0.14"
+keywords:
+ - memo
+home: https://usememos.com/
+icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/memo-logo.png
+maintainers:
+ - email: github@thoughtless.eu
+   name: QJOLY
+   url: https://thebidouilleur.xyz
+sources:
+ - https://github.com/usememos/memos
+dependencies:
+ - name: common
+   repository: https://rubxkube.github.io/common-charts
+   version: v0.2.0
