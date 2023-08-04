@@ -587,6 +587,31 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/joplin-1.0.0/joplin-1.0.0.tgz
     version: 1.0.0
+  memo:
+  - apiVersion: v2
+    appVersion: "0.14"
+    created: "2023-08-04T05:58:21.236073246Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.0
+    description: Memo (A privacy-first, lightweight note-taking service)
+    digest: 2219e8f34a88aaaaf858c634aa67c5f3140aa9701900fdc794f9c3e0ca1b47fe
+    home: https://usememos.com/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/memo-logo.png
+    keywords:
+    - memo
+    maintainers:
+    - email: github@thoughtless.eu
+      name: QJOLY
+      url: https://thebidouilleur.xyz
+    name: memo
+    sources:
+    - https://github.com/usememos/memos
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/memo-1.0.0/memo-1.0.0.tgz
+    version: 1.0.0
   smokeping:
   - apiVersion: v2
     appVersion: 2.8.2
@@ -718,4 +743,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2023-08-03T14:21:38.708784417Z"
+generated: "2023-08-04T05:58:21.236120747Z"
