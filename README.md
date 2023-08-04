@@ -17,6 +17,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | Name  | Description | Chart Version | App Version |
 |-------|-------------|---------------|-------------|
 | uptime-kuma | Uptime Kuma is an easy-to-use self-hosted monitoring tool. | 1.0.0 | 1.22.1-alpine |
+| memo | Memo (A privacy-first, lightweight note-taking service) | 1.0.0 | 0.14 |
 | vaultwarden | Vaultwarden is an easy-to-use self-hosted password manager. | 1.0.0 | 1.29.1 |
 | freshrss | A WebUI to read article via RSS | 1.1.0 | 1.21.0 |
 | gotify | a simple server for sending and receiving messages | 1.1.2 | 2.3.0 |
