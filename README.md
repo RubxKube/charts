@@ -25,7 +25,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.0.3 | 2.12-beta |
 | baikal | Baikal is a Cal and CardDAV server, based on sabre/dav, that includes an administrative interface for easy management. | 1.1.0 | 0.9.3-nginx |
 | smokeping | SmokePing is a latency logging and graphing and alerting system | 1.0.0 | 2.8.2 |
-| jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.1.6 | 0.21.580 |
+| jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.1.7 | 0.21.586 |
 
 
 # Contributing 
