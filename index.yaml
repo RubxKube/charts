@@ -255,6 +255,33 @@ entries:
     version: 1.0.0
   jackett:
   - apiVersion: v2
+    appVersion: 0.21.586
+    created: "2023-08-06T13:50:27.305192383Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.0
+    description: 'Jackett works as a proxy server: it translates queries from apps
+      into tracker-site-specific http queries.'
+    digest: 378c46cb40417cae16379c946a05da487efd9041d99dc335a4afca597c2c46a5
+    home: https://github.com/Jackett/Jackett
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/jackett-logo.png
+    keywords:
+    - Jackett
+    - Plex
+    - Series
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@thoughtless.eu
+      name: QJOLY
+    name: jackett
+    sources:
+    - https://github.com/Jackett/Jackett
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/jackett-1.1.7/jackett-1.1.7.tgz
+    version: 1.1.7
+  - apiVersion: v2
     appVersion: 0.21.580
     created: "2023-08-03T14:21:38.473579707Z"
     dependencies:
@@ -743,4 +770,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2023-08-04T05:58:21.236120747Z"
+generated: "2023-08-06T13:50:27.305258784Z"
