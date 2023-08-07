@@ -24,7 +24,7 @@ common:
       isPrivate: false
       secretName: null
     repository: linuxserver/jackett
-    tag: 0.21.586
+    tag: 0.21.589
     pullPolicy: Always
 
   # ingress
