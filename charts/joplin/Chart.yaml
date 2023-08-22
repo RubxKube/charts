@@ -2,7 +2,7 @@
 apiVersion: v2
 name: joplin
 description: Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device.
-version: 1.0.3
+version: 1.0.4
 appVersion: "2.12-beta"
 icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/joplin-logo.png
 keywords:
@@ -20,6 +20,6 @@ dependencies:
    repository: https://rubxkube.github.io/common-charts
    version: v0.2.0
  - name: postgresql
-   version: 12.8.0
+   version: 12.8.5
    repository: https://charts.bitnami.com/bitnami
    condition: postgresql.enabled
