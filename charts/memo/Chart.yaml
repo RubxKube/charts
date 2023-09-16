@@ -4,7 +4,7 @@ name: memo
 description: Memo (A privacy-first, lightweight note-taking service)
 type: application
 version: 1.0.1
-appVersion: "0.14"
+appVersion: "0.15"
 keywords:
  - memo
 home: https://usememos.com/
