@@ -3,7 +3,7 @@ apiVersion: v2
 name: memo
 description: Memo (A privacy-first, lightweight note-taking service)
 type: application
-version: 1.0.0
+version: 1.0.1
 appVersion: "0.14"
 keywords:
  - memo
@@ -12,7 +12,7 @@ icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/memo-logo.png
 maintainers:
  - email: github@thoughtless.eu
    name: QJOLY
-   url: https://thebidouilleur.xyz
+   url: https://une-tasse-de.cafe
 sources:
  - https://github.com/usememos/memos
 dependencies:

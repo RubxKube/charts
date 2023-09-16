@@ -2,7 +2,7 @@
 apiVersion: v2
 name: joplin
 description: Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device.
-version: 1.0.4
+version: 1.0.5
 appVersion: "2.12-beta"
 icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/joplin-logo.png
 keywords:
@@ -11,7 +11,7 @@ home: https://joplinapp.org/
 maintainers:
  - email: github@thoughtless.eu
    name: QJOLY
-   url: https://thebidouilleur.xyz
+   url: https://une-tasse-de.cafe
 sources:
  - https://github.com/laurent22/joplin
  - https://github.com/QJoly/helm-charts

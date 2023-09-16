@@ -10,11 +10,11 @@ Memo (A privacy-first, lightweight note-taking service)
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| QJOLY | <github@thoughtless.eu> | <https://thebidouilleur.xyz> |
+| QJOLY | <github@thoughtless.eu> | <https://une-tasse-de.cafe> |
 
 ## Source Code
 
-* <https://github.com/oetiker/Memo>
+* <https://github.com/usememos/memos>
 
 ## Requirements
 
