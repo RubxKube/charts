@@ -1,6 +1,6 @@
 # sonarr
 
-![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.0.10](https://img.shields.io/badge/AppVersion-3.0.10-informational?style=flat-square)
+![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.0.10](https://img.shields.io/badge/AppVersion-3.0.10-informational?style=flat-square)
 
 Sonarr is a PVR for Usenet and BitTorrent users.
 
@@ -22,7 +22,7 @@ Kubernetes: `>= 1.18`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://rubxkube.github.io/common-charts | common | v0.1.0 |
+| https://rubxkube.github.io/common-charts | common | v0.2.0 |
 
 ## Values
 
@@ -41,16 +41,16 @@ Kubernetes: `>= 1.18`
 | common.hpa.enabled | bool | `false` |  |
 | common.hpa.maxReplicas | int | `2` |  |
 | common.hpa.minReplicas | int | `1` |  |
-| common.image.name | string | `"linuxserver/sonarr"` |  |
 | common.image.pullPolicy | string | `"Always"` |  |
-| common.image.repository.isPrivate | bool | `false` |  |
-| common.image.repository.name | string | `nil` |  |
-| common.image.repository.secretName | string | `nil` |  |
+| common.image.repository | string | `"linuxserver/sonarr"` |  |
+| common.image.repositorySettings.isPrivate | bool | `false` |  |
+| common.image.repositorySettings.name | string | `nil` |  |
+| common.image.repositorySettings.secretName | string | `nil` |  |
 | common.image.tag | string | `"3.0.10"` |  |
 | common.ingress.certResolver | string | `"letsencrypt"` |  |
 | common.ingress.enabled | bool | `false` |  |
 | common.ingress.entrypoint | string | `"websecure"` |  |
-| common.ingress.hostName | string | `"jackett.thoughtless.eu"` |  |
+| common.ingress.hostName | string | `"sonarr.thoughtless.eu"` |  |
 | common.ingress.ingressClassName | string | `"istio"` |  |
 | common.ingress.isIngressRoute | bool | `true` |  |
 | common.ingress.tls.enabled | bool | `true` |  |

@@ -1,6 +1,6 @@
 # gotify
 
-![Version: 1.1.1](https://img.shields.io/badge/Version-1.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.2.5](https://img.shields.io/badge/AppVersion-2.2.5-informational?style=flat-square)
+![Version: 1.1.2](https://img.shields.io/badge/Version-1.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.3.0](https://img.shields.io/badge/AppVersion-2.3.0-informational?style=flat-square)
 
 a simple server for sending and receiving messages
 
@@ -45,7 +45,7 @@ Kubernetes: `>= 1.18`
 | common.image.repository | string | `"gotify/server"` |  |
 | common.image.repositorySettings.isPrivate | bool | `false` |  |
 | common.image.repositorySettings.secretName | string | `nil` |  |
-| common.image.tag | string | `"2.2.5"` |  |
+| common.image.tag | string | `"2.3.0"` |  |
 | common.ingress.certResolver | string | `"letsencrypt"` |  |
 | common.ingress.enabled | bool | `false` |  |
 | common.ingress.entrypoint | string | `"websecure"` |  |
