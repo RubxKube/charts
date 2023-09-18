@@ -1,6 +1,6 @@
 # joplin
 
-![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![AppVersion: 2.11-beta](https://img.shields.io/badge/AppVersion-2.11--beta-informational?style=flat-square)
+![Version: 1.0.4](https://img.shields.io/badge/Version-1.0.4-informational?style=flat-square) ![AppVersion: 2.12-beta](https://img.shields.io/badge/AppVersion-2.12--beta-informational?style=flat-square)
 
 Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device.
 
@@ -10,7 +10,7 @@ Joplin is an open source note-taking app. Capture your thoughts and securely acc
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| QJOLY | <github@thoughtless.eu> | <https://thebidouilleur.xyz> |
+| QJOLY | <github@thoughtless.eu> | <https://une-tasse-de.cafe> |
 
 ## Source Code
 
@@ -21,7 +21,7 @@ Joplin is an open source note-taking app. Capture your thoughts and securely acc
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.bitnami.com/bitnami | postgresql | 11.6.12 |
+| https://charts.bitnami.com/bitnami | postgresql | 12.8.5 |
 | https://rubxkube.github.io/common-charts | common | v0.2.0 |
 
 ## Values
@@ -45,7 +45,7 @@ Joplin is an open source note-taking app. Capture your thoughts and securely acc
 | common.image.repository | string | `"joplin/server"` |  |
 | common.image.repositorySettings.isPrivate | bool | `false` |  |
 | common.image.repositorySettings.secretName | string | `nil` |  |
-| common.image.tag | string | `"2.11-beta"` |  |
+| common.image.tag | string | `"2.12-beta"` |  |
 | common.ingress.certResolver | string | `"letsencrypt"` |  |
 | common.ingress.enabled | bool | `false` |  |
 | common.ingress.entrypoint | string | `"websecure"` |  |
@@ -74,11 +74,8 @@ Joplin is an open source note-taking app. Capture your thoughts and securely acc
 | common.startupProbe.timeoutSeconds | int | `1` |  |
 | common.startupProbeEnabled | bool | `false` |  |
 | common.tests.classicHttp.enabled | bool | `false` |  |
-| common.tests.classicHttp.enabled | bool | `false` |  |
-| common.tests.curlHostHeader.enabled | bool | `true` |  |
 | common.tests.curlHostHeader.enabled | bool | `true` |  |
 | common.tests.curlHostHeader.path | string | `"/api/ping"` |  |
-| common.tests.curlHostHeader.path | string | `"/"` |  |
 | common.variables.nonSecret.APP_BASE_URL | string | `"https://joplin.thoughtless.eu"` |  |
 | common.variables.nonSecret.DB_CLIENT | string | `"pg"` |  |
 | common.variables.nonSecret.POSTGRES_DATABASE | string | `"joplin"` |  |
