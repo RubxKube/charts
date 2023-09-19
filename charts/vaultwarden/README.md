@@ -1,6 +1,6 @@
 # vaultwarden
 
-![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.29.1](https://img.shields.io/badge/AppVersion-1.29.1-informational?style=flat-square)
+![Version: 1.0.1](https://img.shields.io/badge/Version-1.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.29.2](https://img.shields.io/badge/AppVersion-1.29.2-informational?style=flat-square)
 
 Vaultwarden is an easy-to-use self-hosted password manager.
 
@@ -45,7 +45,7 @@ Kubernetes: `>= 1.18`
 | common.image.repository | string | `"vaultwarden/server"` |  |
 | common.image.repositorySettings.isPrivate | bool | `false` |  |
 | common.image.repositorySettings.secretName | string | `nil` |  |
-| common.image.tag | string | `"1.29.1"` |  |
+| common.image.tag | string | `"1.29.2"` |  |
 | common.ingress.certResolver | string | `"letsencrypt"` |  |
 | common.ingress.enabled | bool | `false` |  |
 | common.ingress.entrypoint | string | `"websecure"` |  |
