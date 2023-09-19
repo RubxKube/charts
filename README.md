@@ -18,7 +18,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 |-------|-------------|---------------|-------------|
 | baikal | Baikal is a Cal and CardDAV server, based on sabre/dav, that includes an administrative interface for easy management. | 1.1.0 | 0.9.3-nginx |
 | freshrss | A WebUI to read article via RSS | 1.1.1 | 1.21.0 |
-| vaultwarden | Vaultwarden is an easy-to-use self-hosted password manager. | 1.0.0 | 1.29.1 |
+| vaultwarden | Vaultwarden is an easy-to-use self-hosted password manager. | 1.0.1 | 1.29.2 |
 | gotify | a simple server for sending and receiving messages | 1.1.3 | 2.3.0 |
 | sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.1.0 | 3.0.10 |
 | smokeping | SmokePing is a latency logging and graphing and alerting system | 1.0.1 | 2.8.2 |
