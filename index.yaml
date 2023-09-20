@@ -129,6 +129,31 @@ entries:
     version: 1.0.0
   gotify:
   - apiVersion: v2
+    appVersion: 2.4.0
+    created: "2023-09-20T05:42:05.110934263Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.0
+    description: a simple server for sending and receiving messages
+    digest: 081a05e9a39f5fdb9b820b092ccb09259c582767884cb9c3a87570131e146c9d
+    home: https://gotify.net/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/gotify-logo.png
+    keywords:
+    - gotify
+    - notification
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@thoughtless.eu
+      name: QJOLY
+    name: gotify
+    sources:
+    - https://github.com/gotify/server
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/gotify-1.1.4/gotify-1.1.4.tgz
+    version: 1.1.4
+  - apiVersion: v2
     appVersion: 2.3.0
     created: "2023-07-22T05:43:41.618578003Z"
     dependencies:
@@ -1005,4 +1030,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2023-09-19T06:46:27.035339679Z"
+generated: "2023-09-20T05:42:05.111074564Z"
