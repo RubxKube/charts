@@ -37,7 +37,7 @@ common:
       isPrivate: false
       secretName: null
     repository: joplin/server
-    tag: 2.12-beta
+    tag: 2.13-beta
     pullPolicy: Always
 
   # ingress
