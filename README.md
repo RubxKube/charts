@@ -24,7 +24,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | smokeping | SmokePing is a latency logging and graphing and alerting system | 1.0.1 | 2.8.2 |
 | jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.1.11 | 0.21.709 |
 | memo | Memo (A privacy-first, lightweight note-taking service) | 1.0.2 | 0.15 |
-| uptime-kuma | Uptime Kuma is an easy-to-use self-hosted monitoring tool. | 1.0.2 | 1.23.1-alpine |
+| uptime-kuma | Uptime Kuma is an easy-to-use self-hosted monitoring tool. | 1.0.3 | 1.23.2-alpine |
 | joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.0.6 | 2.13-beta |
 
 
