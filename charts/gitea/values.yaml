@@ -1,0 +1,105 @@
+---
+define: &containerPort 3000
+
+common:
+  app:
+    servicePort: 80
+    containerPort: *containerPort
+
+  # deployment
+  deployment:
+    memoryRequest: null
+    cpuRequest: null
+    memoryLimit: null
+    cpuLimit: null
+    strategy:
+      type: RollingUpdate
+      rollingUpdate:
+        maxUnavailable: 25%
+        maxSurge: 25%
+
+  # container
+  image:
+    repositorySettings:
+      isPrivate: false
+      secretName: null
+    repository: gitea/gitea
+    tag: '1.20.5'
+    pullPolicy: Always
+
+  # ingress
+  ingress:
+    enabled: false
+    hostName: gitea.une-tasse-de.cafe
+    tls:
+      enabled: true
+      secretName: ""
+    # For Ingress CRD
+    ingressClassName: istio
+    # For IngressRoute CRD
+    isIngressRoute: true
+    entrypoint: websecure
+    certResolver: letsencrypt  # leave empty if you don't use, tls.enabled must be true and secretName must me empty
+
+  # env variables
+  variables:
+    secret: {}
+    nonSecret:
+      USER_UID: '1000'
+      USER_GID: '1000'
+      TZ: Europe/Paris
+
+  # horizontal autoscaler
+  hpa:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 2
+    avgCpuUtilization: 50
+
+  # startupProbe
+  startupProbeEnabled: true
+  startupProbe:
+    httpGet:
+      path: "/"
+      port: *containerPort
+    periodSeconds: 10
+    failureThreshold: 20
+    timeoutSeconds: 1
+
+  # readinessProbe
+  readinessProbeEnabled: true
+  readinessProbe:
+    httpGet:
+      path: "/"
+      port: *containerPort
+    initialDelaySeconds: 30
+    periodSeconds: 30
+    failureThreshold: 2
+    timeoutSeconds: 3
+
+  # livenessProbe
+  livenessProbeEnabled: true
+  livenessProbe:
+    httpGet:
+      path: "/"
+      port: *containerPort
+    initialDelaySeconds: 30
+    periodSeconds: 60
+    failureThreshold: 1
+    timeoutSeconds: 3
+
+  persistence:
+    enabled: true
+    volumes:
+      - name: "data"
+        storageClassName: ""  # leave empty if you want to use default
+        size: "10Gi"
+        pvcClaim: ""  # Fill only if you want to use existing pvc
+        containerMount: "/data/"
+
+  tests:
+    classicHttp:  # default helm test method
+      enabled: true
+    curlHostHeader:  # curl using ingress.hostName as Host in header
+      enabled: true
+      path: "/"

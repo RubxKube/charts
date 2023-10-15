@@ -1,0 +1,22 @@
+---
+apiVersion: v2
+type: application
+name: gitea
+description: Gitea (Git with a cup of tea)
+version: 1.0.0
+appVersion: "1.20.5"
+icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/gitea-logo.png
+maintainers:
+  - name: QJOLY
+    email: github@thoughtless.eu
+kubeVersion: '>= 1.18'
+home: https://gitea.com
+keywords:
+  - gitea
+  - git
+sources:
+  - https://github.com/go-gitea/gitea
+dependencies:
+  - name: common
+    repository: https://rubxkube.github.io/common-charts
+    version: v0.2.0
