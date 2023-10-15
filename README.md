@@ -18,6 +18,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 |-------|-------------|---------------|-------------|
 | vaultwarden | Vaultwarden is an easy-to-use self-hosted password manager. | 1.0.1 | 1.29.2 |
 | uptime-kuma | Uptime Kuma is an easy-to-use self-hosted monitoring tool. | 1.0.3 | 1.23.2-alpine |
+| gitea | Gitea (Git with a cup of tea) | 1.0.0 | 1.20.5 |
 | freshrss | A WebUI to read article via RSS | 1.1.1 | 1.21.0 |
 | smokeping | SmokePing is a latency logging and graphing and alerting system | 1.0.1 | 2.8.2 |
 | jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.1.11 | 0.21.709 |
