@@ -127,6 +127,32 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/freshrss-1.0.0/freshrss-1.0.0.tgz
     version: 1.0.0
+  gitea:
+  - apiVersion: v2
+    appVersion: 1.20.5
+    created: "2023-10-15T14:16:36.396292496Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.0
+    description: Gitea (Git with a cup of tea)
+    digest: 0df2ca29b8e8ecc152037180ef2f5f00b5a5d0b55964829a249e86dd98c89626
+    home: https://gitea.com
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/gitea-logo.png
+    keywords:
+    - gitea
+    - git
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@thoughtless.eu
+      name: QJOLY
+    name: gitea
+    sources:
+    - https://github.com/go-gitea/gitea
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/gitea-1.0.0/gitea-1.0.0.tgz
+    version: 1.0.0
   gotify:
   - apiVersion: v2
     appVersion: 2.4.0
@@ -1085,4 +1111,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2023-09-25T06:32:22.986527559Z"
+generated: "2023-10-15T14:16:36.396546102Z"
