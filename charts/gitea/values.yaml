@@ -1,5 +1,5 @@
 ---
-define: &containerPort 9117
+define: &containerPort 3000
 
 common:
   app:
@@ -23,14 +23,14 @@ common:
     repositorySettings:
       isPrivate: false
       secretName: null
-    repository: linuxserver/jackett
-    tag: 0.21.1084
+    repository: gitea/gitea
+    tag: '1.20.5'
     pullPolicy: Always
 
   # ingress
   ingress:
     enabled: false
-    hostName: jackett.thoughtless.eu
+    hostName: gitea.une-tasse-de.cafe
     tls:
       enabled: true
       secretName: ""
@@ -45,10 +45,9 @@ common:
   variables:
     secret: {}
     nonSecret:
-      PUID: 1000
-      PGID: 1000
-      TZ: Etc/UTC
-      AUTO_UPDATE: true
+      USER_UID: '1000'
+      USER_GID: '1000'
+      TZ: Europe/Paris
 
   # horizontal autoscaler
   hpa:
@@ -58,7 +57,7 @@ common:
     avgCpuUtilization: 50
 
   # startupProbe
-  startupProbeEnabled: false
+  startupProbeEnabled: true
   startupProbe:
     httpGet:
       path: "/"
@@ -70,7 +69,8 @@ common:
   # readinessProbe
   readinessProbeEnabled: true
   readinessProbe:
-    tcpSocket:
+    httpGet:
+      path: "/"
       port: *containerPort
     initialDelaySeconds: 30
     periodSeconds: 30
@@ -80,7 +80,8 @@ common:
   # livenessProbe
   livenessProbeEnabled: true
   livenessProbe:
-    tcpSocket:
+    httpGet:
+      path: "/"
       port: *containerPort
     initialDelaySeconds: 30
     periodSeconds: 60
@@ -90,20 +91,15 @@ common:
   persistence:
     enabled: true
     volumes:
-      - name: "config"
+      - name: "data"
         storageClassName: ""  # leave empty if you want to use default
-        size: "2Gi"
+        size: "10Gi"
         pvcClaim: ""  # Fill only if you want to use existing pvc
-        containerMount: "/config/"
-      - name: "downloads"  # OPTIONAL
-        storageClassName: ""  # leave empty if you want to use default
-        size: "1Gi"
-        pvcClaim: ""  # Fill only if you want to use existing pvc
-        containerMount: "/downloads/"
+        containerMount: "/data/"
 
   tests:
     classicHttp:  # default helm test method
-      enabled: false
+      enabled: true
     curlHostHeader:  # curl using ingress.hostName as Host in header
       enabled: true
       path: "/"
