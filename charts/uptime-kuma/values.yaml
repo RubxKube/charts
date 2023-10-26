@@ -24,7 +24,7 @@ common:
       isPrivate: false
       secretName: null
     repository: louislam/uptime-kuma
-    tag: 1.23.2-alpine
+    tag: 1.23.3-alpine
     pullPolicy: Always
 
   # ingress
