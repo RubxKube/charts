@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strconv"
+	"strings"
 
 	dig_yaml "github.com/esakat/dig-yaml"
 	"gopkg.in/yaml.v2"
@@ -31,6 +33,11 @@ func main() {
 		log.Fatal(err)
 	}
 
+	chartRelease, err := dig_yaml.DigYaml(y, "version")
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	f, err = os.Open(valuePath)
 	defer f.Close()
 	if err != nil {
@@ -51,13 +58,23 @@ func main() {
 		fmt.Println("✔️ Versions are identicals.")
 		os.Exit(0)
 	}
+
+	v := strings.Split(chartRelease.(string), ".")
+	x, _ := strconv.ParseInt((v[len(v)-1]), 10, 0)
+	x += 1
+	v = v[:len(v)-1]
+	v = append(v, fmt.Sprint("", x))
+
+	newChartRelease := strings.Join(v, ".")
+
 	var sedHelp = fmt.Sprintf(`
 If you want to replace the version in Chart.yaml file, please execute this command:
   
   sed -i 's/%s/%s/' -i %s
+  sed -i 's/%s/%s/' -i %s
   git add %s
   git commit -m "%s: update version to match docker image tag"
-    `, chartVersion, appVersion, chartPath, chartPath, chartName)
+    `, chartVersion, appVersion, chartPath, chartRelease, newChartRelease, chartPath, chartPath, chartName)
 
 	fmt.Println(sedHelp)
 }
