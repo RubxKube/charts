@@ -55,8 +55,9 @@ func main() {
 If you want to replace the version in Chart.yaml file, please execute this command:
   
   sed -i 's/%s/%s/' -i %s
+  git add %s
   git commit -m "%s: update version to match docker image tag"
-    `, chartVersion, appVersion, chartPath, chartName)
+    `, chartVersion, appVersion, chartPath, chartPath, chartName)
 
 	fmt.Println(sedHelp)
 }
