@@ -17,7 +17,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | Name  | Description | Chart Version | App Version |
 |-------|-------------|---------------|-------------|
 | baikal | Baikal is a Cal and CardDAV server, based on sabre/dav, that includes an administrative interface for easy management. | 1.1.0 | 0.9.3-nginx |
-| freshrss | A WebUI to read article via RSS | 1.1.1 | 1.21.0 |
+| freshrss | A WebUI to read article via RSS | 1.1.2 | 1.22.0 |
 | uptime-kuma | Uptime Kuma is an easy-to-use self-hosted monitoring tool. | 1.0.4 | 1.23.3-alpine |
 | smokeping | SmokePing is a latency logging and graphing and alerting system | 1.0.1 | 2.8.2 |
 | memo | Memo (A privacy-first, lightweight note-taking service) | 1.0.3 | %!s(float64=0.16) |
