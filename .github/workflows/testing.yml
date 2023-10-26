@@ -42,7 +42,7 @@ jobs:
 
       - name: Get changed files in the charts folder
         id: changed-files-specific
-        uses: tj-actions/changed-files@v39
+        uses: tj-actions/changed-files@v40
         with:
           files: charts
 
