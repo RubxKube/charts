@@ -3,8 +3,8 @@ apiVersion: v2
 name: memo
 description: Memo (A privacy-first, lightweight note-taking service)
 type: application
-version: 1.0.2
-appVersion: "0.15"
+version: 1.0.3
+appVersion: "%!s(float64=0.16)"
 keywords:
  - memo
 home: https://usememos.com/
