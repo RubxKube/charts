@@ -22,7 +22,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | smokeping | SmokePing is a latency logging and graphing and alerting system | 1.0.1 | 2.8.2 |
 | memo | Memo (A privacy-first, lightweight note-taking service) | 1.0.2 | 0.15 |
 | vaultwarden | Vaultwarden is an easy-to-use self-hosted password manager. | 1.0.1 | 1.29.2 |
-| joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.0.6 | 2.13-beta |
+| joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.0.7 | 2.13-beta |
 | sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.1.0 | 3.0.10 |
 | gotify | a simple server for sending and receiving messages | 1.1.4 | 2.4.0 |
 | jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.1.12 | 0.21.1084 |
