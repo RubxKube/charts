@@ -20,7 +20,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | freshrss | A WebUI to read article via RSS | 1.1.1 | 1.21.0 |
 | uptime-kuma | Uptime Kuma is an easy-to-use self-hosted monitoring tool. | 1.0.4 | 1.23.3-alpine |
 | smokeping | SmokePing is a latency logging and graphing and alerting system | 1.0.1 | 2.8.2 |
-| memo | Memo (A privacy-first, lightweight note-taking service) | 1.0.2 | 0.15 |
+| memo | Memo (A privacy-first, lightweight note-taking service) | 1.0.3 | %!s(float64=0.16) |
 | vaultwarden | Vaultwarden is an easy-to-use self-hosted password manager. | 1.0.1 | 1.29.2 |
 | joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.0.7 | 2.13-beta |
 | sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.1.0 | 3.0.10 |
