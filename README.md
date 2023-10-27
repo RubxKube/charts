@@ -25,7 +25,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.0.7 | 2.13-beta |
 | sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.1.0 | 3.0.10 |
 | gotify | a simple server for sending and receiving messages | 1.1.4 | 2.4.0 |
-| jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.1.12 | 0.21.1084 |
+| jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.1.13 | 0.21.1085 |
 | gitea | Gitea (Git with a cup of tea) | 1.0.0 | 1.20.5 |
 
 
