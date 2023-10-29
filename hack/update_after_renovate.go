@@ -27,28 +27,7 @@ func searchAndReplace(path, wordToFind, wordToReplace string) error {
 
 	return nil
 }
-func main() {
-
-	var chartName = os.Getenv("CHART")
-	isGitHubAction := os.Getenv("GITHUB_ACTIONS") == "true"
-
-	if isGitHubAction {
-		fmt.Println("Script is running in a GitHub Action")
-		chartPaths := os.Args[1:]
-		chartNames := make([]string, 0)
-
-		for _, path := range chartPaths {
-			parts := strings.Split(path, "/")
-			chartName := strings.TrimPrefix(parts[1], "charts/")
-			chartNames = append(chartNames, chartName)
-		}
-
-		fmt.Println(chartNames)
-
-	} else {
-		fmt.Println("Script is not running in a GitHub Action")
-	}
-
+func updateChartVersion(chartName string, isGitHubAction bool) {
 	chartPath := fmt.Sprintf("../charts/%s/Chart.yaml", chartName)
 	valuePath := fmt.Sprintf("../charts/%s/values.yaml", chartName)
 
@@ -145,6 +124,35 @@ git commit -m "%s: update version to match docker image tag"
 		if err4 != nil {
 			log.Fatal(err4)
 		}
+	}
+
+}
+func main() {
+
+	isGitHubAction := os.Getenv("GITHUB_ACTIONS") == "true"
+	chartNames := make([]string, 0)
+
+	if isGitHubAction {
+		fmt.Println("Script is running in a GitHub Action")
+		chartPaths := os.Args[1:]
+
+		for _, path := range chartPaths {
+			parts := strings.Split(path, "/")
+			chartName := strings.TrimPrefix(parts[1], "charts/")
+			chartNames = append(chartNames, chartName)
+		}
+
+	} else {
+		fmt.Println("Script is not running in a GitHub Action")
+		var chartName string
+		fmt.Print("Which chart to update ? ")
+		fmt.Scan(&chartName)
+		chartNames = append(chartNames, chartName)
+	}
+
+	for _, chartName := range chartNames {
+		fmt.Println("Updating " + chartName + "...")
+		updateChartVersion(chartName, isGitHubAction)
 	}
 
 }
