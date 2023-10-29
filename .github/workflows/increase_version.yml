@@ -23,6 +23,11 @@ jobs:
         uses: tj-actions/changed-files@v40
         with:
           files: charts/**
+          
+      - name: Configure Git
+        run: |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
       - name: Run update for any chart concerned by the commit
         if: steps.changed-files-specific.outputs.any_changed == 'true'
