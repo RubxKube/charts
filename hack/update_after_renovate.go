@@ -30,6 +30,13 @@ func searchAndReplace(path, wordToFind, wordToReplace string) error {
 func main() {
 
 	var chartName = os.Getenv("CHART")
+	isGitHubAction := os.Getenv("GITHUB_ACTIONS") == "true"
+
+	if isGitHubAction {
+		fmt.Println("Script is running in a GitHub Action")
+	} else {
+		fmt.Println("Script is not running in a GitHub Action")
+	}
 
 	chartPath := fmt.Sprintf("../charts/%s/Chart.yaml", chartName)
 	valuePath := fmt.Sprintf("../charts/%s/values.yaml", chartName)
@@ -76,7 +83,7 @@ func main() {
 		fmt.Printf("✖️ Versions in 'Chart.yaml'(%s) and 'values.yaml'(%s) are differents.\n", chartVersion, appVersion)
 	} else {
 		fmt.Println("✔️ Versions are identicals.")
-		//  os.Exit(0)
+		os.Exit(0)
 	}
 
 	v := strings.Split(chartRelease.(string), ".")
