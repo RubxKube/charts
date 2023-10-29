@@ -1,0 +1,34 @@
+---
+name: Update chart version
+on:
+  push:
+    branches:
+      - '*'
+      - '!main'
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - edited
+      - reopened
+
+jobs:
+  increase-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+
+      - uses: actions/setup-go@v4
+        with:
+          go-version: '>=1.17.0'
+
+      - name: Get changed files in the charts folder
+        id: changed-files-specific
+        uses: tj-actions/changed-files@v40
+        with:
+          files: charts/**
+
+      - name: Run update for any chart concerned by the commit
+        if: steps.changed-files-specific.outputs.any_changed == 'true'
+        run: |
+         cd hack/ && go run update_after_renovate.go ${{ steps.changed-files-specific.outputs.all_changed_files }}
