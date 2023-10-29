@@ -3,8 +3,8 @@ apiVersion: v2
 type: application
 name: jackett
 description: "Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries."
-version: 1.1.14
-appVersion: "0.21.1096"
+version: 1.1.13
+appVersion: "0.21.1095"
 icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/jackett-logo.png
 maintainers:
  - name: QJOLY
