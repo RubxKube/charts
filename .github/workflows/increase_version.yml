@@ -23,7 +23,7 @@ jobs:
         uses: tj-actions/changed-files@v40
         with:
           files: charts/**
-          
+
       - name: Configure Git
         run: |
           git config user.name "$GITHUB_ACTOR"
@@ -34,3 +34,4 @@ jobs:
         run: |
          cd hack/ && go run update_after_renovate.go ${{ steps.changed-files-specific.outputs.all_changed_files }}
          git commit -a -m "[AUTO] Update chart version"
+         git push
