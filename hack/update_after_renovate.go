@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"log"
 	"os"
 	"strconv"
 	"strings"
-	"io/ioutil"
 
 	dig_yaml "github.com/esakat/dig-yaml"
 	"gopkg.in/yaml.v2"
@@ -94,33 +94,37 @@ func main() {
 
 	newChartRelease := strings.Join(v, ".")
 
-	var sedHelp = fmt.Sprintf(`
+	if !isGitHubAction {
+		var sedHelp = fmt.Sprintf(`
 If you want to replace the version in Chart.yaml file, please execute this command:
-  
-  sed -i 's/%s/%s/' -i %s
-  sed -i 's/%s/%s/' -i %s
-  git add %s
-  git commit -m "%s: update version to match docker image tag"
-    `, chartVersion, appVersion, chartPath, chartRelease, newChartRelease, chartPath, chartPath, chartName)
+		  
+sed -i 's/%s/%s/' -i %s
+sed -i 's/%s/%s/' -i %s
+git add %s
+git commit -m "%s: update version to match docker image tag"
+			`, chartVersion, appVersion, chartPath, chartRelease, newChartRelease, chartPath, chartPath, chartName)
 
-	fmt.Println(sedHelp)
+		fmt.Println(sedHelp)
 
-	var replaceFiles string
-	fmt.Print("Or do you want me to replace the version in files? (yes/no): ")
-	fmt.Scan(&replaceFiles)
-	
-	if replaceFiles == "yes" || replaceFiles == "y" || replaceFiles == "" {
-		fmt.Println("Let's replace !")
-		err3 := searchAndReplace(chartPath, chartVersion.(string), appVersion.(string))
-		if err3 != nil {
-			log.Fatal(err3)
-		}
-		err4 := searchAndReplace(chartPath, chartRelease.(string), newChartRelease)
-		if err4 != nil {
-			log.Fatal(err4)
+		var replaceFiles string
+		fmt.Print("Or do you want me to replace the version in files? (yes/no): ")
+		fmt.Scan(&replaceFiles)
+
+		if replaceFiles == "yes" || replaceFiles == "y" || replaceFiles == "" {
+			fmt.Println("Let's replace !")
+			err3 := searchAndReplace(chartPath, chartVersion.(string), appVersion.(string))
+			if err3 != nil {
+				log.Fatal(err3)
+			}
+			err4 := searchAndReplace(chartPath, chartRelease.(string), newChartRelease)
+			if err4 != nil {
+				log.Fatal(err4)
+			}
+		} else {
+			fmt.Println("Let's not replace")
 		}
 	} else {
-		fmt.Println("Let's not replace")
+		fmt.Println("Script is not running in a GitHub Action")
 	}
 
 }
