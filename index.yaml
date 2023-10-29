@@ -1140,6 +1140,32 @@ entries:
     version: 1.0.0
   uptime-kuma:
   - apiVersion: v2
+    appVersion: 1.23.3
+    created: "2023-10-29T11:57:28.024622664Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.0
+    description: Uptime Kuma is an easy-to-use self-hosted monitoring tool.
+    digest: 4fcd0d0768bb589c3b50dcbe3926df75d9e75173eb7dc87333d2d63d93a9121a
+    home: https://github.com/louislam/uptime-kuma
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/uptime-kuma-logo.png
+    keywords:
+    - monitoring
+    - uptime
+    - kuma
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@thoughtless.eu
+      name: QJOLY
+    name: uptime-kuma
+    sources:
+    - https://github.com/louislam/uptime-kuma
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/uptime-kuma-1.0.5/uptime-kuma-1.0.5.tgz
+    version: 1.0.5
+  - apiVersion: v2
     appVersion: 1.23.3-alpine
     created: "2023-10-26T12:51:07.264149831Z"
     dependencies:
@@ -1320,4 +1346,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2023-10-29T05:06:05.771502346Z"
+generated: "2023-10-29T11:57:28.024955465Z"
