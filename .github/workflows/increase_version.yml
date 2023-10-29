@@ -4,9 +4,6 @@ on:
   pull_request:
     types:
       - opened
-      - synchronize
-      - edited
-      - reopened
 
 permissions: write-all
 
