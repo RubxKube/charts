@@ -34,6 +34,17 @@ func main() {
 
 	if isGitHubAction {
 		fmt.Println("Script is running in a GitHub Action")
+		chartPaths := os.Args[1:]
+		chartNames := make([]string, 0)
+
+		for _, path := range chartPaths {
+			parts := strings.Split(path, "/")
+			chartName := strings.TrimPrefix(parts[1], "charts/")
+			chartNames = append(chartNames, chartName)
+		}
+
+		fmt.Println(chartNames)
+
 	} else {
 		fmt.Println("Script is not running in a GitHub Action")
 	}
@@ -124,7 +135,16 @@ git commit -m "%s: update version to match docker image tag"
 			fmt.Println("Let's not replace")
 		}
 	} else {
-		fmt.Println("Script is not running in a GitHub Action")
+		fmt.Println("Script is running in a GitHub Action")
+		fmt.Println("Let's replace !")
+		err3 := searchAndReplace(chartPath, chartVersion.(string), appVersion.(string))
+		if err3 != nil {
+			log.Fatal(err3)
+		}
+		err4 := searchAndReplace(chartPath, chartRelease.(string), newChartRelease)
+		if err4 != nil {
+			log.Fatal(err4)
+		}
 	}
 
 }
