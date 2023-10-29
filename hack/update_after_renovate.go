@@ -6,11 +6,27 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"io/ioutil"
 
 	dig_yaml "github.com/esakat/dig-yaml"
 	"gopkg.in/yaml.v2"
 )
 
+func searchAndReplace(path, wordToFind, wordToReplace string) error {
+	fileData, err := ioutil.ReadFile(path)
+	if err != nil {
+		return err
+	}
+
+	newContent := strings.ReplaceAll(string(fileData), wordToFind, wordToReplace)
+
+	err = ioutil.WriteFile(path, []byte(newContent), 0644)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
 func main() {
 
 	var chartName = os.Getenv("CHART")
@@ -60,7 +76,7 @@ func main() {
 		fmt.Printf("✖️ Versions in 'Chart.yaml'(%s) and 'values.yaml'(%s) are differents.\n", chartVersion, appVersion)
 	} else {
 		fmt.Println("✔️ Versions are identicals.")
-		os.Exit(0)
+		//  os.Exit(0)
 	}
 
 	v := strings.Split(chartRelease.(string), ".")
@@ -81,4 +97,23 @@ If you want to replace the version in Chart.yaml file, please execute this comma
     `, chartVersion, appVersion, chartPath, chartRelease, newChartRelease, chartPath, chartPath, chartName)
 
 	fmt.Println(sedHelp)
+
+	var replaceFiles string
+	fmt.Print("Or do you want me to replace the version in files? (yes/no): ")
+	fmt.Scan(&replaceFiles)
+	
+	if replaceFiles == "yes" || replaceFiles == "y" || replaceFiles == "" {
+		fmt.Println("Let's replace !")
+		err3 := searchAndReplace(chartPath, chartVersion.(string), appVersion.(string))
+		if err3 != nil {
+			log.Fatal(err3)
+		}
+		err4 := searchAndReplace(chartPath, chartRelease.(string), newChartRelease)
+		if err4 != nil {
+			log.Fatal(err4)
+		}
+	} else {
+		fmt.Println("Let's not replace")
+	}
+
 }
