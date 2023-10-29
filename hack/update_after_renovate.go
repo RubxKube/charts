@@ -20,6 +20,7 @@ func main() {
 
 	f, err := os.Open(chartPath)
 	defer f.Close()
+
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -32,11 +33,13 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	chartVersion = fmt.Sprintf("%v", chartVersion)
 
 	chartRelease, err := dig_yaml.DigYaml(y, "version")
 	if err != nil {
 		log.Fatal(err)
 	}
+	chartRelease = fmt.Sprintf("%v", chartRelease)
 
 	f, err = os.Open(valuePath)
 	defer f.Close()
@@ -51,6 +54,7 @@ func main() {
 	if err2 != nil {
 		log.Fatal(err2)
 	}
+	appVersion = fmt.Sprintf("%v", appVersion)
 
 	if appVersion != chartVersion {
 		fmt.Printf("✖️ Versions in 'Chart.yaml'(%s) and 'values.yaml'(%s) are differents.\n", chartVersion, appVersion)
