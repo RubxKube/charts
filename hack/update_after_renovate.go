@@ -15,8 +15,8 @@ func main() {
 
 	var chartName = os.Getenv("CHART")
 
-	chartPath := fmt.Sprintf("charts/%s/Chart.yaml", chartName)
-	valuePath := fmt.Sprintf("charts/%s/values.yaml", chartName)
+	chartPath := fmt.Sprintf("../charts/%s/Chart.yaml", chartName)
+	valuePath := fmt.Sprintf("../charts/%s/values.yaml", chartName)
 
 	f, err := os.Open(chartPath)
 	defer f.Close()
