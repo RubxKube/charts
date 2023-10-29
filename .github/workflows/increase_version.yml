@@ -32,3 +32,4 @@ jobs:
         if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: |
          cd hack/ && go run update_after_renovate.go ${{ steps.changed-files-specific.outputs.all_changed_files }}
+         git commit -a -m "[AUTO] Update chart version"
