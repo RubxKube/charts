@@ -9,7 +9,7 @@ import (
 	"strings"
 
 	dig_yaml "github.com/esakat/dig-yaml"
-	"gopkg.in/yaml.v2"
+	"gopkg.in/yaml.v3"
 )
 
 func searchAndReplace(path, wordToFind, wordToReplace string) error {
