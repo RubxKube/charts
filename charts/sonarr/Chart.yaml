@@ -8,7 +8,7 @@ appVersion: 3.0.10
 icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/sonarr-logo.png
 maintainers:
  - name: QJOLY
-   email: github@thoughtless.eu
+   email: github@un-tasse-de.cafe
 kubeVersion: ">= 1.18"
 home: https://github.com/Sonarr/Sonarr
 keywords:

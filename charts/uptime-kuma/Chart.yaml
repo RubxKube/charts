@@ -8,7 +8,7 @@ appVersion: 1.23.3
 icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/uptime-kuma-logo.png
 maintainers:
   - name: QJOLY
-    email: github@thoughtless.eu
+    email: github@un-tasse-de.cafe
 kubeVersion: '>= 1.18'
 home: https://github.com/louislam/uptime-kuma
 keywords:

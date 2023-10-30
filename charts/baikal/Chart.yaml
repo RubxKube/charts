@@ -8,7 +8,7 @@ appVersion: '0.9.3-nginx'
 icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/baikal-logo.png
 maintainers:
   - name: QJOLY
-    email: github@thoughtless.eu
+    email: github@un-tasse-de.cafe
 kubeVersion: '>= 1.18'
 home: https://sabre.io/baikal/
 keywords:

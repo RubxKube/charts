@@ -30,7 +30,7 @@ common:
   # ingress
   ingress:
     enabled: false
-    hostName: memo.thoughtless.eu
+    hostName: memo.un-tasse-de.cafe
     tls:
       enabled: true
       secretName: ""
