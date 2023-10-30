@@ -9,7 +9,7 @@ import (
 	"strings"
 
 	dig_yaml "github.com/esakat/dig-yaml"
-	"gopkg.in/yaml.v3"
+	"gopkg.in/yaml.v2"
 )
 
 func searchAndReplace(path, wordToFind, wordToReplace string) error {
@@ -35,6 +35,7 @@ func updateChartVersion(chartName string, isGitHubAction bool) {
 	defer f.Close()
 
 	if err != nil {
+		log.Fatal("Error when trying to read " + "../charts/" + chartName + "/Chart.yaml")
 		log.Fatal(err)
 	}
 
@@ -44,12 +45,14 @@ func updateChartVersion(chartName string, isGitHubAction bool) {
 
 	chartVersion, err := dig_yaml.DigYaml(y, "appVersion")
 	if err != nil {
+		log.Fatal("Error when trying to read " + "../charts/" + chartName + "/Chart.yaml")
 		log.Fatal(err)
 	}
 	chartVersion = fmt.Sprintf("%v", chartVersion)
 
 	chartRelease, err := dig_yaml.DigYaml(y, "version")
 	if err != nil {
+		fmt.Println("Can't read chart release")
 		log.Fatal(err)
 	}
 	chartRelease = fmt.Sprintf("%v", chartRelease)
@@ -57,6 +60,7 @@ func updateChartVersion(chartName string, isGitHubAction bool) {
 	f, err = os.Open(valuePath)
 	defer f.Close()
 	if err != nil {
+		fmt.Println("Can't read value file")
 		log.Fatal(err)
 	}
 
@@ -65,6 +69,7 @@ func updateChartVersion(chartName string, isGitHubAction bool) {
 
 	appVersion, err2 := dig_yaml.DigYaml(y, "common", "image", "tag")
 	if err2 != nil {
+		fmt.Println("Can't read tag")
 		log.Fatal(err2)
 	}
 	appVersion = fmt.Sprintf("%v", appVersion)
@@ -149,6 +154,7 @@ func main() {
 		fmt.Scan(&chartName)
 		chartNames = append(chartNames, chartName)
 	}
+	fmt.Println(chartNames)
 
 	for _, chartName := range chartNames {
 		fmt.Println("Updating " + chartName + "...")
