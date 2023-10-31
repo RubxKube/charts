@@ -3,6 +3,31 @@ entries:
   baikal:
   - apiVersion: v2
     appVersion: 0.9.3-nginx
+    created: "2023-10-31T09:35:52.56161649Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.0
+    description: Baikal is a Cal and CardDAV server, based on sabre/dav, that includes
+      an administrative interface for easy management.
+    digest: 5b482cd06bc0f5bf4d0e480db720106bbfbec634b8fa0b6d309e521351d51846
+    home: https://sabre.io/baikal/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/baikal-logo.png
+    keywords:
+    - baikal
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@un-tasse-de.cafe
+      name: QJOLY
+    name: baikal
+    sources:
+    - https://github.com/sabre-io/Baikal
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/baikal-1.1.1/baikal-1.1.1.tgz
+    version: 1.1.1
+  - apiVersion: v2
+    appVersion: 0.9.3-nginx
     created: "2023-07-02T13:32:30.307568074Z"
     dependencies:
     - name: common
@@ -77,6 +102,31 @@ entries:
     - https://github.com/RubxKube/charts/releases/download/baikal-1.0.0/baikal-1.0.0.tgz
     version: 1.0.0
   freshrss:
+  - apiVersion: v2
+    appVersion: 1.22.1
+    created: "2023-10-31T09:35:52.74259121Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.0
+    description: A WebUI to read article via RSS
+    digest: 7672fce596d9537e7c9225e80cbb8785a579d916bae35c117bae87639bccfedb
+    home: https://www.freshrss.org/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/freshrss-logo.png
+    keywords:
+    - freshrss
+    - rss
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@un-tasse-de.cafe
+      name: QJOLY
+    name: freshrss
+    sources:
+    - https://github.com/FreshRSS/FreshRSS
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/freshrss-1.1.4/freshrss-1.1.4.tgz
+    version: 1.1.4
   - apiVersion: v2
     appVersion: 1.22.0
     created: "2023-10-26T13:10:13.325838857Z"
@@ -155,6 +205,31 @@ entries:
   gitea:
   - apiVersion: v2
     appVersion: 1.20.5
+    created: "2023-10-31T09:35:52.969237512Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.0
+    description: Gitea (Git with a cup of tea)
+    digest: 371887d1c1dc743279278c34847926d81de63c2b1752d96e9f25a19dbc7d2c73
+    home: https://gitea.com
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/gitea-logo.png
+    keywords:
+    - gitea
+    - git
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@un-tasse-de.cafe
+      name: QJOLY
+    name: gitea
+    sources:
+    - https://github.com/go-gitea/gitea
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/gitea-1.0.1/gitea-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 1.20.5
     created: "2023-10-15T14:16:36.396292496Z"
     dependencies:
     - name: common
@@ -179,6 +254,31 @@ entries:
     - https://github.com/RubxKube/charts/releases/download/gitea-1.0.0/gitea-1.0.0.tgz
     version: 1.0.0
   gotify:
+  - apiVersion: v2
+    appVersion: 2.4.0
+    created: "2023-10-31T09:35:53.186243254Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.0
+    description: a simple server for sending and receiving messages
+    digest: 10c73cf4cd70df41a12321c46f6c966456dffc79c7294a8f80b46bc885f67925
+    home: https://gotify.net/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/gotify-logo.png
+    keywords:
+    - gotify
+    - notification
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@un-tasse-de.cafe
+      name: QJOLY
+    name: gotify
+    sources:
+    - https://github.com/gotify/server
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/gotify-1.1.5/gotify-1.1.5.tgz
+    version: 1.1.5
   - apiVersion: v2
     appVersion: 2.4.0
     created: "2023-09-20T05:42:05.110934263Z"
@@ -330,6 +430,33 @@ entries:
     - https://github.com/RubxKube/charts/releases/download/gotify-1.0.0/gotify-1.0.0.tgz
     version: 1.0.0
   jackett:
+  - apiVersion: v2
+    appVersion: 0.21.1096
+    created: "2023-10-31T09:35:53.379703451Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.0
+    description: 'Jackett works as a proxy server: it translates queries from apps
+      into tracker-site-specific http queries.'
+    digest: eaad26ab7466ec36c4e39de52811f579b4b1c89a6ce139bf982c3fa9555900d7
+    home: https://github.com/Jackett/Jackett
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/jackett-logo.png
+    keywords:
+    - Jackett
+    - Plex
+    - Series
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@un-tasse-de.cafe
+      name: QJOLY
+    name: jackett
+    sources:
+    - https://github.com/Jackett/Jackett
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/jackett-1.1.15/jackett-1.1.15.tgz
+    version: 1.1.15
   - apiVersion: v2
     appVersion: 0.21.1096
     created: "2023-10-29T04:43:52.234980213Z"
@@ -738,6 +865,35 @@ entries:
   joplin:
   - apiVersion: v2
     appVersion: 2.13-beta
+    created: "2023-10-31T09:35:53.611269083Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.0
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.1.5
+    description: Joplin is an open source note-taking app. Capture your thoughts and
+      securely access them from any device.
+    digest: 7a169ae9e0e12bdcff6903181127428a3697d84ded1f0adcdc3f421e54a932fb
+    home: https://joplinapp.org/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/joplin-logo.png
+    keywords:
+    - joplin
+    maintainers:
+    - email: github@un-tasse-de.cafe
+      name: QJOLY
+      url: https://une-tasse-de.cafe
+    name: joplin
+    sources:
+    - https://github.com/laurent22/joplin
+    - https://github.com/QJoly/helm-charts
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/joplin-1.0.8/joplin-1.0.8.tgz
+    version: 1.0.8
+  - apiVersion: v2
+    appVersion: 2.13-beta
     created: "2023-10-26T13:01:51.274209675Z"
     dependencies:
     - name: common
@@ -942,6 +1098,30 @@ entries:
   memo:
   - apiVersion: v2
     appVersion: "0.17"
+    created: "2023-10-31T09:35:53.817111457Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.0
+    description: Memo (A privacy-first, lightweight note-taking service)
+    digest: 52c36f0ae1105c1e48727ee5bb19b2d04836bbc8045d954a3ae6a2cce58d4b6d
+    home: https://usememos.com/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/memo-logo.png
+    keywords:
+    - memo
+    maintainers:
+    - email: github@un-tasse-de.cafe
+      name: QJOLY
+      url: https://une-tasse-de.cafe
+    name: memo
+    sources:
+    - https://github.com/usememos/memos
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/memo-1.0.5/memo-1.0.5.tgz
+    version: 1.0.5
+  - apiVersion: v2
+    appVersion: "0.17"
     created: "2023-10-29T05:06:05.771408442Z"
     dependencies:
     - name: common
@@ -1063,6 +1243,30 @@ entries:
   smokeping:
   - apiVersion: v2
     appVersion: 2.8.2
+    created: "2023-10-31T09:35:54.027445858Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.0
+    description: SmokePing is a latency logging and graphing and alerting system
+    digest: eff9415092382270c7f2318b214c235e8964a6a358cdb643bce63fd048bccb11
+    home: https://oss.oetiker.ch/smokeping/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/smokeping-logo.png
+    keywords:
+    - smokeping
+    maintainers:
+    - email: github@un-tasse-de.cafe
+      name: QJOLY
+      url: https://une-tasse-de.cafe
+    name: smokeping
+    sources:
+    - https://github.com/oetiker/SmokePing
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/smokeping-1.0.2/smokeping-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
+    appVersion: 2.8.2
     created: "2023-08-02T06:52:10.634019635Z"
     dependencies:
     - name: common
@@ -1086,6 +1290,32 @@ entries:
     - https://github.com/RubxKube/charts/releases/download/smokeping-1.0.0/smokeping-1.0.0.tgz
     version: 1.0.0
   sonarr:
+  - apiVersion: v2
+    appVersion: 3.0.10
+    created: "2023-10-31T09:35:54.257775482Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.0
+    description: Sonarr is a PVR for Usenet and BitTorrent users.
+    digest: cd88ae5f5a9f4e95e3bf960990d9a8be78cb43e0ef92641162c989a6276030b8
+    home: https://github.com/Sonarr/Sonarr
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/sonarr-logo.png
+    keywords:
+    - Sonarr
+    - Plex
+    - Series
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@un-tasse-de.cafe
+      name: QJOLY
+    name: sonarr
+    sources:
+    - https://github.com/Sonarr/Sonarr
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/sonarr-1.1.1/sonarr-1.1.1.tgz
+    version: 1.1.1
   - apiVersion: v2
     appVersion: 3.0.10
     created: "2023-07-05T12:41:37.883067277Z"
@@ -1139,6 +1369,32 @@ entries:
     - https://github.com/RubxKube/charts/releases/download/sonarr-1.0.0/sonarr-1.0.0.tgz
     version: 1.0.0
   uptime-kuma:
+  - apiVersion: v2
+    appVersion: 1.23.3
+    created: "2023-10-31T09:35:54.462882151Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.0
+    description: Uptime Kuma is an easy-to-use self-hosted monitoring tool.
+    digest: 5aa73597c9341bbafe6b688fcfd7d482c1428896b2b563f8bbbfe6696bfa67ea
+    home: https://github.com/louislam/uptime-kuma
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/uptime-kuma-logo.png
+    keywords:
+    - monitoring
+    - uptime
+    - kuma
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@un-tasse-de.cafe
+      name: QJOLY
+    name: uptime-kuma
+    sources:
+    - https://github.com/louislam/uptime-kuma
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/uptime-kuma-1.0.6/uptime-kuma-1.0.6.tgz
+    version: 1.0.6
   - apiVersion: v2
     appVersion: 1.23.3
     created: "2023-10-29T11:57:28.024622664Z"
@@ -1298,6 +1554,31 @@ entries:
   vaultwarden:
   - apiVersion: v2
     appVersion: 1.29.2
+    created: "2023-10-31T09:35:54.689170851Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.0
+    description: Vaultwarden is an easy-to-use self-hosted password manager.
+    digest: 482225bc83329ab3115062005031b9daec14d4576d0f1d7f93e13c7febfc0a07
+    home: https://github.com/dani-garcia/vaultwarden
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/vaultwarden-logo.png
+    keywords:
+    - password manager
+    - vaultwarden
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@un-tasse-de.cafe
+      name: QJOLY
+    name: vaultwarden
+    sources:
+    - https://github.com/dani-garcia/vaultwarden
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.2/vaultwarden-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
+    appVersion: 1.29.2
     created: "2023-09-19T06:46:27.035288477Z"
     dependencies:
     - name: common
@@ -1346,4 +1627,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2023-10-29T11:57:28.024955465Z"
+generated: "2023-10-31T09:35:54.689432653Z"
