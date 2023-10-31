@@ -12,6 +12,15 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
+func contains(list []string, item string) bool {
+	for _, value := range list {
+		if value == item {
+			return true
+		}
+	}
+	return false
+}
+
 func searchAndReplace(path, wordToFind, wordToReplace string) error {
 	fileData, err := ioutil.ReadFile(path)
 	if err != nil {
@@ -144,7 +153,10 @@ func main() {
 		for _, path := range chartPaths {
 			parts := strings.Split(path, "/")
 			chartName := strings.TrimPrefix(parts[1], "charts/")
-			chartNames = append(chartNames, chartName)
+			// If the chart name is not in the list, add it
+			if !contains(chartNames, chartName) {
+				chartNames = append(chartNames, chartName)
+			}
 		}
 
 	} else {
