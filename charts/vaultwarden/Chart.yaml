@@ -8,7 +8,7 @@ appVersion: 1.29.2
 icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/vaultwarden-logo.png
 maintainers:
   - name: QJOLY
-    email: github@thoughtless.eu
+    email: github@un-tasse-de.cafe
 kubeVersion: '>= 1.18'
 home: https://github.com/dani-garcia/vaultwarden
 keywords:

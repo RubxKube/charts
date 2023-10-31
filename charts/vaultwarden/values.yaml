@@ -30,7 +30,7 @@ common:
   # ingress
   ingress:
     enabled: false
-    hostName: vaultwarden.thoughtless.eu
+    hostName: vaultwarden.un-tasse-de.cafe
     tls:
       enabled: true
       secretName: ""

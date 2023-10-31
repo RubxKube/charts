@@ -9,7 +9,7 @@ import (
 	"strings"
 
 	dig_yaml "github.com/esakat/dig-yaml"
-	"gopkg.in/yaml.v3"
+	"gopkg.in/yaml.v2"
 )
 
 func searchAndReplace(path, wordToFind, wordToReplace string) error {
@@ -35,6 +35,7 @@ func updateChartVersion(chartName string, isGitHubAction bool) {
 	defer f.Close()
 
 	if err != nil {
+		log.Fatal("Error when trying to read " + "../charts/" + chartName + "/Chart.yaml")
 		log.Fatal(err)
 	}
 
@@ -44,12 +45,14 @@ func updateChartVersion(chartName string, isGitHubAction bool) {
 
 	chartVersion, err := dig_yaml.DigYaml(y, "appVersion")
 	if err != nil {
+		log.Fatal("Error when trying to read " + "../charts/" + chartName + "/Chart.yaml")
 		log.Fatal(err)
 	}
 	chartVersion = fmt.Sprintf("%v", chartVersion)
 
 	chartRelease, err := dig_yaml.DigYaml(y, "version")
 	if err != nil {
+		fmt.Println("Can't read chart release")
 		log.Fatal(err)
 	}
 	chartRelease = fmt.Sprintf("%v", chartRelease)
@@ -57,6 +60,7 @@ func updateChartVersion(chartName string, isGitHubAction bool) {
 	f, err = os.Open(valuePath)
 	defer f.Close()
 	if err != nil {
+		fmt.Println("Can't read value file")
 		log.Fatal(err)
 	}
 
@@ -65,27 +69,27 @@ func updateChartVersion(chartName string, isGitHubAction bool) {
 
 	appVersion, err2 := dig_yaml.DigYaml(y, "common", "image", "tag")
 	if err2 != nil {
+		fmt.Println("Can't read tag")
 		log.Fatal(err2)
 	}
 	appVersion = fmt.Sprintf("%v", appVersion)
 
-	if appVersion != chartVersion {
-		fmt.Printf("✖️ Versions in 'Chart.yaml'(%s) and 'values.yaml'(%s) are differents.\n", chartVersion, appVersion)
-	} else {
+	if appVersion == chartVersion {
 		fmt.Println("✔️ Versions are identicals.")
-		os.Exit(0)
-	}
+		//		os.Exit(0)
+	} else {
+		fmt.Printf("✖️ Versions in 'Chart.yaml'(%s) and 'values.yaml'(%s) are differents.\n", chartVersion, appVersion)
 
-	v := strings.Split(chartRelease.(string), ".")
-	x, _ := strconv.ParseInt((v[len(v)-1]), 10, 0)
-	x += 1
-	v = v[:len(v)-1]
-	v = append(v, fmt.Sprint("", x))
+		v := strings.Split(chartRelease.(string), ".")
+		x, _ := strconv.ParseInt((v[len(v)-1]), 10, 0)
+		x += 1
+		v = v[:len(v)-1]
+		v = append(v, fmt.Sprint("", x))
 
-	newChartRelease := strings.Join(v, ".")
+		newChartRelease := strings.Join(v, ".")
 
-	if !isGitHubAction {
-		var sedHelp = fmt.Sprintf(`
+		if !isGitHubAction {
+			var sedHelp = fmt.Sprintf(`
 If you want to replace the version in Chart.yaml file, please execute this command:
 		  
 sed -i 's/%s/%s/' -i %s
@@ -94,13 +98,27 @@ git add %s
 git commit -m "%s: update version to match docker image tag"
 			`, chartVersion, appVersion, chartPath, chartRelease, newChartRelease, chartPath, chartPath, chartName)
 
-		fmt.Println(sedHelp)
+			fmt.Println(sedHelp)
 
-		var replaceFiles string
-		fmt.Print("Or do you want me to replace the version in files? (yes/no): ")
-		fmt.Scan(&replaceFiles)
+			var replaceFiles string
+			fmt.Print("Or do you want me to replace the version in files? (yes/no): ")
+			fmt.Scan(&replaceFiles)
 
-		if replaceFiles == "yes" || replaceFiles == "y" || replaceFiles == "" {
+			if replaceFiles == "yes" || replaceFiles == "y" || replaceFiles == "" {
+				fmt.Println("Let's replace !")
+				err3 := searchAndReplace(chartPath, chartVersion.(string), appVersion.(string))
+				if err3 != nil {
+					log.Fatal(err3)
+				}
+				err4 := searchAndReplace(chartPath, chartRelease.(string), newChartRelease)
+				if err4 != nil {
+					log.Fatal(err4)
+				}
+			} else {
+				fmt.Println("Let's not replace")
+			}
+		} else {
+			fmt.Println("Script is running in a GitHub Action")
 			fmt.Println("Let's replace !")
 			err3 := searchAndReplace(chartPath, chartVersion.(string), appVersion.(string))
 			if err3 != nil {
@@ -110,19 +128,6 @@ git commit -m "%s: update version to match docker image tag"
 			if err4 != nil {
 				log.Fatal(err4)
 			}
-		} else {
-			fmt.Println("Let's not replace")
-		}
-	} else {
-		fmt.Println("Script is running in a GitHub Action")
-		fmt.Println("Let's replace !")
-		err3 := searchAndReplace(chartPath, chartVersion.(string), appVersion.(string))
-		if err3 != nil {
-			log.Fatal(err3)
-		}
-		err4 := searchAndReplace(chartPath, chartRelease.(string), newChartRelease)
-		if err4 != nil {
-			log.Fatal(err4)
 		}
 	}
 
@@ -149,6 +154,7 @@ func main() {
 		fmt.Scan(&chartName)
 		chartNames = append(chartNames, chartName)
 	}
+	fmt.Println(chartNames)
 
 	for _, chartName := range chartNames {
 		fmt.Println("Updating " + chartName + "...")
