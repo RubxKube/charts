@@ -99,7 +99,7 @@ common:
       - name: "config"
         storageClassName: ""
         size: "2Gi"
-        pvcClaim: ""  
+        pvcClaim: ""
         containerMount: "/config/"
       - name: "cache"
         storageClassName: ""
