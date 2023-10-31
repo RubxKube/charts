@@ -16,17 +16,17 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 
 | Name  | Description | Chart Version | App Version |
 |-------|-------------|---------------|-------------|
-| baikal | Baikal is a Cal and CardDAV server, based on sabre/dav, that includes an administrative interface for easy management. | 1.1.0 | 0.9.3-nginx |
-| freshrss | A WebUI to read article via RSS | 1.1.2 | 1.22.0 |
-| uptime-kuma | Uptime Kuma is an easy-to-use self-hosted monitoring tool. | 1.0.5 | 1.23.3 |
-| smokeping | SmokePing is a latency logging and graphing and alerting system | 1.0.1 | 2.8.2 |
-| memo | Memo (A privacy-first, lightweight note-taking service) | 1.0.4 | 0.17 |
-| vaultwarden | Vaultwarden is an easy-to-use self-hosted password manager. | 1.0.1 | 1.29.2 |
-| joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.0.7 | 2.13-beta |
-| sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.1.0 | 3.0.10 |
-| gotify | a simple server for sending and receiving messages | 1.1.4 | 2.4.0 |
-| jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.1.14 | 0.21.1096 |
-| gitea | Gitea (Git with a cup of tea) | 1.0.0 | 1.20.5 |
+| baikal | Baikal is a Cal and CardDAV server, based on sabre/dav, that includes an administrative interface for easy management. | 1.1.1 | 0.9.3-nginx |
+| freshrss | A WebUI to read article via RSS | 1.1.4 | 1.22.1 |
+| uptime-kuma | Uptime Kuma is an easy-to-use self-hosted monitoring tool. | 1.0.6 | 1.23.3 |
+| smokeping | SmokePing is a latency logging and graphing and alerting system | 1.0.2 | 2.8.2 |
+| memo | Memo (A privacy-first, lightweight note-taking service) | 1.0.5 | 0.17 |
+| vaultwarden | Vaultwarden is an easy-to-use self-hosted password manager. | 1.0.2 | 1.29.2 |
+| joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.0.8 | 2.13-beta |
+| sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.1.1 | 3.0.10 |
+| gotify | a simple server for sending and receiving messages | 1.1.5 | 2.4.0 |
+| jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.1.15 | 0.21.1096 |
+| gitea | Gitea (Git with a cup of tea) | 1.0.1 | 1.20.5 |
 
 
 # Contributing 
