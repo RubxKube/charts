@@ -101,6 +101,34 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/baikal-1.0.0/baikal-1.0.0.tgz
     version: 1.0.0
+  deluge:
+  - apiVersion: v2
+    appVersion: 18.04.1
+    created: "2023-11-01T06:39:09.831282366Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.0
+    description: Deluge is a lightweight, Free Software, cross-platform BitTorrent
+      client.
+    digest: d7e6c5a975ea01caa9bc1d5214481fa8c69685fe529532c6cf1e89d36f0b74aa
+    home: https://deluge-torrent.org/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/deluge-logo.png
+    keywords:
+    - Deluge
+    - Torrent
+    - Download
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@un-tasse-de.cafe
+      name: QJOLY
+    name: deluge
+    sources:
+    - https://git.deluge-torrent.org/deluge/tree/?h=develop
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/deluge-1.0.1/deluge-1.0.1.tgz
+    version: 1.0.1
   freshrss:
   - apiVersion: v2
     appVersion: 1.22.1
@@ -1714,4 +1742,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2023-11-01T06:17:13.196377062Z"
+generated: "2023-11-01T06:39:09.8320135Z"
