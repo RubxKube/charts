@@ -1,0 +1,105 @@
+# sonarr
+
+![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.0.10](https://img.shields.io/badge/AppVersion-3.0.10-informational?style=flat-square)
+
+Sonarr is a PVR for Usenet and BitTorrent users.
+
+**Homepage:** <https://github.com/Sonarr/Sonarr>
+
+## Maintainers
+
+| Name | Email | Url |
+| ---- | ------ | --- |
+| QJOLY | <github@un-tasse-de.cafe> |  |
+
+## Source Code
+
+* <https://github.com/Sonarr/Sonarr>
+
+## Requirements
+
+Kubernetes: `>= 1.18`
+
+| Repository | Name | Version |
+|------------|------|---------|
+| https://rubxkube.github.io/common-charts | common | v0.2.0 |
+
+## Values
+
+| Key | Type | Default | Description |
+|-----|------|---------|-------------|
+| common.app.containerPort | int | `8989` |  |
+| common.app.servicePort | int | `80` |  |
+| common.deployment.cpuLimit | string | `nil` |  |
+| common.deployment.cpuRequest | string | `nil` |  |
+| common.deployment.memoryLimit | string | `nil` |  |
+| common.deployment.memoryRequest | string | `nil` |  |
+| common.deployment.strategy.rollingUpdate.maxSurge | string | `"25%"` |  |
+| common.deployment.strategy.rollingUpdate.maxUnavailable | string | `"25%"` |  |
+| common.deployment.strategy.type | string | `"RollingUpdate"` |  |
+| common.hpa.avgCpuUtilization | int | `50` |  |
+| common.hpa.enabled | bool | `false` |  |
+| common.hpa.maxReplicas | int | `2` |  |
+| common.hpa.minReplicas | int | `1` |  |
+| common.image.pullPolicy | string | `"Always"` |  |
+| common.image.repository | string | `"linuxserver/sonarr"` |  |
+| common.image.repositorySettings.isPrivate | bool | `false` |  |
+| common.image.repositorySettings.name | string | `nil` |  |
+| common.image.repositorySettings.secretName | string | `nil` |  |
+| common.image.tag | string | `"3.0.10"` |  |
+| common.ingress.certResolver | string | `"letsencrypt"` |  |
+| common.ingress.enabled | bool | `false` |  |
+| common.ingress.entrypoint | string | `"websecure"` |  |
+| common.ingress.hostName | string | `"sonarr.un-tasse-de.cafe"` |  |
+| common.ingress.ingressClassName | string | `"istio"` |  |
+| common.ingress.isIngressRoute | bool | `true` |  |
+| common.ingress.tls.enabled | bool | `true` |  |
+| common.ingress.tls.secretName | string | `""` |  |
+| common.livenessProbe.failureThreshold | int | `1` |  |
+| common.livenessProbe.httpGet.path | string | `"/"` |  |
+| common.livenessProbe.httpGet.port | int | `8989` |  |
+| common.livenessProbe.initialDelaySeconds | int | `30` |  |
+| common.livenessProbe.periodSeconds | int | `60` |  |
+| common.livenessProbe.timeoutSeconds | int | `3` |  |
+| common.livenessProbeEnabled | bool | `true` |  |
+| common.persistence.enabled | bool | `true` |  |
+| common.persistence.volumes[0].containerMount | string | `"/config/"` |  |
+| common.persistence.volumes[0].name | string | `"config"` |  |
+| common.persistence.volumes[0].pvcClaim | string | `""` |  |
+| common.persistence.volumes[0].size | string | `"2Gi"` |  |
+| common.persistence.volumes[0].storageClassName | string | `""` |  |
+| common.persistence.volumes[1].containerMount | string | `"/tv/"` |  |
+| common.persistence.volumes[1].name | string | `"tv"` |  |
+| common.persistence.volumes[1].pvcClaim | string | `""` |  |
+| common.persistence.volumes[1].size | string | `"1Gi"` |  |
+| common.persistence.volumes[1].storageClassName | string | `""` |  |
+| common.persistence.volumes[2].containerMount | string | `"/downloads/"` |  |
+| common.persistence.volumes[2].name | string | `"downloads"` |  |
+| common.persistence.volumes[2].pvcClaim | string | `""` |  |
+| common.persistence.volumes[2].size | string | `"2Gi"` |  |
+| common.persistence.volumes[2].storageClassName | string | `""` |  |
+| common.readinessProbe.failureThreshold | int | `2` |  |
+| common.readinessProbe.httpGet.path | string | `"/"` |  |
+| common.readinessProbe.httpGet.port | int | `8989` |  |
+| common.readinessProbe.initialDelaySeconds | int | `30` |  |
+| common.readinessProbe.periodSeconds | int | `30` |  |
+| common.readinessProbe.timeoutSeconds | int | `3` |  |
+| common.readinessProbeEnabled | bool | `true` |  |
+| common.startupProbe.failureThreshold | int | `20` |  |
+| common.startupProbe.httpGet.path | string | `"/"` |  |
+| common.startupProbe.httpGet.port | int | `8989` |  |
+| common.startupProbe.periodSeconds | int | `10` |  |
+| common.startupProbe.timeoutSeconds | int | `1` |  |
+| common.startupProbeEnabled | bool | `false` |  |
+| common.tests.classicHttp.enabled | bool | `true` |  |
+| common.tests.curlHostHeader.enabled | bool | `true` |  |
+| common.tests.curlHostHeader.path | string | `"/"` |  |
+| common.variables.nonSecret.AUTO_UPDATE | bool | `true` |  |
+| common.variables.nonSecret.PGID | int | `1000` |  |
+| common.variables.nonSecret.PUID | int | `1000` |  |
+| common.variables.nonSecret.TZ | string | `"Etc/UTC"` |  |
+| common.variables.secret | object | `{}` |  |
+| define | int | `8989` |  |
+
+----------------------------------------------
+Autogenerated from chart metadata using [helm-docs v1.11.2](https://github.com/norwoodj/helm-docs/releases/v1.11.2)
