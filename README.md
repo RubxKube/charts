@@ -18,7 +18,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 |-------|-------------|---------------|-------------|
 | baikal | Baikal is a Cal and CardDAV server, based on sabre/dav, that includes an administrative interface for easy management. | 1.1.1 | 0.9.3-nginx |
 | freshrss | A WebUI to read article via RSS | 1.1.4 | 1.22.1 |
-| deluge | Deluge is a lightweight, Free Software, cross-platform BitTorrent client. | 1.0.0 | 2.1.1 |
+| deluge | Deluge is a lightweight, Free Software, cross-platform BitTorrent client. | 1.0.1 | 18.04.1 |
 | uptime-kuma | Uptime Kuma is an easy-to-use self-hosted monitoring tool. | 1.0.6 | 1.23.3 |
 | smokeping | SmokePing is a latency logging and graphing and alerting system | 1.0.2 | 2.8.2 |
 | linkding | linkding is a bookmark manager that you can host yourself. It's designed be to be minimal, fast, and easy to set up. | 1.0.0 | 1.22.2 |
