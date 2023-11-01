@@ -35,10 +35,15 @@ jobs:
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
       - name: Run update for any chart concerned by the commit
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: |
          cd hack/ && go run update_after_renovate.go ${{ steps.changed-files-specific.outputs.all_changed_files }}
+         
+      - name: Commit modifications
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: steps.changed-files-specific.outputs.any_changed == 'true'
+        run: |       
          git commit -a -m "[AUTO] Update chart version"
          git push
