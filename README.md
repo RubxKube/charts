@@ -28,6 +28,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | gotify | a simple server for sending and receiving messages | 1.1.5 | 2.4.0 |
 | jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.1.15 | 0.21.1096 |
 | gitea | Gitea (Git with a cup of tea) | 1.0.1 | 1.20.5 |
+| jellyfin | Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media | 1.0.0 | 10.8.11 |
 
 
 # Contributing 
