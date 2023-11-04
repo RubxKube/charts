@@ -17,7 +17,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | Name  | Description | Chart Version | App Version |
 |-------|-------------|---------------|-------------|
 | vaultwarden | Vaultwarden is an easy-to-use self-hosted password manager. | 1.0.2 | 1.29.2 |
-| linkding | linkding is a bookmark manager that you can host yourself. It's designed be to be minimal, fast, and easy to set up. | 1.0.0 | 1.22.2 |
+| linkding | linkding is a bookmark manager that you can host yourself. It's designed be to be minimal, fast, and easy to set up. | 1.0.1 | 1.22.3 |
 | baikal | Baikal is a Cal and CardDAV server, based on sabre/dav, that includes an administrative interface for easy management. | 1.1.1 | 0.9.3-nginx |
 | radarr | Radarr is a movie collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new movies and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available. | 1.0.0 | 5.0.3 |
 | sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.1.1 | 3.0.10 |
