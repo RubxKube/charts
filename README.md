@@ -28,7 +28,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | jellyfin | Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media | 1.0.0 | 10.8.11 |
 | gotify | a simple server for sending and receiving messages | 1.1.5 | 2.4.0 |
 | smokeping | SmokePing is a latency logging and graphing and alerting system | 1.0.2 | 2.8.2 |
-| joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.0.10 | 2.13-beta |
+| joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.0.11 | 2.13-beta |
 | freshrss | A WebUI to read article via RSS | 1.1.4 | 1.22.1 |
 | memo | Memo (A privacy-first, lightweight note-taking service) | 1.0.5 | 0.17 |
 
