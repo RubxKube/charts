@@ -3,8 +3,8 @@ apiVersion: v2
 type: application
 name: gitea
 description: Gitea (Git with a cup of tea)
-version: 1.0.1
-appVersion: "1.20.5"
+version: 1.0.2
+appVersion: "1.21.0"
 icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/gitea-logo.png
 maintainers:
   - name: QJOLY
