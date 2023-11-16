@@ -24,7 +24,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | uptime-kuma | Uptime Kuma is an easy-to-use self-hosted monitoring tool. | 1.0.7 | 1.23.4 |
 | jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.1.15 | 0.21.1096 |
 | deluge | Deluge is a lightweight, Free Software, cross-platform BitTorrent client. | 1.0.1 | 18.04.1 |
-| gitea | Gitea (Git with a cup of tea) | 1.0.1 | 1.20.5 |
+| gitea | Gitea (Git with a cup of tea) | 1.0.2 | 1.21.0 |
 | jellyfin | Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media | 1.0.1 | 10.8.12 |
 | gotify | a simple server for sending and receiving messages | 1.1.5 | 2.4.0 |
 | smokeping | SmokePing is a latency logging and graphing and alerting system | 1.0.2 | 2.8.2 |
