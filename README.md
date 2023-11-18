@@ -21,7 +21,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | baikal | Baikal is a Cal and CardDAV server, based on sabre/dav, that includes an administrative interface for easy management. | 1.1.1 | 0.9.3-nginx |
 | radarr | Radarr is a movie collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new movies and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available. | 1.0.1 | 5.1.3 |
 | sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.1.1 | 3.0.10 |
-| uptime-kuma | Uptime Kuma is an easy-to-use self-hosted monitoring tool. | 1.0.7 | 1.23.4 |
+| uptime-kuma | Uptime Kuma is an easy-to-use self-hosted monitoring tool. | 1.0.8 | 1.23.5 |
 | jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.1.15 | 0.21.1096 |
 | deluge | Deluge is a lightweight, Free Software, cross-platform BitTorrent client. | 1.0.1 | 18.04.1 |
 | gitea | Gitea (Git with a cup of tea) | 1.0.2 | 1.21.0 |
