@@ -24,7 +24,7 @@ common:
       isPrivate: false
       secretName: null
     repository: gitea/gitea
-    tag: '1.21.0'
+    tag: '1.21.1'
     pullPolicy: Always
 
   # ingress
