@@ -21,7 +21,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | vaultwarden | Vaultwarden is an easy-to-use self-hosted password manager. | 1.0.3 | 1.30.0 |
 | jellyfin | Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media | 1.0.1 | 10.8.12 |
 | baikal | Baikal is a Cal and CardDAV server, based on sabre/dav, that includes an administrative interface for easy management. | 1.1.1 | 0.9.3-nginx |
-| joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.0.12 | 2.13-beta |
+| joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.0.13 | 2.13-beta |
 | gitea | Gitea (Git with a cup of tea) | 1.0.2 | 1.21.0 |
 | freshrss | A WebUI to read article via RSS | 1.1.4 | 1.22.1 |
 | smokeping | SmokePing is a latency logging and graphing and alerting system | 1.0.2 | 2.8.2 |
