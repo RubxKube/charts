@@ -3,8 +3,8 @@ apiVersion: v2
 type: application
 name: linkding
 description: linkding is a bookmark manager that you can host yourself. It's designed be to be minimal, fast, and easy to set up.
-version: 1.0.1
-appVersion: "1.22.3"
+version: 1.0.2
+appVersion: "1.23.0"
 icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/linkding-logo.png
 maintainers:
   - name: QJOLY
