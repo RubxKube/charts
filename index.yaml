@@ -942,6 +942,36 @@ entries:
     version: 1.0.0
   jellyfin:
   - apiVersion: v2
+    appVersion: 10.8.13
+    created: "2023-11-29T08:13:41.434413037Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.0
+    description: Jellyfin is a Free Software Media System that puts you in control
+      of managing and streaming your media
+    digest: 6902a455252302ae6fae59fe731347819f3d08e41eeb586deea93681f348c09f
+    home: https://jellyfin.org/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/jellyfin-logo.png
+    keywords:
+    - media server
+    - Plex
+    - Jellyfin
+    - Media
+    - Streaming
+    - Server
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@un-tasse-de.cafe
+      name: QJOLY
+    name: jellyfin
+    sources:
+    - https://github.com/jellyfin/jellyfin
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/jellyfin-1.0.2/jellyfin-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
     appVersion: 10.8.12
     created: "2023-11-08T08:49:16.071453082Z"
     dependencies:
@@ -2175,4 +2205,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2023-11-29T08:12:36.068673197Z"
+generated: "2023-11-29T08:13:41.434526327Z"
