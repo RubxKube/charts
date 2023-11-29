@@ -19,7 +19,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | gotify | a simple server for sending and receiving messages | 1.1.5 | 2.4.0 |
 | uptime-kuma | Uptime Kuma is an easy-to-use self-hosted monitoring tool. | 1.0.10 | 1.23.7 |
 | vaultwarden | Vaultwarden is an easy-to-use self-hosted password manager. | 1.0.4 | 1.30.1 |
-| jellyfin | Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media | 1.0.1 | 10.8.12 |
+| jellyfin | Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media | 1.0.2 | 10.8.13 |
 | baikal | Baikal is a Cal and CardDAV server, based on sabre/dav, that includes an administrative interface for easy management. | 1.1.1 | 0.9.3-nginx |
 | joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.0.13 | 2.13-beta |
 | gitea | Gitea (Git with a cup of tea) | 1.0.3 | 1.21.1 |
