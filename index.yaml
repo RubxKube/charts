@@ -232,6 +232,31 @@ entries:
     version: 1.0.0
   gitea:
   - apiVersion: v2
+    appVersion: 1.21.2
+    created: "2023-12-12T16:50:39.929762666Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.0
+    description: Gitea (Git with a cup of tea)
+    digest: 35dabf92132bbfc97670eb543c637d6f7789b051765e6eaa5f035d816e6b43e1
+    home: https://gitea.com
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/gitea-logo.png
+    keywords:
+    - gitea
+    - git
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@un-tasse-de.cafe
+      name: QJOLY
+    name: gitea
+    sources:
+    - https://github.com/go-gitea/gitea
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/gitea-1.0.4/gitea-1.0.4.tgz
+    version: 1.0.4
+  - apiVersion: v2
     appVersion: 1.21.1
     created: "2023-11-27T06:10:30.345546739Z"
     dependencies:
@@ -2333,4 +2358,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2023-12-12T16:49:48.256870666Z"
+generated: "2023-12-12T16:50:39.929940968Z"
