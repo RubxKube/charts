@@ -1516,6 +1516,30 @@ entries:
     version: 1.0.0
   memo:
   - apiVersion: v2
+    appVersion: "0.18"
+    created: "2023-12-12T16:49:48.256675012Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.0
+    description: Memo (A privacy-first, lightweight note-taking service)
+    digest: 775e08c20818f380ab2db8fd998b43cae33c7bf3d28a838f66e6eb118487ed14
+    home: https://usememos.com/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/memo-logo.png
+    keywords:
+    - memo
+    maintainers:
+    - email: github@un-tasse-de.cafe
+      name: QJOLY
+      url: https://une-tasse-de.cafe
+    name: memo
+    sources:
+    - https://github.com/usememos/memos
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/memo-1.0.6/memo-1.0.6.tgz
+    version: 1.0.6
+  - apiVersion: v2
     appVersion: "0.17"
     created: "2023-10-31T09:35:53.817111457Z"
     dependencies:
@@ -2309,4 +2333,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2023-12-12T07:43:48.410595167Z"
+generated: "2023-12-12T16:49:48.256870666Z"
