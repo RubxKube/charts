@@ -30,7 +30,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | deluge | Deluge is a lightweight, Free Software, cross-platform BitTorrent client. | 1.0.2 | 18.04.1 |
 | gotify | a simple server for sending and receiving messages | 1.1.5 | 2.4.0 |
 | freshrss | A WebUI to read article via RSS | 1.1.4 | 1.22.1 |
-| joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.0.14 | 2.14-beta |
+| joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.0.15 | 2.14-beta |
 
 
 # Contributing 
