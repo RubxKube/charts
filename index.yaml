@@ -104,6 +104,33 @@ entries:
   deluge:
   - apiVersion: v2
     appVersion: 18.04.1
+    created: "2023-12-21T09:19:50.915868033Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.1
+    description: Deluge is a lightweight, Free Software, cross-platform BitTorrent
+      client.
+    digest: 565cad5d61d887a982953eaf0bc90a3cf62efa04c801c824e945912983d4a8b2
+    home: https://deluge-torrent.org/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/deluge-logo.png
+    keywords:
+    - Deluge
+    - Torrent
+    - Download
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@un-tasse-de.cafe
+      name: QJOLY
+    name: deluge
+    sources:
+    - https://git.deluge-torrent.org/deluge/tree/?h=develop
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/deluge-1.0.2/deluge-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
+    appVersion: 18.04.1
     created: "2023-11-01T06:39:09.831282366Z"
     dependencies:
     - name: common
@@ -2384,4 +2411,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2023-12-16T09:36:19.517639361Z"
+generated: "2023-12-21T09:19:50.916211422Z"
