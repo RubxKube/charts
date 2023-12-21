@@ -1085,6 +1085,35 @@ entries:
     version: 1.0.0
   joplin:
   - apiVersion: v2
+    appVersion: 2.14-beta
+    created: "2023-12-21T09:22:58.537928058Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.1
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.2.17
+    description: Joplin is an open source note-taking app. Capture your thoughts and
+      securely access them from any device.
+    digest: a7524271625b7c986802861491ad360e2c705366fb3a04bff406a97ae3aafe51
+    home: https://joplinapp.org/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/joplin-logo.png
+    keywords:
+    - joplin
+    maintainers:
+    - email: github@un-tasse-de.cafe
+      name: QJOLY
+      url: https://une-tasse-de.cafe
+    name: joplin
+    sources:
+    - https://github.com/laurent22/joplin
+    - https://github.com/QJoly/helm-charts
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/joplin-1.0.14/joplin-1.0.14.tgz
+    version: 1.0.14
+  - apiVersion: v2
     appVersion: 2.13-beta
     created: "2023-11-26T10:53:27.055206804Z"
     dependencies:
@@ -2411,4 +2440,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2023-12-21T09:19:50.916211422Z"
+generated: "2023-12-21T09:22:58.538072668Z"
