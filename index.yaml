@@ -3,6 +3,31 @@ entries:
   baikal:
   - apiVersion: v2
     appVersion: 0.9.3-nginx
+    created: "2023-12-26T08:39:49.795961856Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.1
+    description: Baikal is a Cal and CardDAV server, based on sabre/dav, that includes
+      an administrative interface for easy management.
+    digest: 23fd72d051585e23be83aece789773e3dad5ecb97f3801b17ff0b8717e0f21ab
+    home: https://sabre.io/baikal/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/baikal-logo.png
+    keywords:
+    - baikal
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@un-tasse-de.cafe
+      name: QJOLY
+    name: baikal
+    sources:
+    - https://github.com/sabre-io/Baikal
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/baikal-1.1.3/baikal-1.1.3.tgz
+    version: 1.1.3
+  - apiVersion: v2
+    appVersion: 0.9.3-nginx
     created: "2023-10-31T09:35:52.56161649Z"
     dependencies:
     - name: common
@@ -157,6 +182,31 @@ entries:
     - https://github.com/RubxKube/charts/releases/download/deluge-1.0.1/deluge-1.0.1.tgz
     version: 1.0.1
   freshrss:
+  - apiVersion: v2
+    appVersion: 1.23.0
+    created: "2023-12-26T08:39:49.987803909Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.1
+    description: A WebUI to read article via RSS
+    digest: 4ccdc74d9123f50f3d6d134424d3f8a9c92e107a5535df5529f5f28c8f34c957
+    home: https://www.freshrss.org/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/freshrss-logo.png
+    keywords:
+    - freshrss
+    - rss
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@un-tasse-de.cafe
+      name: QJOLY
+    name: freshrss
+    sources:
+    - https://github.com/FreshRSS/FreshRSS
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/freshrss-1.1.5/freshrss-1.1.5.tgz
+    version: 1.1.5
   - apiVersion: v2
     appVersion: 1.22.1
     created: "2023-10-31T09:35:52.74259121Z"
@@ -1820,6 +1870,36 @@ entries:
     version: 1.0.0
   radarr:
   - apiVersion: v2
+    appVersion: 5.2.6
+    created: "2023-12-26T08:39:50.15386541Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.1
+    description: Radarr is a movie collection manager for Usenet and BitTorrent users.
+      It can monitor multiple RSS feeds for new movies and will interface with clients
+      and indexers to grab, sort, and rename them. It can also be configured to automatically
+      upgrade the quality of files already downloaded when a better quality format
+      becomes available.
+    digest: bd38d79e2aa900892840ba631f882d4b1a8f0158222227992ae718c34fbff7a9
+    home: https://radarr.video/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/radarr-logo.png
+    keywords:
+    - Radarr
+    - Movies
+    - Plex
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@un-tasse-de.cafe
+      name: QJOLY
+    name: radarr
+    sources:
+    - https://github.com/Radarr/Radarr
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/radarr-1.0.2/radarr-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
     appVersion: 5.1.3
     created: "2023-11-13T08:14:20.386837441Z"
     dependencies:
@@ -2494,4 +2574,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2023-12-21T09:28:17.460525732Z"
+generated: "2023-12-26T08:39:50.154087813Z"
