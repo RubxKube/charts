@@ -26,7 +26,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | linkding | linkding is a bookmark manager that you can host yourself. It's designed be to be minimal, fast, and easy to set up. | 1.0.3 | 1.23.1 |
 | jellyfin | Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media | 1.0.2 | 10.8.13 |
 | gitea | Gitea (Git with a cup of tea) | 1.0.5 | 1.21.3 |
-| sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.1.1 | 3.0.10 |
+| sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.1.2 | 4.0.0 |
 | deluge | Deluge is a lightweight, Free Software, cross-platform BitTorrent client. | 1.0.2 | 18.04.1 |
 | gotify | a simple server for sending and receiving messages | 1.1.5 | 2.4.0 |
 | freshrss | A WebUI to read article via RSS | 1.1.5 | 1.23.0 |
