@@ -25,7 +25,7 @@ common:
       isPrivate: false
       secretName: null
     repository: linuxserver/sonarr
-    tag: 3.0.10
+    tag: 4.0.0
     pullPolicy: Always
 
   # ingress
