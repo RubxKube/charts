@@ -3,8 +3,8 @@ apiVersion: v2
 type: application
 name: uptime-kuma
 description: Uptime Kuma is an easy-to-use self-hosted monitoring tool.
-version: 1.0.14
-appVersion: 1.23.10
+version: 1.0.15
+appVersion: 1.23.11
 icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/uptime-kuma-logo.png
 maintainers:
   - name: QJOLY
