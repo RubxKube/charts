@@ -16,7 +16,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 
 | Name  | Description | Chart Version | App Version |
 |-------|-------------|---------------|-------------|
-| uptime-kuma | Uptime Kuma is an easy-to-use self-hosted monitoring tool. | 1.0.14 | 1.23.10 |
+| uptime-kuma | Uptime Kuma is an easy-to-use self-hosted monitoring tool. | 1.0.15 | 1.23.11 |
 | jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.1.15 | 0.21.1096 |
 | radarr | Radarr is a movie collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new movies and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available. | 1.0.2 | 5.2.6 |
 | vaultwarden | Vaultwarden is an easy-to-use self-hosted password manager. | 1.0.5 | 1.30.1 |
@@ -29,7 +29,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.1.2 | 4.0.0 |
 | deluge | Deluge is a lightweight, Free Software, cross-platform BitTorrent client. | 1.0.2 | 18.04.1 |
 | gotify | a simple server for sending and receiving messages | 1.1.5 | 2.4.0 |
-| freshrss | A WebUI to read article via RSS | 1.1.5 | 1.23.0 |
+| freshrss | A WebUI to read article via RSS | 1.1.6 | 1.23.1 |
 | joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.0.16 | 2.14-beta |
 
 
