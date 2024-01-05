@@ -31,7 +31,7 @@ common:
   # ingress
   ingress:
     enabled: false
-    hostName: radarr.un-tasse-de.cafe
+    hostName: radarr.une-tasse-de.cafe
     tls:
       enabled: true
       secretName: ""

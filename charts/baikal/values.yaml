@@ -30,7 +30,7 @@ common:
   # ingress
   ingress:
     enabled: false
-    hostName: baikal.un-tasse-de.cafe
+    hostName: baikal.une-tasse-de.cafe
     tls:
       enabled: true
       secretName: ""

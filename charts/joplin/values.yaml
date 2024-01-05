@@ -43,7 +43,7 @@ common:
   # ingress
   ingress:
     enabled: false
-    hostName: joplin.un-tasse-de.cafe
+    hostName: joplin.une-tasse-de.cafe
     tls:
       enabled: true
       secretName: ""
@@ -64,7 +64,7 @@ common:
       POSTGRES_PASSWORD: "joplinpass"
       POSTGRES_HOST: "joplin-postgresql"  # if postgresql.enabled, must be RELEASE-NAME-postgresql (ex: my-wakapi-postgresql)
       POSTGRES_PORT: "5432"
-      APP_BASE_URL: https://joplin.un-tasse-de.cafe
+      APP_BASE_URL: https://joplin.une-tasse-de.cafe
 
   # horizontal autoscaler
   hpa:

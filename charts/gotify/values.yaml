@@ -30,7 +30,7 @@ common:
   # ingress
   ingress:
     enabled: false
-    hostName: gotify.un-tasse-de.cafe
+    hostName: gotify.une-tasse-de.cafe
     tls:
       enabled: true
       secretName: ""

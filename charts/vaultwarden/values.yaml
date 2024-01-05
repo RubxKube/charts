@@ -30,7 +30,7 @@ common:
   # ingress
   ingress:
     enabled: false
-    hostName: vaultwarden.un-tasse-de.cafe
+    hostName: vaultwarden.une-tasse-de.cafe
     tls:
       enabled: true
       secretName: ""

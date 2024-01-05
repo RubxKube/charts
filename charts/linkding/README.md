@@ -1,6 +1,6 @@
 # linkding
 
-![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.22.2](https://img.shields.io/badge/AppVersion-1.22.2-informational?style=flat-square)
+![Version: 1.1.3](https://img.shields.io/badge/Version-1.1.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.23.1](https://img.shields.io/badge/AppVersion-1.23.1-informational?style=flat-square)
 
 linkding is a bookmark manager that you can host yourself. It's designed be to be minimal, fast, and easy to set up.
 
@@ -10,7 +10,7 @@ linkding is a bookmark manager that you can host yourself. It's designed be to b
 
 | Name | Email | Url |
 | ---- | ------ | --- |
-| QJOLY | <github@un-tasse-de.cafe> |  |
+| QJOLY | <github@une-tasse-de.cafe> |  |
 
 ## Source Code
 
@@ -22,7 +22,7 @@ Kubernetes: `>= 1.18`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://rubxkube.github.io/common-charts | common | v0.2.0 |
+| https://rubxkube.github.io/common-charts | common | v0.2.2 |
 
 ## Values
 
@@ -45,7 +45,7 @@ Kubernetes: `>= 1.18`
 | common.image.repository | string | `"sissbruecker/linkding"` |  |
 | common.image.repositorySettings.isPrivate | bool | `false` |  |
 | common.image.repositorySettings.secretName | string | `nil` |  |
-| common.image.tag | string | `"1.22.2"` |  |
+| common.image.tag | string | `"1.23.1"` |  |
 | common.ingress.certResolver | string | `"letsencrypt"` |  |
 | common.ingress.enabled | bool | `false` |  |
 | common.ingress.entrypoint | string | `"websecure"` |  |

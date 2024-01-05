@@ -30,7 +30,7 @@ common:
   # ingress
   ingress:
     enabled: false
-    hostName: freshrss.un-tasse-de.cafe
+    hostName: freshrss.une-tasse-de.cafe
     tls:
       enabled: true
       secretName: ""

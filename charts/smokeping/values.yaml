@@ -31,7 +31,7 @@ common:
   # ingress
   ingress:
     enabled: false
-    hostName: smokeping.un-tasse-de.cafe
+    hostName: smokeping.une-tasse-de.cafe
     tls:
       enabled: true
       secretName: ""
