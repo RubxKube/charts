@@ -31,7 +31,7 @@ common:
   # ingress
   ingress:
     enabled: false
-    hostName: sonarr.un-tasse-de.cafe
+    hostName: sonarr.une-tasse-de.cafe
     tls:
       enabled: true
       secretName: ""

@@ -30,7 +30,7 @@ common:
   # ingress
   ingress:
     enabled: false
-    hostName: jackett.un-tasse-de.cafe
+    hostName: jackett.une-tasse-de.cafe
     tls:
       enabled: true
       secretName: ""

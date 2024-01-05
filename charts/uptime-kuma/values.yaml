@@ -30,7 +30,7 @@ common:
   # ingress
   ingress:
     enabled: false
-    hostName: kuma.un-tasse-de.cafe
+    hostName: kuma.une-tasse-de.cafe
     tls:
       enabled: true
       secretName: ""
