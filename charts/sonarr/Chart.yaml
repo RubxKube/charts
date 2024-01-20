@@ -3,8 +3,8 @@ apiVersion: v2
 type: application
 name: sonarr
 description: "Sonarr is a PVR for Usenet and BitTorrent users."
-version: 1.2.2
-appVersion: 4.0.0
+version: 1.2.3
+appVersion: 4.0.1
 icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/sonarr-logo.png
 maintainers:
  - name: QJOLY
