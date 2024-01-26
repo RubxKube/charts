@@ -24,7 +24,7 @@ common:
       isPrivate: false
       secretName: null
     repository: neosmemo/memos
-    tag: 0.18
+    tag: 0.19
     pullPolicy: Always
 
   # ingress
