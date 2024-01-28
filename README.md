@@ -29,7 +29,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | baikal | Baikal is a Cal and CardDAV server, based on sabre/dav, that includes an administrative interface for easy management. | 1.2.4 | 0.9.4-nginx |
 | gotify | a simple server for sending and receiving messages | 1.2.5 | 2.4.0 |
 | vaultwarden | Vaultwarden is an easy-to-use self-hosted password manager. | 1.1.5 | 1.30.1 |
-| sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.2.2 | 4.0.0 |
+| sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.2.3 | 4.0.1 |
 | uptime-kuma | Uptime Kuma is an easy-to-use self-hosted monitoring tool. | 1.1.15 | 1.23.11 |
 
 
