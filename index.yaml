@@ -411,6 +411,31 @@ entries:
     version: 1.0.0
   gitea:
   - apiVersion: v2
+    appVersion: 1.21.5
+    created: "2024-02-02T06:33:48.382152222Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: Gitea (Git with a cup of tea)
+    digest: da5cbc7ce2a3908a769bc7394878cdcc46368dae423c1536335ce474f227f76a
+    home: https://gitea.com
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/gitea-logo.png
+    keywords:
+    - gitea
+    - git
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: gitea
+    sources:
+    - https://github.com/go-gitea/gitea
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/gitea-1.1.7/gitea-1.1.7.tgz
+    version: 1.1.7
+  - apiVersion: v2
     appVersion: 1.21.4
     created: "2024-01-17T10:16:29.639091629Z"
     dependencies:
@@ -3002,6 +3027,31 @@ entries:
     version: 1.0.0
   vaultwarden:
   - apiVersion: v2
+    appVersion: 1.30.2
+    created: "2024-02-02T06:33:48.492938319Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: Vaultwarden is an easy-to-use self-hosted password manager.
+    digest: 09df8ff304dbbc72822a1d16805a7834445a3d31e6a7bd7b9048dde3d0a0c926
+    home: https://github.com/dani-garcia/vaultwarden
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/vaultwarden-logo.png
+    keywords:
+    - password manager
+    - vaultwarden
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: vaultwarden
+    sources:
+    - https://github.com/dani-garcia/vaultwarden
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.1.6/vaultwarden-1.1.6.tgz
+    version: 1.1.6
+  - apiVersion: v2
     appVersion: 1.30.1
     created: "2024-01-05T07:09:44.88814154Z"
     dependencies:
@@ -3151,4 +3201,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2024-01-28T14:56:20.452330687Z"
+generated: "2024-02-02T06:33:48.493141216Z"
