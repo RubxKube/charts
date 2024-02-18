@@ -17,7 +17,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | Name  | Description | Chart Version | App Version |
 |-------|-------------|---------------|-------------|
 | freshrss | A WebUI to read article via RSS | 1.2.6 | 1.23.1 |
-| radarr | Radarr is a movie collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new movies and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available. | 1.1.2 | 5.2.6 |
+| radarr | Radarr is a movie collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new movies and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available. | 1.1.3 | 5.3.6 |
 | sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.2.3 | 4.0.1 |
 | smokeping | SmokePing is a latency logging and graphing and alerting system | 1.1.2 | 2.8.2 |
 | uptime-kuma | Uptime Kuma is an easy-to-use self-hosted monitoring tool. | 1.1.15 | 1.23.11 |
