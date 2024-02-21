@@ -12,7 +12,7 @@ jobs:
   increase-version:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@473055ba18d6d2da209cd46110aadb9275e3194e
+      - uses: actions/checkout@df0bcddf6d6823307c716b56a7ef9c3b25078874
 
       - name: Checkout PR
         env:
