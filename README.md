@@ -18,8 +18,8 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 |-------|-------------|---------------|-------------|
 | gotify | a simple server for sending and receiving messages | 1.2.5 | 2.4.0 |
 | vaultwarden | Vaultwarden is an easy-to-use self-hosted password manager. | 1.1.8 | 1.30.5 |
-| sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.2.3 | 4.0.1 |
-| gitea | Gitea (Git with a cup of tea) | 1.1.7 | 1.21.5 |
+| sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.2.4 | 4.0.2 |
+| gitea | Gitea (Git with a cup of tea) | 1.1.8 | 1.21.6 |
 | baikal | Baikal is a Cal and CardDAV server, based on sabre/dav, that includes an administrative interface for easy management. | 1.2.4 | 0.9.4-nginx |
 | freshrss | A WebUI to read article via RSS | 1.2.6 | 1.23.1 |
 | linkding | linkding is a bookmark manager that you can host yourself. It's designed be to be minimal, fast, and easy to set up. | 1.1.4 | 1.24.0 |
