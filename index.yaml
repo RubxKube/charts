@@ -2431,6 +2431,17 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/radarr-1.0.1/radarr-1.0.1.tgz
     version: 1.0.1
+  simple-coffee:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-03-11T14:26:53.023180034Z"
+    description: This is a test application
+    digest: ce1da241bb2b313716213b8cc5b405425df5a493234bb533f194d570f409b7d4
+    name: simple-coffee
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/simple-coffee-0.1.0/simple-coffee-0.1.0.tgz
+    version: 0.1.0
   smokeping:
   - apiVersion: v2
     appVersion: 2.8.2
@@ -3356,4 +3367,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2024-03-11T14:18:27.932410854Z"
+generated: "2024-03-11T14:26:53.023575552Z"
