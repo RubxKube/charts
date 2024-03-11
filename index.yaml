@@ -411,6 +411,31 @@ entries:
     version: 1.0.0
   gitea:
   - apiVersion: v2
+    appVersion: 1.21.6
+    created: "2024-03-11T14:18:27.721605332Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: Gitea (Git with a cup of tea)
+    digest: 0c724b01d82658d6e530901ab284dee18d07767af4e066caed169b992f404d04
+    home: https://gitea.com
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/gitea-logo.png
+    keywords:
+    - gitea
+    - git
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: gitea
+    sources:
+    - https://github.com/go-gitea/gitea
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/gitea-1.1.8/gitea-1.1.8.tgz
+    version: 1.1.8
+  - apiVersion: v2
     appVersion: 1.21.5
     created: "2024-02-02T06:33:48.382152222Z"
     dependencies:
@@ -2481,6 +2506,32 @@ entries:
     version: 1.0.0
   sonarr:
   - apiVersion: v2
+    appVersion: 4.0.2
+    created: "2024-03-11T14:18:27.932144737Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: Sonarr is a PVR for Usenet and BitTorrent users.
+    digest: c028cc9334be925541929a973105f4e29c57f0af141fa37cf5aea4c3c5e1648d
+    home: https://github.com/Sonarr/Sonarr
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/sonarr-logo.png
+    keywords:
+    - Sonarr
+    - Plex
+    - Series
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: sonarr
+    sources:
+    - https://github.com/Sonarr/Sonarr
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/sonarr-1.2.4/sonarr-1.2.4.tgz
+    version: 1.2.4
+  - apiVersion: v2
     appVersion: 4.0.1
     created: "2024-01-28T14:56:20.452078086Z"
     dependencies:
@@ -3305,4 +3356,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2024-03-09T14:11:51.750361874Z"
+generated: "2024-03-11T14:18:27.932410854Z"
