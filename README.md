@@ -29,6 +29,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | memo | Memo (A privacy-first, lightweight note-taking service) | 1.1.7 | 0.19 |
 | uptime-kuma | Uptime Kuma is an easy-to-use self-hosted monitoring tool. | 1.1.15 | 1.23.11 |
 | jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.2.15 | 0.21.1096 |
+| simple-coffee | This is a test application | 0.1.0 | 1.0.0 |
 | radarr | Radarr is a movie collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new movies and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available. | 1.1.3 | 5.3.6 |
 | joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.1.16 | 2.14-beta |
 
