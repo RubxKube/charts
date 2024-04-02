@@ -1495,6 +1495,35 @@ entries:
   joplin:
   - apiVersion: v2
     appVersion: 2.14-beta
+    created: "2024-04-02T07:12:38.077609791Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 15.2.0
+    description: Joplin is an open source note-taking app. Capture your thoughts and
+      securely access them from any device.
+    digest: 3080654e905f8f1295849d41be4d6a0572c925666c6635ff88e278292829ee80
+    home: https://joplinapp.org/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/joplin-logo.png
+    keywords:
+    - joplin
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+      url: https://une-tasse-de.cafe
+    name: joplin
+    sources:
+    - https://github.com/laurent22/joplin
+    - https://github.com/QJoly/helm-charts
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/joplin-1.1.17/joplin-1.1.17.tgz
+    version: 1.1.17
+  - apiVersion: v2
+    appVersion: 2.14-beta
     created: "2024-01-05T07:09:43.201337025Z"
     dependencies:
     - name: common
@@ -1987,6 +2016,32 @@ entries:
     - https://github.com/RubxKube/charts/releases/download/joplin-1.0.0/joplin-1.0.0.tgz
     version: 1.0.0
   linkding:
+  - apiVersion: v2
+    appVersion: 1.27.0
+    created: "2024-04-02T07:12:38.254604963Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: linkding is a bookmark manager that you can host yourself. It's designed
+      be to be minimal, fast, and easy to set up.
+    digest: e938a9b1e1b939d02798695bbd4a7fb8ed1c040726af93b9079f7a98dfa1ce54
+    home: https://github.com/sissbruecker/linkding
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/linkding-logo.png
+    keywords:
+    - linkding
+    - bookmark manager
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: linkding
+    sources:
+    - https://github.com/sissbruecker/linkding
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/linkding-1.1.7/linkding-1.1.7.tgz
+    version: 1.1.7
   - apiVersion: v2
     appVersion: 1.25.0
     created: "2024-04-02T06:53:41.872955061Z"
@@ -3519,4 +3574,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2024-04-02T07:07:53.419221477Z"
+generated: "2024-04-02T07:12:38.254941097Z"
