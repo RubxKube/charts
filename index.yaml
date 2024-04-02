@@ -411,6 +411,31 @@ entries:
     version: 1.0.0
   gitea:
   - apiVersion: v2
+    appVersion: 1.21.7
+    created: "2024-04-02T06:53:41.787694759Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: Gitea (Git with a cup of tea)
+    digest: e47aae9b15d4b007ce37ca9b6b68d199587cd1cb89dc8251ba30451536d86dc8
+    home: https://gitea.com
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/gitea-logo.png
+    keywords:
+    - gitea
+    - git
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: gitea
+    sources:
+    - https://github.com/go-gitea/gitea
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/gitea-1.1.9/gitea-1.1.9.tgz
+    version: 1.1.9
+  - apiVersion: v2
     appVersion: 1.21.6
     created: "2024-03-11T14:18:27.721605332Z"
     dependencies:
@@ -1938,6 +1963,32 @@ entries:
     version: 1.0.0
   linkding:
   - apiVersion: v2
+    appVersion: 1.25.0
+    created: "2024-04-02T06:53:41.872955061Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: linkding is a bookmark manager that you can host yourself. It's designed
+      be to be minimal, fast, and easy to set up.
+    digest: 3267dba89050ca6e493320a95454b7a322cf983352c86e6beed97d011fed9117
+    home: https://github.com/sissbruecker/linkding
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/linkding-logo.png
+    keywords:
+    - linkding
+    - bookmark manager
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: linkding
+    sources:
+    - https://github.com/sissbruecker/linkding
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/linkding-1.1.6/linkding-1.1.6.tgz
+    version: 1.1.6
+  - apiVersion: v2
     appVersion: 1.24.1
     created: "2024-03-25T07:03:31.26639592Z"
     dependencies:
@@ -2566,6 +2617,32 @@ entries:
     - https://github.com/RubxKube/charts/releases/download/smokeping-1.0.0/smokeping-1.0.0.tgz
     version: 1.0.0
   sonarr:
+  - apiVersion: v2
+    appVersion: 4.0.3
+    created: "2024-04-02T06:53:41.994080762Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: Sonarr is a PVR for Usenet and BitTorrent users.
+    digest: 3ff159c909a09930da48c35ac33c71a72f4574255e2c82e8854fa4a4fcbcdc58
+    home: https://github.com/Sonarr/Sonarr
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/sonarr-logo.png
+    keywords:
+    - Sonarr
+    - Plex
+    - Series
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: sonarr
+    sources:
+    - https://github.com/Sonarr/Sonarr
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/sonarr-1.2.5/sonarr-1.2.5.tgz
+    version: 1.2.5
   - apiVersion: v2
     appVersion: 4.0.2
     created: "2024-03-11T14:18:27.932144737Z"
@@ -3417,4 +3494,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2024-03-25T07:03:31.266657309Z"
+generated: "2024-04-02T06:53:41.994392998Z"
