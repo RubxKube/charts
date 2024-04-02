@@ -22,16 +22,16 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | baikal | Baikal is a Cal and CardDAV server, based on sabre/dav, that includes an administrative interface for easy management. | 1.2.4 | 0.9.4-nginx |
 | jellyfin | Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media | 1.1.2 | 10.8.13 |
 | joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.1.16 | 2.14-beta |
-| linkding | linkding is a bookmark manager that you can host yourself. It's designed be to be minimal, fast, and easy to set up. | 1.1.5 | 1.24.1 |
+| linkding | linkding is a bookmark manager that you can host yourself. It's designed be to be minimal, fast, and easy to set up. | 1.1.6 | 1.25.0 |
 | uptime-kuma | Uptime Kuma is an easy-to-use self-hosted monitoring tool. | 1.1.15 | 1.23.11 |
 | simple-coffee | This is a test application | 0.1.0 | 1.0.0 |
 | vaultwarden | Vaultwarden is an easy-to-use self-hosted password manager. | 1.1.8 | 1.30.5 |
 | memo | Memo (A privacy-first, lightweight note-taking service) | 1.1.8 | 0.21 |
-| sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.2.4 | 4.0.2 |
+| sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.2.5 | 4.0.3 |
 | freshrss | A WebUI to read article via RSS | 1.2.6 | 1.23.1 |
 | radarr | Radarr is a movie collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new movies and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available. | 1.1.3 | 5.3.6 |
 | jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.2.15 | 0.21.1096 |
-| gitea | Gitea (Git with a cup of tea) | 1.1.8 | 1.21.6 |
+| gitea | Gitea (Git with a cup of tea) | 1.1.9 | 1.21.7 |
 
 
 # Contributing 
