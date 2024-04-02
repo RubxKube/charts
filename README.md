@@ -21,8 +21,8 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | smokeping | SmokePing is a latency logging and graphing and alerting system | 1.1.2 | 2.8.2 |
 | baikal | Baikal is a Cal and CardDAV server, based on sabre/dav, that includes an administrative interface for easy management. | 1.2.4 | 0.9.4-nginx |
 | jellyfin | Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media | 1.1.2 | 10.8.13 |
-| joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.1.16 | 2.14-beta |
-| linkding | linkding is a bookmark manager that you can host yourself. It's designed be to be minimal, fast, and easy to set up. | 1.1.6 | 1.25.0 |
+| joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.1.17 | 2.14-beta |
+| linkding | linkding is a bookmark manager that you can host yourself. It's designed be to be minimal, fast, and easy to set up. | 1.1.7 | 1.27.0 |
 | uptime-kuma | Uptime Kuma is an easy-to-use self-hosted monitoring tool. | 1.1.15 | 1.23.11 |
 | simple-coffee | This is a test application | 0.1.0 | 1.0.0 |
 | vaultwarden | Vaultwarden is an easy-to-use self-hosted password manager. | 1.1.8 | 1.30.5 |
