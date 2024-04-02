@@ -31,7 +31,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | freshrss | A WebUI to read article via RSS | 1.2.6 | 1.23.1 |
 | radarr | Radarr is a movie collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new movies and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available. | 1.1.3 | 5.3.6 |
 | jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.2.15 | 0.21.1096 |
-| gitea | Gitea (Git with a cup of tea) | 1.1.9 | 1.21.7 |
+| gitea | Gitea (Git with a cup of tea) | 1.1.10 | 1.21.10 |
 
 
 # Contributing 
