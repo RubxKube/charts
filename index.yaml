@@ -411,6 +411,31 @@ entries:
     version: 1.0.0
   gitea:
   - apiVersion: v2
+    appVersion: 1.21.11
+    created: "2024-04-16T13:59:30.814867781Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: Gitea (Git with a cup of tea)
+    digest: 51be893534f09a6e5cf6167d96ac2947c23ec82ce9b04a803309e0f8a6106d69
+    home: https://gitea.com
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/gitea-logo.png
+    keywords:
+    - gitea
+    - git
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: gitea
+    sources:
+    - https://github.com/go-gitea/gitea
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/gitea-1.1.11/gitea-1.1.11.tgz
+    version: 1.1.11
+  - apiVersion: v2
     appVersion: 1.21.10
     created: "2024-04-02T07:07:53.418907331Z"
     dependencies:
@@ -2017,6 +2042,32 @@ entries:
     version: 1.0.0
   linkding:
   - apiVersion: v2
+    appVersion: 1.28.0
+    created: "2024-04-16T13:59:31.004784098Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: linkding is a bookmark manager that you can host yourself. It's designed
+      be to be minimal, fast, and easy to set up.
+    digest: 40dd0e1fb8767e88aa9eb23738ec758aaa7f29baedf43c1f8c0371394a07194d
+    home: https://github.com/sissbruecker/linkding
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/linkding-logo.png
+    keywords:
+    - linkding
+    - bookmark manager
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: linkding
+    sources:
+    - https://github.com/sissbruecker/linkding
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/linkding-1.1.9/linkding-1.1.9.tgz
+    version: 1.1.9
+  - apiVersion: v2
     appVersion: 1.27.1
     created: "2024-04-07T16:45:35.452386466Z"
     dependencies:
@@ -3600,4 +3651,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2024-04-07T16:45:35.45270069Z"
+generated: "2024-04-16T13:59:31.005137715Z"
