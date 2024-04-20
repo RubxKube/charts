@@ -24,7 +24,7 @@ common:
       isPrivate: false
       secretName: null
     repository: ckulka/baikal
-    tag: 0.9.4-nginx
+    tag: 0.9.5-nginx
     pullPolicy: Always
 
   # ingress
