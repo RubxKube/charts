@@ -24,7 +24,7 @@ common:
       isPrivate: false
       secretName: null
     repository: sissbruecker/linkding
-    tag: '1.29.0'
+    tag: '1.30.0'
     pullPolicy: Always
 
   # ingress
