@@ -2042,6 +2042,32 @@ entries:
     version: 1.0.0
   linkding:
   - apiVersion: v2
+    appVersion: 1.30.0
+    created: "2024-04-24T08:12:54.797990175Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: linkding is a bookmark manager that you can host yourself. It's designed
+      be to be minimal, fast, and easy to set up.
+    digest: 95da8753443693effe6bc06d3f55935ec0444b215f06779110c24ea91f22b5a3
+    home: https://github.com/sissbruecker/linkding
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/linkding-logo.png
+    keywords:
+    - linkding
+    - bookmark manager
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: linkding
+    sources:
+    - https://github.com/sissbruecker/linkding
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/linkding-1.1.11/linkding-1.1.11.tgz
+    version: 1.1.11
+  - apiVersion: v2
     appVersion: 1.29.0
     created: "2024-04-17T06:38:48.203157864Z"
     dependencies:
@@ -2595,6 +2621,36 @@ entries:
     - https://github.com/RubxKube/charts/releases/download/memo-1.0.0/memo-1.0.0.tgz
     version: 1.0.0
   radarr:
+  - apiVersion: v2
+    appVersion: 5.4.6
+    created: "2024-04-24T08:12:54.919110864Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: Radarr is a movie collection manager for Usenet and BitTorrent users.
+      It can monitor multiple RSS feeds for new movies and will interface with clients
+      and indexers to grab, sort, and rename them. It can also be configured to automatically
+      upgrade the quality of files already downloaded when a better quality format
+      becomes available.
+    digest: 6061fb4ffd98b4ce869b9541f493fbe463e3ecdcd34c11bd20b29b467ddc1e0d
+    home: https://radarr.video/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/radarr-logo.png
+    keywords:
+    - Radarr
+    - Movies
+    - Plex
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: radarr
+    sources:
+    - https://github.com/Radarr/Radarr
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/radarr-1.1.4/radarr-1.1.4.tgz
+    version: 1.1.4
   - apiVersion: v2
     appVersion: 5.3.6
     created: "2024-02-18T20:55:37.45796183Z"
@@ -3677,4 +3733,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2024-04-17T06:38:48.203438954Z"
+generated: "2024-04-24T08:12:54.919422457Z"
