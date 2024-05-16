@@ -3,8 +3,8 @@ apiVersion: v2
 type: application
 name: baikal
 description: Baikal is a Cal and CardDAV server, based on sabre/dav, that includes an administrative interface for easy management.
-version: 1.2.4
-appVersion: '0.9.4-nginx'
+version: 1.2.5
+appVersion: '0.9.5-nginx'
 icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/baikal-logo.png
 maintainers:
   - name: QJOLY
