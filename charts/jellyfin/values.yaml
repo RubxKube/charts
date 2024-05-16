@@ -24,7 +24,7 @@ common:
       isPrivate: false
       secretName: null
     repository: jellyfin/jellyfin
-    tag: '10.9.0'
+    tag: '10.9.1'
     pullPolicy: Always
 
   # ingress
