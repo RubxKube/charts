@@ -2,6 +2,31 @@ apiVersion: v1
 entries:
   baikal:
   - apiVersion: v2
+    appVersion: 0.9.5-nginx
+    created: "2024-05-16T11:39:39.148960802Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: Baikal is a Cal and CardDAV server, based on sabre/dav, that includes
+      an administrative interface for easy management.
+    digest: 8c87f1cdc00098ac4a86a7a4d158a8279d7b5da37acd8f605aaa16f1197c2bce
+    home: https://sabre.io/baikal/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/baikal-logo.png
+    keywords:
+    - baikal
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: baikal
+    sources:
+    - https://github.com/sabre-io/Baikal
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/baikal-1.2.5/baikal-1.2.5.tgz
+    version: 1.2.5
+  - apiVersion: v2
     appVersion: 0.9.4-nginx
     created: "2024-01-05T07:09:41.675023902Z"
     dependencies:
@@ -1397,6 +1422,36 @@ entries:
     - https://github.com/RubxKube/charts/releases/download/jackett-1.0.0/jackett-1.0.0.tgz
     version: 1.0.0
   jellyfin:
+  - apiVersion: v2
+    appVersion: 10.9.0
+    created: "2024-05-16T11:39:39.274502548Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: Jellyfin is a Free Software Media System that puts you in control
+      of managing and streaming your media
+    digest: 31080fdbfe3e59647385f67b3711f2f42165bae09bd5b5a98463802e34752862
+    home: https://jellyfin.org/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/jellyfin-logo.png
+    keywords:
+    - media server
+    - Plex
+    - Jellyfin
+    - Media
+    - Streaming
+    - Server
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: jellyfin
+    sources:
+    - https://github.com/jellyfin/jellyfin
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/jellyfin-1.1.3/jellyfin-1.1.3.tgz
+    version: 1.1.3
   - apiVersion: v2
     appVersion: 10.8.13
     created: "2024-01-05T07:09:42.95577153Z"
@@ -3759,4 +3814,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2024-04-24T08:14:00.716385881Z"
+generated: "2024-05-16T11:39:39.274742493Z"
