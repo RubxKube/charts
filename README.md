@@ -19,7 +19,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | jellyfin | Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media | 1.1.3 | 10.9.0 |
 | jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.2.15 | 0.21.1096 |
 | linkding | linkding is a bookmark manager that you can host yourself. It's designed be to be minimal, fast, and easy to set up. | 1.1.11 | 1.30.0 |
-| radarr | Radarr is a movie collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new movies and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available. | 1.1.4 | 5.4.6 |
+| radarr | Radarr is a movie collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new movies and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available. | 1.1.5 | 5.6.0 |
 | sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.2.6 | 4.0.4 |
 | gitea | Gitea (Git with a cup of tea) | 1.1.11 | 1.21.11 |
 | joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.1.17 | 2.14-beta |
