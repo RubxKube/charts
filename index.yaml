@@ -260,6 +260,31 @@ entries:
     version: 1.0.1
   freshrss:
   - apiVersion: v2
+    appVersion: 1.24.0
+    created: "2024-06-16T12:43:35.082577664Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: A WebUI to read article via RSS
+    digest: c61bafcb2be4b8c8daeb1d9c0eb37ea98fab337f3afed5994310c490889db553
+    home: https://www.freshrss.org/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/freshrss-logo.png
+    keywords:
+    - freshrss
+    - rss
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: freshrss
+    sources:
+    - https://github.com/FreshRSS/FreshRSS
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/freshrss-1.2.7/freshrss-1.2.7.tgz
+    version: 1.2.7
+  - apiVersion: v2
     appVersion: 1.23.1
     created: "2024-01-05T07:09:42.098828757Z"
     dependencies:
@@ -435,6 +460,31 @@ entries:
     - https://github.com/RubxKube/charts/releases/download/freshrss-1.0.0/freshrss-1.0.0.tgz
     version: 1.0.0
   gitea:
+  - apiVersion: v2
+    appVersion: 1.22.0
+    created: "2024-06-16T12:43:35.199422955Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: Gitea (Git with a cup of tea)
+    digest: 936a5abf2d5eb94d605be54316c45d5399bfb138a6a4a4564140f93569f27a45
+    home: https://gitea.com
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/gitea-logo.png
+    keywords:
+    - gitea
+    - git
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: gitea
+    sources:
+    - https://github.com/go-gitea/gitea
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/gitea-1.1.12/gitea-1.1.12.tgz
+    version: 1.1.12
   - apiVersion: v2
     appVersion: 1.21.11
     created: "2024-04-16T13:59:30.814867781Z"
@@ -3844,4 +3894,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2024-05-22T19:08:57.537935018Z"
+generated: "2024-06-16T12:43:35.199710859Z"
