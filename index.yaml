@@ -260,6 +260,31 @@ entries:
     version: 1.0.1
   freshrss:
   - apiVersion: v2
+    appVersion: 1.24.1
+    created: "2024-07-24T07:23:07.176215594Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: A WebUI to read article via RSS
+    digest: a0b159e73a89d48ceda0a3d2aeb10900425eff10333e89e13ead9cc69489d1b1
+    home: https://www.freshrss.org/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/freshrss-logo.png
+    keywords:
+    - freshrss
+    - rss
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: freshrss
+    sources:
+    - https://github.com/FreshRSS/FreshRSS
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/freshrss-1.2.8/freshrss-1.2.8.tgz
+    version: 1.2.8
+  - apiVersion: v2
     appVersion: 1.24.0
     created: "2024-06-16T12:43:35.082577664Z"
     dependencies:
@@ -3971,4 +3996,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2024-07-24T07:21:10.842462857Z"
+generated: "2024-07-24T07:23:07.176512035Z"
