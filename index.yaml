@@ -1523,6 +1523,36 @@ entries:
     version: 1.0.0
   jellyfin:
   - apiVersion: v2
+    appVersion: 10.9.1
+    created: "2024-07-24T12:39:11.935409817Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: Jellyfin is a Free Software Media System that puts you in control
+      of managing and streaming your media
+    digest: 3d9cde89f93135c6bcd096372e29fad0b5f957881510958bc27923f5f96404b8
+    home: https://jellyfin.org/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/jellyfin-logo.png
+    keywords:
+    - media server
+    - Plex
+    - Jellyfin
+    - Media
+    - Streaming
+    - Server
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: jellyfin
+    sources:
+    - https://github.com/jellyfin/jellyfin
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/jellyfin-1.1.4/jellyfin-1.1.4.tgz
+    version: 1.1.4
+  - apiVersion: v2
     appVersion: 10.9.0
     created: "2024-05-16T11:39:39.274502548Z"
     dependencies:
@@ -2196,6 +2226,32 @@ entries:
     - https://github.com/RubxKube/charts/releases/download/joplin-1.0.0/joplin-1.0.0.tgz
     version: 1.0.0
   linkding:
+  - apiVersion: v2
+    appVersion: 1.31.0
+    created: "2024-07-24T12:39:12.084530649Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: linkding is a bookmark manager that you can host yourself. It's designed
+      be to be minimal, fast, and easy to set up.
+    digest: 6df678d95ac0985940da9374e56063ef23c06c32b0523a67f4718ffdeddc5fae
+    home: https://github.com/sissbruecker/linkding
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/linkding-logo.png
+    keywords:
+    - linkding
+    - bookmark manager
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: linkding
+    sources:
+    - https://github.com/sissbruecker/linkding
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/linkding-1.1.12/linkding-1.1.12.tgz
+    version: 1.1.12
   - apiVersion: v2
     appVersion: 1.30.0
     created: "2024-04-24T08:12:54.797990175Z"
@@ -3996,4 +4052,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2024-07-24T07:23:07.176512035Z"
+generated: "2024-07-24T12:39:12.084891419Z"
