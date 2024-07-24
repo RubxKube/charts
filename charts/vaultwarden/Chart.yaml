@@ -3,8 +3,8 @@ apiVersion: v2
 type: application
 name: vaultwarden
 description: Vaultwarden is an easy-to-use self-hosted password manager.
-version: 1.1.8
-appVersion: 1.30.5
+version: 1.1.9
+appVersion: 1.31.0
 icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/vaultwarden-logo.png
 maintainers:
   - name: QJOLY
