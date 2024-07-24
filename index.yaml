@@ -461,6 +461,31 @@ entries:
     version: 1.0.0
   gitea:
   - apiVersion: v2
+    appVersion: 1.22.1
+    created: "2024-07-24T07:21:10.710478223Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: Gitea (Git with a cup of tea)
+    digest: 4cd415d37df542dfd51c04b410d68657ccd6da1d2954fc053b282d1ca75ac1d8
+    home: https://gitea.com
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/gitea-logo.png
+    keywords:
+    - gitea
+    - git
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: gitea
+    sources:
+    - https://github.com/go-gitea/gitea
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/gitea-1.1.13/gitea-1.1.13.tgz
+    version: 1.1.13
+  - apiVersion: v2
     appVersion: 1.22.0
     created: "2024-06-16T12:43:35.199422955Z"
     dependencies:
@@ -3227,6 +3252,32 @@ entries:
     version: 1.0.0
   uptime-kuma:
   - apiVersion: v2
+    appVersion: 1.23.13
+    created: "2024-07-24T07:21:10.841952366Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: Uptime Kuma is an easy-to-use self-hosted monitoring tool.
+    digest: b979c7226fbd2605839b49b722e1dbafba94e1445af65a63937d84f1d970ea7a
+    home: https://github.com/louislam/uptime-kuma
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/uptime-kuma-logo.png
+    keywords:
+    - monitoring
+    - uptime
+    - kuma
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: uptime-kuma
+    sources:
+    - https://github.com/louislam/uptime-kuma
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/uptime-kuma-1.1.17/uptime-kuma-1.1.17.tgz
+    version: 1.1.17
+  - apiVersion: v2
     appVersion: 1.23.12
     created: "2024-06-16T12:44:15.817905169Z"
     dependencies:
@@ -3920,4 +3971,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2024-06-16T12:44:15.818154493Z"
+generated: "2024-07-24T07:21:10.842462857Z"
