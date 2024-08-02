@@ -23,7 +23,7 @@ common:
     repositorySettings:
       isPrivate: false
       secretName: null
-    repository: louislam/uptime-kuma
+    repository: elestio/uptime-kuma
     tag: 1.23.13
     pullPolicy: Always
 
