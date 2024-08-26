@@ -20,7 +20,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | radarr | Radarr is a movie collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new movies and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available. | 1.1.5 | 5.6.0 |
 | deluge | Deluge is a lightweight, Free Software, cross-platform BitTorrent client. | 1.1.2 | 18.04.1 |
 | smokeping | SmokePing is a latency logging and graphing and alerting system | 1.1.2 | 2.8.2 |
-| jellyfin | Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media | 1.1.4 | 10.9.1 |
+| jellyfin | Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media | 1.1.5 | 10.9.8 |
 | sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.2.7 | 4.0.9 |
 | memo | Memo (A privacy-first, lightweight note-taking service) | 1.1.9 | 0.22 |
 | freshrss | A WebUI to read article via RSS | 1.2.8 | 1.24.1 |
