@@ -3127,6 +3127,32 @@ entries:
     version: 1.0.0
   sonarr:
   - apiVersion: v2
+    appVersion: 4.0.9
+    created: "2024-08-26T11:48:01.532511626Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: Sonarr is a PVR for Usenet and BitTorrent users.
+    digest: e4b5cedcd8c1bb771ed5069e6561254f9520d293af123500fac130af9201cb66
+    home: https://github.com/Sonarr/Sonarr
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/sonarr-logo.png
+    keywords:
+    - Sonarr
+    - Plex
+    - Series
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: sonarr
+    sources:
+    - https://github.com/Sonarr/Sonarr
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/sonarr-1.2.7/sonarr-1.2.7.tgz
+    version: 1.2.7
+  - apiVersion: v2
     appVersion: 4.0.4
     created: "2024-04-24T08:14:00.716104294Z"
     dependencies:
@@ -4081,4 +4107,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2024-07-31T11:42:47.18542704Z"
+generated: "2024-08-26T11:48:01.532869134Z"
