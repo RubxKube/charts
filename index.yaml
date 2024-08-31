@@ -2286,6 +2286,32 @@ entries:
     version: 1.0.0
   linkding:
   - apiVersion: v2
+    appVersion: 1.31.1
+    created: "2024-08-31T08:45:15.572189572Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: linkding is a bookmark manager that you can host yourself. It's designed
+      be to be minimal, fast, and easy to set up.
+    digest: 8b26b2f900d31caad54a42ef80a8a6fc23668221a7569e0e659b81adc91fe8f6
+    home: https://github.com/sissbruecker/linkding
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/linkding-logo.png
+    keywords:
+    - linkding
+    - bookmark manager
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: linkding
+    sources:
+    - https://github.com/sissbruecker/linkding
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/linkding-1.1.13/linkding-1.1.13.tgz
+    version: 1.1.13
+  - apiVersion: v2
     appVersion: 1.31.0
     created: "2024-07-24T12:39:12.084530649Z"
     dependencies:
@@ -4137,4 +4163,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2024-08-26T11:55:51.153404737Z"
+generated: "2024-08-31T08:45:15.572445941Z"
