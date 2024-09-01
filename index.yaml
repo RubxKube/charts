@@ -260,6 +260,31 @@ entries:
     version: 1.0.1
   freshrss:
   - apiVersion: v2
+    appVersion: 1.24.2
+    created: "2024-09-01T14:47:22.466880987Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: A WebUI to read article via RSS
+    digest: c1f4fc51023c37a2b3be128bc32e324c0a4c4e058699b6938a528ea5c9028713
+    home: https://www.freshrss.org/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/freshrss-logo.png
+    keywords:
+    - freshrss
+    - rss
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: freshrss
+    sources:
+    - https://github.com/FreshRSS/FreshRSS
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/freshrss-1.2.9/freshrss-1.2.9.tgz
+    version: 1.2.9
+  - apiVersion: v2
     appVersion: 1.24.1
     created: "2024-07-24T07:23:07.176215594Z"
     dependencies:
@@ -1522,6 +1547,36 @@ entries:
     - https://github.com/RubxKube/charts/releases/download/jackett-1.0.0/jackett-1.0.0.tgz
     version: 1.0.0
   jellyfin:
+  - apiVersion: v2
+    appVersion: 10.9.10
+    created: "2024-09-01T14:47:22.626299469Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: Jellyfin is a Free Software Media System that puts you in control
+      of managing and streaming your media
+    digest: a78670db4a8dcefcdaaf75cbf7010c43f92ac63b8c5fcfb39d277834966d986f
+    home: https://jellyfin.org/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/jellyfin-logo.png
+    keywords:
+    - media server
+    - Plex
+    - Jellyfin
+    - Media
+    - Streaming
+    - Server
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: jellyfin
+    sources:
+    - https://github.com/jellyfin/jellyfin
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/jellyfin-1.1.6/jellyfin-1.1.6.tgz
+    version: 1.1.6
   - apiVersion: v2
     appVersion: 10.9.8
     created: "2024-08-26T11:55:51.1531384Z"
@@ -4163,4 +4218,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2024-08-31T08:45:15.572445941Z"
+generated: "2024-09-01T14:47:22.626665849Z"
