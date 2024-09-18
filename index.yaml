@@ -511,6 +511,31 @@ entries:
     version: 1.0.0
   gitea:
   - apiVersion: v2
+    appVersion: 1.22.2
+    created: "2024-09-18T07:13:49.292420694Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: Gitea (Git with a cup of tea)
+    digest: 3fbfbb30740eb2e4bc5d35abc4a49899448dc5ecd39d4dadab4ddb90192bbf12
+    home: https://gitea.com
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/gitea-logo.png
+    keywords:
+    - gitea
+    - git
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: gitea
+    sources:
+    - https://github.com/go-gitea/gitea
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/gitea-1.1.14/gitea-1.1.14.tgz
+    version: 1.1.14
+  - apiVersion: v2
     appVersion: 1.22.1
     created: "2024-07-24T07:21:10.710478223Z"
     dependencies:
@@ -1548,6 +1573,36 @@ entries:
     version: 1.0.0
   jellyfin:
   - apiVersion: v2
+    appVersion: 10.9.11
+    created: "2024-09-18T07:13:49.427811208Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: Jellyfin is a Free Software Media System that puts you in control
+      of managing and streaming your media
+    digest: 3cae9bff2fcae5176c14bd2ee612e1156b894b9e80c860d61de933f94b5805ea
+    home: https://jellyfin.org/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/jellyfin-logo.png
+    keywords:
+    - media server
+    - Plex
+    - Jellyfin
+    - Media
+    - Streaming
+    - Server
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: jellyfin
+    sources:
+    - https://github.com/jellyfin/jellyfin
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/jellyfin-1.1.7/jellyfin-1.1.7.tgz
+    version: 1.1.7
+  - apiVersion: v2
     appVersion: 10.9.10
     created: "2024-09-01T14:47:22.626299469Z"
     dependencies:
@@ -2340,6 +2395,32 @@ entries:
     - https://github.com/RubxKube/charts/releases/download/joplin-1.0.0/joplin-1.0.0.tgz
     version: 1.0.0
   linkding:
+  - apiVersion: v2
+    appVersion: 1.32.0
+    created: "2024-09-18T07:13:49.557520084Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: linkding is a bookmark manager that you can host yourself. It's designed
+      be to be minimal, fast, and easy to set up.
+    digest: 0e1bfdddf6a61a9cdeb4cfba608ef517bf50cd966207aced0b9df830789b7452
+    home: https://github.com/sissbruecker/linkding
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/linkding-logo.png
+    keywords:
+    - linkding
+    - bookmark manager
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: linkding
+    sources:
+    - https://github.com/sissbruecker/linkding
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/linkding-1.1.14/linkding-1.1.14.tgz
+    version: 1.1.14
   - apiVersion: v2
     appVersion: 1.31.1
     created: "2024-08-31T08:45:15.572189572Z"
@@ -4218,4 +4299,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2024-09-01T14:47:22.626665849Z"
+generated: "2024-09-18T07:13:49.55794298Z"
