@@ -20,6 +20,6 @@ dependencies:
    repository: https://rubxkube.github.io/common-charts
    version: v0.2.2
  - name: postgresql
-   version: 15.2.0
+   version: 15.5.38
    repository: https://charts.bitnami.com/bitnami
    condition: postgresql.enabled
