@@ -1,4 +1,3 @@
-
 # The only 'global' value is the volume for media
 # This volume is shared between multiple components.
 # If you use a network storage outside of the cluster, you can create a PVC and use it here (see README)
@@ -192,14 +191,14 @@ scanner:
   variables:
     configMap:
       existingConfigMap:
-      - "kyoo-config"
+        - "kyoo-config"
     nonSecret:
       # Should match .postgresql.back.database
       SCANNER_LIBRARY_ROOT: /data
       POSTGRES_PORT: "5432"
       KYOO_URL: http://back:5000
       RABBITMQ_HOST: kyoo-rabbitmq
-      RABBITMQ_PORT: "5672"  
+      RABBITMQ_PORT: "5672"
     secret:
       data:
         # Should match .back.postgresql.auth.username
@@ -210,7 +209,7 @@ scanner:
           envName: "KYOO_APIKEYS"
         - name: kyoo-postgresql
           key: password
-          envName: POSTGRES_PASSWORD 
+          envName: POSTGRES_PASSWORD
         - name: "kyoo-rabbitmq"
           key: rabbitmq_user
           envName: RABBITMQ_DEFAULT_USER
@@ -225,7 +224,7 @@ scanner:
         size: "5Gi"
         pvcClaim: "media"
         containerMount: "/data"
-        
+
 autosync:
   enabled: true
   name: "autosync"
@@ -236,7 +235,7 @@ autosync:
   variables:
     nonSecret:
       RABBITMQ_HOST: kyoo-rabbitmq
-      RABBITMQ_PORT: "5672"      
+      RABBITMQ_PORT: "5672"
     secret:
       existingSecret:
         - name: "kyoo-rabbitmq"
@@ -261,7 +260,7 @@ matcher:
   variables:
     configMap:
       existingConfigMap:
-      - "kyoo-config"
+        - "kyoo-config"
     nonSecret:
       RABBITMQ_HOST: kyoo-rabbitmq
       RABBITMQ_PORT: "5672"
@@ -271,7 +270,7 @@ matcher:
       data:
         THEMOVIEDB_APIKEY: e3591dc8dfb9939a4db52c5e169aa160
         #TVDB_APIKEY: 756d12a1-fcdf-444e-85ad-b87da3d409ae
-        #TVDB_PIN: 
+        #TVDB_PIN:
       existingSecret:
         - name: "kyoo-rabbitmq"
           key: rabbitmq_user
@@ -282,7 +281,7 @@ matcher:
         # Should match .back.variables.secret.existingSecret[0].envName
         - name: "kyoo-secrets"
           key: "kyoo-apikeys"
-          envName: "KYOO_APIKEYS"          
+          envName: "KYOO_APIKEYS"
 
 # Temporary component to use Kyoo v4, will be removed in the next v5 version
 # This component handle the rewrite_url necessary for the front
@@ -316,8 +315,8 @@ config:
   name: "kyoo-config"
   enabled: true
   data:
-      LIBRARY_IGNORE_PATTERN: '.*/[dD]ownloads?/.*'
-      LIBRARY_LANGUAGES: "fr"
+    LIBRARY_IGNORE_PATTERN: ".*/[dD]ownloads?/.*"
+    LIBRARY_LANGUAGES: "fr"
 
 secrets:
   kyoo:
