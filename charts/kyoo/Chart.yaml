@@ -13,22 +13,34 @@ kubeVersion: ">= 1.18"
 home: https://github.com/zoriya/Kyoo
 keywords:
   - transcoder
-  - bookmark manager
+  - media manager
 sources:
   - https://github.com/zoriya/Kyoo
 dependencies:
   - name: common
     repository: https://rubxkube.github.io/common-charts
-    version: v0.3.3
+    version: v0.3.4
     alias: front
   - name: common
     repository: https://rubxkube.github.io/common-charts
-    version: v0.3.3
+    version: v0.3.4
     alias: back
-  # - condition: meilisearch.enabled
-  #   name: meilisearch
-  #   repository: https://meilisearch.github.io/meilisearch-kubernetes
-  #   version: 0.10.2
+  - name: common
+    repository: https://rubxkube.github.io/common-charts
+    version: v0.3.4
+    alias: transcoder
+  - name: common
+    repository: https://rubxkube.github.io/common-charts
+    version: v0.3.4
+    alias: scanner
+  - name: common
+    repository: https://rubxkube.github.io/common-charts
+    version: v0.3.4
+    alias: autosync
+  - condition: meilisearch.enabled
+    name: meilisearch
+    repository: https://meilisearch.github.io/meilisearch-kubernetes
+    version: 0.10.2
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.bitnami.com/bitnami

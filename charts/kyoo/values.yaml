@@ -1,5 +1,10 @@
+
+# The only 'global' value is the volume for media
+# This volume is shared between multiple components.
+# If you use a network storage outside of the cluster, you can create a PVC and use it here (see README)
 volumes:
   media:
+    enabled: true
     # If you want to use an existing PVC, set the name here
     # otherwise, leave it empty
     existingClaim: ""
@@ -17,16 +22,6 @@ volumes:
         storage: "10Gi"
     mountPath: "/data"
     extraAnnotations: {}
-  transcoder:
-    existingClaim: ""
-    accessModes:
-      - "ReadWriteOnce"
-    storageClassName: ""
-    resources:
-      requests:
-        storage: "3Gi"
-    extraAnnotations: {}
-    mountPath: "/metadata"
 
 front:
   tests:
@@ -49,7 +44,8 @@ front:
     pullPolicy: "IfNotPresent"
   variables:
     nonSecret:
-      KYOO_URL: "http://kyoo-back:5000"
+      # Match back service name (see .back.name)
+      KYOO_URL: "http://back:5000"
 
 back:
   tests:
@@ -129,6 +125,162 @@ back:
         pvcClaim: ""
         containerMount: "/metadata"
 
+transcoder:
+  tests:
+    classicHttp:
+      enabled: false
+    curlHostHeader:
+      enabled: false
+  name: "transcoder"
+  image:
+    repository: "ghcr.io/zoriya/kyoo_transcoder"
+    tag: "4.7.0"
+    pullPolicy: "IfNotPresent"
+  persistence:
+    enabled: true
+    volumes:
+      - name: media
+        storageClassName: ""
+        size: "5Gi"
+        pvcClaim: "media"
+        containerMount: "/data"
+      - name: metadata
+        storageClassName: ""
+        size: "3Gi"
+        pvcClaim: ""
+        containerMount: "/metadata"
+      # TODO - Add an emptyDir volume for cache
+      - name: cache
+        storageClassName: "longhorn"
+        size: "5Gi"
+        pvcClaim: ""
+        containerMount: "/cache"
+  variables:
+    nonSecret:
+      # Should match .postgresql.back.database
+      POSTGRES_DB: kyoo_transcoder
+      POSTGRES_SERVER: kyoo-postgresql
+      POSTGRES_PORT: "5432"
+      POSTGRES_SCHEMA: disabled
+      RABBITMQ_HOST: kyoo-rabbitmq
+      RABBITMQ_PORT: "5672"
+    secret:
+      data:
+        # Should match .back.postgresql.auth.username
+        POSTGRES_USER: kyoouserherefordb
+      existingSecret:
+        # Should match .postgresql.auth.username
+        - name: "kyoo-rabbitmq"
+          key: rabbitmq_user
+          envName: RABBITMQ_DEFAULT_USER
+        - name: "kyoo-rabbitmq"
+          key: rabbitmq_password
+          envName: RABBITMQ_DEFAULT_PASS
+        - name: kyoo-postgresql
+          key: password
+          envName: POSTGRES_PASSWORD
+
+scanner:
+  tests:
+    classicHttp:
+      enabled: false
+    curlHostHeader:
+      enabled: false
+  name: "scanner"
+  enabled: true
+  image:
+    repository: "ghcr.io/zoriya/kyoo_scanner"
+    tag: "4.7.0"
+    pullPolicy: "IfNotPresent"
+  variables:
+    nonSecret:
+      # Should match .postgresql.back.database
+      SCANNER_LIBRARY_ROOT: /data
+      LIBRARY_IGNORE_PATTERN: '.*/[dD]ownloads?/.*'
+      POSTGRES_PORT: "5432"
+      KYOO_URL: http://back:5000
+      LIBRARY_LANGUAGES: "en"
+      RABBITMQ_HOST: kyoo-rabbitmq
+      RABBITMQ_PORT: "5672"      
+    secret:
+      data:
+        # Should match .back.postgresql.auth.username
+        POSTGRES_USER: kyoouserherefordb
+      existingSecret:
+        - name: "kyoo-secrets"
+          key: "kyoo-apikeys"
+          envName: "KYOO_APIKEYS"
+        - name: kyoo-postgresql
+          key: password
+          envName: POSTGRES_PASSWORD 
+        - name: "kyoo-rabbitmq"
+          key: rabbitmq_user
+          envName: RABBITMQ_DEFAULT_USER
+        - name: "kyoo-rabbitmq"
+          key: rabbitmq_password
+          envName: RABBITMQ_DEFAULT_PASS
+  persistence:
+    enabled: true
+    volumes:
+      - name: media
+        storageClassName: ""
+        size: "5Gi"
+        pvcClaim: "media"
+        containerMount: "/data"
+        
+autosync:
+  name: "autosync"
+  tests:
+    classicHttp:
+      enabled: false
+    curlHostHeader:
+      enabled: false
+  enabled: true
+  image:
+    repository: "ghcr.io/zoriya/kyoo_autosync"
+    tag: "4.7.0"
+    pullPolicy: "IfNotPresent"
+  variables:
+    nonSecret:
+      RABBITMQ_HOST: kyoo-rabbitmq
+      RABBITMQ_PORT: "5672"      
+    secret:
+      existingSecret:
+        - name: "kyoo-rabbitmq"
+          key: rabbitmq_user
+          envName: RABBITMQ_DEFAULT_USER
+        - name: "kyoo-rabbitmq"
+          key: rabbitmq_password
+          envName: RABBITMQ_DEFAULT_PASS
+
+# Temporary component to use Kyoo v4, will be removed in the next v5 version
+# This component handle the rewrite_url necessary for the front
+# To avoid having a dependency on the ingress-controller (not all of them support rewrite_url)
+# Otherwise, you can still configure ingress for front and back directly by setting .front.ingress.enabled and .back.ingress.enabled to true
+route:
+  enabled: true
+  # You can set this to LoadBalancer and NodePort if you want to directly expose the route
+  # Otherwise, you can use an ingress controller below
+  serviceType: ClusterIP
+  image:
+    repository: "haproxy"
+    tag: "latest"
+  deployment:
+    replicaCount: 1
+    annotations: {}
+    extraLabels: {}
+  ingress:
+    enabled: true
+    hostName: kyoo.une-pause-cafe.fr
+    extraLabels: {}
+    annotations:
+      cert-manager.io/cluster-issuer: infomaniak
+    tls:
+      enabled: true
+      secretName: "kyoo-tls"
+    # For Ingress CRD
+    ingressClassName: nginx
+
 secrets:
   kyoo:
     enabled: true
@@ -136,6 +288,7 @@ secrets:
     data:
       # Should match .back.variables.secret.existingSecret[0].envName
       kyoo-apikeys: "your_api_keys"
+
   # Since PostgreSQL already has a secret, we don't need to create a new one
   # However, you can create a new one here if you want to use it in the postgresql chart
   postgres:
@@ -158,6 +311,7 @@ rabbitmq:
   enabled: true
   auth:
     # Sadly, the rabbitmq chart does not support existing secrets for the user
+    # By default, the user is the one generated in .rabbitmq.secrets.rabbitmq.data.rabbitmq_user
     username: kyoo
     existingPasswordSecret: "kyoo-rabbitmq"
     existingSecretPasswordKey: "rabbitmq_password"

@@ -1,0 +1,33 @@
+{{- if and (.Values.route.enabled) ( .Values.route.ingress.enabled) }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Release.Name }}-route
+  labels:
+    app: {{ .Release.Name }}-route
+{{- if .Values.route.ingress.annotations }}
+  annotations:
+  {{ toYaml .Values.route.ingress.annotations | indent 4 }}
+{{- end }}
+spec:
+  {{- if .Values.route.ingress.ingressClassName }}
+  ingressClassName: {{ .Values.route.ingress.ingressClassName }}
+  {{ end }}
+  rules:
+  - host: {{ required "A variable 'hostName' is required!" .Values.route.ingress.hostName }}
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Release.Name }}-route
+            port:
+              number: 80
+  {{- if .Values.route.ingress.tls.enabled }}
+  tls:
+  - secretName: {{ .Values.route.ingress.tls.secretName }}
+    hosts:
+    - {{ .Values.route.ingress.hostName }}
+  {{- end }}
+{{ end }}
