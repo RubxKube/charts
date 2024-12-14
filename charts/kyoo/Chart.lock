@@ -1,0 +1,18 @@
+dependencies:
+- name: common
+  repository: https://rubxkube.github.io/common-charts
+  version: v0.3.3
+- name: common
+  repository: https://rubxkube.github.io/common-charts
+  version: v0.3.3
+- name: meilisearch
+  repository: https://meilisearch.github.io/meilisearch-kubernetes
+  version: 0.10.2
+- name: postgresql
+  repository: https://charts.bitnami.com/bitnami
+  version: 16.2.5
+- name: rabbitmq
+  repository: https://charts.bitnami.com/bitnami
+  version: 15.1.0
+digest: sha256:ed831107bb4367a1bce59dadb844f10ca16be6e6bc05367a87c49544d2391f24
+generated: "2024-12-14T01:43:28.361714+01:00"

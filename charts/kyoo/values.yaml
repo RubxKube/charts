@@ -1,0 +1,185 @@
+volumes:
+  media:
+    # If you want to use an existing PVC, set the name here
+    # otherwise, leave it empty
+    existingClaim: ""
+    # The name of the volume (ensure it is unique)
+    name: "media"
+    accessModes:
+      # - "ReadOnlyMany"
+      # Some CSI drivers do not support ReadOnlyMany (e.g. longhorn)
+      # If you are using such a driver, you can change this to ReadWriteMany
+      - "ReadWriteMany"
+    # -- If empty, will use the default storage class
+    storageClassName: ""
+    resources:
+      requests:
+        storage: "10Gi"
+    mountPath: "/data"
+    extraAnnotations: {}
+  transcoder: 
+    existingClaim: ""
+    accessModes:
+      - "ReadWriteOnce"
+    storageClassName: ""
+    resources:
+      requests:
+        storage: "3Gi"
+    extraAnnotations: {}
+    mountPath: "/metadata"
+
+front:
+  name: "front"
+  deployment:
+    port: 8901
+  service:
+    type: ClusterIP
+    enabled: true
+    servicePort: 8901
+    containerPort: 8901
+    extraLabels: {}
+  image:
+    repository: "ghcr.io/zoriya/kyoo_front"
+    tag: "4.7.0"
+    pullPolicy: "IfNotPresent"
+  variables:
+    nonSecret:
+      KYOO_URL: "http://kyoo-back:5000"
+
+back:
+  name: "back"
+  deployment:
+    port: 5000
+    initContainers:
+      - env:
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              key: postgres_user
+              name: kyoo-postgresql
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: postgres-password
+              name: kyoo-postgresql
+        # Should match .postgresql.back.database
+        - name: POSTGRES_DB
+          value: kyoo_back
+        - name: POSTGRES_SERVER
+          value: kyoo-postgresql
+        - name: POSTGRES_PORT
+          value: "5432"
+        image: "ghcr.io/zoriya/kyoo_migrations:4.7.0"
+        name: migrations
+  variables:
+    nonSecret:
+        TRANSCODER_URL: http://kyoo-transcoder:7666
+        PUBLIC_URL: https://kyoo.mydomain.com
+        REQUIRE_ACCOUNT_VERIFICATION: "true"
+        DEFAULT_PERMISSIONS: "overall.read,overall.play"
+        POSTGRES_DB: kyoo
+        POSTGRES_SERVER: kyoo-postgresql
+        POSTGRES_PORT: "5432"
+        RABBITMQ_HOST: kyoo-rabbitmq
+        RABBITMQ_PORT: "5672"
+        MEILI_HOST: http://kyoo-meilisearch:7700
+    secret:
+      existingSecret:
+        # Should match .back.variables.secret.existingSecret[0].envName
+        - name: "kyoo-secrets"
+          key: "kyoo-apikeys"
+          envName: "KYOO_APIKEYS"
+        # Should match .postgresql.auth.username
+        - name: "kyoo-postgresql"
+          key: postgres_user
+          envName: POSTGRES_USER
+
+        - name: kyoo-postgresql
+          key: postgres-password
+          envName: POSTGRES_PASSWORD
+
+        - name: "kyoo-secrets"
+          key: rabbitmq_user
+          envName: RABBITMQ_DEFAULT_USER
+        - name: "kyoo-secrets"
+          key: rabbitmq_password
+          envName: RABBITMQ_DEFAULT_PASS
+        - name: "kyoo-secrets"
+          key: meili_master_key
+          envName: MEILI_MASTER_KEY
+
+  service:
+    servicePort: 5000
+    containerPort: 5000
+  image:
+    repository: "ghcr.io/zoriya/kyoo_back"
+    tag: "4.7.0"
+    pullPolicy: "IfNotPresent"
+  persistence:
+    enabled: true
+    volumes: 
+      - name: back
+        storageClassName: "longhorn"
+        size: "5Gi"
+        pvcClaim: ""
+        containerMount: "/metadata"
+
+secrets:
+  kyoo:
+    enabled: true
+    name: "kyoo-secrets"
+    data:
+      # Should match .back.variables.secret.existingSecret[0].envName
+      kyoo-apikeys: "your_api_keys"
+  # Since PostgreSQL already has a secret, we don't need to create a new one
+  # However, you can create a new one here if you want to use it in the postgresql chart
+  postgres:
+    enabled: false
+  rabbitmq:
+    enabled: true
+    name: "kyoo-rabbitmq"
+    data:
+      # Should match .rabbitmq.auth.username (see comment in rabbit.auth.username)
+      rabbitmq_username: "kyoo"
+      password: "your_rabbitmq_password"
+      erlang_cookie: "rabbitmq_erlang_cookie"
+
+rabbitmq:
+  enabled: true
+  auth:
+    # Sadly, the rabbitmq chart does not support existing secrets for the user
+    username: kyoo
+    existingPasswordSecret: "kyoo-rabbitmq"
+    existingSecretPasswordKey: "password"
+    existingErlangSecret: "kyoo-rabbitmq"
+    existingSecretErlangKey: "erlang_cookie"
+    
+postgresql:
+  enabled: true
+  auth: 
+    username: kyoouserherefordb
+  back:
+    database: kyoo_back
+  transcoder:
+    database: kyoo_transcoder
+  primary:
+    initdb:
+      scripts:
+        # For now, user are the same for all databases
+        # This is not a good practice, but it's a start for now
+        kyoo_back.sql: |
+          CREATE DATABASE {{ .Values.back.database }} WITH OWNER {{ .Values.auth.username }}; 
+          \connect {{ .Values.back.database }};
+          CREATE SCHEMA IF NOT EXISTS data AUTHORIZATION {{ .Values.auth.username }};
+        kyoo_transcoder.sql: |
+          CREATE DATABASE {{ .Values.transcoder.database }} WITH OWNER {{ .Values.auth.username }};
+          \connect {{ .Values.transcoder.database }};
+          REVOKE ALL ON SCHEMA public FROM PUBLIC;
+          CREATE SCHEMA IF NOT EXISTS data AUTHORIZATION {{ .Values.auth.username }};
+        user.sql: |
+          ALTER ROLE {{ .Values.auth.username }} 
+          IN DATABASE {{ .Values.back.database }} SET search_path TO "$user", public;
+          ALTER ROLE {{ .Values.auth.username }} 
+          IN DATABASE {{ .Values.transcoder.database }} SET search_path TO "$user", data;
+    persistence:
+      size: 3Gi
