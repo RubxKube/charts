@@ -8,6 +8,7 @@ do
     if [ -f ".no_ci" ]; then
       echo "No CI for this chart."
     else
+      helm dependency build || true
       helm install $d . --wait --timeout 300s 
       helm test $d
     fi
