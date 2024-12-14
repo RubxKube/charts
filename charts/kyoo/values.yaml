@@ -29,6 +29,11 @@ volumes:
     mountPath: "/metadata"
 
 front:
+  tests:
+    classicHttp:
+      enabled: false
+    curlHostHeader:
+      enabled: false
   name: "front"
   deployment:
     port: 8901
@@ -47,6 +52,11 @@ front:
       KYOO_URL: "http://kyoo-back:5000"
 
 back:
+  tests:
+    classicHttp:
+      enabled: false
+    curlHostHeader:
+      enabled: false
   name: "back"
   deployment:
     port: 5000
