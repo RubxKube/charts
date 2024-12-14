@@ -1,0 +1,63 @@
+---
+apiVersion: v2
+type: application
+name: kyoo
+description: Kyoo is a media manager and transcoder for your media files.
+version: 0.1.1
+appVersion: "4.7.0"
+icon: https://github.com/zoriya/Kyoo/blob/master/icons/icon-256x256.png?raw=true
+# Maintainer of the Chart
+maintainers:
+  - name: QJOLY
+    email: github@une-pause-cafe.fr
+kubeVersion: ">= 1.18"
+home: https://github.com/zoriya/Kyoo
+keywords:
+  - transcoder
+  - media manager
+  - micro-services
+sources:
+  - https://github.com/zoriya/Kyoo
+dependencies:
+  - name: common
+    repository: https://rubxkube.github.io/common-charts
+    version: v0.3.9
+    alias: front
+    condition: front.enabled
+  - name: common
+    repository: https://rubxkube.github.io/common-charts
+    version: v0.3.9
+    alias: back
+    condition: back.enabled
+  - name: common
+    repository: https://rubxkube.github.io/common-charts
+    version: v0.3.9
+    alias: transcoder
+    condition: transcoder.enabled
+  - name: common
+    repository: https://rubxkube.github.io/common-charts
+    version: v0.3.9
+    alias: scanner
+    condition: scanner.enabled
+  - name: common
+    repository: https://rubxkube.github.io/common-charts
+    version: v0.3.9
+    alias: autosync
+    condition: autosync.enabled
+  - name: common
+    repository: https://rubxkube.github.io/common-charts
+    version: v0.3.9
+    alias: matcher
+    condition: matcher.enabled
+  - condition: meilisearch.enabled
+    name: meilisearch
+    repository: https://meilisearch.github.io/meilisearch-kubernetes
+    version: 0.10.2
+  - condition: postgresql.enabled
+    name: postgresql
+    repository: https://charts.bitnami.com/bitnami
+    version: 16.2.5
+  - condition: rabbitmq.enabled
+    name: rabbitmq
+    repository: https://charts.bitnami.com/bitnami
+    version: 15.1.0

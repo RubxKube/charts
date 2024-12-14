@@ -23,7 +23,7 @@ for chart in "${chart_list[@]}"; do
   if [ -f ".no_ci" ]; then
       echo "No CI for this chart."
   else
-      #helm dependency build
+      helm dependency update || true
       helm install $chart_name . --wait --timeout 300s 
       echo "$chart_name is installed"
       helm test $chart_name --logs 

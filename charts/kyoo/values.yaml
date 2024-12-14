@@ -1,0 +1,443 @@
+# The only 'global' value is the volume for media
+# This volume is shared between multiple components.
+# If you use a network storage outside of the cluster, you can create a PVC and use it here (see README)
+volumes:
+  media:
+    enabled: true
+    # If you want to use an existing PVC, set the name here
+    # otherwise, leave it empty
+    existingClaim: ""
+    # The name of the volume (ensure it is unique)
+    name: "media"
+    accessModes:
+      # - "ReadOnlyMany"
+      # Some CSI drivers do not support ReadOnlyMany (e.g. longhorn)
+      # If you are using such a driver, you can change this to ReadWriteMany
+      - "ReadWriteMany"
+    # -- If empty, will use the default storage class
+    storageClassName: ""
+    resources:
+      requests:
+        storage: "10Gi"
+    mountPath: "/data"
+    extraAnnotations: {}
+
+front:
+  name: "front"
+  enabled: true
+  deployment:
+    port: 8901
+    cpuLimit: "250m"
+    memoryLimit: "100Mi"
+  service:
+    type: ClusterIP
+    enabled: true
+    servicePort: 8901
+    containerPort: 8901
+    extraLabels: {}
+  image:
+    repository: "ghcr.io/zoriya/kyoo_front"
+    tag: "4.7.0"
+    pullPolicy: "IfNotPresent"
+  variables:
+    nonSecret:
+      # Match back service name (see .back.name)
+      KYOO_URL: "http://back:5000"
+
+back:
+  name: "back"
+  enabled: true
+  deployment:
+    cpuLimit: "1000m"
+    # 2Gi is the minimum recommended for the back
+    memoryLimit: "2000Mi"
+    port: 5000
+    initContainers:
+      - env:
+          - name: POSTGRES_USER
+            # Should match .postgresql.auth.username
+            value: kyoouserherefordb
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: password
+                name: kyoo-postgresql
+          # Should match .postgresql.back.database
+          - name: POSTGRES_DB
+            value: kyoo_back
+          - name: POSTGRES_SERVER
+            value: kyoo-postgresql
+          - name: POSTGRES_PORT
+            value: "5432"
+        image: "ghcr.io/zoriya/kyoo_migrations:4.7.0"
+        name: migrations
+  variables:
+    nonSecret:
+      TRANSCODER_URL: http://transcoder:7666
+      PUBLIC_URL: https://kyoo.mydomain.com
+      REQUIRE_ACCOUNT_VERIFICATION: "true"
+      DEFAULT_PERMISSIONS: "overall.read,overall.play"
+      # Should match .postgresql.back.database
+      POSTGRES_DB: kyoo_back
+      POSTGRES_SERVER: kyoo-postgresql
+      POSTGRES_PORT: "5432"
+      RABBITMQ_HOST: kyoo-rabbitmq
+      RABBITMQ_PORT: "5672"
+      MEILI_HOST: http://kyoo-meilisearch:7700
+    secret:
+      data:
+        # Should match .back.postgresql.auth.username
+        POSTGRES_USER: kyoouserherefordb
+      existingSecret:
+        # Should match .back.variables.secret.existingSecret[0].envName
+        - name: "kyoo-secrets"
+          key: "kyoo-apikeys"
+          envName: "KYOO_APIKEYS"
+        # Should match .postgresql.auth.username
+        - name: kyoo-postgresql
+          key: password
+          envName: POSTGRES_PASSWORD
+        - name: "kyoo-rabbitmq"
+          key: rabbitmq_user
+          envName: RABBITMQ_DEFAULT_USER
+        - name: "kyoo-rabbitmq"
+          key: rabbitmq_password
+          envName: RABBITMQ_DEFAULT_PASS
+        - name: "kyoo-meilisearch"
+          key: MEILI_MASTER_KEY
+          envName: MEILI_MASTER_KEY
+  service:
+    servicePort: 5000
+    containerPort: 5000
+  image:
+    repository: "ghcr.io/zoriya/kyoo_back"
+    tag: "4.7.0"
+    pullPolicy: "IfNotPresent"
+  persistence:
+    enabled: true
+    volumes:
+      - name: back
+        storageClassName: "longhorn"
+        size: "5Gi"
+        pvcClaim: ""
+        containerMount: "/metadata"
+
+transcoder:
+  name: "transcoder"
+  enabled: true
+  deployment:
+    cpuLimit: "1000m"
+    memoryLimit: "500Mi"
+    port: 7666
+    emptyDir:
+      - name: "cache"
+        containerMount: "/cache"
+  service:
+    type: ClusterIP
+    enabled: true
+    servicePort: 7666
+    containerPort: 7666
+    extraLabels: {}
+  image:
+    repository: "ghcr.io/zoriya/kyoo_transcoder"
+    tag: "4.7.0"
+    pullPolicy: "IfNotPresent"
+  persistence:
+    enabled: true
+    volumes:
+      - name: metadata
+        storageClassName: ""
+        size: "3Gi"
+        pvcClaim: ""
+        containerMount: "/metadata"
+      # TODO - Add an emptyDir volume for cache
+    extraVolumes:
+      - name: media
+        storageClassName: ""
+        size: "5Gi"
+        pvcClaim: "media"
+        containerMount: "/data"
+  variables:
+    nonSecret:
+      # Should match .postgresql.back.database
+      POSTGRES_DB: kyoo_transcoder
+      POSTGRES_SERVER: kyoo-postgresql
+      POSTGRES_PORT: "5432"
+      POSTGRES_SCHEMA: disabled
+      RABBITMQ_HOST: kyoo-rabbitmq
+      RABBITMQ_PORT: "5672"
+      GOCODER_CACHE_ROOT: /cache
+      GOCODER_METADATA_ROOT: /metadata
+      GOCODER_PREFIX: /video
+      GOCODER_SAFE_PATH: /data
+      GOCODER_HWACCEL: disabled
+      GOCODER_PRESET: fast
+    secret:
+      data:
+        # Should match .back.postgresql.auth.username
+        POSTGRES_USER: kyoouserherefordb
+      existingSecret:
+        # Should match .postgresql.auth.username
+        - name: "kyoo-rabbitmq"
+          key: rabbitmq_user
+          envName: RABBITMQ_DEFAULT_USER
+        - name: "kyoo-rabbitmq"
+          key: rabbitmq_password
+          envName: RABBITMQ_DEFAULT_PASS
+        - name: kyoo-postgresql
+          key: password
+          envName: POSTGRES_PASSWORD
+
+scanner:
+  name: "scanner"
+  enabled: true
+  deployment:
+    cpuLimit: "250m"
+    memoryLimit: "300Mi"
+  image:
+    repository: "ghcr.io/zoriya/kyoo_scanner"
+    tag: "4.7.0"
+    pullPolicy: "IfNotPresent"
+  variables:
+    configMap:
+      existingConfigMap:
+        - "kyoo-config"
+    nonSecret:
+      # Should match .postgresql.back.database
+      SCANNER_LIBRARY_ROOT: /data
+      POSTGRES_PORT: "5432"
+      KYOO_URL: http://back:5000
+      RABBITMQ_HOST: kyoo-rabbitmq
+      RABBITMQ_PORT: "5672"
+    secret:
+      data:
+        # Should match .back.postgresql.auth.username
+        POSTGRES_USER: kyoouserherefordb
+      existingSecret:
+        - name: "kyoo-secrets"
+          key: "kyoo-apikeys"
+          envName: "KYOO_APIKEYS"
+        - name: kyoo-postgresql
+          key: password
+          envName: POSTGRES_PASSWORD
+        - name: "kyoo-rabbitmq"
+          key: rabbitmq_user
+          envName: RABBITMQ_DEFAULT_USER
+        - name: "kyoo-rabbitmq"
+          key: rabbitmq_password
+          envName: RABBITMQ_DEFAULT_PASS
+  persistence:
+    enabled: true
+    volumes:
+      - name: media
+        storageClassName: ""
+        size: "5Gi"
+        pvcClaim: "media"
+        containerMount: "/data"
+
+autosync:
+  enabled: true
+  name: "autosync"
+  cpuLimit: "250m"
+  memoryLimit: "300Mi"
+  image:
+    repository: "ghcr.io/zoriya/kyoo_autosync"
+    tag: "4.7.0"
+    pullPolicy: "IfNotPresent"
+  variables:
+    nonSecret:
+      RABBITMQ_HOST: kyoo-rabbitmq
+      RABBITMQ_PORT: "5672"
+    secret:
+      existingSecret:
+        - name: "kyoo-rabbitmq"
+          key: rabbitmq_user
+          envName: RABBITMQ_DEFAULT_USER
+        - name: "kyoo-rabbitmq"
+          key: rabbitmq_password
+          envName: RABBITMQ_DEFAULT_PASS
+
+matcher:
+  enabled: true
+  name: "matcher"
+  deployment:
+    cpuLimit: "500m"
+    memoryLimit: "300Mi"
+    args:
+      - "matcher"
+  image:
+    # matcher uses the same image as the scanner
+    # Only the args are different
+    repository: "ghcr.io/zoriya/kyoo_scanner"
+    tag: "4.7.0"
+    pullPolicy: "IfNotPresent"
+  variables:
+    configMap:
+      existingConfigMap:
+        - "kyoo-config"
+    nonSecret:
+      RABBITMQ_HOST: kyoo-rabbitmq
+      RABBITMQ_PORT: "5672"
+      # Match back service name (see .back.name)
+      KYOO_URL: "http://back:5000"
+    secret:
+      data:
+        THEMOVIEDB_APIKEY: your-tmdb-api
+        #TVDB_APIKEY: your-tvdb-api
+        #TVDB_PIN:
+      existingSecret:
+        - name: "kyoo-rabbitmq"
+          key: rabbitmq_user
+          envName: RABBITMQ_DEFAULT_USER
+        - name: "kyoo-rabbitmq"
+          key: rabbitmq_password
+          envName: RABBITMQ_DEFAULT_PASS
+        # Should match .back.variables.secret.existingSecret[0].envName
+        - name: "kyoo-secrets"
+          key: "kyoo-apikeys"
+          envName: "KYOO_APIKEYS"
+
+# Temporary component to use Kyoo v4, will be removed in the next v5 version
+# This component handle the rewrite_url necessary for the front
+# To avoid having a dependency on the ingress-controller (not all of them support rewrite_url)
+# Otherwise, you can still configure ingress for front and back directly by setting .front.ingress.enabled and .back.ingress.enabled to true
+route:
+  enabled: true
+  # You can set this to LoadBalancer and NodePort if you want to directly expose the route
+  # Otherwise, you can use an ingress controller below
+  serviceType: ClusterIP
+  image:
+    repository: "haproxy"
+    tag: "latest"
+  deployment:
+    replicaCount: 1
+    annotations: {}
+    extraLabels: {}
+  ingress:
+    enabled: true
+    hostName: kyoo.mydomain.com
+    extraLabels: {}
+    annotations: {}
+      # cert-manager.io/cluster-issuer: infomaniak
+    tls:
+      enabled: false
+      secretName: "kyoo-tls"
+    ingressClassName: nginx
+
+config:
+  name: "kyoo-config"
+  enabled: true
+  data:
+    LIBRARY_IGNORE_PATTERN: ".*/[dD]ownloads?/.*"
+    LIBRARY_LANGUAGES: "en"
+
+secrets:
+  kyoo:
+    enabled: true
+    name: "kyoo-secrets"
+    data:
+      # Should match .back.variables.secret.existingSecret[0].envName
+      kyoo-apikeys: "your_api_keys"
+  # Since PostgreSQL already has a secret, we don't need to create a new one
+  # However, you can create a new one here if you want to use it in the postgresql chart
+  postgres:
+    enabled: false
+  rabbitmq:
+    enabled: true
+    name: "kyoo-rabbitmq"
+    data:
+      # Should match .rabbitmq.auth.username (see comment in rabbit.auth.username)
+      rabbitmq_user: "kyoo"
+      rabbitmq_password: "your_rabbitmq_password"
+      erlang_cookie: "rabbitmq_erlang_cookie"
+  meilisearch:
+    enabled: true
+    name: "kyoo-meilisearch"
+    data:
+      MEILI_MASTER_KEY: "your_meilisearch_master_key"
+
+rabbitmq:
+  enabled: true
+  auth:
+    # Sadly, the rabbitmq chart does not support existing secrets for the user
+    # By default, the user is the one generated in .rabbitmq.secrets.rabbitmq.data.rabbitmq_user
+    username: kyoo
+    existingPasswordSecret: "kyoo-rabbitmq"
+    existingSecretPasswordKey: "rabbitmq_password"
+    existingErlangSecret: "kyoo-rabbitmq"
+    existingSecretErlangKey: "erlang_cookie"
+
+postgresql:
+  enabled: true
+  auth:
+    username: kyoouserherefordb
+  back:
+    database: kyoo_back
+  transcoder:
+    database: kyoo_transcoder
+  primary:
+    initdb:
+      scripts:
+        # For now, user are the same for all databases
+        # This is not a good practice, but it's a start for now
+        kyoo_back.sql: |
+          CREATE DATABASE {{ .Values.back.database }} WITH OWNER {{ .Values.auth.username }};
+          \connect {{ .Values.back.database }};
+          CREATE SCHEMA IF NOT EXISTS data AUTHORIZATION {{ .Values.auth.username }};
+        kyoo_transcoder.sql: |
+          CREATE DATABASE {{ .Values.transcoder.database }} WITH OWNER {{ .Values.auth.username }};
+          \connect {{ .Values.transcoder.database }};
+          REVOKE ALL ON SCHEMA public FROM PUBLIC;
+          CREATE SCHEMA IF NOT EXISTS data AUTHORIZATION {{ .Values.auth.username }};
+        user.sql: |
+          ALTER ROLE {{ .Values.auth.username }}
+          IN DATABASE {{ .Values.back.database }} SET search_path TO "$user", public;
+          ALTER ROLE {{ .Values.auth.username }}
+          IN DATABASE {{ .Values.transcoder.database }} SET search_path TO "$user", data;
+    persistence:
+      size: 3Gi
+
+meilisearch:
+  enabled: true
+  environment:
+    MEILI_ENV: production
+  auth:
+    # subchart does not support specifying keyname.
+    # key must be named `MEILI_MASTER_KEY`
+    existingMasterKeySecret: "kyoo-meilisearch"
+  persistence:
+    enabled: true
+    size: 3Gi
+
+extraResources:
+  []
+  # - apiVersion: v1
+  #   kind: PersistentVolume
+  #   metadata:
+  #     name: nfs
+  #   spec:
+  #     capacity:
+  #       storage: 50Gi
+  #     volumeMode: Filesystem
+  #     accessModes:
+  #       - ReadOnlyMany
+  #     persistentVolumeReclaimPolicy: Retain
+  #     storageClassName: local
+  #     mountOptions:
+  #       - hard
+  #       - nfsvers=4.1
+  #     nfs:
+  #       path: /mnt/Stockage/Kyoo
+  #       server: 192.168.1.90
+  # - apiVersion: v1
+  #   kind: PersistentVolumeClaim
+  #   metadata:
+  #     name: media
+  #   spec:
+  #     accessModes:
+  #       - ReadOnlyMany
+  #     volumeMode: Filesystem
+  #     resources:
+  #       requests:
+  #         storage: 50Gi
+  #     storageClassName: local
