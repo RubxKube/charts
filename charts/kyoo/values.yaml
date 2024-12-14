@@ -3,7 +3,7 @@
 # If you use a network storage outside of the cluster, you can create a PVC and use it here (see README)
 volumes:
   media:
-    enabled: false
+    enabled: true
     # If you want to use an existing PVC, set the name here
     # otherwise, leave it empty
     existingClaim: ""
@@ -25,6 +25,8 @@ volumes:
 front:
   name: "front"
   enabled: true
+  cpuLimit: "250m"
+  memoryLimit: "100Mi"
   deployment:
     port: 8901
   service:
@@ -45,6 +47,9 @@ front:
 back:
   name: "back"
   enabled: true
+  cpuLimit: "1000m"
+  # 2Gi is the minimum recommended for the back
+  memoryLimit: "2000Mi"
   deployment:
     port: 5000
     initContainers:
@@ -120,6 +125,8 @@ back:
 transcoder:
   name: "transcoder"
   enabled: true
+  cpuLimit: "1000m"
+  memoryLimit: "500Mi"
   deployment:
     port: 7666
     emptyDir:
@@ -184,6 +191,8 @@ transcoder:
 scanner:
   name: "scanner"
   enabled: true
+  cpuLimit: "250m"
+  memoryLimit: "300Mi"
   image:
     repository: "ghcr.io/zoriya/kyoo_scanner"
     tag: "4.7.0"
@@ -228,6 +237,8 @@ scanner:
 autosync:
   enabled: true
   name: "autosync"
+  cpuLimit: "250m"
+  memoryLimit: "300Mi"
   image:
     repository: "ghcr.io/zoriya/kyoo_autosync"
     tag: "4.7.0"
@@ -248,6 +259,8 @@ autosync:
 matcher:
   enabled: true
   name: "matcher"
+  cpuLimit: "500m"
+  memoryLimit: "300Mi"
   deployment:
     args:
       - "matcher"
@@ -397,33 +410,34 @@ meilisearch:
     size: 3Gi
 
 extraResources:
-  - apiVersion: v1
-    kind: PersistentVolume
-    metadata:
-      name: nfs
-    spec:
-      capacity:
-        storage: 50Gi
-      volumeMode: Filesystem
-      accessModes:
-        - ReadOnlyMany
-      persistentVolumeReclaimPolicy: Retain
-      storageClassName: local
-      mountOptions:
-        - hard
-        - nfsvers=4.1
-      nfs:
-        path: /mnt/Stockage/Plex
-        server: 192.168.1.90
-  - apiVersion: v1
-    kind: PersistentVolumeClaim
-    metadata:
-      name: media
-    spec:
-      accessModes:
-        - ReadOnlyMany
-      volumeMode: Filesystem
-      resources:
-        requests:
-          storage: 50Gi
-      storageClassName: local
+  []
+  # - apiVersion: v1
+  #   kind: PersistentVolume
+  #   metadata:
+  #     name: nfs
+  #   spec:
+  #     capacity:
+  #       storage: 50Gi
+  #     volumeMode: Filesystem
+  #     accessModes:
+  #       - ReadOnlyMany
+  #     persistentVolumeReclaimPolicy: Retain
+  #     storageClassName: local
+  #     mountOptions:
+  #       - hard
+  #       - nfsvers=4.1
+  #     nfs:
+  #       path: /mnt/Stockage/Kyoo
+  #       server: 192.168.1.90
+  # - apiVersion: v1
+  #   kind: PersistentVolumeClaim
+  #   metadata:
+  #     name: media
+  #   spec:
+  #     accessModes:
+  #       - ReadOnlyMany
+  #     volumeMode: Filesystem
+  #     resources:
+  #       requests:
+  #         storage: 50Gi
+  #     storageClassName: local
