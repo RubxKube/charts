@@ -53,14 +53,11 @@ back:
     initContainers:
       - env:
         - name: POSTGRES_USER
-          valueFrom:
-            secretKeyRef:
-              key: postgres_user
-              name: kyoo-postgresql
+          value: kyoouserherefordb
         - name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
-              key: postgres-password
+              key: password
               name: kyoo-postgresql
         # Should match .postgresql.back.database
         - name: POSTGRES_DB
@@ -77,37 +74,35 @@ back:
         PUBLIC_URL: https://kyoo.mydomain.com
         REQUIRE_ACCOUNT_VERIFICATION: "true"
         DEFAULT_PERMISSIONS: "overall.read,overall.play"
-        POSTGRES_DB: kyoo
+        # Should match .postgresql.back.database
+        POSTGRES_DB: kyoo_back
         POSTGRES_SERVER: kyoo-postgresql
         POSTGRES_PORT: "5432"
         RABBITMQ_HOST: kyoo-rabbitmq
         RABBITMQ_PORT: "5672"
         MEILI_HOST: http://kyoo-meilisearch:7700
     secret:
+      data:
+        # Should match .back.postgresql.auth.username
+        POSTGRES_USER: kyoouserherefordb
       existingSecret:
         # Should match .back.variables.secret.existingSecret[0].envName
         - name: "kyoo-secrets"
           key: "kyoo-apikeys"
           envName: "KYOO_APIKEYS"
         # Should match .postgresql.auth.username
-        - name: "kyoo-postgresql"
-          key: postgres_user
-          envName: POSTGRES_USER
-
         - name: kyoo-postgresql
-          key: postgres-password
+          key: password
           envName: POSTGRES_PASSWORD
-
-        - name: "kyoo-secrets"
+        - name: "kyoo-rabbitmq"
           key: rabbitmq_user
           envName: RABBITMQ_DEFAULT_USER
-        - name: "kyoo-secrets"
+        - name: "kyoo-rabbitmq"
           key: rabbitmq_password
           envName: RABBITMQ_DEFAULT_PASS
-        - name: "kyoo-secrets"
-          key: meili_master_key
+        - name: "kyoo-meilisearch"
+          key: MEILI_MASTER_KEY
           envName: MEILI_MASTER_KEY
-
   service:
     servicePort: 5000
     containerPort: 5000
@@ -140,9 +135,14 @@ secrets:
     name: "kyoo-rabbitmq"
     data:
       # Should match .rabbitmq.auth.username (see comment in rabbit.auth.username)
-      rabbitmq_username: "kyoo"
-      password: "your_rabbitmq_password"
+      rabbitmq_user: "kyoo"
+      rabbitmq_password: "your_rabbitmq_password"
       erlang_cookie: "rabbitmq_erlang_cookie"
+  meilisearch:
+    enabled: true
+    name: "kyoo-meilisearch"
+    data:
+      MEILI_MASTER_KEY: "your_meilisearch_master_key"
 
 rabbitmq:
   enabled: true
@@ -150,7 +150,7 @@ rabbitmq:
     # Sadly, the rabbitmq chart does not support existing secrets for the user
     username: kyoo
     existingPasswordSecret: "kyoo-rabbitmq"
-    existingSecretPasswordKey: "password"
+    existingSecretPasswordKey: "rabbitmq_password"
     existingErlangSecret: "kyoo-rabbitmq"
     existingSecretErlangKey: "erlang_cookie"
     
@@ -183,3 +183,15 @@ postgresql:
           IN DATABASE {{ .Values.transcoder.database }} SET search_path TO "$user", data;
     persistence:
       size: 3Gi
+
+meilisearch:
+  enabled: true
+  environment:
+    MEILI_ENV: production
+  auth:
+    # subchart does not support specifying keyname.
+    # key must be named `MEILI_MASTER_KEY`
+    existingMasterKeySecret: "kyoo-meilisearch"
+  persistence:
+    enabled: true
+    size: 3Gi
