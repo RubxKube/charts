@@ -12,40 +12,50 @@ It aims to have a low amount of maintenance needed (no folder structure required
   - To deploy only the services you need and use services from another cluster (like a database, or the transcoder service)
 - Each service managed its own volumes (except for the `media` volume, which is shared between multiple services), see more below
 
-### Use existing PVC for Media volume
+### Use NFS for the media volume
 
 The `media` volume is a shared volume between the services that need to access the media files. It is mounted in the `/media` and can (or may be not) be created within the chart. If you want to use an existing volume, you can specify it in the `volume.media.existingClaim` value and update values as follows :
 
 ```yaml
 volume:
+  # Disable media volume creation
   media:
     enabled: false
-transcoder:
-  persistence:
-    volumes:
-      - name: media
-        size: "5Gi"
-        pvcClaim: "YOUR_EXISTING_CLAIM"
-        containerMount: "/data"
-      - name: metadata
-        storageClassName: ""
-        size: "3Gi"
-        pvcClaim: ""
-        containerMount: "/metadata"
-      - name: cache
-        storageClassName: ""
-        size: "5Gi"
-        pvcClaim: ""
-        containerMount: "/cache"
 
-scanner:
-  persistence:
-    enabled: true
-    volumes:
-      - name: media
-        pvcClaim: "YOUR_EXISTING_CLAIM"
-        containerMount: "/data"
+extraResources:
+  - apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: nfs
+    spec:
+      capacity:
+        storage: 50Gi
+      volumeMode: Filesystem
+      accessModes:
+        - ReadOnlyMany
+      persistentVolumeReclaimPolicy: Retain
+      storageClassName: local
+      mountOptions:
+        - hard
+        - nfsvers=4.1
+      nfs:
+        path: /mnt/Stockage/Plex
+        server: 192.168.1.90
+  - apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: media
+    spec:
+      accessModes:
+        - ReadOnlyMany
+      volumeMode: Filesystem
+      resources:
+        requests:
+          storage: 50Gi
+      storageClassName: local
 ```
+
+
 
 ### Production usage
 
