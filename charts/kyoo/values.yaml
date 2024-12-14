@@ -17,7 +17,7 @@ volumes:
         storage: "10Gi"
     mountPath: "/data"
     extraAnnotations: {}
-  transcoder: 
+  transcoder:
     existingClaim: ""
     accessModes:
       - "ReadWriteOnce"
@@ -52,35 +52,35 @@ back:
     port: 5000
     initContainers:
       - env:
-        - name: POSTGRES_USER
-          value: kyoouserherefordb
-        - name: POSTGRES_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              key: password
-              name: kyoo-postgresql
-        # Should match .postgresql.back.database
-        - name: POSTGRES_DB
-          value: kyoo_back
-        - name: POSTGRES_SERVER
-          value: kyoo-postgresql
-        - name: POSTGRES_PORT
-          value: "5432"
+          - name: POSTGRES_USER
+            value: kyoouserherefordb
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: password
+                name: kyoo-postgresql
+          # Should match .postgresql.back.database
+          - name: POSTGRES_DB
+            value: kyoo_back
+          - name: POSTGRES_SERVER
+            value: kyoo-postgresql
+          - name: POSTGRES_PORT
+            value: "5432"
         image: "ghcr.io/zoriya/kyoo_migrations:4.7.0"
         name: migrations
   variables:
     nonSecret:
-        TRANSCODER_URL: http://kyoo-transcoder:7666
-        PUBLIC_URL: https://kyoo.mydomain.com
-        REQUIRE_ACCOUNT_VERIFICATION: "true"
-        DEFAULT_PERMISSIONS: "overall.read,overall.play"
-        # Should match .postgresql.back.database
-        POSTGRES_DB: kyoo_back
-        POSTGRES_SERVER: kyoo-postgresql
-        POSTGRES_PORT: "5432"
-        RABBITMQ_HOST: kyoo-rabbitmq
-        RABBITMQ_PORT: "5672"
-        MEILI_HOST: http://kyoo-meilisearch:7700
+      TRANSCODER_URL: http://kyoo-transcoder:7666
+      PUBLIC_URL: https://kyoo.mydomain.com
+      REQUIRE_ACCOUNT_VERIFICATION: "true"
+      DEFAULT_PERMISSIONS: "overall.read,overall.play"
+      # Should match .postgresql.back.database
+      POSTGRES_DB: kyoo_back
+      POSTGRES_SERVER: kyoo-postgresql
+      POSTGRES_PORT: "5432"
+      RABBITMQ_HOST: kyoo-rabbitmq
+      RABBITMQ_PORT: "5672"
+      MEILI_HOST: http://kyoo-meilisearch:7700
     secret:
       data:
         # Should match .back.postgresql.auth.username
@@ -112,7 +112,7 @@ back:
     pullPolicy: "IfNotPresent"
   persistence:
     enabled: true
-    volumes: 
+    volumes:
       - name: back
         storageClassName: "longhorn"
         size: "5Gi"
@@ -153,10 +153,10 @@ rabbitmq:
     existingSecretPasswordKey: "rabbitmq_password"
     existingErlangSecret: "kyoo-rabbitmq"
     existingSecretErlangKey: "erlang_cookie"
-    
+
 postgresql:
   enabled: true
-  auth: 
+  auth:
     username: kyoouserherefordb
   back:
     database: kyoo_back
