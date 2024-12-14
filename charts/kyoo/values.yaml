@@ -168,7 +168,7 @@ postgresql:
         # For now, user are the same for all databases
         # This is not a good practice, but it's a start for now
         kyoo_back.sql: |
-          CREATE DATABASE {{ .Values.back.database }} WITH OWNER {{ .Values.auth.username }}; 
+          CREATE DATABASE {{ .Values.back.database }} WITH OWNER {{ .Values.auth.username }};
           \connect {{ .Values.back.database }};
           CREATE SCHEMA IF NOT EXISTS data AUTHORIZATION {{ .Values.auth.username }};
         kyoo_transcoder.sql: |
@@ -177,9 +177,9 @@ postgresql:
           REVOKE ALL ON SCHEMA public FROM PUBLIC;
           CREATE SCHEMA IF NOT EXISTS data AUTHORIZATION {{ .Values.auth.username }};
         user.sql: |
-          ALTER ROLE {{ .Values.auth.username }} 
+          ALTER ROLE {{ .Values.auth.username }}
           IN DATABASE {{ .Values.back.database }} SET search_path TO "$user", public;
-          ALTER ROLE {{ .Values.auth.username }} 
+          ALTER ROLE {{ .Values.auth.username }}
           IN DATABASE {{ .Values.transcoder.database }} SET search_path TO "$user", data;
     persistence:
       size: 3Gi
