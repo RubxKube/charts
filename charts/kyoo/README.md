@@ -1,4 +1,4 @@
-## Kyoo 
+## Kyoo 
 
 Kyoo is a self-hosted media server focused on video content (Movies, Series & Anime). It is an alternative to Jellyfin or Plex.
 
