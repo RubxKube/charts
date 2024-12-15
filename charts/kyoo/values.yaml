@@ -296,6 +296,11 @@ matcher:
         - name: "kyoo-secrets"
           key: "kyoo-apikeys"
           envName: "KYOO_APIKEYS"
+      # If you need to add extra secrets, you can do it like this
+      extraExistingSecrets:
+        # - name: "kyoo-secrets"
+        #   key: "THEMOVIEDB_APIKEY"
+        #   envName: "THEMOVIEDB_APIKEY"
 
 # Temporary component to use Kyoo v4, will be removed in the next v5 version
 # This component handle the rewrite_url necessary for the front
