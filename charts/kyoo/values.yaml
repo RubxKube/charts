@@ -314,14 +314,13 @@ route:
     extraLabels: {}
   ingress:
     enabled: true
-    hostName: kyoo.une-pause-cafe.fr
+    hostName: kyoo.mydomain.com
     extraLabels: {}
-    annotations:
-      cert-manager.io/cluster-issuer: infomaniak
+    annotations: {}
+      # cert-manager.io/cluster-issuer: infomaniak
     tls:
-      enabled: true
+      enabled: false
       secretName: "kyoo-tls"
-    # For Ingress CRD
     ingressClassName: nginx
 
 config:
@@ -329,7 +328,7 @@ config:
   enabled: true
   data:
     LIBRARY_IGNORE_PATTERN: ".*/[dD]ownloads?/.*"
-    LIBRARY_LANGUAGES: "fr"
+    LIBRARY_LANGUAGES: "en"
 
 secrets:
   kyoo:
