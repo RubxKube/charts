@@ -25,7 +25,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | jellyfin | Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media | 1.1.8 | 10.10.3 |
 | baikal | Baikal is a Cal and CardDAV server, based on sabre/dav, that includes an administrative interface for easy management. | 1.2.7 | 0.10.1-nginx |
 | linkding | linkding is a bookmark manager that you can host yourself. It's designed be to be minimal, fast, and easy to set up. | 1.1.16 | 1.36.0 |
-| gitea | Gitea (Git with a cup of tea) | 1.1.16 | 1.22.5 |
+| gitea | Gitea (Git with a cup of tea) | 1.1.17 | 1.22.6 |
 | gotify | a simple server for sending and receiving messages | 1.2.8 | 2.6.1 |
 | radarr | Radarr is a movie collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new movies and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available. | 1.1.7 | 5.15.1 |
 | memo | Memo (A privacy-first, lightweight note-taking service) | 1.1.9 | 0.22 |
