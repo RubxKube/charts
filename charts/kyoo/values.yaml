@@ -282,8 +282,8 @@ matcher:
       KYOO_URL: "http://back:5000"
     secret:
       data:
-        THEMOVIEDB_APIKEY: e3591dc8dfb9939a4db52c5e169aa160
-        #TVDB_APIKEY: 756d12a1-fcdf-444e-85ad-b87da3d409ae
+        THEMOVIEDB_APIKEY: your-tmdb-api
+        #TVDB_APIKEY: your-tvdb-api
         #TVDB_PIN:
       existingSecret:
         - name: "kyoo-rabbitmq"
