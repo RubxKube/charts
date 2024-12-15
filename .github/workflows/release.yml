@@ -76,6 +76,7 @@ jobs:
         run: |
           helm repo add common https://rubxkube.github.io/common-charts
           helm repo add bitnami https://charts.bitnami.com/bitnami
+          helm repo add meilisearch https://meilisearch.github.io/meilisearch-kubernetes
 
       - name: Configure Git
         run: |
