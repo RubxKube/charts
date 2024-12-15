@@ -25,10 +25,10 @@ volumes:
 front:
   name: "front"
   enabled: true
-  cpuLimit: "250m"
-  memoryLimit: "100Mi"
   deployment:
     port: 8901
+    cpuLimit: "250m"
+    memoryLimit: "100Mi"
   service:
     type: ClusterIP
     enabled: true
@@ -47,10 +47,10 @@ front:
 back:
   name: "back"
   enabled: true
-  cpuLimit: "1000m"
-  # 2Gi is the minimum recommended for the back
-  memoryLimit: "2000Mi"
   deployment:
+    cpuLimit: "1000m"
+    # 2Gi is the minimum recommended for the back
+    memoryLimit: "2000Mi"
     port: 5000
     initContainers:
       - env:
@@ -125,9 +125,9 @@ back:
 transcoder:
   name: "transcoder"
   enabled: true
-  cpuLimit: "1000m"
-  memoryLimit: "500Mi"
   deployment:
+    cpuLimit: "1000m"
+    memoryLimit: "500Mi"
     port: 7666
     emptyDir:
       - name: "cache"
@@ -191,8 +191,9 @@ transcoder:
 scanner:
   name: "scanner"
   enabled: true
-  cpuLimit: "250m"
-  memoryLimit: "300Mi"
+  deployment:
+    cpuLimit: "250m"
+    memoryLimit: "300Mi"
   image:
     repository: "ghcr.io/zoriya/kyoo_scanner"
     tag: "4.7.0"
@@ -259,9 +260,9 @@ autosync:
 matcher:
   enabled: true
   name: "matcher"
-  cpuLimit: "500m"
-  memoryLimit: "300Mi"
   deployment:
+    cpuLimit: "500m"
+    memoryLimit: "300Mi"
     args:
       - "matcher"
   image:
