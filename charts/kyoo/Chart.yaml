@@ -2,8 +2,8 @@
 apiVersion: v2
 type: application
 name: Kyoo
-description: Kyoo is a video
-version: 0.0.0
+description: Kyoo is a media manager and transcoder for your media files.
+version: 0.1.0
 appVersion: "4.7.0"
 icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/linkding-logo.png
 maintainers:
