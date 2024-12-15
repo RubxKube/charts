@@ -281,8 +281,8 @@ matcher:
       # Match back service name (see .back.name)
       KYOO_URL: "http://back:5000"
     secret:
-      data:
-        THEMOVIEDB_APIKEY: your-tmdb-api
+      data: {}
+        # THEMOVIEDB_APIKEY: your-tmdb-api
         #TVDB_APIKEY: your-tvdb-api
         #TVDB_PIN:
       existingSecret:
@@ -296,6 +296,9 @@ matcher:
         - name: "kyoo-secrets"
           key: "kyoo-apikeys"
           envName: "KYOO_APIKEYS"
+        - name: "kyoo-secrets"
+          key: "tmdb-api"
+          envName: "THEMOVIEDB_APIKEY"
       # If you need to add extra secrets, you can do it like this
       extraExistingSecrets:
         # - name: "kyoo-secrets"
@@ -343,6 +346,7 @@ secrets:
     data:
       # Should match .back.variables.secret.existingSecret[0].envName
       kyoo-apikeys: "your_api_keys"
+      tmdb-api: "your_tmdb_api"
   # Since PostgreSQL already has a secret, we don't need to create a new one
   # However, you can create a new one here if you want to use it in the postgresql chart
   postgres:
