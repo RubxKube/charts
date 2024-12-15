@@ -1,118 +1,116 @@
 ---
 name: Release Charts
 on:
-   push:
-      branches:
-         - main
-      paths-ignore:
-         - 'README.md'
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "README.md"
 
 jobs:
-   lint:
-      runs-on: ubuntu-latest
-      steps:
-         - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
-         - name: Install yamllint
-           run: pip install yamllint
+      - name: Install yamllint
+        run: pip install yamllint
 
-         - name: Lint YAML files
-           run: yamllint .
+      - name: Lint YAML files
+        run: yamllint .
 
-   test-charts:
-      needs: lint
-      runs-on: ubuntu-latest
-      steps:
-         - name: Checkout
-           uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-           with:
-              fetch-depth: 0
+  test-charts:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        with:
+          fetch-depth: 0
 
-         - name: Setup Python
-           uses: actions/setup-python@v5.1.1
+      - name: Setup Python
+        uses: actions/setup-python@v5.1.1
 
-         - uses: azure/setup-helm@v4
-           with:
-              token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: azure/setup-helm@v4
 
-         - name: Get changed files in the charts folder
-           id: changed-files-specific
-           uses: tj-actions/changed-files@v40
-           with:
-              files: charts
+      - name: Get changed files in the charts folder
+        id: changed-files-specific
+        uses: tj-actions/changed-files@v40
+        with:
+          files: charts
 
-         - name: Create k8s Kind Cluster
-           if: steps.changed-files-specific.outputs.any_changed == 'true'
-           uses: helm/kind-action@v1.10.0
+      - name: Create k8s Kind Cluster
+        if: steps.changed-files-specific.outputs.any_changed == 'true'
+        uses: helm/kind-action@v1.10.0
 
-         - name: Install kubectl
-           if: steps.changed-files-specific.outputs.any_changed == 'true'
-           uses: Azure/setup-kubectl@v4
+      - name: Install kubectl
+        if: steps.changed-files-specific.outputs.any_changed == 'true'
+        uses: Azure/setup-kubectl@v4
 
-         - name: Run lint for any chart concerned by the commit
-           if: steps.changed-files-specific.outputs.any_changed == 'true'
-           run: |
-            .github/workflows/lint_modified_charts.sh ${{ steps.changed-files-specific.outputs.all_changed_files }}
+      - name: Run lint for any chart concerned by the commit
+        if: steps.changed-files-specific.outputs.any_changed == 'true'
+        run: |
+          .github/workflows/lint_modified_charts.sh ${{ steps.changed-files-specific.outputs.all_changed_files }}
 
-         - name: Run test for any chart concerned by the commit
-           if: steps.changed-files-specific.outputs.any_changed == 'true'
-           run: |
-            .github/workflows/deploy_modified_charts.sh ${{ steps.changed-files-specific.outputs.all_changed_files }}
+      - name: Run test for any chart concerned by the commit
+        if: steps.changed-files-specific.outputs.any_changed == 'true'
+        run: |
+          .github/workflows/deploy_modified_charts.sh ${{ steps.changed-files-specific.outputs.all_changed_files }}
 
-   release:
-      needs: test-charts
-      permissions:
-         contents: write
-      runs-on: ubuntu-latest
-      steps:
-         - name: Checkout
-           uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
-           with:
-            fetch-depth: 0
-            
-         - name: Setup Python
-           uses: actions/setup-python@v5.1.1
+  release:
+    needs: test-charts
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        with:
+          fetch-depth: 0
 
-         - name: Helm common repo
-           continue-on-error: true
-           run: |
-              helm repo add common https://rubxkube.github.io/common-charts
-              helm repo add bitnami https://charts.bitnami.com/bitnami
+      - name: Setup Python
+        uses: actions/setup-python@v5.1.1
 
-         - name: Configure Git
-           run: |
-             git config user.name "$GITHUB_ACTOR"
-             git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+      - name: Helm common repo
+        continue-on-error: true
+        run: |
+          helm repo add common https://rubxkube.github.io/common-charts
+          helm repo add bitnami https://charts.bitnami.com/bitnami
 
-         - name: Run chart-releaser
-           uses: helm/chart-releaser-action@v1.6.0
-           env:
-              CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-           with:
-              charts_dir: charts
+      - name: Configure Git
+        run: |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
-         - name: Modifying the readme on main
-           continue-on-error: true
-           run: |
-              git pull
-              git checkout main
-              cd .github/workflows/
-              python -m pip install -r requirements.txt
-              python3 get_readme.py
-              cd ../..
-              git add README.md
-              git commit -m ":lock: Auto-Update README with Charts versions"
-              git push -f
+      - name: Run chart-releaser
+        uses: helm/chart-releaser-action@v1.6.0
+        env:
+          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        with:
+          charts_dir: charts
 
-         - name: Setup Pandoc
-           uses: nikeee/setup-pandoc@v1
+      - name: Modifying the readme on main
+        continue-on-error: true
+        run: |
+          git pull
+          git checkout main
+          cd .github/workflows/
+          python -m pip install -r requirements.txt
+          python3 get_readme.py
+          cd ../..
+          git add README.md
+          git commit -m ":lock: Auto-Update README with Charts versions"
+          git push -f
 
-         - name: Modifying index.html
-           continue-on-error: true
-           run: |
-              index=$(pandoc --from gfm README.md --to html5 --standalone --toc --citeproc --no-highlight)
-              git checkout gh-pages
-              echo $index > index.html
-              git add index.html
-              git commit -m "[AUTO] Update index.html of gh-pages"
-              git push
+      - name: Setup Pandoc
+        uses: nikeee/setup-pandoc@v1
+
+      - name: Modifying index.html
+        continue-on-error: true
+        run: |
+          index=$(pandoc --from gfm README.md --to html5 --standalone --toc --citeproc --no-highlight)
+          git checkout gh-pages
+          echo $index > index.html
+          git add index.html
+          git commit -m "[AUTO] Update index.html of gh-pages"
+          git push

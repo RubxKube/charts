@@ -14,6 +14,7 @@ home: https://github.com/zoriya/Kyoo
 keywords:
   - transcoder
   - media manager
+  - micro-services
 sources:
   - https://github.com/zoriya/Kyoo
 dependencies:
