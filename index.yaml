@@ -258,6 +258,33 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/deluge-1.0.1/deluge-1.0.1.tgz
     version: 1.0.1
+  flaresolverr:
+  - apiVersion: v2
+    appVersion: v3.3.21
+    created: "2024-12-16T18:07:59.341294055Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.3.12
+    description: FlareSolverr is a proxy server that solves Cloudflare's Javascript
+      challenges.
+    digest: 5a1f8d40fb5c994b9ea13d3fed124336cd8c4f504edeaa2fdf2557266ae6a89b
+    home: https://github.com/FlareSolverr/FlareSolverr
+    keywords:
+    - FlareSolverr
+    - Cloudflare
+    - Proxy
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: flaresolverr
+    sources:
+    - https://github.com/FlareSolverr/FlareSolverr
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/flaresolverr-0.0.1/flaresolverr-0.0.1.tgz
+    version: 0.0.1
   freshrss:
   - apiVersion: v2
     appVersion: 1.24.2
@@ -4637,4 +4664,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2024-12-16T17:47:34.838176212Z"
+generated: "2024-12-16T18:07:59.341607347Z"
