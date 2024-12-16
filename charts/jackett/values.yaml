@@ -27,7 +27,7 @@ common:
       isPrivate: false
       secretName: null
     repository: linuxserver/jackett
-    tag: 0.21.1096
+    tag: 0.22.1085
     pullPolicy: Always
 
   # ingress
@@ -39,7 +39,7 @@ common:
       # nginx.ingress.kubernetes.io/proxy-body-size: 100m
     tls:
       enabled: false
-      secretName: "toto-secrets"
+      secretName: "secret-jackett-tls"
     # For Ingress CRD
     ingressClassName: istio
 
