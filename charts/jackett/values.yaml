@@ -2,12 +2,15 @@
 define: &containerPort 9117
 
 common:
-  app:
-    servicePort: 80
-    containerPort: *containerPort
+  name: "jackett"
+  define: &containerPort 9117
 
-  # deployment
+  service: 
+    servicePort: *containerPort
+    type: ClusterIP
+  
   deployment:
+    port: *containerPort
     memoryRequest: null
     cpuRequest: null
     memoryLimit: null
@@ -30,16 +33,15 @@ common:
   # ingress
   ingress:
     enabled: false
-    hostName: jackett.une-tasse-de.cafe
+    hostName: toto.lan
+    extraLabels: {}
+    annotations: {}
+      # nginx.ingress.kubernetes.io/proxy-body-size: 100m
     tls:
-      enabled: true
-      secretName: ""
+      enabled: false
+      secretName: "toto-secrets"
     # For Ingress CRD
     ingressClassName: istio
-    # For IngressRoute CRD
-    isIngressRoute: true
-    entrypoint: websecure
-    certResolver: letsencrypt  # leave empty if you don't use, tls.enabled must be true and secretName must me empty
 
   # env variables
   variables:
