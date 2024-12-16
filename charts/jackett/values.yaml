@@ -5,10 +5,10 @@ common:
   name: "jackett"
   define: &containerPort 9117
 
-  service: 
+  service:
     servicePort: *containerPort
     type: ClusterIP
-  
+
   deployment:
     port: *containerPort
     memoryRequest: null
@@ -35,7 +35,8 @@ common:
     enabled: false
     hostName: toto.lan
     extraLabels: {}
-    annotations: {}
+    annotations:
+      {}
       # nginx.ingress.kubernetes.io/proxy-body-size: 100m
     tls:
       enabled: false
@@ -93,19 +94,19 @@ common:
     enabled: true
     volumes:
       - name: "config"
-        storageClassName: ""  # leave empty if you want to use default
+        storageClassName: "" # leave empty if you want to use default
         size: "2Gi"
-        pvcClaim: ""  # Fill only if you want to use existing pvc
+        pvcClaim: "" # Fill only if you want to use existing pvc
         containerMount: "/config/"
-      - name: "downloads"  # OPTIONAL
-        storageClassName: ""  # leave empty if you want to use default
+      - name: "downloads" # OPTIONAL
+        storageClassName: "" # leave empty if you want to use default
         size: "1Gi"
-        pvcClaim: ""  # Fill only if you want to use existing pvc
+        pvcClaim: "" # Fill only if you want to use existing pvc
         containerMount: "/downloads/"
 
   tests:
-    classicHttp:  # default helm test method
+    classicHttp: # default helm test method
       enabled: false
-    curlHostHeader:  # curl using ingress.hostName as Host in header
+    curlHostHeader: # curl using ingress.hostName as Host in header
       enabled: true
       path: "/"
