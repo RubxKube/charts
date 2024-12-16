@@ -16,7 +16,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 
 | Name  | Description | Chart Version | App Version |
 |-------|-------------|---------------|-------------|
-| jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.2.15 | 0.21.1096 |
+| jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.3.0 | 0.22.1085 |
 | smokeping | SmokePing is a latency logging and graphing and alerting system | 1.1.2 | 2.8.2 |
 | uptime-kuma | Uptime Kuma is an easy-to-use self-hosted monitoring tool. | 1.1.18 | 1.23.15 |
 | deluge | Deluge is a lightweight, Free Software, cross-platform BitTorrent client. | 1.1.2 | 18.04.1 |
