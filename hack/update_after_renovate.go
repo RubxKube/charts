@@ -76,16 +76,15 @@ func updateChartVersion(chartName string, isGitHubAction bool) error {
 	dec = yaml.NewDecoder(f)
 	dec.Decode(&y)
 
-	appVersion, err2 := dig_yaml.DigYaml(y, "common", "image", "tag")
-	if err2 != nil {
+	appVersion, err := dig_yaml.DigYaml(y, "common", "image", "tag")
+	if err != nil {
 		fmt.Println("Can't read tag")
-		log.Fatal(err2)
+		return err
 	}
 	appVersion = fmt.Sprintf("%v", appVersion)
 
 	if appVersion == chartVersion {
 		fmt.Println("✔️ Versions are identicals.")
-		//		os.Exit(0)
 	} else {
 		fmt.Printf("✖️ Versions in 'Chart.yaml'(%s) and 'values.yaml'(%s) are differents.\n", chartVersion, appVersion)
 
