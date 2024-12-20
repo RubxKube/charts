@@ -36,7 +36,7 @@ func searchAndReplace(path, wordToFind, wordToReplace string) error {
 
 	return nil
 }
-func updateChartVersion(chartName string, isGitHubAction bool) {
+func updateChartVersion(chartName string, isGitHubAction bool) error {
 	chartPath := fmt.Sprintf("../charts/%s/Chart.yaml", chartName)
 	valuePath := fmt.Sprintf("../charts/%s/values.yaml", chartName)
 
@@ -45,7 +45,7 @@ func updateChartVersion(chartName string, isGitHubAction bool) {
 
 	if err != nil {
 		log.Fatal("Error when trying to read " + "../charts/" + chartName + "/Chart.yaml")
-		log.Fatal(err)
+		return err
 	}
 
 	dec := yaml.NewDecoder(f)
@@ -139,7 +139,7 @@ git commit -m "%s: update version to match docker image tag"
 			}
 		}
 	}
-
+	return nil
 }
 func main() {
 
@@ -170,7 +170,11 @@ func main() {
 
 	for _, chartName := range chartNames {
 		fmt.Println("Updating " + chartName + "...")
-		updateChartVersion(chartName, isGitHubAction)
+		err := updateChartVersion(chartName, isGitHubAction)
+		if err != nil {
+			fmt.Sprintf("Error when trying to update %s", chartName)
+			continue
+		}
 	}
 
 }
