@@ -36,7 +36,7 @@ func searchAndReplace(path, wordToFind, wordToReplace string) error {
 
 	return nil
 }
-func updateChartVersion(chartName string, isGitHubAction bool) {
+func updateChartVersion(chartName string, isGitHubAction bool) error {
 	chartPath := fmt.Sprintf("../charts/%s/Chart.yaml", chartName)
 	valuePath := fmt.Sprintf("../charts/%s/values.yaml", chartName)
 
@@ -45,7 +45,7 @@ func updateChartVersion(chartName string, isGitHubAction bool) {
 
 	if err != nil {
 		log.Fatal("Error when trying to read " + "../charts/" + chartName + "/Chart.yaml")
-		log.Fatal(err)
+		return err
 	}
 
 	dec := yaml.NewDecoder(f)
@@ -76,16 +76,15 @@ func updateChartVersion(chartName string, isGitHubAction bool) {
 	dec = yaml.NewDecoder(f)
 	dec.Decode(&y)
 
-	appVersion, err2 := dig_yaml.DigYaml(y, "common", "image", "tag")
-	if err2 != nil {
+	appVersion, err := dig_yaml.DigYaml(y, "common", "image", "tag")
+	if err != nil {
 		fmt.Println("Can't read tag")
-		log.Fatal(err2)
+		return err
 	}
 	appVersion = fmt.Sprintf("%v", appVersion)
 
 	if appVersion == chartVersion {
 		fmt.Println("✔️ Versions are identicals.")
-		//		os.Exit(0)
 	} else {
 		fmt.Printf("✖️ Versions in 'Chart.yaml'(%s) and 'values.yaml'(%s) are differents.\n", chartVersion, appVersion)
 
@@ -139,6 +138,7 @@ git commit -m "%s: update version to match docker image tag"
 			}
 		}
 	}
+	return nil
 
 }
 func main() {
@@ -170,7 +170,12 @@ func main() {
 
 	for _, chartName := range chartNames {
 		fmt.Println("Updating " + chartName + "...")
-		updateChartVersion(chartName, isGitHubAction)
+		err := updateChartVersion(chartName, isGitHubAction)
+		if err != nil {
+			fmt.Sprintf("Error when trying to update %s", chartName)
+			continue
+		}
+
 	}
 
 }
