@@ -20,6 +20,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | smokeping | SmokePing is a latency logging and graphing and alerting system | 1.1.2 | 2.8.2 |
 | uptime-kuma | Uptime Kuma is an easy-to-use self-hosted monitoring tool. | 1.1.18 | 1.23.15 |
 | deluge | Deluge is a lightweight, Free Software, cross-platform BitTorrent client. | 1.1.2 | 18.04.1 |
+| cloudflare-tunnel | Creation of a cloudflared deployment - a reverse tunnel for an environment | 0.3.2 | 2024.8.3 |
 | simple-coffee | This is a test application | 0.1.0 | 1.0.0 |
 | flaresolverr | FlareSolverr is a proxy server that solves Cloudflare's Javascript challenges. | 0.0.1 | v3.3.21 |
 | freshrss | A WebUI to read article via RSS | 1.2.10 | 1.24.3 |
