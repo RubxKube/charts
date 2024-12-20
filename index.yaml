@@ -176,6 +176,18 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/baikal-1.0.0/baikal-1.0.0.tgz
     version: 1.0.0
+  cloudflare-tunnel:
+  - apiVersion: v2
+    appVersion: 2024.8.3
+    created: "2024-12-20T20:47:57.662927906Z"
+    description: Creation of a cloudflared deployment - a reverse tunnel for an environment
+    digest: 471768fba444dfc4e30158a93768eae8d6990c8fd64d6683585afeb8a6967679
+    icon: https://developers.cloudflare.com/cloudflare-one/favicon-32x32.png
+    name: cloudflare-tunnel
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/cloudflare-tunnel-0.3.2/cloudflare-tunnel-0.3.2.tgz
+    version: 0.3.2
   deluge:
   - apiVersion: v2
     appVersion: 18.04.1
@@ -4664,4 +4676,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2024-12-16T18:07:59.341607347Z"
+generated: "2024-12-20T20:47:57.663321765Z"
