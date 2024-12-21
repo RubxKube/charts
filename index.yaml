@@ -2510,6 +2510,34 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/joplin-1.0.0/joplin-1.0.0.tgz
     version: 1.0.0
+  komga:
+  - apiVersion: v2
+    appVersion: 1.15.1
+    created: "2024-12-21T08:16:02.771423939Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.3.12
+    description: A WebUI to read comics/mangas from your library
+    digest: 5e3f1ad1f71c36f6f471efa64326ea3eb94942af3672f5bff3a91ce4215a3b6b
+    home: https://komga.org
+    icon: https://komga.org/img/logo.svg
+    keywords:
+    - comics
+    - manga
+    - reader
+    - library
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: komga
+    sources:
+    - https://github.com/gotson/komga
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/komga-0.0.1/komga-0.0.1.tgz
+    version: 0.0.1
   kyoo:
   - apiVersion: v2
     appVersion: 4.7.0
@@ -4676,4 +4704,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.0.0/vaultwarden-1.0.0.tgz
     version: 1.0.0
-generated: "2024-12-20T20:47:57.663321765Z"
+generated: "2024-12-21T08:16:02.77171352Z"
