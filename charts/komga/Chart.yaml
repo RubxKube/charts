@@ -1,0 +1,24 @@
+---
+apiVersion: v2
+type: application
+name: komga
+description: A WebUI to read comics/mangas from your library
+version: 0.0.1
+appVersion: 1.15.1
+icon: https://komga.org/img/logo.svg
+maintainers:
+  - name: QJOLY
+    email: github@une-tasse-de.cafe
+kubeVersion: ">= 1.18"
+home: https://komga.org
+keywords:
+  - comics
+  - manga
+  - reader
+  - library
+sources:
+  - https://github.com/gotson/komga
+dependencies:
+  - name: common
+    repository: https://rubxkube.github.io/common-charts
+    version: v0.3.12
