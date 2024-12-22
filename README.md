@@ -18,6 +18,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 |-------|-------------|---------------|-------------|
 | jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.3.0 | 0.22.1085 |
 | smokeping | SmokePing is a latency logging and graphing and alerting system | 1.1.2 | 2.8.2 |
+| komga | A WebUI to read comics/mangas from your library | 0.0.1 | 1.15.1 |
 | uptime-kuma | Uptime Kuma is an easy-to-use self-hosted monitoring tool. | 1.1.18 | 1.23.15 |
 | deluge | Deluge is a lightweight, Free Software, cross-platform BitTorrent client. | 1.1.2 | 18.04.1 |
 | cloudflare-tunnel | Creation of a cloudflared deployment - a reverse tunnel for an environment | 0.3.2 | 2024.8.3 |
@@ -29,12 +30,12 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | linkding | linkding is a bookmark manager that you can host yourself. It's designed be to be minimal, fast, and easy to set up. | 1.1.16 | 1.36.0 |
 | gitea | Gitea (Git with a cup of tea) | 1.1.17 | 1.22.6 |
 | gotify | a simple server for sending and receiving messages | 1.2.8 | 2.6.1 |
-| radarr | Radarr is a movie collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new movies and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available. | 1.1.7 | 5.15.1 |
+| radarr | Radarr is a movie collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new movies and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available. | 1.1.8 | 5.16.3 |
 | memo | Memo (A privacy-first, lightweight note-taking service) | 1.1.9 | 0.22 |
 | joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.1.18 | 3.0-beta |
 | sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.2.8 | 4.0.11 |
 | kyoo | Kyoo is a media manager and transcoder for your media files. | 0.1.4 | 4.7.0 |
-| vaultwarden | Vaultwarden is an easy-to-use self-hosted password manager. | 1.1.13 | 1.32.6 |
+| vaultwarden | Vaultwarden is an easy-to-use self-hosted password manager. | 1.1.14 | 1.32.7 |
 
 
 # Contributing 
