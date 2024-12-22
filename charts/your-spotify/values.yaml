@@ -1,0 +1,80 @@
+web:
+  name: "web"
+  service:
+    servicePort: 3000
+    containerPort: 3000
+  deployment:
+    port: 3000
+  image:
+    repository: yooooomi/your_spotify_client
+    tag: 1.12.0
+    pullPolicy: Always
+  variables:
+    nonSecret:
+      API_ENDPOINT: https://spotty-api.your-domain.com
+  startupProbeEnabled: false
+  startupProbe: {}
+  readinessProbeEnabled: false
+  readinessProbe: {}
+  livenessProbeEnabled: false
+  livenessProbe: {}
+  persistence:
+    enabled: false
+  ingress:
+    enabled: true
+    hostName: spotty.your-domain.com
+    ingressClassName: "nginx"
+    extraLabels: {}
+    tls:
+      enabled: true
+      secretName: spotty
+    annotations:
+      {}
+      # cert-manager.io/cluster-issuer: cloudflare
+
+server:
+  name: "server"
+  service:
+    servicePort: 8080
+    containerPort: 8080
+  deployment:
+    port: 8080
+  image:
+    repository: yooooomi/your_spotify_server
+    tag: 1.12.0
+    pullPolicy: Always
+  variables:
+    secret:
+      data:
+        # Should be the exposed URL of the server (user point of view)
+        SPOTIFY_PUBLIC: ""
+        SPOTIFY_SECRET: ""
+    nonSecret:
+      API_ENDPOINT: https://spotty-api.your-domain.com
+      CLIENT_ENDPOINT: https://spotty-api.your-domain.com
+      # Should match {{ .Release.Name }}-mongodb
+      MONGO_ENDPOINT: mongodb://your-spotify-mongodb:27017/your_spotify
+  startupProbeEnabled: false
+  startupProbe: {}
+  readinessProbeEnabled: false
+  readinessProbe: {}
+  livenessProbeEnabled: false
+  livenessProbe: {}
+  persistence:
+    enabled: false
+  ingress:
+    enabled: true
+    ingressClassName: "nginx"
+    hostName: spotty-api.your-domain.com
+    extraLabels: {}
+    tls:
+      enabled: true
+      secretName: spotty-api
+    annotations:
+      {}
+      # cert-manager.io/cluster-issuer: cloudflare
+
+mongodb:
+  enabled: true
+  auth:
+    enabled: false
