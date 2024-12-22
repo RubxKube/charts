@@ -34,7 +34,7 @@ common:
       isPrivate: false
       secretName: null
     repository: lscr.io/linuxserver/mylar3
-    tag: 0.8.0
+    tag: 2021.12.13
     pullPolicy: Always
 
   ingress:

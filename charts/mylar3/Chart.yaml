@@ -3,8 +3,8 @@ apiVersion: v2
 type: application
 name: mylar3
 description: Mylar3 is an automated Comic Book (cbr/cbz) downloader program
-version: 0.0.1
-appVersion: 0.8.0
+version: 0.0.2
+appVersion: 2021.12.13
 icon: https://mylarcomics.com/img/mylarlogo.png
 maintainers:
   - name: QJOLY
