@@ -1,0 +1,12 @@
+dependencies:
+- name: common
+  repository: https://rubxkube.github.io/common-charts
+  version: v0.3.12
+- name: common
+  repository: https://rubxkube.github.io/common-charts
+  version: v0.3.12
+- name: mongodb
+  repository: https://charts.bitnami.com/bitnami
+  version: 16.4.0
+digest: sha256:9defa682038867bcc007af1f874f314ee02900b45e6cd5245aaefb4c6925a999
+generated: "2024-12-22T22:40:07.058738+01:00"
