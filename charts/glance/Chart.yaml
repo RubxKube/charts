@@ -1,0 +1,23 @@
+---
+apiVersion: v2
+type: application
+name: glance
+description: A self-hosted dashboard that puts all your feeds in one place
+version: 0.0.2
+appVersion: v0.6.3
+maintainers:
+  - name: QJOLY
+    email: github@une-tasse-de.cafe
+    url: https://une-tasse-de.cafe
+kubeVersion: ">= 1.18"
+home: https://github.com/glanceapp/glance
+keywords:
+  - dashboard
+  - feeds
+  - rss
+sources:
+  - https://github.com/glanceapp/glance
+dependencies:
+  - name: common
+    repository: https://rubxkube.github.io/common-charts
+    version: v0.4.0
