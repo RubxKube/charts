@@ -32,17 +32,22 @@ common:
                             collapse-after: 3
                             cache: 3h
                             feeds:
-                              - url: https://ciechanow.ski/atom.xml
-                              - url: https://www.joshwcomeau.com/rss.xml
-                                title: Josh Comeau
+                              - url: https://justingarrison.com/index.xml
+                              - url: https://https://a-cup-of.coffee/index.xml
+                                title: a cup of coffee
                               - url: https://samwho.dev/rss.xml
-                              - url: https://awesomekling.github.io/feed.xml
+                              - url: https://blog.stonegarden.dev/index.xml
                               - url: https://ishadeed.com/feed.xml
                                 title: Ahmad Shadeed
 
                           - type: twitch-channels
                             channels:
                               - cuistops
+                              - cohhcarnage
+                              - christitustech
+                              - blurbs
+                              - asmongold
+                              - jembawls
 
                       - size: full
                         widgets:
@@ -60,12 +65,10 @@ common:
                       - size: small
                         widgets:
                           - type: weather
-                            location: London, United Kingdom
+                            location: Lyon, France
 
                           - type: markets
                             markets:
-                              - symbol: SPY
-                                name: S&P 500
                               - symbol: BTC-USD
                                 name: Bitcoin
                               - symbol: NVDA
