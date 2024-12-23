@@ -21,11 +21,11 @@ dependencies:
   - name: common
     alias: server
     repository: https://rubxkube.github.io/common-charts
-    version: v0.3.12
+    version: v0.4.0
   - name: common
     alias: web
     repository: https://rubxkube.github.io/common-charts
-    version: v0.3.12
+    version: v0.4.0
   - name: mongodb
     repository: https://charts.bitnami.com/bitnami
     version: 16.4.0
