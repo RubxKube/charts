@@ -1,0 +1,51 @@
+common:
+  name: "stirling-pdf"
+  service:
+    servicePort: 8080
+    containerPort: 8080
+  deployment:
+    port: 8080
+  image:
+    repository: ghcr.io/stirling-tools/stirling-pdf
+    tag: 0.36.5
+    pullPolicy: IfNotPresent
+  variables:
+    nonSecret:
+      DOCKER_ENABLE_SECURITY: false
+      INSTALL_BOOK_AND_ADVANCED_HTML_OPS: true
+      LANGS: en_GB
+  startupProbeEnabled: false
+  startupProbe: {}
+  readinessProbeEnabled: false
+  readinessProbe: {}
+  livenessProbeEnabled: false
+  livenessProbe: {}
+  persistence:
+    enabled: true
+    volumes:
+      - name: "trainingdata"
+        storageClassName: ""
+        size: "10Gi"
+        pvcClaim: ""
+        containerMount: "/usr/share/tessdata"
+      - name: "config"
+        storageClassName: ""
+        size: "1Gi"
+        pvcClaim: ""
+        containerMount: "/configs"
+      - name: "log"
+        storageClassName: ""
+        size: "1Gi"
+        pvcClaim: ""
+        containerMount: "/logs"
+  ingress:
+    enabled: true
+    hostName: stirling-pdf.your-domain.com
+    ingressClassName: "nginx"
+    extraLabels: {}
+    tls:
+      enabled: true
+      secretName: stirling-pdf
+    annotations:
+      {}
+      # cert-manager.io/cluster-issuer: cloudflare
