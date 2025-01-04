@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: jellyfin
 description: Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media
-version: 1.1.8
+version: 1.2.0
 appVersion: "10.10.3"
 icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/jellyfin-logo.png
 maintainers:
