@@ -1741,6 +1741,36 @@ entries:
     version: 1.0.0
   jellyfin:
   - apiVersion: v2
+    appVersion: 10.10.3
+    created: "2025-01-04T15:54:58.447837436Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.4.1
+    description: Jellyfin is a Free Software Media System that puts you in control
+      of managing and streaming your media
+    digest: d87212b747b0e07ea771056dc0be4effe9b2f5db7f7fc1cf5c8b7293ee1d4df4
+    home: https://jellyfin.org/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/jellyfin-logo.png
+    keywords:
+    - media server
+    - Plex
+    - Jellyfin
+    - Media
+    - Streaming
+    - Server
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: jellyfin
+    sources:
+    - https://github.com/jellyfin/jellyfin
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/jellyfin-1.2.0/jellyfin-1.2.0.tgz
+    version: 1.2.0
+  - apiVersion: v2
     appVersion: 10.9.11
     created: "2024-09-18T07:13:49.427811208Z"
     dependencies:
@@ -3509,6 +3539,36 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/memo-1.0.0/memo-1.0.0.tgz
     version: 1.0.0
+  mylar3:
+  - apiVersion: v2
+    appVersion: 2021.12.13
+    created: "2025-01-04T15:54:58.633203552Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.3.12
+    description: Mylar3 is an automated Comic Book (cbr/cbz) downloader program
+    digest: f8c895ebe1229be9a357c232849f9bc3193b3f0946036c9d85c4e11b4ce85cfe
+    home: https://mylarcomics.com/
+    icon: https://mylarcomics.com/img/mylarlogo.png
+    keywords:
+    - mylar3
+    - mylar
+    - comic
+    - cbr
+    - cbz
+    - downloader
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: mylar3
+    sources:
+    - https://github.com/mylar3/mylar3
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/mylar3-0.0.2/mylar3-0.0.2.tgz
+    version: 0.0.2
   radarr:
   - apiVersion: v2
     appVersion: 5.16.3
@@ -4911,4 +4971,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.1/your-spotify-0.0.1.tgz
     version: 0.0.1
-generated: "2024-12-23T17:04:48.049991684Z"
+generated: "2025-01-04T15:54:58.633552912Z"
