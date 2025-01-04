@@ -315,10 +315,6 @@ matcher:
         #   key: "THEMOVIEDB_APIKEY"
         #   envName: "THEMOVIEDB_APIKEY"
 
-# Temporary component to use Kyoo v4, will be removed in the next v5 version
-# This component handle the rewrite_url necessary for the front
-# To avoid having a dependency on the ingress-controller (not all of them support rewrite_url)
-# Otherwise, you can still configure ingress for front and back directly by setting .front.ingress.enabled and .back.ingress.enabled to true
 ingress:
   enabled: true
   hostName: "kyoo.mydomain.com"
