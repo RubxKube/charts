@@ -2,9 +2,14 @@
 define: &containerPort 8096
 
 common:
-  app:
+  name: jellyfin
+
+  service:
+    type: ClusterIP
+    enabled: true
     servicePort: 80
     containerPort: *containerPort
+    extraLabels: {}
 
   # deployment
   deployment:
@@ -12,6 +17,7 @@ common:
     cpuRequest: null
     memoryLimit: null
     cpuLimit: null
+    port: *containerPort
     strategy:
       type: RollingUpdate
       rollingUpdate:
@@ -24,29 +30,27 @@ common:
       isPrivate: false
       secretName: null
     repository: jellyfin/jellyfin
-    tag: '10.10.3'
+    tag: "10.10.3"
     pullPolicy: Always
 
-  # ingress
   ingress:
     enabled: false
-    hostName: jellyfin.une-tasse-de.cafe
+    hostName: jellyfin.yourdomain.com
+    ingressClassName: ""
+    extraLabels: {}
     tls:
-      enabled: true
-      secretName: ""
-    # For Ingress CRD
-    ingressClassName: istio
-    # For IngressRoute CRD
-    isIngressRoute: true
-    entrypoint: websecure
-    certResolver: letsencrypt  # leave empty if you don't use, tls.enabled must be true and secretName must me empty
+      enabled: false
+      secretName: jellyfin
+    annotations:
+      {}
+      # cert-manager.io/cluster-issuer: cloudflare
 
   # env variables
   variables:
     secret: {}
     nonSecret:
-      USER_UID: '1000'
-      USER_GID: '1000'
+      USER_UID: "1000"
+      USER_GID: "1000"
       TZ: Europe/Paris
 
   # horizontal autoscaler
@@ -92,9 +96,9 @@ common:
     enabled: true
     volumes:
       - name: "data"
-        storageClassName: ""  # leave empty if you want to use default
-        size: "10Gi"
-        pvcClaim: ""  # Fill only if you want to use existing pvc
+        storageClassName: "" # leave empty if you want to use default
+        size: "50Gi"
+        pvcClaim: "" # Fill only if you want to use existing pvc
         containerMount: "/data/"
       - name: "config"
         storageClassName: ""
@@ -106,9 +110,10 @@ common:
         size: "5Gi"
         pvcClaim: ""
         containerMount: "/cache/"
+
   tests:
-    classicHttp:  # default helm test method
+    classicHttp: # default helm test method
       enabled: true
-    curlHostHeader:  # curl using ingress.hostName as Host in header
+    curlHostHeader: # curl using ingress.hostName as Host in header
       enabled: true
       path: "/"
