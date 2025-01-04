@@ -3,8 +3,8 @@ apiVersion: v2
 type: application
 name: komga
 description: A WebUI to read comics/mangas from your library
-version: 0.0.1
-appVersion: 1.15.1
+version: 0.0.2
+appVersion: 1.16.0
 icon: https://komga.org/img/logo.svg
 maintainers:
   - name: QJOLY
