@@ -39,7 +39,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.2.8 | 4.0.11 |
 | kyoo | Kyoo is a media manager and transcoder for your media files. | 0.1.4 | 4.7.0 |
 | vaultwarden | Vaultwarden is an easy-to-use self-hosted password manager. | 1.1.14 | 1.32.7 |
-| glance | A self-hosted dashboard that puts all your feeds in one place | 0.0.2 | v0.6.3 |
+| glance | A self-hosted dashboard that puts all your feeds in one place | 0.0.3 | v0.6.4 |
 
 
 # Contributing 
