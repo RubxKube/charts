@@ -1,33 +1,36 @@
-{{- if and (.Values.route.enabled) ( .Values.route.ingress.enabled) }}
+{{- if  .Values.ingress.enabled }}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ .Release.Name }}-route
+  name: {{ .Release.Name }}
   labels:
-    app: {{ .Release.Name }}-route
-{{- if .Values.route.ingress.annotations }}
+    app: {{ .Release.Name }}
+{{- if .Values.ingress.annotations }}
   annotations:
-  {{ toYaml .Values.route.ingress.annotations | indent 4 }}
+  {{ toYaml .Values.ingress.annotations | indent 4 }}
 {{- end }}
 spec:
-  {{- if .Values.route.ingress.ingressClassName }}
-  ingressClassName: {{ .Values.route.ingress.ingressClassName }}
+  {{- if .Values.ingress.ingressClassName }}
+  ingressClassName: {{ .Values.ingress.ingressClassName }}
   {{ end }}
   rules:
-  - host: {{ required "A variable 'hostName' is required!" .Values.route.ingress.hostName }}
+  - host: {{ required "A variable 'hostName' is required!" .Values.ingress.hostName }}
     http:
       paths:
-      - path: /
-        pathType: Prefix
+      {{- range .Values.ingress.paths }}
+      - path: {{ .path }}
+        pathType: {{ .pathType }}
         backend:
           service:
-            name: {{ .Release.Name }}-route
+            name: {{ .backend.service.name }}
             port:
-              number: 80
-  {{- if .Values.route.ingress.tls.enabled }}
+              number: {{ .backend.service.port.number }}
+      {{- end }}
+
+  {{- if .Values.ingress.tls.enabled }}
   tls:
-  - secretName: {{ .Values.route.ingress.tls.secretName }}
+  - secretName: {{ .Values.ingress.tls.secretName }}
     hosts:
-    - {{ .Values.route.ingress.hostName }}
+    - {{ .Values.ingress.hostName }}
   {{- end }}
 {{ end }}
