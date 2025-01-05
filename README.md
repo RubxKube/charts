@@ -33,7 +33,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | mylar3 | Mylar3 is an automated Comic Book (cbr/cbz) downloader program | 0.0.2 | 2021.12.13 |
 | gitea | Gitea (Git with a cup of tea) | 1.1.17 | 1.22.6 |
 | gotify | a simple server for sending and receiving messages | 1.2.8 | 2.6.1 |
-| radarr | Radarr is a movie collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new movies and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available. | 1.1.9 | 5.16.3 |
+| radarr | Radarr is a movie collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new movies and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available. | 1.1.10 | 5.17.2 |
 | memo | Memo (A privacy-first, lightweight note-taking service) | 1.1.9 | 0.22 |
 | joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.1.18 | 3.0-beta |
 | sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.2.8 | 4.0.11 |
