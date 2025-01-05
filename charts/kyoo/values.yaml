@@ -242,7 +242,7 @@ autosync:
   memoryLimit: "300Mi"
   image:
     repository: "ghcr.io/zoriya/kyoo_autosync"
-    tag: "4.7.0"
+    tag: "4.7.1"
     pullPolicy: "IfNotPresent"
   variables:
     nonSecret:
