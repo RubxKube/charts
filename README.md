@@ -36,7 +36,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | radarr | Radarr is a movie collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new movies and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available. | 1.1.10 | 5.17.2 |
 | memo | Memo (A privacy-first, lightweight note-taking service) | 1.1.9 | 0.22 |
 | joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.1.18 | 3.0-beta |
-| sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.2.8 | 4.0.11 |
+| sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.2.9 | 4.0.12 |
 | kyoo | Kyoo is a media manager and transcoder for your media files. | 0.1.4 | 4.7.0 |
 | vaultwarden | Vaultwarden is an easy-to-use self-hosted password manager. | 1.1.14 | 1.32.7 |
 | glance | A self-hosted dashboard that puts all your feeds in one place | 0.0.3 | v0.6.4 |
