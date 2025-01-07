@@ -4,7 +4,7 @@
 
 Stirling-PDF is a robust, locally hosted web-based PDF manipulation tool using Docker. It enables you to carry out various operations on PDF files, including splitting, merging, converting, reorganizing, adding images, rotating, compressing, and more
 
-**Homepage:** <https://github.com/Yooooomi/your_spotify>
+**Homepage:** <https://www.stirlingpdf.com/>
 
 ## Maintainers
 
@@ -14,7 +14,7 @@ Stirling-PDF is a robust, locally hosted web-based PDF manipulation tool using D
 
 ## Source Code
 
-* <https://github.com/Yooooomi/your_spotify>
+* <https://github.com/Stirling-Tools/Stirling-PDF>
 
 ## Requirements
 
