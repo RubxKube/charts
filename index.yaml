@@ -3380,6 +3380,30 @@ entries:
     version: 1.0.0
   memo:
   - apiVersion: v2
+    appVersion: "0.22"
+    created: "2025-01-13T08:22:33.389715226Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: Memo (A privacy-first, lightweight note-taking service)
+    digest: 4bccfbdd0f229b62140f58393f8af09aca4249be66dbb38ca2e47b29cca4957e
+    home: https://usememos.com/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/memo-logo.png
+    keywords:
+    - memo
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+      url: https://une-tasse-de.cafe
+    name: memo
+    sources:
+    - https://github.com/usememos/memos
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/memo-1.1.9/memo-1.1.9.tgz
+    version: 1.1.9
+  - apiVersion: v2
     appVersion: "0.21"
     created: "2024-03-25T06:59:47.932276032Z"
     dependencies:
@@ -5137,4 +5161,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.1/your-spotify-0.0.1.tgz
     version: 0.0.1
-generated: "2025-01-09T12:41:38.432128605Z"
+generated: "2025-01-13T08:22:33.390068852Z"
