@@ -37,7 +37,7 @@ front:
     extraLabels: {}
   image:
     repository: "ghcr.io/zoriya/kyoo_front"
-    tag: "4.7.0"
+    tag: "4.7.1"
     pullPolicy: "IfNotPresent"
   variables:
     nonSecret:
