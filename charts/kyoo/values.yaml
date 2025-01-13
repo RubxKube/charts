@@ -111,7 +111,7 @@ back:
     containerPort: 5000
   image:
     repository: "ghcr.io/zoriya/kyoo_back"
-    tag: "4.7.0"
+    tag: "4.7.1"
     pullPolicy: "IfNotPresent"
   persistence:
     enabled: true
