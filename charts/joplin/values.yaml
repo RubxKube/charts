@@ -48,7 +48,7 @@ common:
       enabled: true
       secretName: ""
     # For Ingress CRD
-    ingressClassName: istio
+    ingressClassName: ""
     # For IngressRoute CRD
     isIngressRoute: true
     entrypoint: websecure
