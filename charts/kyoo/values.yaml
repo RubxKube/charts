@@ -37,12 +37,12 @@ front:
     extraLabels: {}
   image:
     repository: "ghcr.io/zoriya/kyoo_front"
-    tag: "4.7.0"
+    tag: "4.7.1"
     pullPolicy: "IfNotPresent"
   variables:
     nonSecret:
       # Match back service name (see .back.name)
-      KYOO_URL: "http://back:5000"
+      KYOO_URL: "http://back:5000/api"
 
 back:
   name: "back"
@@ -69,11 +69,14 @@ back:
             value: kyoo-postgresql
           - name: POSTGRES_PORT
             value: "5432"
+          - name: KYOO_URL
+            value: "http://back:5000/api"
         image: "ghcr.io/zoriya/kyoo_migrations:4.7.0"
         name: migrations
   variables:
     nonSecret:
-      TRANSCODER_URL: http://transcoder:7666
+      TRANSCODER_URL: http://transcoder:7666/video
+      KYOO_PREFIX: /api
       PUBLIC_URL: https://kyoo.mydomain.com
       REQUIRE_ACCOUNT_VERIFICATION: "true"
       DEFAULT_PERMISSIONS: "overall.read,overall.play"
@@ -111,13 +114,13 @@ back:
     containerPort: 5000
   image:
     repository: "ghcr.io/zoriya/kyoo_back"
-    tag: "4.7.0"
+    tag: "4.7.1"
     pullPolicy: "IfNotPresent"
   persistence:
     enabled: true
     volumes:
       - name: back
-        storageClassName: "longhorn"
+        storageClassName: ""
         size: "5Gi"
         pvcClaim: ""
         containerMount: "/metadata"
@@ -140,7 +143,7 @@ transcoder:
     extraLabels: {}
   image:
     repository: "ghcr.io/zoriya/kyoo_transcoder"
-    tag: "4.7.0"
+    tag: "4.7.1"
     pullPolicy: "IfNotPresent"
   persistence:
     enabled: true
@@ -196,7 +199,7 @@ scanner:
     memoryLimit: "300Mi"
   image:
     repository: "ghcr.io/zoriya/kyoo_scanner"
-    tag: "4.7.0"
+    tag: "4.7.1"
     pullPolicy: "IfNotPresent"
   variables:
     configMap:
@@ -206,7 +209,7 @@ scanner:
       # Should match .postgresql.back.database
       SCANNER_LIBRARY_ROOT: /data
       POSTGRES_PORT: "5432"
-      KYOO_URL: http://back:5000
+      KYOO_URL: http://back:5000/api
       RABBITMQ_HOST: kyoo-rabbitmq
       RABBITMQ_PORT: "5672"
     secret:
@@ -242,7 +245,7 @@ autosync:
   memoryLimit: "300Mi"
   image:
     repository: "ghcr.io/zoriya/kyoo_autosync"
-    tag: "4.7.0"
+    tag: "4.7.1"
     pullPolicy: "IfNotPresent"
   variables:
     nonSecret:
@@ -269,7 +272,7 @@ matcher:
     # matcher uses the same image as the scanner
     # Only the args are different
     repository: "ghcr.io/zoriya/kyoo_scanner"
-    tag: "4.7.0"
+    tag: "4.7.1"
     pullPolicy: "IfNotPresent"
   variables:
     configMap:
@@ -279,9 +282,10 @@ matcher:
       RABBITMQ_HOST: kyoo-rabbitmq
       RABBITMQ_PORT: "5672"
       # Match back service name (see .back.name)
-      KYOO_URL: "http://back:5000"
+      KYOO_URL: "http://back:5000/api"
     secret:
-      data: {}
+      data:
+        {}
         # THEMOVIEDB_APIKEY: your-tmdb-api
         #TVDB_APIKEY: your-tvdb-api
         #TVDB_PIN:
@@ -305,32 +309,32 @@ matcher:
         #   key: "THEMOVIEDB_APIKEY"
         #   envName: "THEMOVIEDB_APIKEY"
 
-# Temporary component to use Kyoo v4, will be removed in the next v5 version
-# This component handle the rewrite_url necessary for the front
-# To avoid having a dependency on the ingress-controller (not all of them support rewrite_url)
-# Otherwise, you can still configure ingress for front and back directly by setting .front.ingress.enabled and .back.ingress.enabled to true
-route:
+ingress:
   enabled: true
-  # You can set this to LoadBalancer and NodePort if you want to directly expose the route
-  # Otherwise, you can use an ingress controller below
-  serviceType: ClusterIP
-  image:
-    repository: "haproxy"
-    tag: "latest"
-  deployment:
-    replicaCount: 1
-    annotations: {}
-    extraLabels: {}
-  ingress:
+  hostName: "kyoo.mydomain.com"
+  ingressClassName: ""
+  extraLabels: {}
+  paths:
+    - path: /
+      pathType: Prefix
+      backend:
+        service:
+          name: front
+          port:
+            number: 8901
+    - path: /api
+      pathType: Prefix
+      backend:
+        service:
+          name: back
+          port:
+            number: 5000
+  annotations:
+    {}
+    # cert-manager.io/cluster-issuer: cloudflare
+  tls:
     enabled: true
-    hostName: kyoo.mydomain.com
-    extraLabels: {}
-    annotations: {}
-      # cert-manager.io/cluster-issuer: infomaniak
-    tls:
-      enabled: false
-      secretName: "kyoo-tls"
-    ingressClassName: nginx
+    secretName: "kyoo-tls"
 
 config:
   name: "kyoo-config"
