@@ -2703,6 +2703,71 @@ entries:
   kyoo:
   - apiVersion: v2
     appVersion: 4.7.0
+    created: "2025-01-13T08:29:16.762379928Z"
+    dependencies:
+    - alias: front
+      condition: front.enabled
+      name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.3.11
+    - alias: back
+      condition: back.enabled
+      name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.3.11
+    - alias: transcoder
+      condition: transcoder.enabled
+      name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.3.11
+    - alias: scanner
+      condition: scanner.enabled
+      name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.3.11
+    - alias: autosync
+      condition: autosync.enabled
+      name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.3.11
+    - alias: matcher
+      condition: matcher.enabled
+      name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.3.11
+    - condition: meilisearch.enabled
+      name: meilisearch
+      repository: https://meilisearch.github.io/meilisearch-kubernetes
+      version: 0.10.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 16.2.5
+    - condition: rabbitmq.enabled
+      name: rabbitmq
+      repository: https://charts.bitnami.com/bitnami
+      version: 15.1.0
+    description: Kyoo is a media manager and transcoder for your media files.
+    digest: e0d997fe13a32fa3b341f8bceccacf34bd8fd1f43f9235d997c2931f57c390a7
+    home: https://github.com/zoriya/Kyoo
+    icon: https://github.com/zoriya/Kyoo/blob/master/icons/icon-256x256.png?raw=true
+    keywords:
+    - transcoder
+    - media manager
+    - micro-services
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-pause-cafe.fr
+      name: QJOLY
+    name: kyoo
+    sources:
+    - https://github.com/zoriya/Kyoo
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/kyoo-0.1.5/kyoo-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v2
+    appVersion: 4.7.0
     created: "2024-12-15T17:13:37.765759477Z"
     dependencies:
     - alias: front
@@ -5161,4 +5226,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.1/your-spotify-0.0.1.tgz
     version: 0.0.1
-generated: "2025-01-13T08:22:33.390068852Z"
+generated: "2025-01-13T08:29:16.762644883Z"
