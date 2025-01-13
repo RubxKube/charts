@@ -37,8 +37,7 @@ front:
     extraLabels: {}
   image:
     repository: "ghcr.io/zoriya/kyoo_front"
-    # TODO - Change the tag to a specific version when available
-    tag: "master"
+    tag: "4.7.1"
     pullPolicy: "IfNotPresent"
   variables:
     nonSecret:
@@ -115,8 +114,7 @@ back:
     containerPort: 5000
   image:
     repository: "ghcr.io/zoriya/kyoo_back"
-    # TODO - Change the tag to a specific version when available
-    tag: "master"
+    tag: "4.7.1"
     pullPolicy: "IfNotPresent"
   persistence:
     enabled: true
@@ -145,8 +143,7 @@ transcoder:
     extraLabels: {}
   image:
     repository: "ghcr.io/zoriya/kyoo_transcoder"
-    # TODO - Change the tag to a specific version when available
-    tag: "master"
+    tag: "4.7.1"
     pullPolicy: "IfNotPresent"
   persistence:
     enabled: true
@@ -202,8 +199,7 @@ scanner:
     memoryLimit: "300Mi"
   image:
     repository: "ghcr.io/zoriya/kyoo_scanner"
-    # TODO - Change the tag to a specific version when available
-    tag: "master"
+    tag: "4.7.1"
     pullPolicy: "IfNotPresent"
   variables:
     configMap:
@@ -249,8 +245,7 @@ autosync:
   memoryLimit: "300Mi"
   image:
     repository: "ghcr.io/zoriya/kyoo_autosync"
-    # TODO - Change the tag to a specific version when available
-    tag: "master"
+    tag: "4.7.1"
     pullPolicy: "IfNotPresent"
   variables:
     nonSecret:
@@ -277,8 +272,7 @@ matcher:
     # matcher uses the same image as the scanner
     # Only the args are different
     repository: "ghcr.io/zoriya/kyoo_scanner"
-    # TODO - Change the tag to a specific version when available
-    tag: "master"
+    tag: "4.7.1"
     pullPolicy: "IfNotPresent"
   variables:
     configMap:
