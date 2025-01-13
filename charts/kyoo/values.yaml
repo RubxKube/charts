@@ -71,7 +71,7 @@ back:
             value: "5432"
           - name: KYOO_URL
             value: "http://back:5000/api"
-        image: "ghcr.io/zoriya/kyoo_migrations:4.7.0"
+        image: "ghcr.io/zoriya/kyoo_migrations:4.7.1"
         name: migrations
   variables:
     nonSecret:
