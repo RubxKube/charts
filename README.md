@@ -27,7 +27,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | your-spotify | YourSpotify is a self-hosted application that tracks what you listen and offers you a dashboard to explore statistics about it! It's composed of a web server which polls the Spotify API every now and then and a web application on which you can explore your statistics. | 0.0.1 | 1.12.0 |
 | freshrss | A WebUI to read article via RSS | 1.2.11 | 1.25.0 |
 | jellyfin | Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media | 1.2.0 | 10.10.3 |
-| stirling-pdf | Stirling-PDF is a robust, locally hosted web-based PDF manipulation tool using Docker. It enables you to carry out various operations on PDF files, including splitting, merging, converting, reorganizing, adding images, rotating, compressing, and more | 0.0.3 | 0.36.6 |
+| stirling-pdf | Stirling-PDF is a robust, locally hosted web-based PDF manipulation tool using Docker. It enables you to carry out various operations on PDF files, including splitting, merging, converting, reorganizing, adding images, rotating, compressing, and more | 0.0.4 | 0.37.0 |
 | baikal | Baikal is a Cal and CardDAV server, based on sabre/dav, that includes an administrative interface for easy management. | 1.2.7 | 0.10.1-nginx |
 | linkding | linkding is a bookmark manager that you can host yourself. It's designed be to be minimal, fast, and easy to set up. | 1.1.16 | 1.36.0 |
 | mylar3 | Mylar3 is an automated Comic Book (cbr/cbz) downloader program | 0.0.2 | 2021.12.13 |
