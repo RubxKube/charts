@@ -7,7 +7,7 @@ common:
     port: 8080
   image:
     repository: ghcr.io/stirling-tools/stirling-pdf
-    tag: 0.36.6
+    tag: 0.37.0
     pullPolicy: IfNotPresent
   variables:
     nonSecret:
