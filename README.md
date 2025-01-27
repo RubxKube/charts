@@ -29,7 +29,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.3.0 | 0.22.1085 |
 | baikal | Baikal is a Cal and CardDAV server, based on sabre/dav, that includes an administrative interface for easy management. | 1.2.7 | 0.10.1-nginx |
 | joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.1.18 | 3.0-beta |
-| komga | A WebUI to read comics/mangas from your library | 0.0.4 | 1.18.0 |
+| komga | A WebUI to read comics/mangas from your library | 0.0.5 | 1.19.0 |
 | deluge | Deluge is a lightweight, Free Software, cross-platform BitTorrent client. | 1.1.2 | 18.04.1 |
 | kyoo | Kyoo is a media manager and transcoder for your media files. | 0.1.5 | 4.7.0 |
 | glance | A self-hosted dashboard that puts all your feeds in one place | 0.0.3 | v0.6.4 |
