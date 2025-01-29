@@ -1,11 +1,5 @@
 ---
 name: Update chart version
-on:
-  pull_request:
-    types:
-      - opened
-      - reopened
-
 permissions: write-all
 
 jobs:
