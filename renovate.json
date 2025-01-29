@@ -3,4 +3,21 @@
   "extends": [
     "config:base"
   ]
+  "packageRules":[
+    {
+      "matchManagers": ["helmv3"],
+      "bumpVersion": "major",
+      "matchUpdateTypes": ["major"]
+    },
+    {
+      "matchManagers": ["helmv3"],
+      "bumpVersion": "minor",
+      "matchUpdateTypes": ["minor"]
+    },
+    {
+      "matchManagers": ["helmv3"],
+      "bumpVersion": "patch",
+      "matchUpdateTypes": ["patch"]
+    }
+  ]
 }
