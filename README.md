@@ -23,7 +23,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | flaresolverr | FlareSolverr is a proxy server that solves Cloudflare's Javascript challenges. | 0.0.1 | v3.3.21 |
 | smokeping | SmokePing is a latency logging and graphing and alerting system | 1.1.2 | 2.8.2 |
 | vaultwarden | Vaultwarden is an easy-to-use self-hosted password manager. | 1.1.14 | 1.32.7 |
-| linkding | linkding is a bookmark manager that you can host yourself. It's designed be to be minimal, fast, and easy to set up. | 1.1.16 | 1.36.0 |
+| linkding | linkding is a bookmark manager that you can host yourself. It's designed be to be minimal, fast, and easy to set up. | 1.1.17 | 1.37.0 |
 | jellyfin | Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media | 1.2.2 | 10.10.5 |
 | uptime-kuma | Uptime Kuma is an easy-to-use self-hosted monitoring tool. | 1.1.18 | 1.23.15 |
 | jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.3.0 | 0.22.1085 |
