@@ -3167,6 +3167,32 @@ entries:
     version: 0.1.0
   linkding:
   - apiVersion: v2
+    appVersion: 1.37.0
+    created: "2025-01-29T19:18:32.122184777Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: linkding is a bookmark manager that you can host yourself. It's designed
+      be to be minimal, fast, and easy to set up.
+    digest: f5d6b79be60ad99f111e2b9ec2f4f8260c1c383a62dfee83ad8c3cf259baaf31
+    home: https://github.com/sissbruecker/linkding
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/linkding-logo.png
+    keywords:
+    - linkding
+    - bookmark manager
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: linkding
+    sources:
+    - https://github.com/sissbruecker/linkding
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/linkding-1.1.17/linkding-1.1.17.tgz
+    version: 1.1.17
+  - apiVersion: v2
     appVersion: 1.32.0
     created: "2024-09-18T07:13:49.557520084Z"
     dependencies:
@@ -5425,4 +5451,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.1/your-spotify-0.0.1.tgz
     version: 0.0.1
-generated: "2025-01-27T08:48:20.432267651Z"
+generated: "2025-01-29T19:18:32.122542299Z"
