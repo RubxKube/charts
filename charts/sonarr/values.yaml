@@ -2,6 +2,7 @@
 define: &containerPort 8989
 
 common:
+  name: sonarr
   app:
     servicePort: 80
     containerPort: *containerPort
@@ -31,14 +32,12 @@ common:
   # ingress
   ingress:
     enabled: false
-    hostName: sonarr.une-tasse-de.cafe
+    hostName: "sonarr.une-tasse-de.cafe"
     tls:
       enabled: true
       secretName: ""
     # For Ingress CRD
-    ingressClassName: istio
-    # For IngressRoute CRD
-    isIngressRoute: true
+    ingressClassName: ""
     entrypoint: websecure
     certResolver: letsencrypt  # leave empty if you don't use, tls.enabled must be true and secretName must me empty
 
@@ -51,13 +50,6 @@ common:
       TZ: Etc/UTC
       AUTO_UPDATE: true
 
-  # horizontal autoscaler
-  hpa:
-    enabled: false
-    minReplicas: 1
-    maxReplicas: 2
-    avgCpuUtilization: 50
-
   # startupProbe
   startupProbeEnabled: false
   startupProbe:
@@ -67,28 +59,6 @@ common:
     periodSeconds: 10
     failureThreshold: 20
     timeoutSeconds: 1
-
-  # readinessProbe
-  readinessProbeEnabled: true
-  readinessProbe:
-    httpGet:
-      path: "/"
-      port: *containerPort
-    initialDelaySeconds: 30
-    periodSeconds: 30
-    failureThreshold: 2
-    timeoutSeconds: 3
-
-  # livenessProbe
-  livenessProbeEnabled: true
-  livenessProbe:
-    httpGet:
-      path: "/"
-      port: *containerPort
-    initialDelaySeconds: 30
-    periodSeconds: 60
-    failureThreshold: 1
-    timeoutSeconds: 3
 
   persistence:
     enabled: true
@@ -108,7 +78,6 @@ common:
         size: "2Gi"
         pvcClaim: ""
         containerMount: "/downloads/"
-
 
   tests:
     classicHttp:  # default helm test method
