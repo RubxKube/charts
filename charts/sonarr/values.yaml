@@ -4,7 +4,7 @@ define: &containerPort 8989
 common:
   name: sonarr
   app:
-    servicePort: 80
+    servicePort: 8989
     containerPort: *containerPort
 
   # deployment
@@ -13,6 +13,7 @@ common:
     cpuRequest: null
     memoryLimit: null
     cpuLimit: null
+    port: *containerPort
     strategy:
       type: RollingUpdate
       rollingUpdate:
