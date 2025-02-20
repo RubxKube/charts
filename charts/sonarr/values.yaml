@@ -3,9 +3,14 @@ define: &containerPort 8989
 
 common:
   name: sonarr
-  app:
+
+  service:
+    type: ClusterIP
+    enabled: true
     servicePort: 8989
     containerPort: *containerPort
+    extraLabels: {}
+    protocol: TCP
 
   # deployment
   deployment:
