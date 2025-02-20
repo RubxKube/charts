@@ -2154,6 +2154,35 @@ entries:
   joplin:
   - apiVersion: v2
     appVersion: 3.0-beta
+    created: "2025-02-20T19:10:58.562850865Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 16.2.5
+    description: Joplin is an open source note-taking app. Capture your thoughts and
+      securely access them from any device.
+    digest: 772ca637f05958681b011c0354c39ad35a9c5e8fa424573755473ccb42436ae1
+    home: https://joplinapp.org/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/joplin-logo.png
+    keywords:
+    - joplin
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+      url: https://une-tasse-de.cafe
+    name: joplin
+    sources:
+    - https://github.com/laurent22/joplin
+    - https://github.com/QJoly/helm-charts
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/joplin-1.2.0/joplin-1.2.0.tgz
+    version: 1.2.0
+  - apiVersion: v2
+    appVersion: 3.0-beta
     created: "2024-07-31T11:42:47.185047076Z"
     dependencies:
     - name: common
@@ -2704,6 +2733,33 @@ entries:
     - https://github.com/RubxKube/charts/releases/download/joplin-1.0.0/joplin-1.0.0.tgz
     version: 1.0.0
   komga:
+  - apiVersion: v2
+    appVersion: 1.19.1
+    created: "2025-02-20T19:10:58.717544885Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.3.12
+    description: A WebUI to read comics/mangas from your library
+    digest: b59ef0171a087e6375c211dfe2833c83abb595f594da518a460d3e91bf8ba303
+    home: https://komga.org
+    icon: https://komga.org/img/logo.svg
+    keywords:
+    - comics
+    - manga
+    - reader
+    - library
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: komga
+    sources:
+    - https://github.com/gotson/komga
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/komga-0.0.6/komga-0.0.6.tgz
+    version: 0.0.6
   - apiVersion: v2
     appVersion: 1.19.0
     created: "2025-01-27T08:48:20.43189278Z"
@@ -3610,6 +3666,30 @@ entries:
     version: 1.0.0
   memo:
   - apiVersion: v2
+    appVersion: "0.24"
+    created: "2025-02-20T19:10:58.892843754Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: Memo (A privacy-first, lightweight note-taking service)
+    digest: c219ca762599718373250d948e21082b16930c5bff81c6b6be90a403cfc58538
+    home: https://usememos.com/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/memo-logo.png
+    keywords:
+    - memo
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+      url: https://une-tasse-de.cafe
+    name: memo
+    sources:
+    - https://github.com/usememos/memos
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/memo-1.1.10/memo-1.1.10.tgz
+    version: 1.1.10
+  - apiVersion: v2
     appVersion: "0.22"
     created: "2025-01-13T08:22:33.389715226Z"
     dependencies:
@@ -3904,6 +3984,36 @@ entries:
     - https://github.com/RubxKube/charts/releases/download/mylar3-0.0.2/mylar3-0.0.2.tgz
     version: 0.0.2
   radarr:
+  - apiVersion: v2
+    appVersion: 5.18.4
+    created: "2025-02-20T19:10:59.054587756Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: Radarr is a movie collection manager for Usenet and BitTorrent users.
+      It can monitor multiple RSS feeds for new movies and will interface with clients
+      and indexers to grab, sort, and rename them. It can also be configured to automatically
+      upgrade the quality of files already downloaded when a better quality format
+      becomes available.
+    digest: 1e68f5ff63c8d0375ed047862cff9f3a463b2687be18da961b9daefcd1cd18e3
+    home: https://radarr.video/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/radarr-logo.png
+    keywords:
+    - Radarr
+    - Movies
+    - Plex
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: radarr
+    sources:
+    - https://github.com/Radarr/Radarr
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/radarr-1.1.11/radarr-1.1.11.tgz
+    version: 1.1.11
   - apiVersion: v2
     appVersion: 5.17.2
     created: "2025-01-05T20:21:50.092599797Z"
@@ -4261,6 +4371,32 @@ entries:
   sonarr:
   - apiVersion: v2
     appVersion: 4.0.12
+    created: "2025-02-20T19:10:59.197886323Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.3.11
+    description: Sonarr is a PVR for Usenet and BitTorrent users.
+    digest: 1789a1be50b87c71404588f0dc43ec7c943300b66c9c50c20169d1d3114fb188
+    home: https://github.com/Sonarr/Sonarr
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/sonarr-logo.png
+    keywords:
+    - Sonarr
+    - Plex
+    - Series
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: sonarr
+    sources:
+    - https://github.com/Sonarr/Sonarr
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/sonarr-1.3.0/sonarr-1.3.0.tgz
+    version: 1.3.0
+  - apiVersion: v2
+    appVersion: 4.0.12
     created: "2025-01-06T07:25:33.894245303Z"
     dependencies:
     - name: common
@@ -4546,6 +4682,36 @@ entries:
     - https://github.com/RubxKube/charts/releases/download/sonarr-1.0.0/sonarr-1.0.0.tgz
     version: 1.0.0
   stirling-pdf:
+  - apiVersion: v2
+    appVersion: 0.41.0
+    created: "2025-02-20T19:10:59.341540285Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.3.12
+    description: Stirling-PDF is a robust, locally hosted web-based PDF manipulation
+      tool using Docker. It enables you to carry out various operations on PDF files,
+      including splitting, merging, converting, reorganizing, adding images, rotating,
+      compressing, and more
+    digest: 8d747e43cf282476bb9decbbb1ac343411739ed94a2f7941ce44f4aea989c790
+    home: https://www.stirlingpdf.com/
+    keywords:
+    - pdf
+    - manipulation
+    - tools
+    - editor
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+      url: https://une-tasse-de.cafe
+    name: stirling-pdf
+    sources:
+    - https://github.com/Stirling-Tools/Stirling-PDF
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/stirling-pdf-0.0.6/stirling-pdf-0.0.6.tgz
+    version: 0.0.6
   - apiVersion: v2
     appVersion: 0.37.1
     created: "2025-01-17T08:49:47.782938897Z"
@@ -5476,4 +5642,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.1/your-spotify-0.0.1.tgz
     version: 0.0.1
-generated: "2025-02-08T09:31:28.604343158Z"
+generated: "2025-02-20T19:10:59.341989178Z"
