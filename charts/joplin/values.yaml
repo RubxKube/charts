@@ -8,11 +8,12 @@ postgresql:
     database: joplin
     username: joplinuser
     password: joplinpass
-  persistence:
-    enabled: true
-    existingClaim: ""
-    storageClass: ""
-    # size: 8Gi
+  primary:
+    persistence:
+      enabled: true
+      existingClaim: ""
+      storageClass: ""
+      # size: 8Gi
 
 common:
   app:
