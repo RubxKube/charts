@@ -1,12 +1,12 @@
 dependencies:
 - name: common
   repository: https://rubxkube.github.io/common-charts
-  version: v0.3.12
+  version: v0.4.2
 - name: common
   repository: https://rubxkube.github.io/common-charts
-  version: v0.3.12
+  version: v0.4.2
 - name: mongodb
   repository: https://charts.bitnami.com/bitnami
   version: 16.4.0
-digest: sha256:3ac3388ab5452294f894209dd2246bcb998562dae1fa95bbeacae2886fb5897c
-generated: "2024-12-22T23:36:18.702872+01:00"
+digest: sha256:7a1e16637388d1616336ddbf242752944046bd2d4aa43928be9f80e77f07c1ad
+generated: "2025-02-21T12:46:35.419092454Z"
