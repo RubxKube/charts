@@ -1,6 +1,6 @@
 dependencies:
 - name: common
   repository: https://rubxkube.github.io/common-charts
-  version: v0.4.1
-digest: sha256:9fb75bbb73069495f393f7e374ea3de837a46e21e264172a05843626f4b9736c
-generated: "2025-01-04T16:27:51.807588+01:00"
+  version: v0.4.2
+digest: sha256:29939a976f6b76a9e55935473465aaac996be6c6978ba11284c535a4747fc5cc
+generated: "2025-02-21T12:42:28.02565611Z"
