@@ -35,7 +35,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | memo | Memo (A privacy-first, lightweight note-taking service) | 1.1.10 | 0.24 |
 | gitea | Gitea (Git with a cup of tea) | 1.1.18 | 1.23.1 |
 | sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.3.0 | 4.0.12 |
-| jellyfin | Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media | 1.2.2 | 10.10.5 |
+| jellyfin | Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media | 1.2.3 | 10.10.6 |
 | joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.2.0 | 3.0-beta |
 | your-spotify | YourSpotify is a self-hosted application that tracks what you listen and offers you a dashboard to explore statistics about it! It's composed of a web server which polls the Spotify API every now and then and a web application on which you can explore your statistics. | 0.0.1 | 1.12.0 |
 | komga | A WebUI to read comics/mangas from your library | 0.0.6 | 1.19.1 |
