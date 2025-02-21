@@ -1792,6 +1792,36 @@ entries:
     version: 1.0.0
   jellyfin:
   - apiVersion: v2
+    appVersion: 10.10.6
+    created: "2025-02-21T12:41:25.487797634Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.4.1
+    description: Jellyfin is a Free Software Media System that puts you in control
+      of managing and streaming your media
+    digest: 076b678d7afd895bdcc9550000c315f09ce5d649c460dc3ecc1dffff485f4ee2
+    home: https://jellyfin.org/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/jellyfin-logo.png
+    keywords:
+    - media server
+    - Plex
+    - Jellyfin
+    - Media
+    - Streaming
+    - Server
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: jellyfin
+    sources:
+    - https://github.com/jellyfin/jellyfin
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/jellyfin-1.2.3/jellyfin-1.2.3.tgz
+    version: 1.2.3
+  - apiVersion: v2
     appVersion: 10.10.5
     created: "2025-01-27T08:42:17.682609529Z"
     dependencies:
@@ -5642,4 +5672,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.1/your-spotify-0.0.1.tgz
     version: 0.0.1
-generated: "2025-02-20T19:10:59.341989178Z"
+generated: "2025-02-21T12:41:25.488143162Z"
