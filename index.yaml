@@ -1027,6 +1027,32 @@ entries:
   glance:
   - apiVersion: v2
     appVersion: v0.6.4
+    created: "2025-03-23T10:24:12.005264761Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.4.0
+    description: A self-hosted dashboard that puts all your feeds in one place
+    digest: e952c89cd962c2752c6cfc94e5eab86196f3e2222054374407e3d5652950a575
+    home: https://github.com/glanceapp/glance
+    keywords:
+    - dashboard
+    - feeds
+    - rss
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+      url: https://une-tasse-de.cafe
+    name: glance
+    sources:
+    - https://github.com/glanceapp/glance
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/glance-0.0.4/glance-0.0.4.tgz
+    version: 0.0.4
+  - apiVersion: v2
+    appVersion: v0.6.4
     created: "2025-01-04T18:28:04.487624073Z"
     dependencies:
     - name: common
@@ -1304,6 +1330,33 @@ entries:
     - https://github.com/RubxKube/charts/releases/download/gotify-1.0.0/gotify-1.0.0.tgz
     version: 1.0.0
   jackett:
+  - apiVersion: v2
+    appVersion: 0.22.1085
+    created: "2025-03-23T10:24:12.202454719Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.3.12
+    description: 'Jackett works as a proxy server: it translates queries from apps
+      into tracker-site-specific http queries.'
+    digest: 8d97e07ef7ddb94b6b0a34218c891c93d234b5f9f83a3c67b69bf8be6599c75f
+    home: https://github.com/Jackett/Jackett
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/jackett-logo.png
+    keywords:
+    - Jackett
+    - Plex
+    - Series
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: jackett
+    sources:
+    - https://github.com/Jackett/Jackett
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/jackett-1.3.1/jackett-1.3.1.tgz
+    version: 1.3.1
   - apiVersion: v2
     appVersion: 0.22.1085
     created: "2024-12-16T17:47:34.837921264Z"
@@ -5672,4 +5725,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.1/your-spotify-0.0.1.tgz
     version: 0.0.1
-generated: "2025-02-21T12:41:25.488143162Z"
+generated: "2025-03-23T10:24:12.202826533Z"
