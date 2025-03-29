@@ -83,7 +83,7 @@ Joplin is an open source note-taking app. Capture your thoughts and securely acc
 | common.variables.nonSecret.POSTGRES_PASSWORD | string | `"joplinpass"` |  |
 | common.variables.nonSecret.POSTGRES_PORT | string | `"5432"` |  |
 | common.variables.nonSecret.POSTGRES_USER | string | `"joplinuser"` |  |
-| common.variables.nonSecret.MAILER_ENABLED | int | `1` |  |
+| common.variables.nonSecret.MAILER_ENABLED | int | `0` |  |
 | common.variables.nonSecret.MAILER_HOST | string | `"mail.une-tasse-de.cafe"` |  |
 | common.variables.nonSecret.MAILER_PORT | int | `25` |  |
 | common.variables.nonSecret.MAILER_SECURITY | string | `"none"` |  |
