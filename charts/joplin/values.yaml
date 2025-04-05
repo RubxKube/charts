@@ -66,6 +66,13 @@ common:
       POSTGRES_HOST: "joplin-postgresql"  # if postgresql.enabled, must be RELEASE-NAME-postgresql (ex: my-wakapi-postgresql)
       POSTGRES_PORT: "5432"
       APP_BASE_URL: https://joplin.une-tasse-de.cafe
+      MAILER_ENABLED: 0 # set to 1 to enable mailing
+      MAILER_HOST: "mail.une-tasse-de.cafe"
+      MAILER_PORT: 25
+      MAILER_SECURITY: "none"
+      MAILER_NOREPLY_NAME: "Joplin Server"
+      MAILER_NOREPLY_EMAIL: "noreply@une-tasse-de.cafe"
+
 
   # horizontal autoscaler
   hpa:
