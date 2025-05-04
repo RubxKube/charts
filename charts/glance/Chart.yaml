@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: glance
 description: A self-hosted dashboard that puts all your feeds in one place
-version: 0.0.4
+version: 0.0.5
 appVersion: v0.6.4
 maintainers:
   - name: QJOLY
@@ -20,4 +20,4 @@ sources:
 dependencies:
   - name: common
     repository: https://rubxkube.github.io/common-charts
-    version: v0.4.0
+    version: v0.4.3
