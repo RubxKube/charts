@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: your-spotify
 description: YourSpotify is a self-hosted application that tracks what you listen and offers you a dashboard to explore statistics about it! It's composed of a web server which polls the Spotify API every now and then and a web application on which you can explore your statistics.
-version: 0.0.1
+version: 0.1.0
 appVersion: 1.12.0
 maintainers:
   - name: QJOLY
@@ -21,11 +21,11 @@ dependencies:
   - name: common
     alias: server
     repository: https://rubxkube.github.io/common-charts
-    version: v0.3.12
+    version: v0.4.3
   - name: common
     alias: web
     repository: https://rubxkube.github.io/common-charts
-    version: v0.3.12
+    version: v0.4.3
   - name: mongodb
     repository: https://charts.bitnami.com/bitnami
     version: 16.4.0

@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: flaresolverr
 description: "FlareSolverr is a proxy server that solves Cloudflare's Javascript challenges."
-version: 0.0.1
+version: 0.1.0
 appVersion: "v3.3.21"
 # icon:
 maintainers:
@@ -20,4 +20,4 @@ sources:
 dependencies:
   - name: common
     repository: https://rubxkube.github.io/common-charts
-    version: v0.3.12
+    version: v0.4.3

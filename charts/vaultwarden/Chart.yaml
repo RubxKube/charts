@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: vaultwarden
 description: Vaultwarden is an easy-to-use self-hosted password manager.
-version: 1.1.15
+version: 1.2.0
 appVersion: 1.33.1
 icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/vaultwarden-logo.png
 maintainers:
@@ -19,4 +19,4 @@ sources:
 dependencies:
   - name: common
     repository: https://rubxkube.github.io/common-charts
-    version: v0.2.2
+    version: v0.4.3

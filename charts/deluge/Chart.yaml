@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: deluge
 description: Deluge is a lightweight, Free Software, cross-platform BitTorrent client.
-version: 1.1.2
+version: 1.2.0
 appVersion: "18.04.1"
 icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/deluge-logo.png
 maintainers:
@@ -20,4 +20,4 @@ sources:
 dependencies:
   - name: common
     repository: https://rubxkube.github.io/common-charts
-    version: v0.2.2
+    version: v0.4.3

@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: kyoo
 description: Kyoo is a media manager and transcoder for your media files.
-version: 0.1.5
+version: 0.2.0
 appVersion: "4.7.0"
 icon: https://github.com/zoriya/Kyoo/blob/master/icons/icon-256x256.png?raw=true
 # Maintainer of the Chart
@@ -21,32 +21,32 @@ sources:
 dependencies:
   - name: common
     repository: https://rubxkube.github.io/common-charts
-    version: v0.3.11
+    version: v0.4.3
     alias: front
     condition: front.enabled
   - name: common
     repository: https://rubxkube.github.io/common-charts
-    version: v0.3.11
+    version: v0.4.3
     alias: back
     condition: back.enabled
   - name: common
     repository: https://rubxkube.github.io/common-charts
-    version: v0.3.11
+    version: v0.4.3
     alias: transcoder
     condition: transcoder.enabled
   - name: common
     repository: https://rubxkube.github.io/common-charts
-    version: v0.3.11
+    version: v0.4.3
     alias: scanner
     condition: scanner.enabled
   - name: common
     repository: https://rubxkube.github.io/common-charts
-    version: v0.3.11
+    version: v0.4.3
     alias: autosync
     condition: autosync.enabled
   - name: common
     repository: https://rubxkube.github.io/common-charts
-    version: v0.3.11
+    version: v0.4.3
     alias: matcher
     condition: matcher.enabled
   - condition: meilisearch.enabled
