@@ -34,7 +34,7 @@ jobs:
           fetch-depth: 0
 
       - name: Setup Python
-        uses: actions/setup-python@v5.1.1
+        uses: actions/setup-python@v5.6.0
 
       - uses: azure/setup-helm@v4
         with:
