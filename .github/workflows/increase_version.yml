@@ -2,10 +2,7 @@
 name: Update chart version
 permissions: write-all
 on:
-  pull_request:
-    types:
-      - opened
-      - reopened
+  push:
 
 jobs:
   increase-version:
