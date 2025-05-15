@@ -36,6 +36,8 @@ func searchAndReplace(path, wordToFind, wordToReplace string) error {
 
 	return nil
 }
+
+// This function is used to update the version of the chart in the Chart.yaml and values.yaml files
 func updateChartVersion(chartName string, isGitHubAction bool) error {
 	chartPath := fmt.Sprintf("../charts/%s/Chart.yaml", chartName)
 	valuePath := fmt.Sprintf("../charts/%s/values.yaml", chartName)
@@ -127,7 +129,6 @@ git commit -m "%s: update version to match docker image tag"
 			}
 		} else {
 			fmt.Println("Script is running in a GitHub Action")
-			fmt.Println("Let's replace !")
 			err3 := searchAndReplace(chartPath, chartVersion.(string), appVersion.(string))
 			if err3 != nil {
 				log.Fatal(err3)
