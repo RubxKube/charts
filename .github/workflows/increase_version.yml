@@ -3,17 +3,17 @@ name: Update chart version
 permissions: write-all
 on:
   push:
-
+    branches:
+      - '*'
+  pull_request:
+    types: [opened, synchronize, reopened]
 jobs:
   increase-version:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@cbb722410c2e876e24abbe8de2cc27693e501dcb
-
-      - name: Checkout PR
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr checkout ${{ github.event.pull_request.number }}
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # OR "2" -> To retrieve the preceding commit.
 
       - uses: actions/setup-go@v5
         with:
@@ -24,6 +24,7 @@ jobs:
         uses: tj-actions/changed-files@v46.0.4
         with:
           files: charts/**
+
       - name: Run update for any chart concerned by the commit
         if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: |
