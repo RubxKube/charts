@@ -68,6 +68,21 @@ jobs:
         with:
           fetch-depth: 0
 
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '>=1.17.0'
+
+      - name: Get changed files in the charts folder
+        id: changed-files-specific
+        uses: tj-actions/changed-files@v46.0.4
+        with:
+          files: charts/**
+
+      - name: Run update for any chart concerned by the commit
+        if: steps.changed-files-specific.outputs.any_changed == 'true'
+        run: |
+         cd hack/ && go run update_version.go ${{ steps.changed-files-specific.outputs.all_changed_files }}
+
       - name: Setup Python
         uses: actions/setup-python@v5.1.1
 
