@@ -12,6 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Get tags
+        run: git fetch --tags origin
+
       - uses: actions/setup-go@v5
         with:
           go-version: '>=1.17.0'
@@ -43,12 +46,31 @@ jobs:
             if [[ -d "charts/$chart" ]]; then
               echo "Updating chart version for $chart"
               cd "charts/$chart"
-              cat Chart.yaml | yq '.version |= (split(".") | .[-1] |= ((. tag = "!!int") + 1) | join("."))' > /tmp/Chart.yaml
-              mv /tmp/Chart.yaml Chart.yaml
+              actual_version=$(git tag --list "$chart*" --sort=-v:refname | head -n 1 | cut -d'-' -f2)
+              if [[ -z "$actual_version" ]]; then
+                echo "No version found for $chart, setting to 0.0.0"
+                actual_version="0.0.0"
+              else
+                echo "Current version: $actual_version"
+              fi
+
+              chart_version=$(grep '^version:' Chart.yaml | awk '{print $2}')
+              if [[ -z "$chart_version" ]]; then
+                echo "No version found in Chart.yaml, using $actual_version"
+                chart_version="$actual_version"
+              fi
+              actual_minor=$(echo "$actual_version" | cut -d. -f2)
+              chart_minor=$(echo "$chart_version" | cut -d. -f2)
+              if [[ "$actual_minor" != "$chart_minor" ]]; then
+                echo "INFO: Minor version difference between Chart.yaml ($chart_version) and latest tag ($actual_version)"
+                sed -i "s/^version:.*/version: $chart_version.0/" Chart.yaml
+              else
+                new_version=$(echo "$actual_version" | awk -F. -v OFS=. '{$NF++; print}')
+                sed -i "s/^version:.*/version: $new_version/" Chart.yaml
+              fi
               cd -
             fi
           done
-  #  yq -i '.version |= (split(".") | .[-1] |= ((. tag = "!!int") + 1) | join("."))' Chart.yaml
 
       - name: Show changes
         run: |
