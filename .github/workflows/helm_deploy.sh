@@ -8,8 +8,9 @@ do
     if [ -f ".no_ci" ]; then
       echo "No CI for this chart."
     else
+      kubectl create namespace $d || true
       helm dependency build || true
-      helm install $d . --wait --timeout 300s 
+      helm install $d . --wait --timeout 300s --namespace $d
       helm test $d
     fi
   )
@@ -18,7 +19,7 @@ do
     exit 1
   else
     echo "Success ! "
-    helm delete $d || true 
+    helm delete $d  --namespace $d || true 
   fi
 done
 

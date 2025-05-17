@@ -2,21 +2,15 @@
 name: Update chart version
 permissions: write-all
 on:
-  pull_request:
-    types:
-      - opened
-      - reopened
 
+  pull_request:
 jobs:
   increase-version:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
     steps:
-      - uses: actions/checkout@cbb722410c2e876e24abbe8de2cc27693e501dcb
-
-      - name: Checkout PR
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr checkout ${{ github.event.pull_request.number }}
+      - uses: actions/checkout@v4
 
       - uses: actions/setup-go@v5
         with:
@@ -28,21 +22,33 @@ jobs:
         with:
           files: charts/**
 
-      - name: Configure Git
-        run: |
-          git config user.name "$GITHUB_ACTOR"
-          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-
       - name: Run update for any chart concerned by the commit
         if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: |
-         cd hack/ && go run update_after_renovate.go ${{ steps.changed-files-specific.outputs.all_changed_files }}
+          echo "---------------------------------------"
+          echo "Input: ${{ steps.changed-files-specific.outputs.all_changed_files }}"
+          echo "Extract chart names"
+          edited_charts_list=()
+          for chart in "${{ steps.changed-files-specific.outputs.all_changed_files }}"; do
+            chart_name=$(echo "$chart" | cut -d"/" -f2 )
+            edited_charts_list+=("$chart_name")
+          done
+          echo "Remove duplicates..."
+          chart_list=($(printf "%s\n" "${edited_charts_list[@]}" | sort -u))
+          echo "New list: ${chart_list[@]}"
+          echo "---------------------------------------"
 
-      - name: Commit modifications
-        continue-on-error: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        if: steps.changed-files-specific.outputs.any_changed == 'true'
+          for chart in "${chart_list[@]}"; do
+            if [[ -d "charts/$chart" ]]; then
+              echo "Updating chart version for $chart"
+              cd "charts/$chart"
+              cat Chart.yaml | yq '.version |= (split(".") | .[-1] |= ((. tag = "!!int") + 1) | join("."))' > /tmp/Chart.yaml
+              mv /tmp/Chart.yaml Chart.yaml
+              cd -
+            fi
+          done
+  #  yq -i '.version |= (split(".") | .[-1] |= ((. tag = "!!int") + 1) | join("."))' Chart.yaml
+
+      - name: Show changes
         run: |
-         git commit -a -m "[AUTO] Update chart version"
-         git push
+          git diff

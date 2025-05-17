@@ -2,9 +2,6 @@
 
 Name: CHART_NAME
 version: CHART_VERSION
-tests:
-- [ ] classicHttp
-- [ ] curlHostHeader
 
 **Additional Information**
 
@@ -15,10 +12,12 @@ Please provide any additional information or context about this chart addition.
 Please review and check the following before submitting this pull request:
 
 - [ ] I have tested the chart locally and it works as expected.
-- [ ] I have included a valid `Chart.yaml` file with the required information.
-- [ ] I have documented the usage and configuration options of the chart in the README.md file.
-- [ ] I have included any necessary dependencies and mentioned them in the README.md file.
 - [ ] I have considered security best practices while creating the chart.
+
+**Version Information**
+
+- [ ] I have updated the min version in the Chart.yaml file if necessary.
+- [ ] I want a new patch version for this chart (I don't need to update the min version in the Chart.yaml file).
 
 **Screenshots or Examples (if applicable)**
 
@@ -32,6 +31,6 @@ Please mention any related issues that will be resolved or enhanced by this char
 
 **Reviewers**
 
-@<reviewer1>, @<reviewer2>
+@<username>
 
 Please tag relevant reviewers who should review this pull request.
