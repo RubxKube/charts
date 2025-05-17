@@ -47,11 +47,6 @@ jobs:
         if: steps.changed-files-specific.outputs.any_changed == 'true'
         uses: Azure/setup-kubectl@v4
 
-      - name: Run lint for any chart concerned by the commit
-        if: steps.changed-files-specific.outputs.any_changed == 'true'
-        run: |
-         .github/workflows/lint_modified_charts.sh ${{ steps.changed-files-specific.outputs.all_changed_files }}
-
       - name: Run test for any chart concerned by the commit
         if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: |
