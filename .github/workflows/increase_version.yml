@@ -39,7 +39,7 @@ jobs:
           echo "---------------------------------------"
 
           for chart in "${chart_list[@]}"; do
-            if [[ -d "$chart" ]]; then
+            if [[ -d "charts/$chart" ]]; then
               echo "Updating chart version for $chart"
               cd "charts/$chart"
               cat Chart.yaml | yq '.version |= (split(".") | .[-1] |= ((. tag = "!!int") + 1) | join("."))' > /tmp/Chart.yaml
