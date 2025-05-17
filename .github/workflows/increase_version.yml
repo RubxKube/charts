@@ -38,7 +38,7 @@ jobs:
           echo "New list: ${chart_list[@]}"
           echo "---------------------------------------"
 
-          for chart in ${{ steps.changed-files-specific.outputs.all_changed_files }}; do
+          for chart in "${chart_list[@]}"; do
             if [[ -d "$chart" ]]; then
               echo "Updating chart version for $chart"
               cd "charts/$chart"
