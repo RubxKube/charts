@@ -21,32 +21,32 @@ sources:
 dependencies:
   - name: common
     repository: https://rubxkube.github.io/common-charts
-    version: v0.3.11
+    version: v0.4.4
     alias: front
     condition: front.enabled
   - name: common
     repository: https://rubxkube.github.io/common-charts
-    version: v0.3.11
+    version: v0.4.4
     alias: back
     condition: back.enabled
   - name: common
     repository: https://rubxkube.github.io/common-charts
-    version: v0.3.11
+    version: v0.4.4
     alias: transcoder
     condition: transcoder.enabled
   - name: common
     repository: https://rubxkube.github.io/common-charts
-    version: v0.3.11
+    version: v0.4.4
     alias: scanner
     condition: scanner.enabled
   - name: common
     repository: https://rubxkube.github.io/common-charts
-    version: v0.3.11
+    version: v0.4.4
     alias: autosync
     condition: autosync.enabled
   - name: common
     repository: https://rubxkube.github.io/common-charts
-    version: v0.3.11
+    version: v0.4.4
     alias: matcher
     condition: matcher.enabled
   - condition: meilisearch.enabled
