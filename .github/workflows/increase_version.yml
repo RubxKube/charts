@@ -30,6 +30,7 @@ jobs:
           echo "Extract chart names"
           edited_charts_list=()
           for chart in "${{ steps.changed-files-specific.outputs.all_changed_files }}"; do
+            echo "Processing $chart"
             chart_name=$(echo "$chart" | cut -d"/" -f2 )
             edited_charts_list+=("$chart_name")
           done
