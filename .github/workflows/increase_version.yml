@@ -10,6 +10,8 @@ on:
 jobs:
   increase-version:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
     steps:
       - uses: actions/checkout@v4
 
