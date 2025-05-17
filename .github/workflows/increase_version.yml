@@ -53,8 +53,20 @@ jobs:
               else
                 echo "Current version: $actual_version"
               fi
-              new_version=$(echo "$actual_version" | awk -F. -v OFS=. '{$NF++; print}')
-              sed -i "s/version: $actual_version/version: $new_version/" Chart.yaml
+
+              chart_version=$(grep '^version:' Chart.yaml | awk '{print $2}')
+              if [[ -z "$chart_version" ]]; then
+                echo "No version found in Chart.yaml, using $actual_version"
+                chart_version="$actual_version"
+              fi
+              actual_minor=$(echo "$actual_version" | cut -d. -f2)
+              chart_minor=$(echo "$chart_version" | cut -d. -f2)
+              if [[ "$actual_minor" != "$chart_minor" ]]; then
+                echo "WARNING: Minor version difference between Chart.yaml ($chart_version) and latest tag ($actual_version), we don't update the chart version"
+              else
+                new_version=$(echo "$actual_version" | awk -F. -v OFS=. '{$NF++; print}')
+                sed -i "s/version:.*/version: $new_version/" Chart.yaml
+              fi
               cd -
             fi
           done

@@ -3,7 +3,8 @@ apiVersion: v2
 type: application
 name: kyoo
 description: Kyoo is a media manager and transcoder for your media files.
-version: 0.1.5
+# Patch version are managed by a workflow
+version: 0.1
 appVersion: "4.7.0"
 icon: https://github.com/zoriya/Kyoo/blob/master/icons/icon-256x256.png?raw=true
 # Maintainer of the Chart
