@@ -65,7 +65,7 @@ jobs:
                 echo "WARNING: Minor version difference between Chart.yaml ($chart_version) and latest tag ($actual_version), we don't update the chart version"
               else
                 new_version=$(echo "$actual_version" | awk -F. -v OFS=. '{$NF++; print}')
-                sed -i "s/version:.*/version: $new_version/" Chart.yaml
+                sed -i "s/^version:.*/version: $new_version/" Chart.yaml
               fi
               cd -
             fi
