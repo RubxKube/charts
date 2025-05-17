@@ -71,7 +71,6 @@ jobs:
               cd -
             fi
           done
-  #  yq -i '.version |= (split(".") | .[-1] |= ((. tag = "!!int") + 1) | join("."))' Chart.yaml
 
       - name: Show changes
         run: |
