@@ -43,8 +43,15 @@ jobs:
             if [[ -d "charts/$chart" ]]; then
               echo "Updating chart version for $chart"
               cd "charts/$chart"
-              cat Chart.yaml | yq '.version |= (split(".") | .[-1] |= ((. tag = "!!int") + 1) | join("."))' > /tmp/Chart.yaml
-              mv /tmp/Chart.yaml Chart.yaml
+              actual_version=$(git tag --list "$chart*" --sort=-v:refname | head -n 1 | cut -d'-' -f2)
+              if [[ -z "$actual_version" ]]; then
+                echo "No version found for $chart, setting to 0.0.0"
+                actual_version="0.0.0"
+              else
+                echo "Current version: $actual_version"
+              fi
+              new_version=$(echo "$actual_version" | awk -F. -v OFS=. '{$NF++; print}')
+              sed -i "s/version: $actual_version/version: $new_version/" Chart.yaml
               cd -
             fi
           done
