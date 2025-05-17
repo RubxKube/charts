@@ -17,13 +17,13 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | Name  | Description | Chart Version | App Version |
 |-------|-------------|---------------|-------------|
 | gotify | a simple server for sending and receiving messages | 1.2.8 | 2.6.1 |
-| kyoo | Kyoo is a media manager and transcoder for your media files. | 0.1.5 | 4.7.0 |
+| kyoo | Kyoo is a media manager and transcoder for your media files. | 0.1.6 | 4.7.0 |
 | joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.2.1 | 3.0-beta |
 | memo | Memo (A privacy-first, lightweight note-taking service) | 1.1.10 | 0.24 |
 | vaultwarden | Vaultwarden is an easy-to-use self-hosted password manager. | 1.1.15 | 1.33.1 |
 | freshrss | A WebUI to read article via RSS | 1.2.11 | 1.25.0 |
 | flaresolverr | FlareSolverr is a proxy server that solves Cloudflare's Javascript challenges. | 0.0.1 | v3.3.21 |
-| glance | A self-hosted dashboard that puts all your feeds in one place | 0.0.7 | v0.7.4 |
+| glance | A self-hosted dashboard that puts all your feeds in one place | 0.0.6 | v0.7.4 |
 | komga | A WebUI to read comics/mangas from your library | 0.0.6 | 1.19.1 |
 | radarr | Radarr is a movie collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new movies and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available. | 1.1.11 | 5.18.4 |
 | jellyfin | Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media | 1.2.3 | 10.10.6 |
