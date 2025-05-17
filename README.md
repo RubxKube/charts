@@ -17,7 +17,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | Name  | Description | Chart Version | App Version |
 |-------|-------------|---------------|-------------|
 | gotify | a simple server for sending and receiving messages | 1.2.8 | 2.6.1 |
-| kyoo | Kyoo is a media manager and transcoder for your media files. | 0.1.6 | 4.7.0 |
+| kyoo | Kyoo is a media manager and transcoder for your media files. | 0.1.7 | 4.7.0 |
 | joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.2.1 | 3.0-beta |
 | memo | Memo (A privacy-first, lightweight note-taking service) | 1.1.10 | 0.24 |
 | vaultwarden | Vaultwarden is an easy-to-use self-hosted password manager. | 1.1.15 | 1.33.1 |
