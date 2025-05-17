@@ -2,11 +2,8 @@
 name: Update chart version
 permissions: write-all
 on:
-  push:
-    branches:
-      - '*'
+
   pull_request:
-    types: [opened, reopened]
 jobs:
   increase-version:
     runs-on: ubuntu-latest
