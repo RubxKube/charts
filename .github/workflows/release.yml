@@ -81,7 +81,28 @@ jobs:
       - name: Run update for any chart concerned by the commit
         if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: |
-         cd hack/ && go run update_version.go ${{ steps.changed-files-specific.outputs.all_changed_files }}
+          echo "---------------------------------------"
+          echo "Input: ${{ steps.changed-files-specific.outputs.all_changed_files }}"
+          echo "Extract chart names"
+          edited_charts_list=()
+          for chart in "${{ steps.changed-files-specific.outputs.all_changed_files }}"; do
+            chart_name=$(echo "$chart" | cut -d"/" -f2 )
+            edited_charts_list+=("$chart_name")
+          done
+          echo "Remove duplicates..."
+          chart_list=($(printf "%s\n" "${edited_charts_list[@]}" | sort -u))
+          echo "New list: ${chart_list[@]}"
+          echo "---------------------------------------"
+
+          for chart in "${chart_list[@]}"; do
+            if [[ -d "charts/$chart" ]]; then
+              echo "Updating chart version for $chart"
+              cd "charts/$chart"
+              cat Chart.yaml | yq '.version |= (split(".") | .[-1] |= ((. tag = "!!int") + 1) | join("."))' > /tmp/Chart.yaml
+              mv /tmp/Chart.yaml Chart.yaml
+              cd -
+            fi
+          done
 
       - name: Setup Python
         uses: actions/setup-python@v5.1.1
