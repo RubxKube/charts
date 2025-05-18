@@ -10,7 +10,7 @@ common:
       - "/mnt/glance.yml"
   image:
     repository: glanceapp/glance
-    tag: v0.8.0
+    tag: v0.8.2
     pullPolicy: IfNotPresent
   configMap:
     enabled: true
