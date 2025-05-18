@@ -145,6 +145,7 @@ jobs:
       - name: Modifying the readme on main
         continue-on-error: true
         run: |
+          git reset --hard
           git pull
           git checkout main
           cd .github/workflows/
