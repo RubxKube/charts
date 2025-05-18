@@ -34,7 +34,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | linkding | linkding is a bookmark manager that you can host yourself. It's designed be to be minimal, fast, and easy to set up. | 1.1.17 | 1.37.0 |
 | deluge | Deluge is a lightweight, Free Software, cross-platform BitTorrent client. | 1.1.2 | 18.04.1 |
 | stirling-pdf | Stirling-PDF is a robust, locally hosted web-based PDF manipulation tool using Docker. It enables you to carry out various operations on PDF files, including splitting, merging, converting, reorganizing, adding images, rotating, compressing, and more | 0.0 | 0.41.0 |
-| your-spotify | YourSpotify is a self-hosted application that tracks what you listen and offers you a dashboard to explore statistics about it! It's composed of a web server which polls the Spotify API every now and then and a web application on which you can explore your statistics. | 0.0.1 | 1.12.0 |
+| your-spotify | YourSpotify is a self-hosted application that tracks what you listen and offers you a dashboard to explore statistics about it! It's composed of a web server which polls the Spotify API every now and then and a web application on which you can explore your statistics. | 0.0 | 1.12.0 |
 | gitea | Gitea (Git with a cup of tea) | 1.1.18 | 1.23.1 |
 | mylar3 | Mylar3 is an automated Comic Book (cbr/cbz) downloader program | 0.0.2 | 2021.12.13 |
 | cloudflare-tunnel | Creation of a cloudflared deployment - a reverse tunnel for an environment | 0.3.2 | 2024.8.3 |
