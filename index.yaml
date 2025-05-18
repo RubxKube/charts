@@ -4421,6 +4421,36 @@ entries:
   radarr:
   - apiVersion: v2
     appVersion: 5.18.4
+    created: "2025-05-18T07:53:28.152349314Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: Radarr is a movie collection manager for Usenet and BitTorrent users.
+      It can monitor multiple RSS feeds for new movies and will interface with clients
+      and indexers to grab, sort, and rename them. It can also be configured to automatically
+      upgrade the quality of files already downloaded when a better quality format
+      becomes available.
+    digest: 1493676fe10701f683eacf5323ce2b637bee0ab315753a46f25a613dfc436952
+    home: https://radarr.video/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/radarr-logo.png
+    keywords:
+    - Radarr
+    - Movies
+    - Plex
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: radarr
+    sources:
+    - https://github.com/Radarr/Radarr
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/radarr-1.1.12/radarr-1.1.12.tgz
+    version: 1.1.12
+  - apiVersion: v2
+    appVersion: 5.18.4
     created: "2025-02-20T19:10:59.054587756Z"
     dependencies:
     - name: common
@@ -6178,4 +6208,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.0/your-spotify-0.0.0.tgz
     version: 0.0.0
-generated: "2025-05-18T07:50:52.979386403Z"
+generated: "2025-05-18T07:53:28.152743461Z"
