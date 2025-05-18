@@ -24,7 +24,7 @@ common:
       isPrivate: false
       secretName: null
     repository: lscr.io/linuxserver/freshrss
-    tag: 1.25.0
+    tag: 1.26.2
     pullPolicy: Always
 
   # ingress
