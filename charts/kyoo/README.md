@@ -12,6 +12,20 @@ It aims to have a low amount of maintenance needed (no folder structure required
   - To deploy only the services you need and use services from another cluster (like a database, or the transcoder service)
 - Each service managed its own volumes (except for the `media` volume, which is shared between multiple services), see more below
 
+### Considerations for GitOps integration
+
+The bitnami chart is not really GitOps friendly, as it generates a lot of resources (like secrets, configmaps, etc.) with hooks. Meaning that if you update your GitOps application (either with ArgoCD or Flux), it will re-generate these resources, and you will lose the changes made by the chart (for example, the PostgreSQL password).
+
+To avoid this, you can yourself the secrets to avoid the chart generating them.
+
+```yaml
+postgresql:
+  enabled: true
+  auth:
+    username: kyoouserherefordb
+    password: "your_postgresql_password" # <-- Set this to a random password
+```
+
 ### Use NFS for the media volume
 
 The `media` volume is a shared volume between the services that need to access the media files. It is mounted in the `/media` and can (or may be not) be created within the chart. If you want to use an existing volume, you can specify it in the `volume.media.existingClaim` value and update values as follows :
