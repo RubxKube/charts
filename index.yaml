@@ -601,6 +601,31 @@ entries:
   gitea:
   - apiVersion: v2
     appVersion: 1.23.1
+    created: "2025-05-18T07:55:30.289271653Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: Gitea (Git with a cup of tea)
+    digest: 1c493208cf49dd4a2b6a2cc34e3e16c84d1f8d40a8c72101f23907bb55e42f6f
+    home: https://gitea.com
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/gitea-logo.png
+    keywords:
+    - gitea
+    - git
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: gitea
+    sources:
+    - https://github.com/go-gitea/gitea
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/gitea-1.1.19/gitea-1.1.19.tgz
+    version: 1.1.19
+  - apiVersion: v2
+    appVersion: 1.23.1
     created: "2025-01-14T18:05:49.939504482Z"
     dependencies:
     - name: common
@@ -6208,4 +6233,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.0/your-spotify-0.0.0.tgz
     version: 0.0.0
-generated: "2025-05-18T07:53:28.152743461Z"
+generated: "2025-05-18T07:55:30.28968206Z"
