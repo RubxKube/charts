@@ -1027,6 +1027,32 @@ entries:
   glance:
   - apiVersion: v2
     appVersion: v0.7.4
+    created: "2025-05-18T07:19:57.785327999Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.4.4
+    description: A self-hosted dashboard that puts all your feeds in one place
+    digest: eec55742263d3d840853c6d59b0fb2d610daacffc7432ab9bb1ba22f2ba6d352
+    home: https://github.com/glanceapp/glance
+    keywords:
+    - dashboard
+    - feeds
+    - rss
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+      url: https://une-tasse-de.cafe
+    name: glance
+    sources:
+    - https://github.com/glanceapp/glance
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/glance-0.0.8/glance-0.0.8.tgz
+    version: 0.0.8
+  - apiVersion: v2
+    appVersion: v0.7.4
     created: "2025-05-17T05:52:19.357539248Z"
     dependencies:
     - name: common
@@ -6026,4 +6052,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.1/your-spotify-0.0.1.tgz
     version: 0.0.1
-generated: "2025-05-18T07:18:34.944717789Z"
+generated: "2025-05-18T07:19:57.785597604Z"
