@@ -6077,4 +6077,42 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.1/your-spotify-0.0.1.tgz
     version: 0.0.1
-generated: "2025-05-18T07:27:15.559083445Z"
+  - apiVersion: v2
+    appVersion: 1.12.0
+    created: "2025-05-18T07:44:47.558823009Z"
+    dependencies:
+    - alias: server
+      name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.3.12
+    - alias: web
+      name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.3.12
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 16.4.0
+    description: YourSpotify is a self-hosted application that tracks what you listen
+      and offers you a dashboard to explore statistics about it! It's composed of
+      a web server which polls the Spotify API every now and then and a web application
+      on which you can explore your statistics.
+    digest: 133cf6dfe6f987896d74762eb46976f755c82a9d49dcff3dac9f537fe5febdf5
+    home: https://github.com/Yooooomi/your_spotify
+    keywords:
+    - comics
+    - manga
+    - reader
+    - library
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: your-spotify
+    sources:
+    - https://github.com/Yooooomi/your_spotify
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.0/your-spotify-0.0.0.tgz
+    version: 0.0.0
+generated: "2025-05-18T07:44:47.559304699Z"
