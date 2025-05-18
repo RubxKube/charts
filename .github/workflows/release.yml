@@ -94,7 +94,7 @@ jobs:
             if [[ -d "charts/$chart" ]]; then
               echo "Updating chart version for $chart"
               cd "charts/$chart"
-              actual_version=$(git tag --list "$chart*" --sort=-v:refname | head -n 1 | cut -d'-' -f2)
+              actual_version=$(git tag --list "$chart*" --sort=-v:refname | head -n 1 | awk -F'-' '{print $NF}')
               if [[ -z "$actual_version" ]]; then
                 echo "No version found for $chart, setting to 0.0.0"
                 actual_version="0.0.0"
