@@ -16,6 +16,7 @@ postgresql:
       # size: 8Gi
 
 common:
+  name: "joplin"
   app:
     servicePort: 80
     containerPort: *containerPort
@@ -38,7 +39,7 @@ common:
       isPrivate: false
       secretName: null
     repository: joplin/server
-    tag: 3.0-beta
+    tag: 3.3-beta
     pullPolicy: Always
 
   # ingress
