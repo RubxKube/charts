@@ -16,6 +16,7 @@ postgresql:
       # size: 8Gi
 
 common:
+  name: "joplin"
   app:
     servicePort: 80
     containerPort: *containerPort
