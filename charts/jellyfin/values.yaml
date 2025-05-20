@@ -30,7 +30,7 @@ common:
       isPrivate: false
       secretName: null
     repository: jellyfin/jellyfin
-    tag: "10.10.6"
+    tag: "10.10.7"
     pullPolicy: Always
 
   ingress:
