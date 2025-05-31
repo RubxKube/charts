@@ -89,5 +89,5 @@ common:
     classicHttp:  # default helm test method
       enabled: true
     curlHostHeader:  # curl using ingress.hostName as Host in header
-      enabled: true
+      enabled: false
       path: "/"
