@@ -2,15 +2,21 @@
 define: &containerPort 3001
 
 common:
-  app:
-    servicePort: 80
+  name: uptime-kuma
+
+  service:
+    type: ClusterIP
+    enabled: true
+    servicePort: *containerPort
     containerPort: *containerPort
+    extraLabels: {}
 
   # deployment
   deployment:
     memoryRequest: null
     cpuRequest: null
     memoryLimit: null
+    port : *containerPort
     cpuLimit: null
     strategy:
       type: RollingUpdate
@@ -36,11 +42,6 @@ common:
       secretName: ""
     # For Ingress CRD
     ingressClassName:
-    # For IngressRoute CRD
-    isIngressRoute: true
-    entrypoint: websecure
-    certResolver: letsencrypt  # leave empty if you don't use, tls.enabled must be true and secretName must me empty
-
 
   # env variables
   variables:
