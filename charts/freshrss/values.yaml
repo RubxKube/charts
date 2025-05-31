@@ -3,9 +3,6 @@ define: &containerPort 80
 
 common:
   name: freshrss
-  app:
-    servicePort: 80
-    containerPort: *containerPort
 
   # deployment
   deployment:
