@@ -57,12 +57,12 @@ common:
       AUTO_UPDATE: true
 
   # startupProbe
-  startupProbeEnabled: false
+  startupProbeEnabled: true
   startupProbe:
     httpGet:
       path: "/"
       port: *containerPort
-    periodSeconds: 10
+    periodSeconds: 20
     failureThreshold: 20
     timeoutSeconds: 1
 
