@@ -16,7 +16,7 @@ common:
     memoryRequest: null
     cpuRequest: null
     memoryLimit: null
-    port : *containerPort
+    port: *containerPort
     cpuLimit: null
     strategy:
       type: RollingUpdate
@@ -91,14 +91,14 @@ common:
     enabled: true
     volumes:
       - name: "data"
-        storageClassName: ""  # leave empty if you want to use default
-        size: "2Gi"  # We recommend to allocate a minimum of 1GB if you do not use attachments
-        pvcClaim: ""  # leave empty unless if you want to use an existing PVC
+        storageClassName: "" # leave empty if you want to use default
+        size: "2Gi" # We recommend to allocate a minimum of 1GB if you do not use attachments
+        pvcClaim: "" # leave empty unless if you want to use an existing PVC
         containerMount: "/app/data"
 
   tests:
-    classicHttp:  # default helm test method
+    classicHttp: # default helm test method
       enabled: true
-    curlHostHeader:  # curl using ingress.hostName as Host in header
+    curlHostHeader: # curl using ingress.hostName as Host in header
       enabled: true
       path: "/"
