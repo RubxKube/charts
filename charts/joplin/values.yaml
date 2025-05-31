@@ -24,7 +24,7 @@ common:
     servicePort: *containerPort
     containerPort: *containerPort
     extraLabels: {}
-    
+
   # deployment
   deployment:
     memoryRequest: null
@@ -59,7 +59,7 @@ common:
     # For IngressRoute CRD
     isIngressRoute: true
     entrypoint: websecure
-    certResolver: letsencrypt  # leave empty if you don't use, tls.enabled must be true and secretName must me empty
+    certResolver: letsencrypt # leave empty if you don't use, tls.enabled must be true and secretName must me empty
 
   # env variables
   variables:
@@ -69,7 +69,7 @@ common:
       POSTGRES_DATABASE: "joplin"
       POSTGRES_USER: "joplinuser"
       POSTGRES_PASSWORD: "joplinpass"
-      POSTGRES_HOST: "joplin-postgresql"  # if postgresql.enabled, must be RELEASE-NAME-postgresql (ex: my-wakapi-postgresql)
+      POSTGRES_HOST: "joplin-postgresql" # if postgresql.enabled, must be RELEASE-NAME-postgresql (ex: my-wakapi-postgresql)
       POSTGRES_PORT: "5432"
       APP_BASE_URL: https://joplin.une-tasse-de.cafe
       MAILER_ENABLED: 0 # set to 1 to enable mailing
@@ -78,7 +78,6 @@ common:
       MAILER_SECURITY: "none"
       MAILER_NOREPLY_NAME: "Joplin Server"
       MAILER_NOREPLY_EMAIL: "noreply@une-tasse-de.cafe"
-
 
   # horizontal autoscaler
   hpa:
@@ -118,11 +117,11 @@ common:
     timeoutSeconds: 3
 
   persistence:
-    enabled: false  # no need for persistence if you use postgresql
+    enabled: false # no need for persistence if you use postgresql
 
   tests:
-    classicHttp:  # default helm test method
+    classicHttp: # default helm test method
       enabled: false
-    curlHostHeader:  # curl using ingress.hostName as Host in header
+    curlHostHeader: # curl using ingress.hostName as Host in header
       enabled: true
       path: "/api/ping"
