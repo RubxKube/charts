@@ -2,6 +2,7 @@
 define: &containerPort 3000
 
 common:
+  name: gitea
   app:
     servicePort: 80
     containerPort: *containerPort
@@ -12,6 +13,7 @@ common:
     cpuRequest: null
     memoryLimit: null
     cpuLimit: null
+    port: *containerPort
     strategy:
       type: RollingUpdate
       rollingUpdate:
@@ -35,12 +37,7 @@ common:
       enabled: true
       secretName: ""
     # For Ingress CRD
-    ingressClassName: istio
-    # For IngressRoute CRD
-    isIngressRoute: true
-    entrypoint: websecure
-    certResolver: letsencrypt  # leave empty if you don't use, tls.enabled must be true and secretName must me empty
-
+    ingressClassName: ""
   # env variables
   variables:
     secret: {}
@@ -101,5 +98,5 @@ common:
     classicHttp:  # default helm test method
       enabled: true
     curlHostHeader:  # curl using ingress.hostName as Host in header
-      enabled: true
+      enabled: false
       path: "/"
