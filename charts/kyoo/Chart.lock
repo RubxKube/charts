@@ -1,22 +1,22 @@
 dependencies:
 - name: common
   repository: https://rubxkube.github.io/common-charts
-  version: v0.4.4
+  version: v0.4.5
 - name: common
   repository: https://rubxkube.github.io/common-charts
-  version: v0.4.4
+  version: v0.4.5
 - name: common
   repository: https://rubxkube.github.io/common-charts
-  version: v0.4.4
+  version: v0.4.5
 - name: common
   repository: https://rubxkube.github.io/common-charts
-  version: v0.4.4
+  version: v0.4.5
 - name: common
   repository: https://rubxkube.github.io/common-charts
-  version: v0.4.4
+  version: v0.4.5
 - name: common
   repository: https://rubxkube.github.io/common-charts
-  version: v0.4.4
+  version: v0.4.5
 - name: meilisearch
   repository: https://meilisearch.github.io/meilisearch-kubernetes
   version: 0.10.2
@@ -26,5 +26,5 @@ dependencies:
 - name: rabbitmq
   repository: https://charts.bitnami.com/bitnami
   version: 15.1.0
-digest: sha256:bb0d469cfe7c44531a3c7f95f71f7ad7d700666b47480f52fbce62ee4f32be41
-generated: "2025-05-15T20:16:48.419197+02:00"
+digest: sha256:6295d696c2d635aa2bd3ff201ea6875db69f5c512844a089e146b6798d0c03ae
+generated: "2025-05-31T10:32:25.719773399Z"
