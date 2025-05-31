@@ -3,9 +3,6 @@ define: &containerPort 3000
 
 common:
   name: gitea
-  app:
-    servicePort: 80
-    containerPort: *containerPort
 
   # deployment
   deployment:
