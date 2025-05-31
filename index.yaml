@@ -2,6 +2,31 @@ apiVersion: v1
 entries:
   baikal:
   - apiVersion: v2
+    appVersion: 0.10.1-nginx
+    created: "2025-05-31T10:32:40.142257485Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.4.5
+    description: Baikal is a Cal and CardDAV server, based on sabre/dav, that includes
+      an administrative interface for easy management.
+    digest: c15e108844fa3a245dd046acd18f1292b3eba089fc2d1d0f6df5a034987e180d
+    home: https://sabre.io/baikal/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/baikal-logo.png
+    keywords:
+    - baikal
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: baikal
+    sources:
+    - https://github.com/sabre-io/Baikal
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/baikal-1.2.8/baikal-1.2.8.tgz
+    version: 1.2.8
+  - apiVersion: v2
     appVersion: 0.9.5-nginx
     created: "2024-05-16T11:39:39.148960802Z"
     dependencies:
@@ -191,6 +216,33 @@ entries:
   deluge:
   - apiVersion: v2
     appVersion: 18.04.1
+    created: "2025-05-31T10:32:40.225435841Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.4.5
+    description: Deluge is a lightweight, Free Software, cross-platform BitTorrent
+      client.
+    digest: bb238ec5e690a14cf9f8a76830d509fa00d763b3792c33dc1b9c7d44a19d0723
+    home: https://deluge-torrent.org/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/deluge-logo.png
+    keywords:
+    - Deluge
+    - Torrent
+    - Download
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: deluge
+    sources:
+    - https://git.deluge-torrent.org/deluge/tree/?h=develop
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/deluge-1.1.3/deluge-1.1.3.tgz
+    version: 1.1.3
+  - apiVersion: v2
+    appVersion: 18.04.1
     created: "2024-01-05T07:09:41.869735317Z"
     dependencies:
     - name: common
@@ -273,6 +325,32 @@ entries:
   flaresolverr:
   - apiVersion: v2
     appVersion: v3.3.21
+    created: "2025-05-31T10:32:40.323940562Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.4.5
+    description: FlareSolverr is a proxy server that solves Cloudflare's Javascript
+      challenges.
+    digest: d9643efc8ec5a3460cf0361ab34f45c76eb404392f82129dea7962b03516c7b8
+    home: https://github.com/FlareSolverr/FlareSolverr
+    keywords:
+    - FlareSolverr
+    - Cloudflare
+    - Proxy
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: flaresolverr
+    sources:
+    - https://github.com/FlareSolverr/FlareSolverr
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/flaresolverr-0.0.2/flaresolverr-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
+    appVersion: v3.3.21
     created: "2024-12-16T18:07:59.341294055Z"
     dependencies:
     - name: common
@@ -298,6 +376,31 @@ entries:
     - https://github.com/RubxKube/charts/releases/download/flaresolverr-0.0.1/flaresolverr-0.0.1.tgz
     version: 0.0.1
   freshrss:
+  - apiVersion: v2
+    appVersion: 1.25.0
+    created: "2025-05-31T10:32:40.429093982Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.4.5
+    description: A WebUI to read article via RSS
+    digest: 0bb3a071f5c6ac5843b367afbefb35360f4b11ca105b1e5e6a6cedb29c1661b4
+    home: https://www.freshrss.org/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/freshrss-logo.png
+    keywords:
+    - freshrss
+    - rss
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: freshrss
+    sources:
+    - https://github.com/FreshRSS/FreshRSS
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/freshrss-1.2.13/freshrss-1.2.13.tgz
+    version: 1.2.13
   - apiVersion: v2
     appVersion: 1.25.0
     created: "2025-05-18T07:50:52.979042232Z"
@@ -599,6 +702,31 @@ entries:
     - https://github.com/RubxKube/charts/releases/download/freshrss-1.0.0/freshrss-1.0.0.tgz
     version: 1.0.0
   gitea:
+  - apiVersion: v2
+    appVersion: 1.23.1
+    created: "2025-05-31T10:32:40.520955462Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.4.5
+    description: Gitea (Git with a cup of tea)
+    digest: c0b4b5ce0a4151b0cbedf93066ee4e2d3fe6a62842e6886bd2c8fbd1389fd3f7
+    home: https://gitea.com
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/gitea-logo.png
+    keywords:
+    - gitea
+    - git
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: gitea
+    sources:
+    - https://github.com/go-gitea/gitea
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/gitea-1.1.21/gitea-1.1.21.tgz
+    version: 1.1.21
   - apiVersion: v2
     appVersion: 1.23.1
     created: "2025-05-31T09:01:23.208526459Z"
@@ -1257,6 +1385,31 @@ entries:
     - https://github.com/RubxKube/charts/releases/download/glance-0.0.2/glance-0.0.2.tgz
     version: 0.0.2
   gotify:
+  - apiVersion: v2
+    appVersion: 2.6.1
+    created: "2025-05-31T10:32:40.648719043Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.4.5
+    description: a simple server for sending and receiving messages
+    digest: 14ab2c39a1841f19766f73ede21e8ab7a6317ccac7c0e048ffa56f46a3deadbc
+    home: https://gotify.net/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/gotify-logo.png
+    keywords:
+    - gotify
+    - notification
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: gotify
+    sources:
+    - https://github.com/gotify/server
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/gotify-1.2.10/gotify-1.2.10.tgz
+    version: 1.2.10
   - apiVersion: v2
     appVersion: 2.6.1
     created: "2025-05-18T07:12:57.616515435Z"
@@ -2445,6 +2598,35 @@ entries:
   joplin:
   - apiVersion: v2
     appVersion: 3.0-beta
+    created: "2025-05-31T10:32:40.812645534Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.4.5
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 16.2.5
+    description: Joplin is an open source note-taking app. Capture your thoughts and
+      securely access them from any device.
+    digest: 388277dbefdac988b9503279e2f08897a0b7f44f623defa6b9f4793329773f60
+    home: https://joplinapp.org/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/joplin-logo.png
+    keywords:
+    - joplin
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+      url: https://une-tasse-de.cafe
+    name: joplin
+    sources:
+    - https://github.com/laurent22/joplin
+    - https://github.com/QJoly/helm-charts
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/joplin-1.2.2/joplin-1.2.2.tgz
+    version: 1.2.2
+  - apiVersion: v2
+    appVersion: 3.0-beta
     created: "2025-04-05T14:21:51.763427427Z"
     dependencies:
     - name: common
@@ -3053,6 +3235,33 @@ entries:
     - https://github.com/RubxKube/charts/releases/download/joplin-1.0.0/joplin-1.0.0.tgz
     version: 1.0.0
   komga:
+  - apiVersion: v2
+    appVersion: 1.19.1
+    created: "2025-05-31T10:32:40.933513732Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.4.5
+    description: A WebUI to read comics/mangas from your library
+    digest: ddf3510e52d1d9166468e16e34ce2988c12ee1a6c673181ddbef5fa37292ec84
+    home: https://komga.org
+    icon: https://komga.org/img/logo.svg
+    keywords:
+    - comics
+    - manga
+    - reader
+    - library
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: komga
+    sources:
+    - https://github.com/gotson/komga
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/komga-0.0.8/komga-0.0.8.tgz
+    version: 0.0.8
   - apiVersion: v2
     appVersion: 1.19.1
     created: "2025-05-18T09:56:39.269909191Z"
@@ -3764,6 +3973,32 @@ entries:
     - https://github.com/RubxKube/charts/releases/download/kyoo-0.1.0/kyoo-0.1.0.tgz
     version: 0.1.0
   linkding:
+  - apiVersion: v2
+    appVersion: 1.37.0
+    created: "2025-05-31T10:32:41.022680613Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.4.5
+    description: linkding is a bookmark manager that you can host yourself. It's designed
+      be to be minimal, fast, and easy to set up.
+    digest: 14f9af248d767422b49f60ae1adac851b2c03d3e25ff81c45b6725d46370308f
+    home: https://github.com/sissbruecker/linkding
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/linkding-logo.png
+    keywords:
+    - linkding
+    - bookmark manager
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: linkding
+    sources:
+    - https://github.com/sissbruecker/linkding
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/linkding-1.1.19/linkding-1.1.19.tgz
+    version: 1.1.19
   - apiVersion: v2
     appVersion: 1.37.0
     created: "2025-05-18T07:56:27.687045003Z"
@@ -5488,6 +5723,32 @@ entries:
     version: 0.0.2
   uptime-kuma:
   - apiVersion: v2
+    appVersion: 1.23.15
+    created: "2025-05-31T10:32:41.132407109Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.4.5
+    description: Uptime Kuma is an easy-to-use self-hosted monitoring tool.
+    digest: 166288154c487eaa0e93841f9d2a76d68d5bf30bf4b895dc7a24c579ab78fd3b
+    home: https://github.com/louislam/uptime-kuma
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/uptime-kuma-logo.png
+    keywords:
+    - monitoring
+    - uptime
+    - kuma
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: uptime-kuma
+    sources:
+    - https://github.com/louislam/uptime-kuma
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/uptime-kuma-1.1.18/uptime-kuma-1.1.18.tgz
+    version: 1.1.18
+  - apiVersion: v2
     appVersion: 1.23.13
     created: "2024-07-24T07:21:10.841952366Z"
     dependencies:
@@ -5984,6 +6245,31 @@ entries:
   vaultwarden:
   - apiVersion: v2
     appVersion: 1.33.1
+    created: "2025-05-31T10:32:41.226298868Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.4.5
+    description: Vaultwarden is an easy-to-use self-hosted password manager.
+    digest: e2bcd2ceca1c7cc09215566bf8c5053459c32592308c70b966fa542ad1d120a6
+    home: https://github.com/dani-garcia/vaultwarden
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/vaultwarden-logo.png
+    keywords:
+    - password manager
+    - vaultwarden
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: vaultwarden
+    sources:
+    - https://github.com/dani-garcia/vaultwarden
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.1.17/vaultwarden-1.1.17.tgz
+    version: 1.1.17
+  - apiVersion: v2
+    appVersion: 1.33.1
     created: "2025-05-18T07:27:15.558755193Z"
     dependencies:
     - name: common
@@ -6397,4 +6683,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.0/your-spotify-0.0.0.tgz
     version: 0.0.0
-generated: "2025-05-31T09:06:02.188423978Z"
+generated: "2025-05-31T10:32:41.22708252Z"
