@@ -66,6 +66,7 @@ jobs:
                 sed -i "s/^version:.*/version: $chart_version.0/" Chart.yaml
               else
                 new_version=$(echo "$actual_version" | awk -F. -v OFS=. '{$NF++; print}')
+                echo "Incrementing version from $actual_version to $new_version"
                 sed -i "s/^version:.*/version: $new_version/" Chart.yaml
               fi
               cd -

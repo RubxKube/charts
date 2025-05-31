@@ -2,9 +2,14 @@
 define: &containerPort 9090
 
 common:
-  app:
-    servicePort: 80
+  name: linkding
+
+  service:
+    type: ClusterIP
+    enabled: true
+    servicePort: *containerPort
     containerPort: *containerPort
+    extraLabels: {}
 
   # deployment
   deployment:
@@ -12,6 +17,7 @@ common:
     cpuRequest: null
     memoryLimit: null
     cpuLimit: null
+    port: *containerPort
     strategy:
       type: RollingUpdate
       rollingUpdate:

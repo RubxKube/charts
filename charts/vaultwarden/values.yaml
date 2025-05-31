@@ -2,9 +2,13 @@
 define: &containerPort 80
 
 common:
-  app:
-    servicePort: 80
+  name: vaultwarden
+  service:
+    type: ClusterIP
+    enabled: true
+    servicePort: *containerPort
     containerPort: *containerPort
+    extraLabels: {}
 
   # deployment
   deployment:
@@ -36,10 +40,6 @@ common:
       secretName: ""
     # For Ingress CRD
     ingressClassName:
-    # For IngressRoute CRD
-    isIngressRoute: true
-    entrypoint: websecure
-    certResolver: letsencrypt  # leave empty if you don't use, tls.enabled must be true and secretName must me empty
 
   # env variables
   variables:

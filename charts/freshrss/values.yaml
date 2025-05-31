@@ -2,9 +2,7 @@
 define: &containerPort 80
 
 common:
-  app:
-    servicePort: 80
-    containerPort: *containerPort
+  name: freshrss
 
   # deployment
   deployment:
@@ -12,6 +10,7 @@ common:
     cpuRequest: null
     memoryLimit: null
     cpuLimit: null
+    port: *containerPort
     strategy:
       type: RollingUpdate
       rollingUpdate:

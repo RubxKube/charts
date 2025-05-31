@@ -1,11 +1,7 @@
 ---
-define: &containerPort 80
 
 common:
-  app:
-    servicePort: 80
-    containerPort: *containerPort
-
+  name: baikal
   # deployment
   deployment:
     memoryRequest: null
@@ -34,12 +30,7 @@ common:
     tls:
       enabled: true
       secretName: ""
-    # For Ingress CRD
     ingressClassName:
-    # For IngressRoute CRD
-    isIngressRoute: true
-    entrypoint: websecure
-    certResolver: letsencrypt  # leave empty if you don't use, tls.enabled must be true and secretName must me empty
 
 
   # env variables
@@ -59,7 +50,7 @@ common:
   startupProbe:
     httpGet:
       path: "/"
-      port: *containerPort
+      port: 80  # default port, you can change it in the deployment section
     periodSeconds: 10
     failureThreshold: 20
     timeoutSeconds: 1
@@ -69,7 +60,7 @@ common:
   readinessProbe:
     httpGet:
       path: "/"
-      port: *containerPort
+      port: 80
     initialDelaySeconds: 20
     periodSeconds: 30
     failureThreshold: 2
@@ -80,7 +71,7 @@ common:
   livenessProbe:
     httpGet:
       path: "/"
-      port: *containerPort
+      port: 80
     initialDelaySeconds: 20
     periodSeconds: 60
     failureThreshold: 1

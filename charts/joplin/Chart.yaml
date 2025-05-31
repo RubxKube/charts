@@ -18,7 +18,7 @@ sources:
 dependencies:
  - name: common
    repository: https://rubxkube.github.io/common-charts
-   version: v0.2.2
+   version: v0.4.5
  - name: postgresql
    version: 16.2.5
    repository: https://charts.bitnami.com/bitnami
