@@ -16,16 +16,22 @@ postgresql:
       # size: 8Gi
 
 common:
-  app:
-    servicePort: 80
-    containerPort: *containerPort
+  name: joplin
 
+  service:
+    type: ClusterIP
+    enabled: true
+    servicePort: *containerPort
+    containerPort: *containerPort
+    extraLabels: {}
+    
   # deployment
   deployment:
     memoryRequest: null
     cpuRequest: null
     memoryLimit: null
     cpuLimit: null
+    port: *containerPort
     strategy:
       type: RollingUpdate
       rollingUpdate:

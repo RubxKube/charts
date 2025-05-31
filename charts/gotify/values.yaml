@@ -2,16 +2,14 @@
 define: &containerPort 80
 
 common:
-  app:
-    servicePort: 80
-    containerPort: *containerPort
-
+  name: gotify
   # deployment
   deployment:
     memoryRequest: null
     cpuRequest: null
     memoryLimit: null
     cpuLimit: null
+    port: *containerPort
     strategy:
       type: RollingUpdate
       rollingUpdate:
@@ -36,10 +34,6 @@ common:
       secretName: ""
     # For Ingress CRD
     ingressClassName: istio
-    # For IngressRoute CRD
-    isIngressRoute: true
-    entrypoint: websecure
-    certResolver: letsencrypt  # leave empty if you don't use, tls.enabled must be true and secretName must me empty
 
   # env variables
   variables:

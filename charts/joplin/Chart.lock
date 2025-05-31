@@ -1,9 +1,9 @@
 dependencies:
 - name: common
   repository: https://rubxkube.github.io/common-charts
-  version: v0.2.2
+  version: v0.4.5
 - name: postgresql
   repository: https://charts.bitnami.com/bitnami
   version: 16.2.5
-digest: sha256:428a309420c680efd68bf5e56aff3f96e02bad5c18ccb9e98387ce60bd00b2d5
-generated: "2024-12-04T10:31:34.257154516Z"
+digest: sha256:f232c0c1b62289375862baeb81b7935b7dcd11c0b18d8327d64d9a93509d559f
+generated: "2025-05-31T09:45:33.454566224Z"
