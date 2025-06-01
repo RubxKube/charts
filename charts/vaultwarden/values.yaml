@@ -28,7 +28,7 @@ common:
       isPrivate: false
       secretName: null
     repository: vaultwarden/server
-    tag: 1.33.2
+    tag: 1.34.1
     pullPolicy: Always
 
   # ingress
