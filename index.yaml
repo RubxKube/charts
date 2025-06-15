@@ -5239,6 +5239,30 @@ entries:
   smokeping:
   - apiVersion: v2
     appVersion: 2.8.2
+    created: "2025-06-15T17:51:35.691420241Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.2.2
+    description: SmokePing is a latency logging and graphing and alerting system
+    digest: a792424c0fb5afae016614a8029120c8a8cbf385709555f7736037c39ed3e038
+    home: https://oss.oetiker.ch/smokeping/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/smokeping-logo.png
+    keywords:
+    - smokeping
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+      url: https://une-tasse-de.cafe
+    name: smokeping
+    sources:
+    - https://github.com/oetiker/SmokePing
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/smokeping-1.1.3/smokeping-1.1.3.tgz
+    version: 1.1.3
+  - apiVersion: v2
+    appVersion: 2.8.2
     created: "2024-01-05T07:09:44.13508617Z"
     dependencies:
     - name: common
@@ -6816,4 +6840,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.0/your-spotify-0.0.0.tgz
     version: 0.0.0
-generated: "2025-06-15T13:17:36.598460942Z"
+generated: "2025-06-15T17:51:35.691755361Z"
