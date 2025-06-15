@@ -25,7 +25,7 @@ common:
       isPrivate: false
       secretName: null
     repository: ghcr.io/flaresolverr/flaresolverr
-    tag: v3.3.22
+    tag: v3.3.25
     pullPolicy: Always
 
   # ingress
