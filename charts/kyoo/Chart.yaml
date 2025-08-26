@@ -57,7 +57,7 @@ dependencies:
   - condition: postgresql.enabled
     name: postgresql
     repository: https://charts.bitnami.com/bitnami
-    version: 16.2.5
+    version: 16.7.27
   - condition: rabbitmq.enabled
     name: rabbitmq
     repository: https://charts.bitnami.com/bitnami
