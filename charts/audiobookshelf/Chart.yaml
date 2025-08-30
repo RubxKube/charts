@@ -1,0 +1,23 @@
+---
+apiVersion: v2
+type: application
+name: audiobookshelf
+description: "Self-hosted audiobook and podcast server."
+version: 0.0.1
+appVersion: "v2.29.0"
+# icon:
+maintainers:
+  - name: QJOLY
+    email: github@une-tasse-de.cafe
+kubeVersion: ">= 1.18"
+home: https://github.com/advplyr/audiobookshelf
+keywords:
+  - Audiobookshelf
+  - Audiobooks
+  - Podcasts
+sources:
+  - https://github.com/advplyr/audiobookshelf
+dependencies:
+  - name: common
+    repository: https://rubxkube.github.io/common-charts
+    version: v0.4.5
