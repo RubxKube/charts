@@ -1,0 +1,112 @@
+---
+define: &containerPort 80
+
+common:
+  name: "audiobookshelf"
+  service:
+    servicePort: *containerPort
+    type: ClusterIP
+
+  deployment:
+    port: *containerPort
+    memoryRequest: null
+    cpuRequest: null
+    memoryLimit: null
+    cpuLimit: null
+    strategy:
+      type: RollingUpdate
+      rollingUpdate:
+        maxUnavailable: 25%
+        maxSurge: 25%
+
+  # container
+  image:
+    repositorySettings:
+      isPrivate: false
+      secretName: null
+    repository: ghcr.io/advplyr/audiobookshelf
+    tag: 2.29.0
+    pullPolicy: Always
+
+  # ingress
+  ingress:
+    enabled: false
+    hostName: toto.lan
+    extraLabels: {}
+    annotations:
+      {}
+      # nginx.ingress.kubernetes.io/proxy-body-size: 100m
+    tls:
+      enabled: false
+      secretName: "secret-audiobookshelf-tls"
+    # For Ingress CRD
+    ingressClassName: ""
+
+  # env variables
+  variables:
+    secret: {}
+    nonSecret:
+      LOG_LEVEL: info
+
+  # horizontal autoscaler
+  hpa:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 2
+    avgCpuUtilization: 50
+
+  # startupProbe
+  startupProbeEnabled: false
+  startupProbe:
+    httpGet:
+      path: "/"
+      port: *containerPort
+    periodSeconds: 10
+    failureThreshold: 20
+    timeoutSeconds: 1
+
+  # readinessProbe
+  readinessProbeEnabled: true
+  readinessProbe:
+    tcpSocket:
+      port: *containerPort
+    initialDelaySeconds: 30
+    periodSeconds: 30
+    failureThreshold: 2
+    timeoutSeconds: 3
+
+  # livenessProbe
+  livenessProbeEnabled: true
+  livenessProbe:
+    tcpSocket:
+      port: *containerPort
+    initialDelaySeconds: 30
+    periodSeconds: 60
+    failureThreshold: 1
+    timeoutSeconds: 3
+
+  persistence:
+    enabled: false
+    volumes:
+      - name: "audiobooks"
+        storageClassName: "" # leave empty if you want to use default
+        size: "5Gi"
+        pvcClaim: "" # Fill only if you want to use existing pvc
+        containerMount: "/audiobooks/"
+      - name: "podcasts"
+        storageClassName: "" # leave empty if you want to use default
+        size: "5Gi"
+        pvcClaim: "" # Fill only if you want to use existing pvc
+        containerMount: "/podcasts/"
+      - name: "metadata"
+        storageClassName: "" # leave empty if you want to use default
+        size: "2Gi"
+        pvcClaim: "" # Fill only if you want to use existing pvc
+        containerMount: "/metadata/"
+
+  tests:
+    classicHttp: # default helm test method
+      enabled: false
+    curlHostHeader: # curl using ingress.hostName as Host in header
+      enabled: true
+      path: "/"
