@@ -86,7 +86,7 @@ common:
     timeoutSeconds: 3
 
   persistence:
-    enabled: false
+    enabled: true
     volumes:
       - name: "audiobooks"
         storageClassName: "" # leave empty if you want to use default
