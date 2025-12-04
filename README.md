@@ -35,7 +35,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | jellyfin | Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media | 1.2.3 | 10.10.6 |
 | flaresolverr | FlareSolverr is a proxy server that solves Cloudflare's Javascript challenges. | 0.0.1 | v3.3.21 |
 | gotify | a simple server for sending and receiving messages | 1.2.8 | 2.6.1 |
-| your-spotify | YourSpotify is a self-hosted application that tracks what you listen and offers you a dashboard to explore statistics about it! It's composed of a web server which polls the Spotify API every now and then and a web application on which you can explore your statistics. | 0.0 | 1.15.0 |
+| your-spotify | YourSpotify is a self-hosted application that tracks what you listen and offers you a dashboard to explore statistics about it! It's composed of a web server which polls the Spotify API every now and then and a web application on which you can explore your statistics. | 0.0.3 | 1.15.0 |
 | radarr | Radarr is a movie collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new movies and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available. | 1.1.11 | 5.18.4 |
 | smokeping | SmokePing is a latency logging and graphing and alerting system | 1.1.2 | 2.8.2 |
 | simple-coffee | This is a test application | 0.1.0 | 1.0.0 |
