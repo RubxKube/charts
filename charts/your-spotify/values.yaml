@@ -47,7 +47,7 @@ server:
     secret:
       data:
         # Should be the exposed URL of the server (user point of view)
-        SPOTIFY_PUBLIC: ""
+        SPOTIFY_PUBLIC: "https://spotty.trafford.net"
         SPOTIFY_SECRET: ""
     nonSecret:
       API_ENDPOINT: https://spotty-api.your-domain.com
