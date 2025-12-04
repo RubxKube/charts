@@ -4,7 +4,7 @@ type: application
 name: your-spotify
 description: YourSpotify is a self-hosted application that tracks what you listen and offers you a dashboard to explore statistics about it! It's composed of a web server which polls the Spotify API every now and then and a web application on which you can explore your statistics.
 version: 0.0
-appVersion: 1.12.0
+appVersion: 1.15.0
 maintainers:
   - name: QJOLY
     email: github@une-tasse-de.cafe
