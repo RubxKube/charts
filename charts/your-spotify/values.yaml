@@ -7,7 +7,7 @@ web:
     port: 3000
   image:
     repository: yooooomi/your_spotify_client
-    tag: 1.13.1
+    tag: 1.15.0
     pullPolicy: Always
   variables:
     nonSecret:
@@ -41,7 +41,7 @@ server:
     port: 8080
   image:
     repository: yooooomi/your_spotify_server
-    tag: 1.13.1
+    tag: 1.15.0
     pullPolicy: Always
   variables:
     secret:
