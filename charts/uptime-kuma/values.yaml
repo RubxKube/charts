@@ -29,8 +29,8 @@ common:
     repositorySettings:
       isPrivate: false
       secretName: null
-    repository: elestio/uptime-kuma
-    tag: 1.23.15
+    repository: louislam/uptime-kuma
+    tag: 2.2.1
     pullPolicy: Always
 
   # ingress
