@@ -45,7 +45,7 @@ Kubernetes: `>= 1.18`
 | common.image.repository | string | `"vaultwarden/server"` |  |
 | common.image.repositorySettings.isPrivate | bool | `false` |  |
 | common.image.repositorySettings.secretName | string | `nil` |  |
-| common.image.tag | string | `"1.30.1"` |  |
+| common.image.tag | string | `"1.35.7"` |  |
 | common.ingress.certResolver | string | `"letsencrypt"` |  |
 | common.ingress.enabled | bool | `false` |  |
 | common.ingress.entrypoint | string | `"websecure"` |  |
