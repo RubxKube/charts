@@ -199,7 +199,7 @@ scanner:
     memoryLimit: "300Mi"
   image:
     repository: "ghcr.io/zoriya/kyoo_scanner"
-    tag: "4.7.1"
+    tag: "5.0.0"
     pullPolicy: "IfNotPresent"
   variables:
     configMap:
@@ -272,7 +272,7 @@ matcher:
     # matcher uses the same image as the scanner
     # Only the args are different
     repository: "ghcr.io/zoriya/kyoo_scanner"
-    tag: "4.7.1"
+    tag: "5.0.0"
     pullPolicy: "IfNotPresent"
   variables:
     configMap:
