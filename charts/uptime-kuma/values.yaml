@@ -30,7 +30,7 @@ common:
       isPrivate: false
       secretName: null
     repository: elestio/uptime-kuma
-    tag: 1.23.15
+    tag: 2.2.1
     pullPolicy: Always
 
   # ingress
