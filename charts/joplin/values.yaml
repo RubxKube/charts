@@ -63,12 +63,20 @@ common:
 
   # env variables
   variables:
-    secret: {}
+    secret:
+      data:
+        POSTGRES_PASSWORD: "joplinpass"
+      # To use an existing secret for POSTGRES_PASSWORD (e.g. when postgresql.enabled=false):
+      #   set data: ~ to remove the default, then reference your secret:
+      # data: ~
+      # existingSecret:
+      #   - name: my-pg-secret
+      #     key: password
+      #     envName: POSTGRES_PASSWORD
     nonSecret:
       DB_CLIENT: pg
       POSTGRES_DATABASE: "joplin"
       POSTGRES_USER: "joplinuser"
-      POSTGRES_PASSWORD: "joplinpass"
       POSTGRES_HOST: "joplin-postgresql" # if postgresql.enabled, must be RELEASE-NAME-postgresql (ex: my-wakapi-postgresql)
       POSTGRES_PORT: "5432"
       APP_BASE_URL: https://joplin.une-tasse-de.cafe
