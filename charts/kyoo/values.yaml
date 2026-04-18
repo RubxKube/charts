@@ -143,7 +143,7 @@ transcoder:
     extraLabels: {}
   image:
     repository: "ghcr.io/zoriya/kyoo_transcoder"
-    tag: "4.7.1"
+    tag: "5.0.0"
     pullPolicy: "IfNotPresent"
   persistence:
     enabled: true
