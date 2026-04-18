@@ -6776,6 +6776,31 @@ entries:
     version: 1.0.0
   vaultwarden:
   - apiVersion: v2
+    appVersion: 1.35.7
+    created: "2026-04-18T09:04:37.093156494Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.5.0
+    description: Vaultwarden is an easy-to-use self-hosted password manager.
+    digest: aee77063697e9988eabee415db7ee198a0ab2fa904e084c5d7252966c1d074e7
+    home: https://github.com/dani-garcia/vaultwarden
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/vaultwarden-logo.png
+    keywords:
+    - password manager
+    - vaultwarden
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: vaultwarden
+    sources:
+    - https://github.com/dani-garcia/vaultwarden
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/vaultwarden-1.2.0/vaultwarden-1.2.0.tgz
+    version: 1.2.0
+  - apiVersion: v2
     appVersion: 1.33.1
     created: "2025-06-01T09:20:01.924012943Z"
     dependencies:
@@ -7278,4 +7303,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.0/your-spotify-0.0.0.tgz
     version: 0.0.0
-generated: "2026-02-07T23:55:19.830741442Z"
+generated: "2026-04-18T09:04:37.093546402Z"
