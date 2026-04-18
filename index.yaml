@@ -1642,6 +1642,31 @@ entries:
   gotify:
   - apiVersion: v2
     appVersion: 2.6.1
+    created: "2026-04-18T12:36:04.682732841Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.4.5
+    description: a simple server for sending and receiving messages
+    digest: d630e7d1298b6449482db9d5c2daf6afbd360472c3fcc80a6c9aa2273a5f3860
+    home: https://gotify.net/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/gotify-logo.png
+    keywords:
+    - gotify
+    - notification
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: gotify
+    sources:
+    - https://github.com/gotify/server
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/gotify-1.2.11/gotify-1.2.11.tgz
+    version: 1.2.11
+  - apiVersion: v2
+    appVersion: 2.6.1
     created: "2025-05-31T10:32:40.648719043Z"
     dependencies:
     - name: common
@@ -7557,4 +7582,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.0/your-spotify-0.0.0.tgz
     version: 0.0.0
-generated: "2026-04-18T12:33:51.109630048Z"
+generated: "2026-04-18T12:36:04.683394975Z"
