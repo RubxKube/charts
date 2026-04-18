@@ -45,7 +45,7 @@ jobs:
 
       - name: Install kubectl
         if: steps.changed-files-specific.outputs.any_changed == 'true'
-        uses: Azure/setup-kubectl@v4
+        uses: Azure/setup-kubectl@v5
 
       - name: Run test for any chart concerned by the commit
         if: steps.changed-files-specific.outputs.any_changed == 'true'
