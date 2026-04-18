@@ -1,6 +1,6 @@
-# The only 'global' value is the volume for media
+# The only 'global' value is the volume for media
 # This volume is shared between multiple components.
-# If you use a network storage outside of the cluster, you can create a PVC and use it here (see README)
+# If you use a network storage outside of the cluster, you can create a PVC and use it here (see README)
 volumes:
   media:
     enabled: true
@@ -391,7 +391,7 @@ postgresql:
   primary:
     initdb:
       scripts:
-        # For now, user are the same for all databases
+        # For now, user are the same for all databases
         # This is not a good practice, but it's a start for now
         kyoo_back.sql: |
           CREATE DATABASE {{ .Values.back.database }} WITH OWNER {{ .Values.auth.username }};
