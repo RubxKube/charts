@@ -25,7 +25,7 @@ common:
       isPrivate: false
       secretName: null
     repository: ghcr.io/advplyr/audiobookshelf
-    tag: 2.29.0
+    tag: 2.33.2
     pullPolicy: Always
 
   # ingress
