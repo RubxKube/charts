@@ -3,6 +3,31 @@ entries:
   audiobookshelf:
   - apiVersion: v2
     appVersion: v2.29.0
+    created: "2026-04-20T07:24:32.698571561Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.4.5
+    description: Self-hosted audiobook and podcast server.
+    digest: 2e6d60409276222f843ab6a8432a4c693ab8244efdea89ff11e1f1bef2ed2fb6
+    home: https://github.com/advplyr/audiobookshelf
+    keywords:
+    - Audiobookshelf
+    - Audiobooks
+    - Podcasts
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: audiobookshelf
+    sources:
+    - https://github.com/advplyr/audiobookshelf
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/audiobookshelf-0.0.3/audiobookshelf-0.0.3.tgz
+    version: 0.0.3
+  - apiVersion: v2
+    appVersion: v2.29.0
     created: "2025-08-30T12:37:31.051103513Z"
     dependencies:
     - name: common
@@ -7634,4 +7659,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.0/your-spotify-0.0.0.tgz
     version: 0.0.0
-generated: "2026-04-19T09:31:44.389502387Z"
+generated: "2026-04-20T07:24:32.699389475Z"
