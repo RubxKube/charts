@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: audiobookshelf
 description: "Self-hosted audiobook and podcast server."
-version: 0.0.1
+version: 0.1.0
 appVersion: "v2.29.0"
 # icon:
 maintainers:
@@ -20,4 +20,4 @@ sources:
 dependencies:
   - name: common
     repository: https://rubxkube.github.io/common-charts
-    version: v0.4.5
+    version: v0.5.0
