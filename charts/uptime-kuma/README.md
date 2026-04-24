@@ -45,7 +45,7 @@ Kubernetes: `>= 1.18`
 | common.image.repository | string | `"louislam/uptime-kuma"` |  |
 | common.image.repositorySettings.isPrivate | bool | `false` |  |
 | common.image.repositorySettings.secretName | string | `nil` |  |
-| common.image.tag | string | `"1.23.11"` |  |
+| common.image.tag | string | `"2.2.1"` |  |
 | common.ingress.certResolver | string | `"letsencrypt"` |  |
 | common.ingress.enabled | bool | `false` |  |
 | common.ingress.entrypoint | string | `"websecure"` |  |

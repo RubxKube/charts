@@ -29,7 +29,7 @@ common:
     repositorySettings:
       isPrivate: false
       secretName: null
-    repository: elestio/uptime-kuma
+    repository: louislam/uptime-kuma
     tag: 2.2.1
     pullPolicy: Always
 
