@@ -2,9 +2,12 @@
 apiVersion: v2
 type: application
 name: stirling-pdf
-description: Stirling-PDF is a robust, locally hosted web-based PDF manipulation tool using Docker. It enables you to carry out various operations on PDF files, including splitting, merging, converting, reorganizing, adding images, rotating, compressing, and more
-version: 0.0
-appVersion: 0.41.0
+description: Stirling-PDF is a robust, locally hosted web-based PDF manipulation
+  tool using Docker. It enables you to carry out various operations on PDF
+  files, including splitting, merging, converting, reorganizing, adding images,
+  rotating, compressing, and more
+version: 0.0.1
+appVersion: 2.9.2
 maintainers:
   - name: QJOLY
     email: github@une-tasse-de.cafe

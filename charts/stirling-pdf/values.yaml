@@ -46,6 +46,4 @@ common:
     tls:
       enabled: true
       secretName: stirling-pdf
-    annotations:
-      {}
-      # cert-manager.io/cluster-issuer: cloudflare
+    annotations: {} # cert-manager.io/cluster-issuer: cloudflare
