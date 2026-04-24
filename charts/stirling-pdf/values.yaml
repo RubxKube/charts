@@ -7,7 +7,7 @@ common:
     port: 8080
   image:
     repository: ghcr.io/stirling-tools/stirling-pdf
-    tag: 1.0.2
+    tag: 2.9.2
     pullPolicy: IfNotPresent
   variables:
     nonSecret:
@@ -46,6 +46,4 @@ common:
     tls:
       enabled: true
       secretName: stirling-pdf
-    annotations:
-      {}
-      # cert-manager.io/cluster-issuer: cloudflare
+    annotations: {} # cert-manager.io/cluster-issuer: cloudflare
