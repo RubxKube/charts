@@ -19,12 +19,12 @@ dependencies:
   version: v0.4.4
 - name: meilisearch
   repository: https://meilisearch.github.io/meilisearch-kubernetes
-  version: 0.10.2
+  version: 0.32.0
 - name: postgresql
   repository: https://charts.bitnami.com/bitnami
   version: 16.2.5
 - name: rabbitmq
   repository: https://charts.bitnami.com/bitnami
   version: 16.0.14
-digest: sha256:2dff8cd03cd4b3da61688db80c6522eee5d53e2dec596d373779de512f99db6b
-generated: "2026-03-13T10:44:27.932302315Z"
+digest: sha256:dc763b29513adac32448f4fd6293c4b400126a273c850fbe42db2044fae9ec1b
+generated: "2026-04-18T10:46:45.993027383Z"
