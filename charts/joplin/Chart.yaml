@@ -1,25 +1,26 @@
 ---
 apiVersion: v2
 name: joplin
-description: Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device.
+description: Joplin is an open source note-taking app. Capture your thoughts and
+  securely access them from any device.
 version: 1.2.2
 appVersion: "3.0-beta"
 icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/joplin-logo.png
 keywords:
- - joplin
+  - joplin
 home: https://joplinapp.org/
 maintainers:
- - email: github@une-tasse-de.cafe
-   name: QJOLY
-   url: https://une-tasse-de.cafe
+  - email: github@une-tasse-de.cafe
+    name: QJOLY
+    url: https://une-tasse-de.cafe
 sources:
- - https://github.com/laurent22/joplin
- - https://github.com/QJoly/helm-charts
+  - https://github.com/laurent22/joplin
+  - https://github.com/QJoly/helm-charts
 dependencies:
- - name: common
-   repository: https://rubxkube.github.io/common-charts
-   version: v0.4.5
- - name: postgresql
-   version: 16.2.5
-   repository: https://charts.bitnami.com/bitnami
-   condition: postgresql.enabled
+  - name: common
+    repository: https://rubxkube.github.io/common-charts
+    version: v0.4.5
+  - name: postgresql
+    version: "18.x"
+    repository: https://charts.bitnami.com/bitnami
+    condition: postgresql.enabled
