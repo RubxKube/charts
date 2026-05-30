@@ -3,6 +3,8 @@ define: &containerPort 22300
 
 postgresql:
   enabled: true
+  # Keep the generated service name aligned with the app's fixed DB host setting.
+  fullnameOverride: "joplin-postgresql"
   auth:
     postgresPassword: "changeme"
     database: joplin
