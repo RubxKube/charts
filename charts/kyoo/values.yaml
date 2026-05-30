@@ -26,6 +26,7 @@ front:
   name: "front"
   enabled: true
   deployment:
+    cpuRequest: "100m"
     port: 8901
     cpuLimit: "250m"
     memoryLimit: "100Mi"
@@ -48,6 +49,7 @@ back:
   name: "back"
   enabled: true
   deployment:
+    cpuRequest: "250m"
     cpuLimit: "1000m"
     # 2Gi is the minimum recommended for the back
     memoryLimit: "2000Mi"
@@ -129,6 +131,7 @@ transcoder:
   name: "transcoder"
   enabled: true
   deployment:
+    cpuRequest: "250m"
     cpuLimit: "1000m"
     memoryLimit: "500Mi"
     port: 7666
@@ -195,6 +198,7 @@ scanner:
   name: "scanner"
   enabled: true
   deployment:
+    cpuRequest: "100m"
     cpuLimit: "250m"
     memoryLimit: "300Mi"
   image:
@@ -241,6 +245,7 @@ scanner:
 autosync:
   enabled: true
   name: "autosync"
+  cpuRequest: "100m"
   cpuLimit: "250m"
   memoryLimit: "300Mi"
   image:
@@ -264,6 +269,7 @@ matcher:
   enabled: true
   name: "matcher"
   deployment:
+    cpuRequest: "100m"
     cpuLimit: "500m"
     memoryLimit: "300Mi"
     args:
@@ -371,6 +377,9 @@ secrets:
 
 rabbitmq:
   enabled: true
+  fullnameOverride: kyoo-rabbitmq
+  image:
+    repository: bitnamilegacy/rabbitmq
   auth:
     # Sadly, the rabbitmq chart does not support existing secrets for the user
     # By default, the user is the one generated in .rabbitmq.secrets.rabbitmq.data.rabbitmq_user
@@ -382,6 +391,7 @@ rabbitmq:
 
 postgresql:
   enabled: true
+  fullnameOverride: kyoo-postgresql
   auth:
     username: kyoouserherefordb
   back:
@@ -412,6 +422,7 @@ postgresql:
 
 meilisearch:
   enabled: true
+  fullnameOverride: kyoo-meilisearch
   environment:
     MEILI_ENV: production
   auth:
