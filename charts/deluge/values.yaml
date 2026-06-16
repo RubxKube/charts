@@ -22,7 +22,7 @@ common:
       isPrivate: false
       secretName: null
     repository: linuxserver/deluge
-    tag: '18.04.1'
+    tag: '2.2.0'
     pullPolicy: Always
 
   # ingress
