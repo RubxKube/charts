@@ -291,6 +291,33 @@ entries:
     version: 0.3.2
   deluge:
   - apiVersion: v2
+    appVersion: 2.2.0
+    created: "2026-07-01T15:55:59.678203109Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.4.5
+    description: Deluge is a lightweight, Free Software, cross-platform BitTorrent
+      client.
+    digest: 9296cea5e3b77e2dad43f6f5664a6ef9d6bbc83443242d3e1d2e40b95e951cfd
+    home: https://deluge-torrent.org/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/deluge-logo.png
+    keywords:
+    - Deluge
+    - Torrent
+    - Download
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: deluge
+    sources:
+    - https://git.deluge-torrent.org/deluge/tree/?h=develop
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/deluge-1.1.4/deluge-1.1.4.tgz
+    version: 1.1.4
+  - apiVersion: v2
     appVersion: 18.04.1
     created: "2025-05-31T10:32:40.225435841Z"
     dependencies:
@@ -3648,6 +3675,33 @@ entries:
     - https://github.com/RubxKube/charts/releases/download/joplin-1.0.0/joplin-1.0.0.tgz
     version: 1.0.0
   komga:
+  - apiVersion: v2
+    appVersion: 1.24.4
+    created: "2026-07-01T15:55:59.851300086Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.4.5
+    description: A WebUI to read comics/mangas from your library
+    digest: 804e15ac1f21c9fb52a988517176a9a33aae8acae859753afa6d2ad35467c276
+    home: https://komga.org
+    icon: https://komga.org/img/logo.svg
+    keywords:
+    - comics
+    - manga
+    - reader
+    - library
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: komga
+    sources:
+    - https://github.com/gotson/komga
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/komga-0.0.12/komga-0.0.12.tgz
+    version: 0.0.12
   - apiVersion: v2
     appVersion: 1.19.1
     created: "2026-04-19T09:31:44.389054598Z"
@@ -7685,4 +7739,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.0/your-spotify-0.0.0.tgz
     version: 0.0.0
-generated: "2026-04-20T07:25:01.553642117Z"
+generated: "2026-07-01T15:55:59.852897004Z"
