@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: audiobookshelf
 description: "Self-hosted audiobook and podcast server."
-version: 0.1.0
+version: 0.1.1
 appVersion: "v2.29.0"
 # icon:
 maintainers:
