@@ -24,14 +24,7 @@ for chart in "${chart_list[@]}"; do
       echo "No CI for this chart."
   else
       helm dependency update || true
-      # values-ci.yaml lets a chart override values only for the kind test env
-      # (e.g. ReadWriteMany -> ReadWriteOnce, which the kind provisioner supports)
-      ci_values=""
-      if [ -f "values-ci.yaml" ]; then
-        ci_values="-f values-ci.yaml"
-        echo "Using values-ci.yaml override for $chart_name"
-      fi
-      helm install $chart_name . $ci_values --wait --timeout 300s
+      helm install $chart_name . --wait --timeout 300s 
       echo "$chart_name is installed"
       helm test $chart_name --logs 
   fi

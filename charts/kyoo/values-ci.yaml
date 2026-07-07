@@ -1,9 +1,0 @@
-# Overrides appliqués uniquement dans l'environnement de test CI (kind).
-# Le provisioner local-path par défaut de kind ne provisionne pas les PVC
-# ReadWriteMany : on bascule le volume media partagé en ReadWriteOnce (les pods
-# scanner/transcoder co-localisent sur l'unique nœud kind). La valeur par défaut
-# du chart reste ReadWriteMany pour les clusters multi-nœuds en production.
-volumes:
-  media:
-    accessModes:
-      - "ReadWriteOnce"
