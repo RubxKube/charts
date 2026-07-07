@@ -1,3 +1,10 @@
+# Bitnami a retiré ses images gratuites de docker.io/bitnami (août 2025).
+# On repointe postgresql/rabbitmq sur le namespace figé bitnamilegacy ; les
+# sous-charts Bitnami récents (rabbitmq) refusent une image substituée sans ce flag.
+global:
+  security:
+    allowInsecureImages: true
+
 # The only 'global' value is the volume for media
 # This volume is shared between multiple components.
 # If you use a network storage outside of the cluster, you can create a PVC and use it here (see README)
@@ -371,6 +378,8 @@ secrets:
 
 rabbitmq:
   enabled: true
+  image:
+    repository: bitnamilegacy/rabbitmq
   auth:
     # Sadly, the rabbitmq chart does not support existing secrets for the user
     # By default, the user is the one generated in .rabbitmq.secrets.rabbitmq.data.rabbitmq_user
@@ -382,6 +391,8 @@ rabbitmq:
 
 postgresql:
   enabled: true
+  image:
+    repository: bitnamilegacy/postgresql
   auth:
     username: kyoouserherefordb
   back:

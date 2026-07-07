@@ -2,12 +2,15 @@
 define: &containerPort 80
 
 common:
-  app:
+  name: smokeping
+
+  service:
     servicePort: 80
-    containerPort: *containerPort
+    type: ClusterIP
 
   # deployment
   deployment:
+    port: *containerPort
     memoryRequest: null
     cpuRequest: null
     memoryLimit: null
