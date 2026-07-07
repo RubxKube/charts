@@ -37,7 +37,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | gitea | Gitea (Git with a cup of tea) | 1.1.18 | 1.23.1 |
 | mylar3 | Mylar3 is an automated Comic Book (cbr/cbz) downloader program | 0.0.2 | 2021.12.13 |
 | stirling-pdf | Stirling-PDF is a robust, locally hosted web-based PDF manipulation tool using Docker. It enables you to carry out various operations on PDF files, including splitting, merging, converting, reorganizing, adding images, rotating, compressing, and more | 0.0.1 | 2.9.2 |
-| cloudflare-tunnel | Creation of a cloudflared deployment - a reverse tunnel for an environment | 0.3.2 | 2024.8.3 |
+| cloudflare-tunnel | Creation of a cloudflared deployment - a reverse tunnel for an environment | 0.3.3 | 2026.6.1 |
 | glance | A self-hosted dashboard that puts all your feeds in one place | 0.0.6 | v0.7.4 |
 | deluge | Deluge is a lightweight, Free Software, cross-platform BitTorrent client. | 1.1.4 | 2.2.0 |
 | audiobookshelf | Self-hosted audiobook and podcast server. | 0.0.1 | v2.29.0 |
