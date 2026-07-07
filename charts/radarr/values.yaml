@@ -2,12 +2,15 @@
 define: &containerPort 7878
 
 common:
-  app:
+  name: radarr
+
+  service:
     servicePort: 80
-    containerPort: *containerPort
+    type: ClusterIP
 
   # deployment
   deployment:
+    port: *containerPort
     memoryRequest: null
     cpuRequest: null
     memoryLimit: null
