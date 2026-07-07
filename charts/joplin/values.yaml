@@ -3,6 +3,10 @@ define: &containerPort 22300
 
 postgresql:
   enabled: true
+  # Bitnami a retiré ses images gratuites de docker.io/bitnami (août 2025) ;
+  # on pointe sur le namespace figé bitnamilegacy pour garder ce tag pullable.
+  image:
+    repository: bitnamilegacy/postgresql
   auth:
     postgresPassword: "changeme"
     database: joplin

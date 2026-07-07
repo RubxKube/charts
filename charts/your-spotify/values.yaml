@@ -76,5 +76,9 @@ server:
 
 mongodb:
   enabled: true
+  # Bitnami a retiré ses images gratuites de docker.io/bitnami (août 2025) ;
+  # le namespace figé bitnamilegacy garde un tag stable et pullable.
+  image:
+    repository: bitnamilegacy/mongodb
   auth:
     enabled: false
