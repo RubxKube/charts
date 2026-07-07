@@ -111,7 +111,9 @@ jobs:
               chart_minor=$(echo "$chart_version" | cut -d. -f2)
               if [[ "$actual_minor" != "$chart_minor" ]]; then
                 echo "INFO: Minor version difference between Chart.yaml ($chart_version) and latest tag ($actual_version)"
-                sed -i "s/^version:.*/version: $chart_version.0/" Chart.yaml
+                # Chart.yaml already holds the full target version (e.g. 0.1.0);
+                # use it verbatim. Appending ".0" produced invalid semver (0.1.0.0).
+                sed -i "s/^version:.*/version: $chart_version/" Chart.yaml
               else
                 new_version=$(echo "$actual_version" | awk -F. -v OFS=. '{$NF++; print}')
                 sed -i "s/^version:.*/version: $new_version/" Chart.yaml
