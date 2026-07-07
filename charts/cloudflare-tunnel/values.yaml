@@ -3,6 +3,9 @@
 # Cloudflare parameters.
 cloudflare:
   annotations: {}
+  # Transport protocol to reach the Cloudflare edge: auto (default), http2 or quic.
+  # Leave empty to keep cloudflared's default (auto).
+  protocol: ""
   # Your Cloudflare account number.
   account: ""
   # The name of the tunnel this instance will serve

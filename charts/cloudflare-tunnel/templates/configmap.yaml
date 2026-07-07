@@ -22,6 +22,11 @@ data:
     # autoupdate doesn't make sense in Kubernetes. However, outside of Kubernetes, we strongly
     # recommend using autoupdate.
     no-autoupdate: true
+    {{- with .Values.cloudflare.protocol }}
+    # Transport protocol used to connect to the Cloudflare edge (auto, http2, quic).
+    # Set to http2 when QUIC/UDP is unreliable, e.g. constrained path MTU.
+    protocol: {{ . }}
+    {{- end }}
     # The `ingress` block tells cloudflared which local service to route incoming
     # requests to. For more about ingress rules, see
     # https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/configuration/ingress
