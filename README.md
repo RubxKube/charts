@@ -19,7 +19,6 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | memo | Memo (A privacy-first, lightweight note-taking service) | 1.2.0 | 0.24 |
 | flaresolverr | FlareSolverr is a proxy server that solves Cloudflare's Javascript challenges. | 0.1.0 | v3.3.21 |
 | your-spotify | YourSpotify is a self-hosted application that tracks what you listen and offers you a dashboard to explore statistics about it! It's composed of a web server which polls the Spotify API every now and then and a web application on which you can explore your statistics. | 0.1.0 | 1.19.0 |
-| kyoo | Kyoo is a media manager and transcoder for your media files. | 0.1 | 4.7.0 |
 | simple-coffee | This is a test application | 0.1.0 | 1.0.0 |
 | komga | A WebUI to read comics/mangas from your library | 0.1.0 | 1.24.4 |
 | jellyfin | Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media | 1.3.0 | 10.10.6 |
