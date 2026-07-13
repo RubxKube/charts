@@ -353,6 +353,33 @@ entries:
   deluge:
   - apiVersion: v2
     appVersion: 2.2.0
+    created: "2026-07-13T07:51:35.668879668Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.6.0
+    description: Deluge is a lightweight, Free Software, cross-platform BitTorrent
+      client.
+    digest: 7fe56e343c88ed22e3c4410e3f01c673a3429cb08236bfdd0671c0b1db1326e4
+    home: https://deluge-torrent.org/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/deluge-logo.png
+    keywords:
+    - Deluge
+    - Torrent
+    - Download
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: deluge
+    sources:
+    - https://git.deluge-torrent.org/deluge/tree/?h=develop
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/deluge-1.2.1/deluge-1.2.1.tgz
+    version: 1.2.1
+  - apiVersion: v2
+    appVersion: 2.2.0
     created: "2026-07-07T22:32:53.719712754Z"
     dependencies:
     - name: common
@@ -8397,4 +8424,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.0/your-spotify-0.0.0.tgz
     version: 0.0.0
-generated: "2026-07-13T07:51:12.468375924Z"
+generated: "2026-07-13T07:51:35.669513801Z"
