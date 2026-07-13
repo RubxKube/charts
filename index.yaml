@@ -6535,6 +6535,32 @@ entries:
   sonarr:
   - apiVersion: v2
     appVersion: 4.0.12
+    created: "2026-07-13T07:51:00.923980025Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.6.0
+    description: Sonarr is a PVR for Usenet and BitTorrent users.
+    digest: 68292806261139122da133197f213e9e22424ce049a3031932b733847758c1d2
+    home: https://github.com/Sonarr/Sonarr
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/sonarr-logo.png
+    keywords:
+    - Sonarr
+    - Plex
+    - Series
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: sonarr
+    sources:
+    - https://github.com/Sonarr/Sonarr
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/sonarr-1.4.1/sonarr-1.4.1.tgz
+    version: 1.4.1
+  - apiVersion: v2
+    appVersion: 4.0.12
     created: "2026-07-07T22:32:56.174253593Z"
     dependencies:
     - name: common
@@ -8346,4 +8372,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.0/your-spotify-0.0.0.tgz
     version: 0.0.0
-generated: "2026-07-13T07:50:49.354033981Z"
+generated: "2026-07-13T07:51:00.924446604Z"
