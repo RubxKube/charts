@@ -7031,6 +7031,36 @@ entries:
   stirling-pdf:
   - apiVersion: v2
     appVersion: 2.9.2
+    created: "2026-07-13T19:58:36.086269994Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.6.0
+    description: Stirling-PDF is a robust, locally hosted web-based PDF manipulation
+      tool using Docker. It enables you to carry out various operations on PDF files,
+      including splitting, merging, converting, reorganizing, adding images, rotating,
+      compressing, and more
+    digest: 3f21495f208c958bfdccf26c0dee1d82455f587bb096534280c9e0b8c9a2ec5d
+    home: https://www.stirlingpdf.com/
+    keywords:
+    - pdf
+    - manipulation
+    - tools
+    - editor
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+      url: https://une-tasse-de.cafe
+    name: stirling-pdf
+    sources:
+    - https://github.com/Stirling-Tools/Stirling-PDF
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/stirling-pdf-0.1.1/stirling-pdf-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 2.9.2
     created: "2026-07-07T22:32:56.366323217Z"
     dependencies:
     - name: common
@@ -8451,4 +8481,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.0/your-spotify-0.0.0.tgz
     version: 0.0.0
-generated: "2026-07-13T19:57:13.949223088Z"
+generated: "2026-07-13T19:58:36.086953392Z"
