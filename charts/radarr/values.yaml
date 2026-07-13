@@ -28,7 +28,7 @@ common:
       isPrivate: false
       secretName: null
     repository: linuxserver/radarr
-    tag: 6.1.1
+    tag: 6.3.0
     pullPolicy: Always
 
   # ingress
