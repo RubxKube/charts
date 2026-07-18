@@ -29,19 +29,19 @@ jobs:
           fetch-depth: 0
 
       - name: Setup Python
-        uses: actions/setup-python@v5.1.1
+        uses: actions/setup-python@v6.3.0
 
-      - uses: azure/setup-helm@v4
+      - uses: azure/setup-helm@v5
 
       - name: Get changed files in the charts folder
         id: changed-files-specific
-        uses: tj-actions/changed-files@v46
+        uses: tj-actions/changed-files@v47
         with:
           files: charts
 
       - name: Create k8s Kind Cluster
         if: steps.changed-files-specific.outputs.any_changed == 'true'
-        uses: helm/kind-action@v1.12.0
+        uses: helm/kind-action@v1.14.0
 
       - name: Install kubectl
         if: steps.changed-files-specific.outputs.any_changed == 'true'
@@ -63,13 +63,13 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-go@v5
+      - uses: actions/setup-go@v6
         with:
           go-version: '>=1.17.0'
 
       - name: Get changed files in the charts folder
         id: changed-files-specific
-        uses: tj-actions/changed-files@v46.0.5
+        uses: tj-actions/changed-files@v47.0.6
         with:
           files: charts/**
 
@@ -111,7 +111,9 @@ jobs:
               chart_minor=$(echo "$chart_version" | cut -d. -f2)
               if [[ "$actual_minor" != "$chart_minor" ]]; then
                 echo "INFO: Minor version difference between Chart.yaml ($chart_version) and latest tag ($actual_version)"
-                sed -i "s/^version:.*/version: $chart_version.0/" Chart.yaml
+                # Chart.yaml already holds the full target version (e.g. 0.1.0);
+                # use it verbatim. Appending ".0" produced invalid semver (0.1.0.0).
+                sed -i "s/^version:.*/version: $chart_version/" Chart.yaml
               else
                 new_version=$(echo "$actual_version" | awk -F. -v OFS=. '{$NF++; print}')
                 sed -i "s/^version:.*/version: $new_version/" Chart.yaml
@@ -121,7 +123,7 @@ jobs:
           done
 
       - name: Setup Python
-        uses: actions/setup-python@v5.1.1
+        uses: actions/setup-python@v6.3.0
 
       - name: Helm common repo
         continue-on-error: true

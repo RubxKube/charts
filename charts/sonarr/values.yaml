@@ -32,7 +32,7 @@ common:
       isPrivate: false
       secretName: null
     repository: linuxserver/sonarr
-    tag: version-4.0.17.2952
+    tag: 4.0.19
     pullPolicy: Always
 
   # ingress

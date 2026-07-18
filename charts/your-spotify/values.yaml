@@ -41,7 +41,7 @@ server:
     port: 8080
   image:
     repository: yooooomi/your_spotify_server
-    tag: 1.19.0
+    tag: 1.20.0
     pullPolicy: Always
   variables:
     secret:
@@ -76,5 +76,9 @@ server:
 
 mongodb:
   enabled: true
+  # Bitnami a retiré ses images gratuites de docker.io/bitnami (août 2025) ;
+  # le namespace figé bitnamilegacy garde un tag stable et pullable.
+  image:
+    repository: bitnamilegacy/mongodb
   auth:
     enabled: false
