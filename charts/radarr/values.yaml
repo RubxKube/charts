@@ -2,12 +2,15 @@
 define: &containerPort 7878
 
 common:
-  app:
-    servicePort: 80
-    containerPort: *containerPort
+  name: radarr
+
+  service:
+    servicePort: *containerPort
+    type: ClusterIP
 
   # deployment
   deployment:
+    port: *containerPort
     memoryRequest: null
     cpuRequest: null
     memoryLimit: null
@@ -25,7 +28,7 @@ common:
       isPrivate: false
       secretName: null
     repository: linuxserver/radarr
-    tag: 6.1.1
+    tag: version-6.2.1.10461
     pullPolicy: Always
 
   # ingress
