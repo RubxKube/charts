@@ -726,6 +726,31 @@ entries:
   freshrss:
   - apiVersion: v2
     appVersion: 1.25.0
+    created: "2026-07-20T07:20:35.170110977Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.6.0
+    description: A WebUI to read article via RSS
+    digest: a2c1638408836cb3c43cc02f33aba4e36e32edb4f53a43e9ab48ef6e26f789a3
+    home: https://www.freshrss.org/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/freshrss-logo.png
+    keywords:
+    - freshrss
+    - rss
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: freshrss
+    sources:
+    - https://github.com/FreshRSS/FreshRSS
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/freshrss-1.3.1/freshrss-1.3.1.tgz
+    version: 1.3.1
+  - apiVersion: v2
+    appVersion: 1.25.0
     created: "2026-07-07T22:32:54.028959137Z"
     dependencies:
     - name: common
@@ -8600,4 +8625,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.0/your-spotify-0.0.0.tgz
     version: 0.0.0
-generated: "2026-07-14T19:20:47.771095482Z"
+generated: "2026-07-20T07:20:35.170590332Z"
