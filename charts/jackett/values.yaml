@@ -2,8 +2,7 @@
 define: &containerPort 9117
 
 common:
-  name: "jackett"
-  define: &containerPort 9117
+  name: jackett
 
   service:
     servicePort: *containerPort
@@ -27,7 +26,7 @@ common:
       isPrivate: false
       secretName: null
     repository: linuxserver/jackett
-    tag: 0.22.2132
+    tag: 0.24.2066
     pullPolicy: Always
 
   # ingress

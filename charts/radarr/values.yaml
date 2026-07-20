@@ -5,7 +5,7 @@ common:
   name: radarr
 
   service:
-    servicePort: 80
+    servicePort: *containerPort
     type: ClusterIP
 
   # deployment

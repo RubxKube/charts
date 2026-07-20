@@ -4,7 +4,7 @@ type: application
 name: sonarr
 description: "Sonarr is a PVR for Usenet and BitTorrent users."
 version: 1.4.0
-appVersion: 4.0.12
+appVersion: version-4.0.17.2952
 icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/sonarr-logo.png
 maintainers:
  - name: QJOLY
