@@ -17,10 +17,10 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | Name  | Description | Chart Version | App Version |
 |-------|-------------|---------------|-------------|
 | flaresolverr | FlareSolverr is a proxy server that solves Cloudflare's Javascript challenges. | 0.1.0 | v3.3.21 |
-| sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.4.0 | 4.0.12 |
+| sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.4.0 | version-4.0.17.2952 |
 | cloudflare-tunnel | Creation of a cloudflared deployment - a reverse tunnel for an environment | 0.3.3 | 2026.6.1 |
 | gitea | Gitea (Git with a cup of tea) | 1.2.0 | 1.23.1 |
-| jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.4.0 | 0.22.1085 |
+| jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.4.0 | 0.24.2066 |
 | stirling-pdf | Stirling-PDF is a robust, locally hosted web-based PDF manipulation tool using Docker. It enables you to carry out various operations on PDF files, including splitting, merging, converting, reorganizing, adding images, rotating, compressing, and more | 0.1.0 | 2.9.2 |
 | linkding | linkding is a bookmark manager that you can host yourself. It's designed be to be minimal, fast, and easy to set up. | 1.2.0 | 1.37.0 |
 | gotify | a simple server for sending and receiving messages | 1.3.0 | 2.6.1 |
@@ -33,7 +33,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | memo | Memo (A privacy-first, lightweight note-taking service) | 1.2.0 | 0.24 |
 | your-spotify | YourSpotify is a self-hosted application that tracks what you listen and offers you a dashboard to explore statistics about it! It's composed of a web server which polls the Spotify API every now and then and a web application on which you can explore your statistics. | 0.1.0 | 1.19.0 |
 | deluge | Deluge is a lightweight, Free Software, cross-platform BitTorrent client. | 1.2.0 | 2.2.0 |
-| radarr | Radarr is a movie collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new movies and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available. | 1.2.0 | 5.18.4 |
+| radarr | Radarr is a movie collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new movies and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available. | 1.2.0 | version-6.2.1.10461 |
 | smokeping | SmokePing is a latency logging and graphing and alerting system | 1.2.0 | 2.8.2 |
 | mylar3 | Mylar3 is an automated Comic Book (cbr/cbz) downloader program | 0.1.0 | 2021.12.13 |
 | audiobookshelf | Self-hosted audiobook and podcast server. | 0.1.1 | v2.29.0 |
