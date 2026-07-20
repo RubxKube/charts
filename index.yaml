@@ -7496,6 +7496,32 @@ entries:
   uptime-kuma:
   - apiVersion: v2
     appVersion: 2.2.1
+    created: "2026-07-20T08:37:43.239112652Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.6.0
+    description: Uptime Kuma is an easy-to-use self-hosted monitoring tool.
+    digest: 26a33bce8bc7511f487a64f6cb9513f6e7631366f1939d164714b508222cbddd
+    home: https://github.com/louislam/uptime-kuma
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/uptime-kuma-logo.png
+    keywords:
+    - monitoring
+    - uptime
+    - kuma
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: uptime-kuma
+    sources:
+    - https://github.com/louislam/uptime-kuma
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/uptime-kuma-1.2.1/uptime-kuma-1.2.1.tgz
+    version: 1.2.1
+  - apiVersion: v2
+    appVersion: 2.2.1
     created: "2026-07-07T22:32:56.574265383Z"
     dependencies:
     - name: common
@@ -8708,4 +8734,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.0/your-spotify-0.0.0.tgz
     version: 0.0.0
-generated: "2026-07-20T07:23:47.80735389Z"
+generated: "2026-07-20T08:37:43.239526938Z"
