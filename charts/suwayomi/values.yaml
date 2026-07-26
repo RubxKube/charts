@@ -1,0 +1,89 @@
+---
+define: &containerPort 4567
+
+common:
+  name: suwayomi
+
+  service:
+    type: ClusterIP
+    enabled: true
+    servicePort: 4567
+    containerPort: *containerPort
+    protocol: TCP
+
+  # deployment
+  deployment:
+    memoryRequest: null
+    cpuRequest: null
+    memoryLimit: null
+    cpuLimit: null
+    port: *containerPort
+    strategy:
+      type: Recreate
+    # The image runs as a non-root user (uid/gid 1000). fsGroup 1000 ensures
+    # the mounted PVC (root-owned by default) is writable by that user.
+    podSecurityContext:
+      fsGroup: 1000
+
+  # container
+  image:
+    repositorySettings:
+      isPrivate: false
+      secretName: null
+    repository: ghcr.io/suwayomi/suwayomi-server
+    tag: v2.3.2243
+    pullPolicy: Always
+
+  # ingress
+  ingress:
+    enabled: false
+    hostName: suwayomi.example.com
+    tls:
+      enabled: true
+      secretName: ""
+    ingressClassName: ""
+
+  # environment variables
+  variables:
+    secret: {}
+    nonSecret:
+      TZ: Etc/UTC
+      # FlareSolverr integration (this repository ships a `flaresolverr` chart
+      # you can deploy alongside this one). Set the env vars below to wire it.
+      # FLARESOLVERR_ENABLED: "true"
+      # FLARESOLVERR_URL: http://flaresolverr:8191
+
+  # startupProbe
+  # The path `/login.html` is always exempted from authentication by Suwayomi
+  # and serves a bundled template, so it returns 200 in every auth mode
+  # (none / basic_auth / simple_login / ui_login). Using `/` would 302/401
+  # once auth is enabled and fail the Kubernetes httpGet probe (only 2xx/3xx
+  # < 400 count as success).
+  startupProbeEnabled: true
+  startupProbe:
+    httpGet:
+      path: /login.html
+      port: *containerPort
+    periodSeconds: 20
+    failureThreshold: 20
+    timeoutSeconds: 1
+
+  # persistence
+  # A single PVC at the Suwayomi data directory holds the database, config,
+  # extensions, WebUI cache and downloaded manga.
+  persistence:
+    enabled: true
+    volumes:
+      - name: "data"
+        storageClassName: ""  # leave empty to use the default storage class
+        size: "5Gi"
+        pvcClaim: ""  # Fill only to use an existing PVC
+        containerMount: "/home/suwayomi/.local/share/Tachidesk"
+
+  # tests
+  tests:
+    classicHttp:  # default helm test method
+      enabled: true
+    curlHostHeader:  # curl using ingress.hostName as Host in header
+      enabled: false
+      path: "/"

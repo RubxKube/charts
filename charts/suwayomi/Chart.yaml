@@ -1,0 +1,22 @@
+---
+apiVersion: v2
+type: application
+name: suwayomi
+description: "Suwayomi is a free and open source manga reader server that runs extensions built for Mihon (Tachiyomi)."
+version: 0.1.0
+appVersion: v2.3.2243
+icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/suwayomi-logo.png
+kubeVersion: ">= 1.18"
+home: https://github.com/Suwayomi/Suwayomi-Server
+keywords:
+  - manga
+  - manga-reader
+  - self-hosted
+  - tachiyomi
+sources:
+  - https://github.com/Suwayomi/Suwayomi-Server
+  - https://github.com/Suwayomi/Suwayomi-Server-docker
+dependencies:
+  - name: common
+    repository: https://rubxkube.github.io/common-charts
+    version: v0.6.0
