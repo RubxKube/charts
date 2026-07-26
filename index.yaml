@@ -7493,6 +7493,33 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/stirling-pdf-0.0.2/stirling-pdf-0.0.2.tgz
     version: 0.0.2
+  suwayomi:
+  - apiVersion: v2
+    appVersion: v2.3.2243
+    created: "2026-07-26T17:50:54.89561515Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.6.0
+    description: Suwayomi is a free and open source manga reader server that runs
+      extensions built for Mihon (Tachiyomi).
+    digest: b035d6f91662c9486ffa25f9303c80f4d1f6eaf1fd799b3860755a6e148ae7ec
+    home: https://github.com/Suwayomi/Suwayomi-Server
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/suwayomi-logo.png
+    keywords:
+    - manga
+    - manga-reader
+    - self-hosted
+    - tachiyomi
+    kubeVersion: '>= 1.18'
+    name: suwayomi
+    sources:
+    - https://github.com/Suwayomi/Suwayomi-Server
+    - https://github.com/Suwayomi/Suwayomi-Server-docker
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/suwayomi-0.1.0/suwayomi-0.1.0.tgz
+    version: 0.1.0
   uptime-kuma:
   - apiVersion: v2
     appVersion: 2.2.1
@@ -8734,4 +8761,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.0/your-spotify-0.0.0.tgz
     version: 0.0.0
-generated: "2026-07-20T08:37:43.239526938Z"
+generated: "2026-07-26T17:50:54.896371537Z"
