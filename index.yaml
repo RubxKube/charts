@@ -7496,6 +7496,32 @@ entries:
   suwayomi:
   - apiVersion: v2
     appVersion: v2.3.2243
+    created: "2026-07-26T18:03:23.190525842Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.6.0
+    description: Suwayomi is a free and open source manga reader server that runs
+      extensions built for Mihon (Tachiyomi).
+    digest: d0313eb4b9d9ec53e8c08abce0c065b61f1aa40bdf31535ebecbe6c7c66124cb
+    home: https://github.com/Suwayomi/Suwayomi-Server
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/suwayomi-logo.png
+    keywords:
+    - manga
+    - manga-reader
+    - self-hosted
+    - tachiyomi
+    kubeVersion: '>= 1.18'
+    name: suwayomi
+    sources:
+    - https://github.com/Suwayomi/Suwayomi-Server
+    - https://github.com/Suwayomi/Suwayomi-Server-docker
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/suwayomi-0.1.1/suwayomi-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: v2.3.2243
     created: "2026-07-26T17:50:54.89561515Z"
     dependencies:
     - name: common
@@ -8761,4 +8787,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.0/your-spotify-0.0.0.tgz
     version: 0.0.0
-generated: "2026-07-26T17:50:54.896371537Z"
+generated: "2026-07-26T18:03:23.190999943Z"
