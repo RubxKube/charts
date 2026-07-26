@@ -3,6 +3,8 @@
   "extends": [
     "config:recommended"
   ],
+  "prHourlyLimit": 0,
+  "prConcurrentLimit": 0,
   "packageRules":[
     {
       "matchManagers": ["helmv3"],
