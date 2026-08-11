@@ -1,0 +1,23 @@
+---
+apiVersion: v2
+type: application
+name: pr-gitops-grafana-annotation
+description: Turns GitHub pull request webhooks into Grafana annotations, to line deploys up with your dashboards.
+version: 0.1.0
+appVersion: "latest"
+maintainers:
+  - name: QJOLY
+    email: github@une-tasse-de.cafe
+kubeVersion: '>= 1.18'
+home: https://github.com/qjoly/pr-gitops-grafana-annotation
+keywords:
+  - grafana
+  - annotations
+  - gitops
+  - github
+sources:
+  - https://github.com/qjoly/pr-gitops-grafana-annotation
+dependencies:
+  - name: common
+    repository: https://rubxkube.github.io/common-charts
+    version: v0.6.0

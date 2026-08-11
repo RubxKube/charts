@@ -1,0 +1,69 @@
+---
+define: &containerPort 8080
+
+common:
+  name: pr-gitops-grafana-annotation
+
+  service:
+    type: ClusterIP
+    enabled: true
+    servicePort: *containerPort
+    containerPort: *containerPort
+
+  deployment:
+    port: *containerPort
+    minReplicas: 1
+    memoryRequest: 32Mi
+    cpuRequest: 10m
+    memoryLimit: 64Mi
+    strategy:
+      type: Recreate
+    # Receives webhooks and calls the Grafana API, nothing else.
+    podSecurityContext:
+      runAsNonRoot: true
+      runAsUser: 65534
+      seccompProfile:
+        type: RuntimeDefault
+
+  image:
+    repository: ghcr.io/qjoly/pr-gitops-grafana-annotation
+    tag: latest
+    pullPolicy: Always
+
+  readinessProbeEnabled: true
+  readinessProbe:
+    httpGet:
+      path: /healthz
+      port: *containerPort
+    initialDelaySeconds: 5
+    periodSeconds: 15
+    timeoutSeconds: 5
+
+  # GITHUB_WEBHOOK_SECRET and GRAFANA_TOKEN belong in a Secret you manage:
+  #
+  # variables:
+  #   secret:
+  #     existingSecret:
+  #       - name: pr-gitops-grafana-annotation
+  #         key: grafana_token
+  #         envName: GRAFANA_TOKEN
+  variables:
+    nonSecret:
+      LISTEN_ADDR: ":8080"
+    #  GITHUB_REPO: owner/repo
+    #  GRAFANA_URL: http://grafana.monitoring.svc.cluster.local
+    #  ANNOTATION_TAGS: gitops,deploy
+    secret:
+      existingSecret: []
+
+  ingress:
+    enabled: false
+    # The GitHub webhook has to reach this from the internet.
+    # hostName: annotator.example.com
+    # ingressClassName: traefik
+    # tls:
+    #   enabled: true
+    #   secretName: pr-gitops-grafana-annotation-tls
+
+  persistence:
+    enabled: false

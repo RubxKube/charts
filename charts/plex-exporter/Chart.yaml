@@ -1,0 +1,23 @@
+---
+apiVersion: v2
+type: application
+name: plex-exporter
+description: Prometheus exporter for Plex Media Server metrics (libraries, sessions, transcoding).
+version: 0.1.0
+appVersion: "latest"
+maintainers:
+  - name: QJOLY
+    email: github@une-tasse-de.cafe
+kubeVersion: '>= 1.18'
+home: https://github.com/jsclayton/prometheus-plex-exporter
+keywords:
+  - plex
+  - prometheus
+  - exporter
+  - metrics
+sources:
+  - https://github.com/jsclayton/prometheus-plex-exporter
+dependencies:
+  - name: common
+    repository: https://rubxkube.github.io/common-charts
+    version: v0.6.0

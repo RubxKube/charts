@@ -1,0 +1,70 @@
+---
+define: &containerPort 3000
+
+common:
+  name: rmfakecloud
+
+  service:
+    type: ClusterIP
+    enabled: true
+    servicePort: *containerPort
+    containerPort: *containerPort
+
+  deployment:
+    port: *containerPort
+    minReplicas: 1
+    memoryRequest: 128Mi
+    cpuRequest: 50m
+    memoryLimit: 512Mi
+    # Documents live on a ReadWriteOnce volume, so the old pod has to release it
+    # before the new one starts.
+    strategy:
+      type: Recreate
+
+  image:
+    repository: ddvk/rmfakecloud
+    tag: latest
+    pullPolicy: Always
+
+  readinessProbeEnabled: true
+  readinessProbe:
+    httpGet:
+      path: /
+      port: *containerPort
+    initialDelaySeconds: 10
+    periodSeconds: 15
+    timeoutSeconds: 5
+
+  # STORAGE_URL must be the public URL the tablet reaches, otherwise sync fails
+  # after the device pairs. The SMTP settings drive the account emails.
+  variables:
+    nonSecret: {}
+    #  STORAGE_URL: https://rm.example.com
+    #  RM_SMTP_SERVER: mail.example.com:465
+    # JWT_SECRET_KEY invalidates every paired device if it changes, so it belongs
+    # in a Secret you manage, not in values:
+    #
+    # secret:
+    #   existingSecret:
+    #     - name: rmfakecloud
+    #       key: jwt_secret
+    #       envName: JWT_SECRET_KEY
+    secret:
+      existingSecret: []
+
+  ingress:
+    enabled: false
+    # hostName: rm.example.com
+    # ingressClassName: traefik
+    # tls:
+    #   enabled: true
+    #   secretName: rm-tls
+
+  persistence:
+    enabled: true
+    volumes:
+      - name: data
+        size: 10Gi
+        containerMount: /data
+        # storageClassName: leave unset for the cluster default
+        # pvcClaim: set to adopt an existing claim instead of creating one
