@@ -1,0 +1,156 @@
+---
+define: &containerPort 6555
+
+common:
+  name: spindle
+  service:
+    type: ClusterIP
+    enabled: true
+    servicePort: *containerPort
+    containerPort: *containerPort
+    extraLabels: {}
+
+  # deployment
+  deployment:
+    memoryRequest: 256Mi
+    cpuRequest: 100m
+    memoryLimit: 1Gi
+    cpuLimit: null
+    port: *containerPort
+    strategy:
+      type: Recreate
+
+    # Spindle drives a Docker daemon to run pipelines, so one ships alongside it.
+    # Workflow containers are children of this dockerd, so their memory counts
+    # against this container's limit, not spindle's: keep memoryLimit >=
+    # maxConcurrentWorkflows x maxJobMemoryMB below.
+    additionalContainers:
+      - name: dind
+        image: "docker:29.7.2-dind"
+        imagePullPolicy: IfNotPresent
+        # "dockerd" must come first, otherwise dockerd-entrypoint.sh prepends
+        # its own --host=tcp://0.0.0.0:2375 on top of ours: the binds collide
+        # and the daemon exits. Loopback only, since an unauthenticated root
+        # Docker API on the pod IP would be reachable by workflow code.
+        args:
+          - dockerd
+          - --host=unix:///var/run/docker.sock
+          - --host=tcp://127.0.0.1:2375
+          - --tls=false
+        env:
+          - name: DOCKER_TLS_CERTDIR
+            value: ""
+        securityContext:
+          privileged: true
+        volumeMounts:
+          - name: docker-data
+            mountPath: /var/lib/docker
+        resources:
+          requests:
+            memory: 512Mi
+            cpu: 100m
+          limits:
+            memory: 10Gi
+        readinessProbe:
+          exec:
+            command: ["docker", "-H", "tcp://127.0.0.1:2375", "info"]
+          initialDelaySeconds: 10
+          periodSeconds: 15
+
+    # docker:dind declares VOLUME /var/lib/docker because overlay2 on overlay2
+    # degrades to the vfs storage driver; this keeps the image cache off the
+    # container layer. Swap for a PVC if re-pulling on every restart hurts.
+    emptyDir:
+      - name: docker-data
+        containerMount: /var/lib/docker
+
+  # container
+  image:
+    repositorySettings:
+      isPrivate: false
+      secretName: null
+    # Upstream publishes no spindle image, only atcr.io/tangled.org/knot. This
+    # one is built from the monorepo's localinfra/spindle.Dockerfile.
+    repository: ghcr.io/qjoly/spindle
+    tag: v1.16.1-alpha
+    pullPolicy: IfNotPresent
+
+  # ingress
+  ingress:
+    enabled: false
+    hostName: spindle.example.com
+    tls:
+      enabled: true
+      secretName: ""
+    # For Ingress CRD
+    ingressClassName:
+
+  # env variables
+  variables:
+    secret: {}
+    nonSecret:
+      # -- REQUIRED. Public hostname of this spindle, and it must match the one
+      # registered on the appview: the knot signs its requests for that audience.
+      SPINDLE_SERVER_HOSTNAME: spindle.example.com
+      # -- REQUIRED. ATProto DID of the owner. Resolve yours with
+      # `curl "https://public.api.bsky.app/xrpc/com.atproto.identity.resolveHandle?handle=<handle>"`
+      SPINDLE_SERVER_OWNER: did:plc:000000000000000000000000
+      SPINDLE_SERVER_DB_PATH: /var/lib/spindle/spindle.db
+      SPINDLE_SERVER_TAP_DB_PATH: /var/lib/spindle/tap.db
+      SPINDLE_SERVER_REPO_DIR: /var/lib/spindle/repos
+      # Leave at the default: spindle opens log files without creating their
+      # parent, and only the image entrypoint creates this path.
+      SPINDLE_SERVER_LOG_DIR: /var/log/spindle
+      DOCKER_HOST: tcp://127.0.0.1:2375
+      SPINDLE_NIXERY_PIPELINES_MAX_CONCURRENT_WORKFLOWS: 2
+      SPINDLE_NIXERY_PIPELINES_MAX_JOB_MEMORY_MB: 4096
+      SPINDLE_NIXERY_PIPELINES_WORKFLOW_TIMEOUT: 15m
+
+  # horizontal autoscaler
+  # Spindle keeps its state in SQLite on a ReadWriteOnce volume, so it does not
+  # scale horizontally.
+  hpa:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 2
+    avgCpuUtilization: 50
+
+  # startupProbe
+  startupProbeEnabled: false
+  startupProbe: {}
+
+  # readinessProbe
+  # Spindle serves XRPC only, so there is no root path to probe over HTTP.
+  readinessProbeEnabled: true
+  readinessProbe:
+    tcpSocket:
+      port: *containerPort
+    initialDelaySeconds: 10
+    periodSeconds: 15
+    failureThreshold: 3
+    timeoutSeconds: 3
+
+  # livenessProbe
+  livenessProbeEnabled: false
+  livenessProbe: {}
+
+  persistence:
+    enabled: true
+    volumes:
+      - name: "data"
+        storageClassName: ""  # leave empty if you want to use default
+        size: "5Gi"  # sqlite databases and cloned repositories
+        pvcClaim: ""  # leave empty unless if you want to use an existing PVC
+        containerMount: "/var/lib/spindle"
+      - name: "logs"
+        storageClassName: ""
+        size: "2Gi"  # one file per workflow run, served back to the appview
+        pvcClaim: ""
+        containerMount: "/var/log/spindle"
+
+  tests:
+    classicHttp:  # default helm test method
+      enabled: true
+    curlHostHeader:  # curl using ingress.hostName as Host in header
+      enabled: true
+      path: "/xrpc/sh.tangled.owner"
