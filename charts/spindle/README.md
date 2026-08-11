@@ -22,7 +22,7 @@ Kubernetes: `>= 1.18`
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://rubxkube.github.io/common-charts | common | v0.6.0 |
+| https://rubxkube.github.io/common-charts | common | v0.6.2 |
 
 ## Values
 
@@ -51,7 +51,6 @@ Kubernetes: `>= 1.18`
 | common.deployment.additionalContainers[0].volumeMounts[0].name | string | `"docker-data"` |  |
 | common.deployment.cpuLimit | string | `nil` |  |
 | common.deployment.cpuRequest | string | `"100m"` |  |
-| common.deployment.emptyDir[0].containerMount | string | `"/var/lib/docker"` |  |
 | common.deployment.emptyDir[0].name | string | `"docker-data"` |  |
 | common.deployment.memoryLimit | string | `"1Gi"` |  |
 | common.deployment.memoryRequest | string | `"256Mi"` |  |
@@ -71,8 +70,13 @@ Kubernetes: `>= 1.18`
 | common.ingress.ingressClassName | string | `nil` |  |
 | common.ingress.tls.enabled | bool | `true` |  |
 | common.ingress.tls.secretName | string | `""` |  |
-| common.livenessProbe | object | `{}` |  |
-| common.livenessProbeEnabled | bool | `false` |  |
+| common.livenessProbe.failureThreshold | int | `3` |  |
+| common.livenessProbe.httpGet.path | string | `"/"` |  |
+| common.livenessProbe.httpGet.port | int | `6555` |  |
+| common.livenessProbe.initialDelaySeconds | int | `20` |  |
+| common.livenessProbe.periodSeconds | int | `60` |  |
+| common.livenessProbe.timeoutSeconds | int | `3` |  |
+| common.livenessProbeEnabled | bool | `true` |  |
 | common.name | string | `"spindle"` |  |
 | common.persistence.enabled | bool | `true` |  |
 | common.persistence.volumes[0].containerMount | string | `"/var/lib/spindle"` |  |
@@ -86,9 +90,10 @@ Kubernetes: `>= 1.18`
 | common.persistence.volumes[1].size | string | `"2Gi"` |  |
 | common.persistence.volumes[1].storageClassName | string | `""` |  |
 | common.readinessProbe.failureThreshold | int | `3` |  |
+| common.readinessProbe.httpGet.path | string | `"/"` |  |
+| common.readinessProbe.httpGet.port | int | `6555` |  |
 | common.readinessProbe.initialDelaySeconds | int | `10` |  |
 | common.readinessProbe.periodSeconds | int | `15` |  |
-| common.readinessProbe.tcpSocket.port | int | `6555` |  |
 | common.readinessProbe.timeoutSeconds | int | `3` |  |
 | common.readinessProbeEnabled | bool | `true` |  |
 | common.service.containerPort | int | `6555` |  |

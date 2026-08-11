@@ -60,9 +60,9 @@ common:
     # docker:dind declares VOLUME /var/lib/docker because overlay2 on overlay2
     # degrades to the vfs storage driver; this keeps the image cache off the
     # container layer. Swap for a PVC if re-pulling on every restart hurts.
+    # No containerMount: the sidecar mounts it, spindle has no use for it.
     emptyDir:
       - name: docker-data
-        containerMount: /var/lib/docker
 
   # container
   image:
@@ -120,10 +120,12 @@ common:
   startupProbe: {}
 
   # readinessProbe
-  # Spindle serves XRPC only, so there is no root path to probe over HTTP.
+  # "/" serves an embedded motd, so it answers without touching the database,
+  # jetstream or the docker daemon.
   readinessProbeEnabled: true
   readinessProbe:
-    tcpSocket:
+    httpGet:
+      path: "/"
       port: *containerPort
     initialDelaySeconds: 10
     periodSeconds: 15
@@ -131,8 +133,15 @@ common:
     timeoutSeconds: 3
 
   # livenessProbe
-  livenessProbeEnabled: false
-  livenessProbe: {}
+  livenessProbeEnabled: true
+  livenessProbe:
+    httpGet:
+      path: "/"
+      port: *containerPort
+    initialDelaySeconds: 20
+    periodSeconds: 60
+    failureThreshold: 3
+    timeoutSeconds: 3
 
   persistence:
     enabled: true
