@@ -6208,6 +6208,62 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/mylar3-0.0.2/mylar3-0.0.2.tgz
     version: 0.0.2
+  plex-exporter:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2026-08-11T19:16:38.17580342Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.6.0
+    description: Prometheus exporter for Plex Media Server metrics (libraries, sessions,
+      transcoding).
+    digest: 2e8efd4e0af28db3c8676682b2691a41d3f4aacd93403cc2e0636a230d5952c8
+    home: https://github.com/jsclayton/prometheus-plex-exporter
+    keywords:
+    - plex
+    - prometheus
+    - exporter
+    - metrics
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: plex-exporter
+    sources:
+    - https://github.com/jsclayton/prometheus-plex-exporter
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/plex-exporter-0.1.0/plex-exporter-0.1.0.tgz
+    version: 0.1.0
+  pr-gitops-grafana-annotation:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2026-08-11T19:16:38.311567156Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.6.0
+    description: Turns GitHub pull request webhooks into Grafana annotations, to line
+      deploys up with your dashboards.
+    digest: cce96c1ac463187d990531fc803098b1bf54bc34a6c17a847dddf9c5c1e435d3
+    home: https://github.com/qjoly/pr-gitops-grafana-annotation
+    keywords:
+    - grafana
+    - annotations
+    - gitops
+    - github
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: pr-gitops-grafana-annotation
+    sources:
+    - https://github.com/qjoly/pr-gitops-grafana-annotation
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/pr-gitops-grafana-annotation-0.1.0/pr-gitops-grafana-annotation-0.1.0.tgz
+    version: 0.1.0
   radarr:
   - apiVersion: v2
     appVersion: version-6.2.1.10461
@@ -6719,6 +6775,32 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/radarr-1.0.1/radarr-1.0.1.tgz
     version: 1.0.1
+  rmfakecloud:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2026-08-11T19:16:38.438871406Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.6.0
+    description: Self-hosted replacement for the reMarkable tablet cloud sync service.
+    digest: ab575f57b3a954cf8b6a33296a1fbef7c5d41b9db3e2487f6eea9e25b06b1e30
+    home: https://github.com/ddvk/rmfakecloud
+    keywords:
+    - rmfakecloud
+    - remarkable
+    - sync
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: rmfakecloud
+    sources:
+    - https://github.com/ddvk/rmfakecloud
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/rmfakecloud-0.1.0/rmfakecloud-0.1.0.tgz
+    version: 0.1.0
   simple-coffee:
   - apiVersion: v2
     appVersion: 1.0.0
@@ -7675,6 +7757,29 @@ entries:
     type: application
     urls:
     - https://github.com/RubxKube/charts/releases/download/suwayomi-0.1.0/suwayomi-0.1.0.tgz
+    version: 0.1.0
+  trmnl-server:
+  - apiVersion: v2
+    appVersion: unstable
+    created: "2026-08-11T19:16:38.550825483Z"
+    description: Self-hosted server for TRMNL e-ink displays, installed from source
+      since upstream publishes no image.
+    digest: fe693713c1bb397e1e3d15a8e8ace96447ccd3527f493e6232eec5106f857fc8
+    home: https://github.com/ohAnd/trmnlServer
+    keywords:
+    - trmnl
+    - eink
+    - dashboard
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: trmnl-server
+    sources:
+    - https://github.com/ohAnd/trmnlServer
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/trmnl-server-0.1.0/trmnl-server-0.1.0.tgz
     version: 0.1.0
   uptime-kuma:
   - apiVersion: v2
@@ -9005,4 +9110,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.0/your-spotify-0.0.0.tgz
     version: 0.0.0
-generated: "2026-08-11T17:12:32.906591669Z"
+generated: "2026-08-11T19:16:38.551490029Z"
