@@ -1,0 +1,108 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.name }}
+spec:
+  replicas: 1
+  # The source tree lives on a ReadWriteOnce volume the next pod has to claim.
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: {{ .Values.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.name }}
+    spec:
+      initContainers:
+        # Idempotent: an existing checkout is fetched and moved to the pinned
+        # revision, so a version bump does not need the volume wiped.
+        - name: clone
+          image: {{ .Values.source.gitImage }}
+          workingDir: /app
+          command:
+            - sh
+            - -c
+            - |
+              set -e
+              if [ -d /app/.git ]; then
+                git -C /app fetch origin
+                git -C /app checkout {{ .Values.source.revision }}
+              else
+                rm -rf /tmp/clone
+                git clone {{ .Values.source.repo }} /tmp/clone
+                git -C /tmp/clone checkout {{ .Values.source.revision }}
+                cp -a /tmp/clone/. /app/
+                rm -rf /tmp/clone
+              fi
+          volumeMounts:
+            - name: data
+              mountPath: /app
+        # Rebuilt from scratch every start so it always matches requirements.txt
+        # of the revision just checked out.
+        - name: deps
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          workingDir: /app
+          command:
+            - sh
+            - -c
+            - rm -rf /app/deps && pip install --no-cache-dir --target=/app/deps -r requirements.txt
+          volumeMounts:
+            - name: data
+              mountPath: /app
+      containers:
+        - name: {{ .Values.name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          workingDir: /app
+          command:
+            - python
+            - trmnl_server.py
+          env:
+            - name: PYTHONPATH
+              value: /app/deps
+            - name: SERVER_HOSTNAME
+              value: {{ .Values.server.hostname | quote }}
+            - name: SERVER_PORT
+              value: {{ .Values.server.port | quote }}
+            - name: UPLOAD_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.server.uploadTokenSecret.name }}
+                  key: {{ .Values.server.uploadTokenSecret.key }}
+            {{- range $k, $v := .Values.server.extraEnv }}
+            - name: {{ $k }}
+              value: {{ $v | quote }}
+            {{- end }}
+          ports:
+            - name: https
+              containerPort: {{ .Values.server.port }}
+          volumeMounts:
+            - name: data
+              mountPath: /app
+            {{- if .Values.server.patch.enabled }}
+            {{- range .Values.server.patch.files }}
+            - name: patch
+              mountPath: /app/{{ . }}
+              subPath: {{ . }}
+            {{- end }}
+            {{- end }}
+          resources:
+            {{- toYaml .Values.server.resources | nindent 12 }}
+          # TCP only: the server answers HTTPS with a self-signed certificate.
+          readinessProbe:
+            tcpSocket:
+              port: {{ .Values.server.port }}
+            initialDelaySeconds: 10
+            periodSeconds: 15
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.existingClaim | default (printf "%s-data" .Values.name) }}
+        {{- if .Values.server.patch.enabled }}
+        - name: patch
+          configMap:
+            name: {{ required "server.patch.configMapName is required when server.patch.enabled" .Values.server.patch.configMapName }}
+        {{- end }}

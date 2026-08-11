@@ -1,0 +1,63 @@
+---
+define: &containerPort 9000
+
+common:
+  name: plex-exporter
+
+  service:
+    type: ClusterIP
+    enabled: true
+    servicePort: *containerPort
+    containerPort: *containerPort
+
+  deployment:
+    port: *containerPort
+    minReplicas: 1
+    memoryRequest: 32Mi
+    cpuRequest: 10m
+    memoryLimit: 128Mi
+    strategy:
+      type: RollingUpdate
+      rollingUpdate:
+        maxUnavailable: 25%
+        maxSurge: 25%
+    # The exporter only talks to the Plex API over HTTP; it needs nothing from
+    # the filesystem and no privileges.
+    podSecurityContext:
+      runAsNonRoot: true
+      runAsUser: 65534
+      seccompProfile:
+        type: RuntimeDefault
+    securityContext:
+      allowPrivilegeEscalation: false
+      readOnlyRootFilesystem: true
+      capabilities:
+        drop:
+          - ALL
+
+  image:
+    repository: ghcr.io/jsclayton/prometheus-plex-exporter
+    tag: latest
+    pullPolicy: Always
+
+  # PLEX_SERVER and PLEX_TOKEN are expected in a Secret you provide, so the
+  # token never lives in values. Point these at it:
+  #
+  # variables:
+  #   secret:
+  #     existingSecret:
+  #       - name: plex-credentials
+  #         key: PLEX_SERVER
+  #         envName: PLEX_SERVER
+  #       - name: plex-credentials
+  #         key: PLEX_TOKEN
+  #         envName: PLEX_TOKEN
+  variables:
+    secret:
+      existingSecret: []
+
+  ingress:
+    enabled: false
+
+  persistence:
+    enabled: false

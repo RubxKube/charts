@@ -1,0 +1,22 @@
+---
+apiVersion: v2
+type: application
+name: rmfakecloud
+description: Self-hosted replacement for the reMarkable tablet cloud sync service.
+version: 0.1.0
+appVersion: "latest"
+maintainers:
+  - name: QJOLY
+    email: github@une-tasse-de.cafe
+kubeVersion: '>= 1.18'
+home: https://github.com/ddvk/rmfakecloud
+keywords:
+  - rmfakecloud
+  - remarkable
+  - sync
+sources:
+  - https://github.com/ddvk/rmfakecloud
+dependencies:
+  - name: common
+    repository: https://rubxkube.github.io/common-charts
+    version: v0.6.0

@@ -1,0 +1,31 @@
+{{- if .Values.ingressRoute.enabled }}
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: {{ .Values.name }}
+spec:
+  entryPoints:
+    - {{ .Values.ingressRoute.entryPoint }}
+  routes:
+    - kind: Rule
+      match: Host(`{{ .Values.server.hostname }}`)
+      services:
+        - name: {{ .Values.name }}
+          port: {{ .Values.server.port }}
+          scheme: https
+          {{- if .Values.ingressRoute.serversTransport.enabled }}
+          serversTransport: {{ .Values.name }}-backend
+          {{- end }}
+  tls:
+    secretName: {{ .Values.ingressRoute.tls.secretName | default (printf "%s-tls" .Values.name) }}
+{{- if .Values.ingressRoute.serversTransport.enabled }}
+---
+apiVersion: traefik.io/v1alpha1
+kind: ServersTransport
+metadata:
+  name: {{ .Values.name }}-backend
+spec:
+  insecureSkipVerify: {{ .Values.ingressRoute.serversTransport.insecureSkipVerify }}
+{{- end }}
+{{- end }}
