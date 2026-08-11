@@ -20,17 +20,21 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | glance | A self-hosted dashboard that puts all your feeds in one place | 0.1.0 | v0.7.4 |
 | mylar3 | Mylar3 is an automated Comic Book (cbr/cbz) downloader program | 0.1.0 | 2021.12.13 |
 | smokeping | SmokePing is a latency logging and graphing and alerting system | 1.2.0 | 2.8.2 |
+| trmnl-server | Self-hosted server for TRMNL e-ink displays, installed from source since upstream publishes no image. | 0.1.0 | unstable |
 | linkding | linkding is a bookmark manager that you can host yourself. It's designed be to be minimal, fast, and easy to set up. | 1.2.0 | 1.37.0 |
 | freshrss | A WebUI to read article via RSS | 1.3.0 | 1.25.0 |
 | gitea | Gitea (Git with a cup of tea) | 1.2.0 | 1.23.1 |
+| plex-exporter | Prometheus exporter for Plex Media Server metrics (libraries, sessions, transcoding). | 0.1.0 | latest |
 | spindle | Spindle is the self-hosted CI runner of Tangled, the git platform built on ATProto. | 0.1.0 | v1.16.1-alpha |
 | your-spotify | YourSpotify is a self-hosted application that tracks what you listen and offers you a dashboard to explore statistics about it! It's composed of a web server which polls the Spotify API every now and then and a web application on which you can explore your statistics. | 0.1.0 | 1.19.0 |
+| rmfakecloud | Self-hosted replacement for the reMarkable tablet cloud sync service. | 0.1.0 | latest |
 | gotify | a simple server for sending and receiving messages | 1.3.0 | 2.6.1 |
 | stirling-pdf | Stirling-PDF is a robust, locally hosted web-based PDF manipulation tool using Docker. It enables you to carry out various operations on PDF files, including splitting, merging, converting, reorganizing, adding images, rotating, compressing, and more | 0.1.0 | 2.9.2 |
 | jellyfin | Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media | 1.3.0 | 10.10.6 |
 | sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.4.0 | version-4.0.17.2952 |
 | suwayomi | Suwayomi is a free and open source manga reader server that runs extensions built for Mihon (Tachiyomi). | 0.1.0 | v2.3.2243 |
 | uptime-kuma | Uptime Kuma is an easy-to-use self-hosted monitoring tool. | 1.2.0 | 2.2.1 |
+| pr-gitops-grafana-annotation | Turns GitHub pull request webhooks into Grafana annotations, to line deploys up with your dashboards. | 0.1.0 | latest |
 | flaresolverr | FlareSolverr is a proxy server that solves Cloudflare's Javascript challenges. | 0.1.0 | v3.3.21 |
 | audiobookshelf | Self-hosted audiobook and podcast server. | 0.1.1 | v2.29.0 |
 | jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.4.0 | 0.24.2066 |
