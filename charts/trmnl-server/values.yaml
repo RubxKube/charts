@@ -1,0 +1,94 @@
+---
+# Resource names are fixed to this value rather than templated per release: the
+# Deployment selector is immutable, so a rename would have the API server reject
+# the change instead of migrating anything.
+name: trmnl-server
+
+# Upstream ships no container image, so the app is cloned into the data volume at
+# a pinned revision and run with a plain python image. Bump revision to upgrade.
+source:
+  repo: https://github.com/ohAnd/trmnlServer.git
+  revision: 5e2a83bc8ab78214c1f1132048d65945888117ec
+  gitImage: alpine/git:2.47.2
+
+image:
+  repository: python
+  tag: "3.14-slim"
+  pullPolicy: IfNotPresent
+
+server:
+  # The device is told to reach the server here, so it has to be the public name.
+  hostname: trmnl.example.com
+  port: 443
+  # The display and the image generator authenticate uploads with this token.
+  uploadTokenSecret:
+    name: trmnl-upload-token
+    key: token
+  extraEnv: {}
+  resources:
+    requests:
+      cpu: 50m
+      memory: 128Mi
+    limits:
+      memory: 256Mi
+  # Mounts files from a ConfigMap you provide over the cloned source, one subPath
+  # each. Meant for carrying local patches without forking upstream.
+  patch:
+    enabled: false
+    configMapName: ""
+    files: []
+    #  - trmnl_server.py
+    #  - config.py
+
+persistence:
+  size: 2Gi
+  storageClassName: ""
+  # Set to adopt an existing claim instead of creating one.
+  existingClaim: ""
+
+# Renders the screens the display pulls. The script itself is yours, supplied in
+# a ConfigMap, because what you put on the screen is not this chart's business.
+generator:
+  enabled: false
+  schedule: "*/15 * * * *"
+  configMapName: ""
+  scriptPath: /script/generate_image.py
+  # Installed at container start; the python image carries no build tooling.
+  pipPackages: requests pillow
+  activeDeadlineSeconds: 120
+  resources:
+    requests:
+      cpu: 50m
+      memory: 128Mi
+    limits:
+      memory: 256Mi
+  # Shared by every screen below.
+  env: {}
+  secretEnv: []
+  #  - envName: SIGNOZ_API_KEY
+  #    name: signoz-api-key
+  #    key: api_key
+  # One container per screen, so a single Job run refreshes all of them.
+  screens: []
+  #  - name: main
+  #    env:
+  #      SLOT: "0"
+
+# Traefik CRDs, for when a plain Ingress cannot express a HTTPS backend.
+ingressRoute:
+  enabled: false
+  entryPoint: websecure
+  tls:
+    secretName: ""
+  # The server serves its own certificate, which Traefik will not trust.
+  serversTransport:
+    enabled: true
+    insecureSkipVerify: true
+
+# cert-manager Certificate for the public hostname.
+certificate:
+  enabled: false
+  secretName: ""
+  issuerRef:
+    name: ""
+    kind: ClusterIssuer

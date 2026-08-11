@@ -1,0 +1,59 @@
+{{- if .Values.generator.enabled }}
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ .Values.name }}-image-generator
+spec:
+  schedule: {{ .Values.generator.schedule | quote }}
+  # A run that overlaps the previous one would fight over the same screen slots.
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      backoffLimit: 1
+      activeDeadlineSeconds: {{ .Values.generator.activeDeadlineSeconds }}
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+            {{- range .Values.generator.screens }}
+            - name: generate-{{ .name }}
+              image: "{{ $.Values.image.repository }}:{{ $.Values.image.tag }}"
+              command:
+                - sh
+                - -c
+                - pip install --quiet --no-cache-dir {{ $.Values.generator.pipPackages }} && python {{ $.Values.generator.scriptPath }}
+              env:
+                {{- range $k, $v := $.Values.generator.env }}
+                - name: {{ $k }}
+                  value: {{ $v | quote }}
+                {{- end }}
+                {{- range $k, $v := .env }}
+                - name: {{ $k }}
+                  value: {{ $v | quote }}
+                {{- end }}
+                - name: UPLOAD_TOKEN
+                  valueFrom:
+                    secretKeyRef:
+                      name: {{ $.Values.server.uploadTokenSecret.name }}
+                      key: {{ $.Values.server.uploadTokenSecret.key }}
+                {{- range $.Values.generator.secretEnv }}
+                - name: {{ .envName }}
+                  valueFrom:
+                    secretKeyRef:
+                      name: {{ .name }}
+                      key: {{ .key }}
+                {{- end }}
+              volumeMounts:
+                - name: script
+                  mountPath: {{ dir $.Values.generator.scriptPath }}
+              resources:
+                {{- toYaml $.Values.generator.resources | nindent 16 }}
+            {{- end }}
+          volumes:
+            - name: script
+              configMap:
+                name: {{ required "generator.configMapName is required when generator.enabled" .Values.generator.configMapName }}
+{{- end }}

@@ -1,0 +1,18 @@
+---
+apiVersion: v2
+type: application
+name: trmnl-server
+description: Self-hosted server for TRMNL e-ink displays, installed from source since upstream publishes no image.
+version: 0.1.0
+appVersion: "unstable"
+maintainers:
+  - name: QJOLY
+    email: github@une-tasse-de.cafe
+kubeVersion: '>= 1.18'
+home: https://github.com/ohAnd/trmnlServer
+keywords:
+  - trmnl
+  - eink
+  - dashboard
+sources:
+  - https://github.com/ohAnd/trmnlServer
