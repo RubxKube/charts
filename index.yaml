@@ -7294,6 +7294,34 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/sonarr-1.0.0/sonarr-1.0.0.tgz
     version: 1.0.0
+  spindle:
+  - apiVersion: v2
+    appVersion: v1.16.1-alpha
+    created: "2026-08-11T17:12:32.906164995Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.6.2
+    description: Spindle is the self-hosted CI runner of Tangled, the git platform
+      built on ATProto.
+    digest: 14f890eab9a77772d9396f01935fb5f5b712664e52166750cd5e3f1499081b99
+    home: https://docs.tangled.org/spindles
+    keywords:
+    - spindle
+    - tangled
+    - ci
+    - atproto
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: spindle
+    sources:
+    - https://tangled.org/tangled.org/core
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/spindle-0.1.0/spindle-0.1.0.tgz
+    version: 0.1.0
   stirling-pdf:
   - apiVersion: v2
     appVersion: 2.9.2
@@ -8977,4 +9005,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.0/your-spotify-0.0.0.tgz
     version: 0.0.0
-generated: "2026-08-11T08:35:16.256794635Z"
+generated: "2026-08-11T17:12:32.906591669Z"
