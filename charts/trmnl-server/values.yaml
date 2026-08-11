@@ -9,7 +9,7 @@ name: trmnl-server
 source:
   repo: https://github.com/ohAnd/trmnlServer.git
   revision: 5e2a83bc8ab78214c1f1132048d65945888117ec
-  gitImage: alpine/git:2.47.2
+  gitImage: alpine/git:v2.54.0
 
 image:
   repository: python
