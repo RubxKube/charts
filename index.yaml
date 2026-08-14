@@ -7791,6 +7791,32 @@ entries:
   suwayomi:
   - apiVersion: v2
     appVersion: v2.3.2243
+    created: "2026-08-14T08:02:22.907937346Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.6.0
+    description: Suwayomi is a free and open source manga reader server that runs
+      extensions built for Mihon (Tachiyomi).
+    digest: 0ffe32cea75dfd9d5b0837bfa7543e116d7107eb57107ccf04ceb774b55b2980
+    home: https://github.com/Suwayomi/Suwayomi-Server
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/suwayomi-logo.png
+    keywords:
+    - manga
+    - manga-reader
+    - self-hosted
+    - tachiyomi
+    kubeVersion: '>= 1.18'
+    name: suwayomi
+    sources:
+    - https://github.com/Suwayomi/Suwayomi-Server
+    - https://github.com/Suwayomi/Suwayomi-Server-docker
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/suwayomi-0.1.2/suwayomi-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: v2.3.2243
     created: "2026-07-26T18:03:23.190525842Z"
     dependencies:
     - name: common
@@ -8891,6 +8917,44 @@ entries:
   your-spotify:
   - apiVersion: v2
     appVersion: 1.19.0
+    created: "2026-08-14T08:02:23.075289161Z"
+    dependencies:
+    - alias: server
+      name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.6.0
+    - alias: web
+      name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.6.0
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 19.1.27
+    description: YourSpotify is a self-hosted application that tracks what you listen
+      and offers you a dashboard to explore statistics about it! It's composed of
+      a web server which polls the Spotify API every now and then and a web application
+      on which you can explore your statistics.
+    digest: d86a29f190bd199c6e318332e443ea527255444710fd6ce13871342c033c88c2
+    home: https://github.com/Yooooomi/your_spotify
+    keywords:
+    - spotify
+    - music
+    - stats
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    - name: Tyler Trafford
+    name: your-spotify
+    sources:
+    - https://github.com/Yooooomi/your_spotify
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/your-spotify-1.0.0/your-spotify-1.0.0.tgz
+    version: 1.0.0
+  - apiVersion: v2
+    appVersion: 1.19.0
     created: "2026-08-06T09:44:53.503026655Z"
     dependencies:
     - alias: server
@@ -9193,4 +9257,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.0/your-spotify-0.0.0.tgz
     version: 0.0.0
-generated: "2026-08-14T08:00:46.92190585Z"
+generated: "2026-08-14T08:02:23.075537851Z"
