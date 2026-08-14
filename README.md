@@ -26,7 +26,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | gitea | Gitea (Git with a cup of tea) | 1.2.0 | 1.23.1 |
 | plex-exporter | Prometheus exporter for Plex Media Server metrics (libraries, sessions, transcoding). | 0.1.0 | latest |
 | spindle | Spindle is the self-hosted CI runner of Tangled, the git platform built on ATProto. | 0.1.0 | v1.16.1-alpha |
-| your-spotify | YourSpotify is a self-hosted application that tracks what you listen and offers you a dashboard to explore statistics about it! It's composed of a web server which polls the Spotify API every now and then and a web application on which you can explore your statistics. | 0.1.0 | 1.19.0 |
+| your-spotify | YourSpotify is a self-hosted application that tracks what you listen and offers you a dashboard to explore statistics about it! It's composed of a web server which polls the Spotify API every now and then and a web application on which you can explore your statistics. | 1.0.0 | 1.19.0 |
 | rmfakecloud | Self-hosted replacement for the reMarkable tablet cloud sync service. | 0.1.0 | latest |
 | gotify | a simple server for sending and receiving messages | 1.3.0 | 2.6.1 |
 | stirling-pdf | Stirling-PDF is a robust, locally hosted web-based PDF manipulation tool using Docker. It enables you to carry out various operations on PDF files, including splitting, merging, converting, reorganizing, adding images, rotating, compressing, and more | 0.1.0 | 2.9.2 |
