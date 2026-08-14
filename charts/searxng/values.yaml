@@ -1,0 +1,263 @@
+---
+define: &containerPort 8080
+
+common:
+  name: searxng
+
+  service:
+    type: ClusterIP
+    enabled: true
+    servicePort: *containerPort
+    containerPort: *containerPort
+    extraLabels: {}
+    protocol: TCP
+    annotations: {}
+
+  deployment:
+    memoryRequest: null
+    cpuRequest: null
+    memoryLimit: null
+    cpuLimit: null
+    port: *containerPort
+    # Stateless frontend (read-only ConfigMap config, emptyDir cache/tmp).
+    strategy:
+      type: RollingUpdate
+      rollingUpdate:
+        maxUnavailable: 25%
+        maxSurge: 25%
+    podSecurityContext:
+      fsGroup: 977
+    securityContext:
+      runAsNonRoot: true
+      runAsUser: 977
+      runAsGroup: 977
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+          - ALL
+      readOnlyRootFilesystem: true
+    nodeSelector: {}
+    tolerations: []
+    affinity: {}
+    # Wait for Valkey before starting SearXNG so the rate limiter can connect
+    # at startup: SearXNG initializes the limiter ONCE and does NOT retry, so if
+    # it boots before Valkey is ready (the normal fresh-install race when
+    # valkey.enabled + SEARXNG_LIMITER are enabled together) the limiter stays
+    # silently inactive for the pod's whole life. This initContainer blocks pod
+    # start until Valkey is reachable, fixing that race.
+    #
+    # Self-disabling: when SEARXNG_VALKEY_URL is empty the limiter is off, so the
+    # container exits 0 immediately (no wait, no Valkey dependency). Best-effort:
+    # if Valkey isn't reachable within ~60s it gives up and lets SearXNG start
+    # anyway (limiter stays inactive, same graceful degradation as before).
+    #
+    # NOTE: Kubernetes does NOT share env between containers, and the env vars in
+    # `variables.nonSecret` are only injected into the main container, so
+    # SEARXNG_VALKEY_URL is mirrored here. Keep the two in sync; if you forget,
+    # this container no-ops and you're back to the pre-fix race (no crash).
+    initContainers:
+      - name: wait-for-valkey
+        image: busybox:1.36
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 977
+          runAsGroup: 977
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop: [ALL]
+          readOnlyRootFilesystem: true
+        command: ["/bin/sh", "-c"]
+        args:
+          - |
+            set -eu
+            if [ -z "${SEARXNG_VALKEY_URL:-}" ]; then
+              echo "SEARXNG_VALKEY_URL unset — limiter disabled, skipping wait."
+              exit 0
+            fi
+            hp="${SEARXNG_VALKEY_URL#redis://}"
+            host="${hp%%:*}"
+            port="${hp#*:}"; port="${port%%/*}"
+            echo "Waiting for Valkey at ${host}:${port} (up to 60s)…"
+            i=0
+            while [ "$i" -lt 60 ]; do
+              if nc -z -w 2 "$host" "$port" 2>/dev/null; then
+                echo "Valkey reachable — starting SearXNG."
+                exit 0
+              fi
+              i=$((i+1)); sleep 1
+            done
+            echo "Valkey not reachable after 60s — starting SearXNG anyway (limiter will stay inactive)."
+            exit 0
+        env:
+          # Mirror common.variables.nonSecret.SEARXNG_VALKEY_URL (see NOTE above).
+          - name: SEARXNG_VALKEY_URL
+            value: ""
+    additionalContainers: []
+    # Writable paths under readOnlyRootFilesystem.
+    emptyDir:
+      - name: "data"           # image's SEARXNG_DATA_PATH (cache)
+        containerMount: "/var/cache/searxng"
+      - name: "tmp"
+        containerMount: "/tmp"
+    annotations: {}
+
+  image:
+    repositorySettings:
+      isPrivate: false
+      secretName: null
+    repository: searxng/searxng
+    tag: 2026.7.28-c01178d03
+    pullPolicy: Always
+
+  ingress:
+    enabled: false
+    hostName: searxng.example.com
+    extraLabels: {}
+    annotations: {}
+    tls:
+      enabled: true
+      secretName: ""
+    ingressClassName: ""
+
+  # Declarative settings.yml (read-only at /etc/searxng/settings.yml); makes
+  # the pod stateless. Most knobs are env-overridden (see variables); extend
+  # this only for settings with no env override (engines, formats, ...).
+  configMap:
+    enabled: true
+    existingConfigMap: []
+    data:
+      - name: "settings"
+        mountPath: "/etc/searxng"
+        defaultMode: 0644
+        data:
+          - content:
+              settings.yml: |
+                # Env overrides (see values.yaml): SEARXNG_SECRET -> server.secret_key,
+                # SEARXNG_BASE_URL -> server.base_url, SEARXNG_LIMITER -> server.limiter,
+                # SEARXNG_VALKEY_URL -> valkey.url, SEARXNG_IMAGE_PROXY -> server.image_proxy.
+                # Docs: https://docs.searxng.org/admin/settings/settings.html
+                use_default_settings: true
+                server:
+                  secret_key: "ultrasecretkey"  # overridden by SEARXNG_SECRET
+                  image_proxy: true
+
+  # SEARXNG_BASE_URL: must match ingress scheme + host (default https:// matches
+  #   ingress.tls.enabled: true); a mismatch causes mixed-content / redirect loops.
+  # SEARXNG_SECRET: overrides server.secret_key at runtime. Empty ("") auto-
+  #   generates a stable random secret (reused across upgrades); set a string to
+  #   rotate (takes effect on pod restart).
+  #
+  # Bot protection / rate limiting is OFF by default (no Valkey deployed). To
+  # enable it, set ALL THREE together (see the `valkey` block below for details):
+  #   valkey.enabled: true
+  #   SEARXNG_LIMITER: "true"
+  #   SEARXNG_VALKEY_URL: "redis://<release>-valkey:6379/0"   (match your release name)
+  # AND mirror SEARXNG_VALKEY_URL in deployment.initContainers above so the
+  # wait-for-valkey initContainer can gate pod startup on Valkey being up
+  # (otherwise you keep the startup race: limiter inactive until a pod restart).
+  variables:
+    configMap:
+      existingConfigMap: []
+    secret:
+      # Empty ("") auto-generates a stable secret. For an externally-managed
+      # Secret (Sealed Secrets / External Secrets / Vault), drop `data:` and
+      # use existingSecret (name/key/envName: SEARXNG_SECRET).
+      data:
+        SEARXNG_SECRET: ""
+      existingSecret: []
+      extraExistingSecrets: []
+    nonSecret:
+      SEARXNG_BASE_URL: "https://searxng.example.com/"
+      # --- Bot protection (off by default; requires the `valkey` block below) ---
+      # Uncomment BOTH and set valkey.enabled: true. SEARXNG_VALKEY_URL must
+      # match the Valkey service <release>-valkey:6379. For `helm install
+      # searxng ...` that's `searxng-valkey`; adjust for another release name.
+      # If Valkey isn't reachable, SearXNG logs an error and the limiter stays
+      # silently inactive (no crash).
+      #
+      # IMPORTANT: also set the SAME SEARXNG_VALKEY_URL in
+      # deployment.initContainers[wait-for-valkey].env so the initContainer can
+      # wait for Valkey before SearXNG starts (the main container's env is not
+      # shared with init containers). If you forget, the limiter just won't be
+      # active until the first pod restart. No crash, but the fix won't apply.
+      # SEARXNG_LIMITER: "true"
+      # SEARXNG_VALKEY_URL: "redis://searxng-valkey:6379/0"
+
+  # Safe to enable: pod is stateless, no RWO PVC.
+  hpa:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 2
+    avgCpuUtilization: 50
+
+  startupProbeEnabled: true
+  startupProbe:
+    httpGet:
+      path: "/healthz"
+      port: *containerPort
+    periodSeconds: 10
+    failureThreshold: 18  # ~180s window; Granian starts in seconds
+    timeoutSeconds: 1
+
+  readinessProbeEnabled: true
+  readinessProbe:
+    httpGet:
+      path: "/healthz"
+      port: *containerPort
+    initialDelaySeconds: 10
+    periodSeconds: 30
+    failureThreshold: 2
+    timeoutSeconds: 3
+
+  livenessProbeEnabled: true
+  livenessProbe:
+    httpGet:
+      path: "/healthz"
+      port: *containerPort
+    initialDelaySeconds: 30
+    periodSeconds: 60
+    failureThreshold: 3
+    timeoutSeconds: 3
+
+  # No PVC: config is the ConfigMap above, cache/tmp use emptyDir.
+  persistence:
+    enabled: false
+    volumes: []
+    extraVolumes: []
+
+  tests:
+    # Hits /healthz with the ingress Host header. (Common chart test template
+    # has no --fail, so this asserts reachability, not a 200.)
+    classicHttp:
+      enabled: false
+    curlHostHeader:
+      enabled: true
+      path: "/healthz"
+
+# Valkey backs SearXNG's rate limiter (server.limiter). Official chart:
+# https://valkey.io/valkey-helm/. DISABLED by default (no extra pod unless you
+# opt in). To enable rate limiting, set all three together:
+#   valkey.enabled: true                              (here)
+#   common.variables.nonSecret.SEARXNG_LIMITER: "true"
+#   common.variables.nonSecret.SEARXNG_VALKEY_URL: "redis://<release>-valkey:6379/0"
+# The URL must match the Valkey service, which is named <release>-valkey (Helm
+# default), e.g. `searxng-valkey` for `helm install searxng ...`. Using an
+# external Valkey instead? Leave this `false` and point SEARXNG_VALKEY_URL at it.
+#
+# Startup race: SearXNG initializes its limiter once at boot and won't retry
+# Valkey, so on a fresh install where both pods start together the limiter can
+# come up before Valkey is reachable and stay inactive until a pod restart. The
+# wait-for-valkey initContainer in common.deployment.initContainers gates pod
+# start on Valkey being up; mirror SEARXNG_VALKEY_URL there too (see the note
+# in that block for why the duplication is required).
+valkey:
+  enabled: false
+  # Standalone, cluster-internal, no auth. The limiter cache is ephemeral and
+  # rebuildable, so persistence is off. Set dataStorage.enabled: true
+  # (+ requestedSize) to persist it across restarts.
+  auth:
+    enabled: false
+  replica:
+    enabled: false
+  dataStorage:
+    enabled: false  # limiter cache is ephemeral; set true + requestedSize to persist
