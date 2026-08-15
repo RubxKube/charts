@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: spindle
 description: "Spindle is the self-hosted CI runner of Tangled, the git platform built on ATProto."
-version: 0.1.0
+version: 0.1.1
 appVersion: "v1.16.1-alpha"
 # icon:
 maintainers:
@@ -21,4 +21,4 @@ sources:
 dependencies:
   - name: common
     repository: https://rubxkube.github.io/common-charts
-    version: v0.6.2
+    version: v0.6.4
