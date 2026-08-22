@@ -1,0 +1,127 @@
+---
+define: &containerPort 8081
+
+common:
+  name: "languagetool"
+  service:
+    servicePort: *containerPort
+    type: ClusterIP
+
+  deployment:
+    port: *containerPort
+    memoryRequest: null
+    cpuRequest: null
+    memoryLimit: null
+    cpuLimit: null
+    strategy:
+      type: RollingUpdate
+      rollingUpdate:
+        maxUnavailable: 25%
+        maxSurge: 25%
+    # LanguageTool writes its generated logback.xml and config.property to /tmp,
+    # so this path must always be writable (equivalent to the tmpfs mount in the
+    # upstream docker-compose). Using an emptyDir keeps it working even with a
+    # read-only root filesystem.
+    emptyDir:
+      - name: "tmp"
+        containerMount: "/tmp"
+
+  # container
+  image:
+    repositorySettings:
+      isPrivate: false
+      secretName: null
+    repository: meyay/languagetool
+    tag: "6.8"
+    pullPolicy: IfNotPresent
+
+  # ingress
+  ingress:
+    enabled: false
+    hostName: languagetool.your-domain.com
+    extraLabels: {}
+    annotations:
+      {}
+      # nginx.ingress.kubernetes.io/proxy-body-size: 100m
+    tls:
+      enabled: false
+      secretName: "secret-languagetool-tls"
+    # For Ingress CRD
+    ingressClassName: ""
+
+  # env variables
+  variables:
+    secret: {}
+    nonSecret:
+      LOG_LEVEL: INFO
+      JAVA_XMS: 256m
+      JAVA_XMX: 1536m
+      # Download n-gram data at startup to improve detection of confused words.
+      # Needs a large persistent volume mounted at /ngrams (several GB per
+      # language). Valid languages: en, de, es, fr, nl. Example: "en,de"
+      # download_ngrams_for_langs: en
+      # Point LanguageTool at a remote rules server, such as the
+      # grammared-language API (https://github.com/rayliuca/grammared-language),
+      # to enable the Grammarly-like ML rules. The file has to be provided via
+      # a configMap/volume mounted in the container.
+      # langtool_remoteRulesFile: /remote-rule-config.json
+
+  # horizontal autoscaler
+  hpa:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 2
+    avgCpuUtilization: 50
+
+  # startupProbe (the JVM can take a while to boot on first start)
+  startupProbeEnabled: true
+  startupProbe:
+    httpGet:
+      path: "/v2/languages"
+      port: *containerPort
+    periodSeconds: 10
+    failureThreshold: 24
+    timeoutSeconds: 5
+
+  # readinessProbe
+  readinessProbeEnabled: true
+  readinessProbe:
+    httpGet:
+      path: "/v2/languages"
+      port: *containerPort
+    initialDelaySeconds: 10
+    periodSeconds: 30
+    failureThreshold: 3
+    timeoutSeconds: 5
+
+  # livenessProbe
+  livenessProbeEnabled: true
+  livenessProbe:
+    httpGet:
+      path: "/v2/languages"
+      port: *containerPort
+    initialDelaySeconds: 30
+    periodSeconds: 60
+    failureThreshold: 3
+    timeoutSeconds: 5
+
+  persistence:
+    enabled: true
+    volumes:
+      - name: "fasttext"
+        storageClassName: "" # leave empty if you want to use default
+        size: "1Gi"
+        pvcClaim: "" # Fill only if you want to use existing pvc
+        containerMount: "/fasttext"
+      - name: "ngrams"
+        storageClassName: "" # leave empty if you want to use default
+        size: "5Gi"
+        pvcClaim: "" # Fill only if you want to use existing pvc
+        containerMount: "/ngrams"
+
+  tests:
+    classicHttp: # default helm test method
+      enabled: false
+    curlHostHeader: # curl using ingress.hostName as Host in header
+      enabled: true
+      path: "/v2/languages"

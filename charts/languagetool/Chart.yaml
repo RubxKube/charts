@@ -1,0 +1,27 @@
+---
+apiVersion: v2
+type: application
+name: languagetool
+description: "LanguageTool is an open-source proofreading tool for spelling, grammar and style, supporting more than 30 languages."
+version: 0.1.0
+appVersion: "6.8"
+icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/languagetool-logo.png
+maintainers:
+  - name: QJOLY
+    email: github@une-tasse-de.cafe
+    url: https://une-tasse-de.cafe
+kubeVersion: ">= 1.18"
+home: https://languagetool.org/
+keywords:
+  - LanguageTool
+  - Grammar
+  - Spellcheck
+  - Proofreading
+sources:
+  - https://github.com/languagetool-org/languagetool
+  - https://github.com/meyayl/docker-languagetool
+  - https://github.com/rayliuca/grammared-language
+dependencies:
+  - name: common
+    repository: https://rubxkube.github.io/common-charts
+    version: v0.6.4
