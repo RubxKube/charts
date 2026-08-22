@@ -30,7 +30,7 @@ common:
       isPrivate: false
       secretName: null
     repository: louislam/uptime-kuma
-    tag: 2.5.0
+    tag: 2.5.3
     pullPolicy: Always
 
   # ingress
