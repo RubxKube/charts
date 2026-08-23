@@ -16,36 +16,38 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 
 | Name  | Description | Chart Version | App Version |
 |-------|-------------|---------------|-------------|
-| deluge | Deluge is a lightweight, Free Software, cross-platform BitTorrent client. | 1.2.0 | 2.2.0 |
-| memo | Memo (A privacy-first, lightweight note-taking service) | 1.2.0 | 0.24 |
-| your-spotify | YourSpotify is a self-hosted application that tracks what you listen and offers you a dashboard to explore statistics about it! It's composed of a web server which polls the Spotify API every now and then and a web application on which you can explore your statistics. | 1.0.0 | 1.19.0 |
-| gotify | a simple server for sending and receiving messages | 1.3.0 | 2.6.1 |
-| gitea | Gitea (Git with a cup of tea) | 1.2.0 | 1.23.1 |
-| stirling-pdf | Stirling-PDF is a robust, locally hosted web-based PDF manipulation tool using Docker. It enables you to carry out various operations on PDF files, including splitting, merging, converting, reorganizing, adding images, rotating, compressing, and more | 0.1.0 | 2.9.2 |
-| freshrss | A WebUI to read article via RSS | 1.3.0 | 1.25.0 |
-| uptime-kuma | Uptime Kuma is an easy-to-use self-hosted monitoring tool. | 1.2.0 | 2.2.1 |
-| mylar3 | Mylar3 is an automated Comic Book (cbr/cbz) downloader program | 0.1.0 | 2021.12.13 |
-| smokeping | SmokePing is a latency logging and graphing and alerting system | 1.2.0 | 2.8.2 |
-| baikal | Baikal is a Cal and CardDAV server, based on sabre/dav, that includes an administrative interface for easy management. | 1.3.0 | 0.10.1-nginx |
-| radarr | Radarr is a movie collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new movies and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available. | 1.2.0 | version-6.2.1.10461 |
-| rmfakecloud | Self-hosted replacement for the reMarkable tablet cloud sync service. | 0.1.0 | latest |
-| spindle | Spindle is the self-hosted CI runner of Tangled, the git platform built on ATProto. | 0.1.0 | v1.16.1-alpha |
-| jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.4.0 | 0.24.2066 |
-| simple-coffee | This is a test application | 0.1.0 | 1.0.0 |
-| sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.4.0 | version-4.0.17.2952 |
-| glance | A self-hosted dashboard that puts all your feeds in one place | 0.1.0 | v0.7.4 |
+| deluge | Deluge is a lightweight, Free Software, cross-platform BitTorrent client. | 1.2.1 | 2.2.0 |
+| glance | A self-hosted dashboard that puts all your feeds in one place | 0.1.1 | v0.7.4 |
+| mylar3 | Mylar3 is an automated Comic Book (cbr/cbz) downloader program | 0.1.1 | 2021.12.13 |
+| smokeping | SmokePing is a latency logging and graphing and alerting system | 1.2.1 | 2.8.2 |
 | trmnl-server | Self-hosted server for TRMNL e-ink displays, installed from source since upstream publishes no image. | 0.1.0 | unstable |
-| cloudflare-tunnel | Creation of a cloudflared deployment - a reverse tunnel for an environment | 0.3.3 | 2026.6.1 |
-| pr-gitops-grafana-annotation | Turns GitHub pull request webhooks into Grafana annotations, to line deploys up with your dashboards. | 0.1.0 | latest |
-| komga | A WebUI to read comics/mangas from your library | 0.1.0 | 1.24.4 |
+| linkding | linkding is a bookmark manager that you can host yourself. It's designed be to be minimal, fast, and easy to set up. | 1.2.1 | 1.37.0 |
+| freshrss | A WebUI to read article via RSS | 1.3.1 | 1.25.0 |
+| gitea | Gitea (Git with a cup of tea) | 1.2.1 | 1.23.1 |
+| plex-exporter | Prometheus exporter for Plex Media Server metrics (libraries, sessions, transcoding). | 0.1.1 | latest |
+| spindle | Spindle is the self-hosted CI runner of Tangled, the git platform built on ATProto. | 0.1.1 | v1.16.1-alpha |
+| your-spotify | YourSpotify is a self-hosted application that tracks what you listen and offers you a dashboard to explore statistics about it! It's composed of a web server which polls the Spotify API every now and then and a web application on which you can explore your statistics. | 1.0.1 | 1.19.0 |
+| searxng | A free internet metasearch engine which aggregates results from various search services | 0.1.0 | 2026.7.28 |
+| rmfakecloud | Self-hosted replacement for the reMarkable tablet cloud sync service. | 0.1.1 | latest |
+| gotify | a simple server for sending and receiving messages | 1.3.1 | 2.6.1 |
+| stirling-pdf | Stirling-PDF is a robust, locally hosted web-based PDF manipulation tool using Docker. It enables you to carry out various operations on PDF files, including splitting, merging, converting, reorganizing, adding images, rotating, compressing, and more | 0.1.1 | 2.9.2 |
+| jellyfin | Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media | 1.3.1 | 10.10.6 |
+| sonarr | Sonarr is a PVR for Usenet and BitTorrent users. | 1.4.1 | version-4.0.17.2952 |
+| suwayomi | Suwayomi is a free and open source manga reader server that runs extensions built for Mihon (Tachiyomi). | 0.1.1 | v2.3.2243 |
+| uptime-kuma | Uptime Kuma is an easy-to-use self-hosted monitoring tool. | 1.2.1 | 2.2.1 |
+| pr-gitops-grafana-annotation | Turns GitHub pull request webhooks into Grafana annotations, to line deploys up with your dashboards. | 0.1.1 | latest |
+| flaresolverr | FlareSolverr is a proxy server that solves Cloudflare's Javascript challenges. | 0.1.1 | v3.3.21 |
+| languagetool | LanguageTool is an open-source proofreading tool for spelling, grammar and style, supporting more than 30 languages. | 0.1.0 | 6.8 |
+| audiobookshelf | Self-hosted audiobook and podcast server. | 0.1.2 | v2.29.0 |
+| jackett | Jackett works as a proxy server: it translates queries from apps into tracker-site-specific http queries. | 1.4.1 | 0.24.2066 |
 | vaultwarden | Vaultwarden is an easy-to-use self-hosted password manager. | 1.2 | 1.35.7 |
-| plex-exporter | Prometheus exporter for Plex Media Server metrics (libraries, sessions, transcoding). | 0.1.0 | latest |
-| joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.3.0 | 3.0-beta |
-| suwayomi | Suwayomi is a free and open source manga reader server that runs extensions built for Mihon (Tachiyomi). | 0.1.0 | v2.3.2243 |
-| audiobookshelf | Self-hosted audiobook and podcast server. | 0.1.1 | v2.29.0 |
-| flaresolverr | FlareSolverr is a proxy server that solves Cloudflare's Javascript challenges. | 0.1.0 | v3.3.21 |
-| linkding | linkding is a bookmark manager that you can host yourself. It's designed be to be minimal, fast, and easy to set up. | 1.2.0 | 1.37.0 |
-| jellyfin | Jellyfin is a Free Software Media System that puts you in control of managing and streaming your media | 1.3.0 | 10.10.6 |
+| cloudflare-tunnel | Creation of a cloudflared deployment - a reverse tunnel for an environment | 0.3.3 | 2026.6.1 |
+| joplin | Joplin is an open source note-taking app. Capture your thoughts and securely access them from any device. | 1.3.1 | 3.0-beta |
+| simple-coffee | This is a test application | 0.1.0 | 1.0.0 |
+| baikal | Baikal is a Cal and CardDAV server, based on sabre/dav, that includes an administrative interface for easy management. | 1.3.1 | 0.10.1-nginx |
+| komga | A WebUI to read comics/mangas from your library | 0.1.1 | 1.24.4 |
+| radarr | Radarr is a movie collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new movies and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available. | 1.2.1 | version-6.2.1.10461 |
+| memo | Memo (A privacy-first, lightweight note-taking service) | 1.2.1 | 0.24 |
 
 
 # Contributing 
