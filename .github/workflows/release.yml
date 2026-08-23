@@ -144,6 +144,7 @@ jobs:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
         with:
           charts_dir: charts
+          skip_existing: true
 
       - name: Modifying the readme on main
         continue-on-error: true
