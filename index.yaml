@@ -28,6 +28,31 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: v2.29.0
+    created: "2026-08-23T13:07:21.324554549Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.6.4
+    description: Self-hosted audiobook and podcast server.
+    digest: 641d0e5e7a96d2f91d935e3bb82a10d5a9df7222b221d5b2c4bb4c9afe7e4686
+    home: https://github.com/advplyr/audiobookshelf
+    keywords:
+    - Audiobookshelf
+    - Audiobooks
+    - Podcasts
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: audiobookshelf
+    sources:
+    - https://github.com/advplyr/audiobookshelf
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/audiobookshelf-0.1.2/audiobookshelf-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: v2.29.0
     created: "2026-07-07T22:32:53.436894851Z"
     dependencies:
     - name: common
@@ -127,6 +152,31 @@ entries:
     - https://github.com/RubxKube/charts/releases/download/audiobookshelf-0.0.1/audiobookshelf-0.0.1.tgz
     version: 0.0.1
   baikal:
+  - apiVersion: v2
+    appVersion: 0.10.1-nginx
+    created: "2026-08-23T13:07:21.562581843Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.6.4
+    description: Baikal is a Cal and CardDAV server, based on sabre/dav, that includes
+      an administrative interface for easy management.
+    digest: 67f2156c690d9fb5ed84e2bb49fdc7a42d171312d4ce4da5e4678293f189261a
+    home: https://sabre.io/baikal/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/baikal-logo.png
+    keywords:
+    - baikal
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: baikal
+    sources:
+    - https://github.com/sabre-io/Baikal
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/baikal-1.3.1/baikal-1.3.1.tgz
+    version: 1.3.1
   - apiVersion: v2
     appVersion: 0.10.1-nginx
     created: "2026-07-07T22:32:53.559976332Z"
@@ -3060,6 +3110,36 @@ entries:
   jellyfin:
   - apiVersion: v2
     appVersion: 10.10.6
+    created: "2026-08-23T13:07:23.247068315Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.6.4
+    description: Jellyfin is a Free Software Media System that puts you in control
+      of managing and streaming your media
+    digest: 0cb9e5757395702b9ba6388cecbd1d9fc78d8cd90e40c5b7fba213449eb35370
+    home: https://jellyfin.org/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/jellyfin-logo.png
+    keywords:
+    - media server
+    - Plex
+    - Jellyfin
+    - Media
+    - Streaming
+    - Server
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: jellyfin
+    sources:
+    - https://github.com/jellyfin/jellyfin
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/jellyfin-1.3.1/jellyfin-1.3.1.tgz
+    version: 1.3.1
+  - apiVersion: v2
+    appVersion: 10.10.6
     created: "2026-07-07T22:32:54.802810673Z"
     dependencies:
     - name: common
@@ -3539,6 +3619,35 @@ entries:
     - https://github.com/RubxKube/charts/releases/download/jellyfin-1.0.0/jellyfin-1.0.0.tgz
     version: 1.0.0
   joplin:
+  - apiVersion: v2
+    appVersion: 3.0-beta
+    created: "2026-08-23T13:07:23.465839137Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.6.4
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 16.2.5
+    description: Joplin is an open source note-taking app. Capture your thoughts and
+      securely access them from any device.
+    digest: 376b5ba03452c1796f430bb8b02f6cfde3d8b263ad49c167f3cc18d49696c3d9
+    home: https://joplinapp.org/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/joplin-logo.png
+    keywords:
+    - joplin
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+      url: https://une-tasse-de.cafe
+    name: joplin
+    sources:
+    - https://github.com/laurent22/joplin
+    - https://github.com/QJoly/helm-charts
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/joplin-1.3.1/joplin-1.3.1.tgz
+    version: 1.3.1
   - apiVersion: v2
     appVersion: 3.0-beta
     created: "2026-07-07T22:32:54.961695478Z"
@@ -5290,6 +5399,38 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/kyoo-0.1.0/kyoo-0.1.0.tgz
     version: 0.1.0
+  languagetool:
+  - apiVersion: v2
+    appVersion: "6.8"
+    created: "2026-08-23T13:07:23.889387763Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.6.4
+    description: LanguageTool is an open-source proofreading tool for spelling, grammar
+      and style, supporting more than 30 languages.
+    digest: 63a134ec7cda10612aff17a51a143188638315d52a7c04e195dce756049b6135
+    home: https://languagetool.org/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/languagetool-logo.png
+    keywords:
+    - LanguageTool
+    - Grammar
+    - Spellcheck
+    - Proofreading
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+      url: https://une-tasse-de.cafe
+    name: languagetool
+    sources:
+    - https://github.com/languagetool-org/languagetool
+    - https://github.com/meyayl/docker-languagetool
+    - https://github.com/rayliuca/grammared-language
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/languagetool-0.1.0/languagetool-0.1.0.tgz
+    version: 0.1.0
   linkding:
   - apiVersion: v2
     appVersion: 1.37.0
@@ -5892,6 +6033,30 @@ entries:
   memo:
   - apiVersion: v2
     appVersion: "0.24"
+    created: "2026-08-23T13:07:24.330280632Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.6.4
+    description: Memo (A privacy-first, lightweight note-taking service)
+    digest: d7fb1e269bb0a496bc0c27bbad8c85267b495a15cf8839ba4c7278736dd8cd42
+    home: https://usememos.com/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/memo-logo.png
+    keywords:
+    - memo
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+      url: https://une-tasse-de.cafe
+    name: memo
+    sources:
+    - https://github.com/usememos/memos
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/memo-1.2.1/memo-1.2.1.tgz
+    version: 1.2.1
+  - apiVersion: v2
+    appVersion: "0.24"
     created: "2026-07-07T22:32:55.568031739Z"
     dependencies:
     - name: common
@@ -6205,6 +6370,35 @@ entries:
   mylar3:
   - apiVersion: v2
     appVersion: 2021.12.13
+    created: "2026-08-23T13:07:24.556641389Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.6.4
+    description: Mylar3 is an automated Comic Book (cbr/cbz) downloader program
+    digest: 9fb11022aa124b8143999a36e707445f1c619757eb16149ec900a84091c27563
+    home: https://mylarcomics.com/
+    icon: https://mylarcomics.com/img/mylarlogo.png
+    keywords:
+    - mylar3
+    - mylar
+    - comic
+    - cbr
+    - cbz
+    - downloader
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: mylar3
+    sources:
+    - https://github.com/mylar3/mylar3
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/mylar3-0.1.1/mylar3-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 2021.12.13
     created: "2026-07-07T22:32:55.705526641Z"
     dependencies:
     - name: common
@@ -6264,6 +6458,33 @@ entries:
   plex-exporter:
   - apiVersion: v2
     appVersion: latest
+    created: "2026-08-23T13:07:24.819327921Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.6.4
+    description: Prometheus exporter for Plex Media Server metrics (libraries, sessions,
+      transcoding).
+    digest: 69183dc117dcac17909f98a50bf10f3f9f6abd765c00c4158ade637178f99bdb
+    home: https://github.com/jsclayton/prometheus-plex-exporter
+    keywords:
+    - plex
+    - prometheus
+    - exporter
+    - metrics
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: plex-exporter
+    sources:
+    - https://github.com/jsclayton/prometheus-plex-exporter
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/plex-exporter-0.1.1/plex-exporter-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: latest
     created: "2026-08-11T19:16:38.17580342Z"
     dependencies:
     - name: common
@@ -6290,6 +6511,33 @@ entries:
     - https://github.com/RubxKube/charts/releases/download/plex-exporter-0.1.0/plex-exporter-0.1.0.tgz
     version: 0.1.0
   pr-gitops-grafana-annotation:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2026-08-23T13:07:25.055149263Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.6.4
+    description: Turns GitHub pull request webhooks into Grafana annotations, to line
+      deploys up with your dashboards.
+    digest: 9f1389757e8f9052e4577571b2630978c018a67b9348f4eaac1cdd314822c47b
+    home: https://github.com/qjoly/pr-gitops-grafana-annotation
+    keywords:
+    - grafana
+    - annotations
+    - gitops
+    - github
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: pr-gitops-grafana-annotation
+    sources:
+    - https://github.com/qjoly/pr-gitops-grafana-annotation
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/pr-gitops-grafana-annotation-0.1.1/pr-gitops-grafana-annotation-0.1.1.tgz
+    version: 0.1.1
   - apiVersion: v2
     appVersion: latest
     created: "2026-08-11T19:16:38.311567156Z"
@@ -6831,6 +7079,31 @@ entries:
   rmfakecloud:
   - apiVersion: v2
     appVersion: latest
+    created: "2026-08-23T13:07:25.521433625Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.6.4
+    description: Self-hosted replacement for the reMarkable tablet cloud sync service.
+    digest: b8740eb1c418a29c97d708625ffd5728f2c7e5a63f8afc34ecd9690149e70c95
+    home: https://github.com/ddvk/rmfakecloud
+    keywords:
+    - rmfakecloud
+    - remarkable
+    - sync
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: rmfakecloud
+    sources:
+    - https://github.com/ddvk/rmfakecloud
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/rmfakecloud-0.1.1/rmfakecloud-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: latest
     created: "2026-08-11T19:16:38.438871406Z"
     dependencies:
     - name: common
@@ -6854,6 +7127,40 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/rmfakecloud-0.1.0/rmfakecloud-0.1.0.tgz
     version: 0.1.0
+  searxng:
+  - apiVersion: v2
+    appVersion: 2026.7.28
+    created: "2026-08-23T13:07:25.748174662Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.6.4
+    - condition: valkey.enabled
+      name: valkey
+      repository: https://valkey.io/valkey-helm
+      version: 0.11.0
+    description: A free internet metasearch engine which aggregates results from various
+      search services
+    digest: 2c8a2633c84491a8f6b8cd1bd37a0ba7c5bc3f46095c1db6481f1cc2a7464018
+    home: https://searxng.org/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/searxng-logo.png
+    keywords:
+    - searxng
+    - search
+    - metasearch
+    - privacy
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+      url: https://une-tasse-de.cafe
+    name: searxng
+    sources:
+    - https://github.com/searxng/searxng
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/searxng-0.1.0/searxng-0.1.0.tgz
+    version: 0.1.0
   simple-coffee:
   - apiVersion: v2
     appVersion: 1.0.0
@@ -6866,6 +7173,30 @@ entries:
     - https://github.com/RubxKube/charts/releases/download/simple-coffee-0.1.0/simple-coffee-0.1.0.tgz
     version: 0.1.0
   smokeping:
+  - apiVersion: v2
+    appVersion: 2.8.2
+    created: "2026-08-23T13:07:26.008399472Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.6.4
+    description: SmokePing is a latency logging and graphing and alerting system
+    digest: 4fd926a2c13b39e51e79aa1d55b989547619ca7d3ea8bc839b857c4da6f714de
+    home: https://oss.oetiker.ch/smokeping/
+    icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/smokeping-logo.png
+    keywords:
+    - smokeping
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+      url: https://une-tasse-de.cafe
+    name: smokeping
+    sources:
+    - https://github.com/oetiker/SmokePing
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/smokeping-1.2.1/smokeping-1.2.1.tgz
+    version: 1.2.1
   - apiVersion: v2
     appVersion: 2.8.2
     created: "2026-07-07T22:32:56.019961805Z"
@@ -7430,6 +7761,33 @@ entries:
     - https://github.com/RubxKube/charts/releases/download/sonarr-1.0.0/sonarr-1.0.0.tgz
     version: 1.0.0
   spindle:
+  - apiVersion: v2
+    appVersion: v1.16.1-alpha
+    created: "2026-08-23T13:07:26.50299742Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.6.4
+    description: Spindle is the self-hosted CI runner of Tangled, the git platform
+      built on ATProto.
+    digest: e91c3db2f959a80c01133a122a2168906c2b6632cecef4b7a5967a651fddbcfd
+    home: https://docs.tangled.org/spindles
+    keywords:
+    - spindle
+    - tangled
+    - ci
+    - atproto
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: spindle
+    sources:
+    - https://tangled.org/tangled.org/core
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/spindle-0.1.1/spindle-0.1.1.tgz
+    version: 0.1.1
   - apiVersion: v2
     appVersion: v1.16.1-alpha
     created: "2026-08-11T17:12:32.906164995Z"
@@ -8917,6 +9275,44 @@ entries:
   your-spotify:
   - apiVersion: v2
     appVersion: 1.19.0
+    created: "2026-08-23T13:07:27.614427881Z"
+    dependencies:
+    - alias: server
+      name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.6.4
+    - alias: web
+      name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.6.4
+    - condition: mongodb.enabled
+      name: mongodb
+      repository: https://charts.bitnami.com/bitnami
+      version: 19.1.27
+    description: YourSpotify is a self-hosted application that tracks what you listen
+      and offers you a dashboard to explore statistics about it! It's composed of
+      a web server which polls the Spotify API every now and then and a web application
+      on which you can explore your statistics.
+    digest: 118c42057760d952b9e11d0b39af21e2d7000d58eb4b8a51afab55d1a215eff6
+    home: https://github.com/Yooooomi/your_spotify
+    keywords:
+    - spotify
+    - music
+    - stats
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    - name: Tyler Trafford
+    name: your-spotify
+    sources:
+    - https://github.com/Yooooomi/your_spotify
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/your-spotify-1.0.1/your-spotify-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 1.19.0
     created: "2026-08-14T08:02:23.075289161Z"
     dependencies:
     - alias: server
@@ -9257,4 +9653,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.0/your-spotify-0.0.0.tgz
     version: 0.0.0
-generated: "2026-08-14T08:02:23.075537851Z"
+generated: "2026-08-23T13:07:27.61483337Z"
