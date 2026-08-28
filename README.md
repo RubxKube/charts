@@ -23,7 +23,7 @@ helm repo add rubxkube https://rubxkube.github.io/charts/ # Add the repo to your
 | trmnl-server | Self-hosted server for TRMNL e-ink displays, installed from source since upstream publishes no image. | 0.1.0 | unstable |
 | linkding | linkding is a bookmark manager that you can host yourself. It's designed be to be minimal, fast, and easy to set up. | 1.2.1 | 1.37.0 |
 | freshrss | A WebUI to read article via RSS | 1.3.1 | 1.25.0 |
-| tranquil-pds | Tranquil PDS (AT Protocol Personal Data Server, Rust) with a bundled PostgreSQL and optional OIDC SSO. | 0.1.0 | latest |
+| tranquil-pds | Tranquil PDS (AT Protocol Personal Data Server, Rust) with a bundled PostgreSQL and optional OIDC SSO. | 0.2.0 | latest |
 | gitea | Gitea (Git with a cup of tea) | 1.2.1 | 1.23.1 |
 | plex-exporter | Prometheus exporter for Plex Media Server metrics (libraries, sessions, transcoding). | 0.1.1 | latest |
 | spindle | Spindle is the self-hosted CI runner of Tangled, the git platform built on ATProto. | 0.1.1 | v1.16.1-alpha |
