@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: tranquil-pds
 description: Tranquil PDS (AT Protocol Personal Data Server, Rust) with a bundled PostgreSQL and optional OIDC SSO.
-version: 0.1.0
+version: 0.2.0
 appVersion: "latest"
 maintainers:
   - name: QJOLY

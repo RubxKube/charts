@@ -71,6 +71,10 @@ spec:
                   name: {{ .Values.secretName }}
                   key: SSO_OIDC_CLIENT_SECRET
             {{- end }}
+            {{- if .Values.crawlers }}
+            - name: CRAWLERS
+              value: {{ join "," .Values.crawlers | quote }}
+            {{- end }}
           volumeMounts:
             - name: blobs
               mountPath: /var/lib/tranquil-pds/blobs

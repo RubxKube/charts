@@ -16,6 +16,11 @@ secretName: tranquil-pds-secrets
 # default.
 storageClass: ""
 
+# -- Relay / crawler URLs the PDS notifies (requestCrawl) so the network
+# federates the repo. Empty (default) keeps the PDS built-in relay list; set it
+# to override — e.g. to drop an unreachable relay.
+crawlers: []
+
 app:
   # -- Storage size for the blob PVC (uploaded media).
   blobStorage: 10Gi
