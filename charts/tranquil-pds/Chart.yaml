@@ -1,0 +1,19 @@
+---
+apiVersion: v2
+type: application
+name: tranquil-pds
+description: Tranquil PDS (AT Protocol Personal Data Server, Rust) with a bundled PostgreSQL and optional OIDC SSO.
+version: 0.1.0
+appVersion: "latest"
+maintainers:
+  - name: QJOLY
+    email: github@une-tasse-de.cafe
+kubeVersion: ">= 1.18"
+home: https://tangled.org/tranquil.farm/tranquil-pds
+keywords:
+  - atproto
+  - pds
+  - bluesky
+  - tranquil
+sources:
+  - https://tangled.org/tranquil.farm/tranquil-pds
