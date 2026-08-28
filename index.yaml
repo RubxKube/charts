@@ -8251,6 +8251,30 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/suwayomi-0.1.0/suwayomi-0.1.0.tgz
     version: 0.1.0
+  tranquil-pds:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2026-08-28T07:13:23.432491449Z"
+    description: Tranquil PDS (AT Protocol Personal Data Server, Rust) with a bundled
+      PostgreSQL and optional OIDC SSO.
+    digest: da3d8cc8f95f9f2ecac51a65d7db441528cbf9e2067e15df8ef55d38dc96b199
+    home: https://tangled.org/tranquil.farm/tranquil-pds
+    keywords:
+    - atproto
+    - pds
+    - bluesky
+    - tranquil
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: tranquil-pds
+    sources:
+    - https://tangled.org/tranquil.farm/tranquil-pds
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/tranquil-pds-0.1.0/tranquil-pds-0.1.0.tgz
+    version: 0.1.0
   trmnl-server:
   - apiVersion: v2
     appVersion: unstable
@@ -9679,4 +9703,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.0/your-spotify-0.0.0.tgz
     version: 0.0.0
-generated: "2026-08-24T07:21:51.993060523Z"
+generated: "2026-08-28T07:13:23.433073979Z"
