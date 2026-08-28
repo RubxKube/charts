@@ -1,0 +1,73 @@
+---
+# Default values for tranquil-pds.
+
+# -- Container image for the PDS.
+image: atcr.io/tranquil.farm/tranquil-pds:latest
+# -- Image pull policy.
+imagePullPolicy: IfNotPresent
+# -- Name of the imagePullSecret used to pull the (private) image. It is
+# materialized by the ExternalSecret in templates/pull-secret.yaml.
+imagePullSecret: atcr-pull
+# -- Name of the Secret holding the app secrets, materialized from the secret
+# store by templates/externalsecret.yaml.
+secretName: tranquil-pds-secrets
+
+# -- StorageClass for the blob and database volumes. Empty uses the cluster
+# default.
+storageClass: ""
+
+app:
+  # -- Storage size for the blob PVC (uploaded media).
+  blobStorage: 10Gi
+  # -- Resource requests/limits for the PDS container.
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      memory: 1Gi
+
+db:
+  # -- PostgreSQL image. The PDS runs its own migrations at boot.
+  image: postgres:18-alpine
+  # -- Storage size for the database PVC.
+  storage: 10Gi
+  # -- Resource requests/limits for the PostgreSQL container.
+  resources:
+    requests:
+      cpu: 50m
+      memory: 128Mi
+    limits:
+      memory: 512Mi
+
+ingress:
+  # -- Public hostname of the PDS. User handles are served as subdomains
+  # (*.host), so a wildcard TLS certificate is issued for it.
+  host: pds.example.com
+  # -- IngressClass name.
+  className: nginx
+  # -- cert-manager ClusterIssuer used for the wildcard certificate.
+  clusterIssuer: letsencrypt-prod
+  # -- Name of the TLS Secret produced by the Certificate.
+  tlsSecretName: tranquil-pds-tls
+
+sso:
+  # -- Enable OIDC single sign-on. When true, SSO_OIDC_CLIENT_ID and
+  # SSO_OIDC_CLIENT_SECRET must be present in the app secret.
+  enabled: true
+  # -- OIDC issuer URL (the exact iss the PDS validates against).
+  issuer: ""
+  # -- Display name of the SSO button.
+  displayName: SSO
+
+secretStore:
+  # -- Name of the external-secrets store to read secrets from.
+  name: vault-backend
+  # -- Kind of the store: ClusterSecretStore or SecretStore.
+  kind: ClusterSecretStore
+  # -- Refresh interval for the ExternalSecrets.
+  refreshInterval: 1h
+
+vault:
+  # -- Remote key (secret path) in the store holding this app's secrets.
+  key: tranquil-pds
