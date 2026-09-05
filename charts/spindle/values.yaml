@@ -26,7 +26,7 @@ common:
     # maxConcurrentWorkflows x maxJobMemoryMB below.
     additionalContainers:
       - name: dind
-        image: "docker:29.7.2-dind"
+        image: "docker:29.8.0-dind"
         imagePullPolicy: IfNotPresent
         # "dockerd" must come first, otherwise dockerd-entrypoint.sh prepends
         # its own --host=tcp://0.0.0.0:2375 on top of ours: the binds collide
