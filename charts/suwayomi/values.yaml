@@ -31,7 +31,7 @@ common:
       isPrivate: false
       secretName: null
     repository: ghcr.io/suwayomi/suwayomi-server
-    tag: v2.3.2320
+    tag: v2.3.2359
     pullPolicy: Always
 
   # ingress
