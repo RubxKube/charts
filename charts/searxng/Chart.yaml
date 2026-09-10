@@ -3,7 +3,7 @@ apiVersion: v2
 type: application
 name: searxng
 description: A free internet metasearch engine which aggregates results from various search services
-version: 0.1.0
+version: 0.2.0
 appVersion: 2026.7.28
 icon: https://raw.githubusercontent.com/RubxKube/charts/main/img/searxng-logo.png
 maintainers:
@@ -25,5 +25,5 @@ dependencies:
     version: v0.6.4  # minimum version that supports auto-generated secrets
   - name: valkey
     repository: https://valkey.io/valkey-helm
-    version: 0.11.0
+    version: 0.12.0
     condition: valkey.enabled
