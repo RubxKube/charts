@@ -57,7 +57,7 @@ common:
     # this container no-ops and you're back to the pre-fix race (no crash).
     initContainers:
       - name: wait-for-valkey
-        image: busybox:1.36
+        image: busybox:1.38
         securityContext:
           runAsNonRoot: true
           runAsUser: 977
