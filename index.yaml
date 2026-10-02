@@ -4368,6 +4368,33 @@ entries:
   komga:
   - apiVersion: v2
     appVersion: 1.24.4
+    created: "2026-10-02T11:58:49.337052941Z"
+    dependencies:
+    - name: common
+      repository: https://rubxkube.github.io/common-charts
+      version: v0.6.4
+    description: A WebUI to read comics/mangas from your library
+    digest: 3073881bee772a41e9634f90ca9256db70e8c53a4f27bf8a87359f4993d27a50
+    home: https://komga.org
+    icon: https://komga.org/img/logo.svg
+    keywords:
+    - comics
+    - manga
+    - reader
+    - library
+    kubeVersion: '>= 1.18'
+    maintainers:
+    - email: github@une-tasse-de.cafe
+      name: QJOLY
+    name: komga
+    sources:
+    - https://github.com/gotson/komga
+    type: application
+    urls:
+    - https://github.com/RubxKube/charts/releases/download/komga-0.1.5/komga-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v2
+    appVersion: 1.24.4
     created: "2026-08-14T07:57:29.738614432Z"
     dependencies:
     - name: common
@@ -9854,4 +9881,4 @@ entries:
     urls:
     - https://github.com/RubxKube/charts/releases/download/your-spotify-0.0.0/your-spotify-0.0.0.tgz
     version: 0.0.0
-generated: "2026-09-16T08:22:17.825182035Z"
+generated: "2026-10-02T11:58:49.337618238Z"
