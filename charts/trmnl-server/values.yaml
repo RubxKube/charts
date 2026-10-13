@@ -13,7 +13,7 @@ source:
 
 image:
   repository: python
-  tag: "3.14-slim"
+  tag: "3.15-slim"
   pullPolicy: IfNotPresent
 
 server:
