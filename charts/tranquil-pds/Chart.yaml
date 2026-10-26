@@ -5,6 +5,14 @@ name: tranquil-pds
 description: Tranquil PDS (AT Protocol Personal Data Server, Rust) with a bundled PostgreSQL and optional OIDC SSO.
 version: 0.2.0
 appVersion: "latest"
+annotations:
+  # Registry requires ATProto credentials, so Artifact Hub's scanner cannot pull it.
+  artifacthub.io/images: |
+    - name: tranquil-pds
+      image: atcr.io/tranquil.farm/tranquil-pds:latest
+      whitelisted: true
+    - name: postgres
+      image: postgres:18-alpine
 maintainers:
   - name: QJOLY
     email: github@une-tasse-de.cafe
