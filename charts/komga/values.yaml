@@ -34,7 +34,7 @@ common:
       isPrivate: false
       secretName: null
     repository: gotson/komga
-    tag: 1.28.1
+    tag: 1.29.2
     pullPolicy: Always
 
   ingress:
