@@ -34,7 +34,7 @@ app:
 
 db:
   # -- PostgreSQL image. The PDS runs its own migrations at boot.
-  image: postgres:18-alpine
+  image: postgres:19-alpine
   # -- Storage size for the database PVC.
   storage: 10Gi
   # -- Resource requests/limits for the PostgreSQL container.
